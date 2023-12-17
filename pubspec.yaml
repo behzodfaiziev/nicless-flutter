@@ -26,10 +26,10 @@ dependencies:
 
   # Firebase
   # firebase_core: ^2.15.1
-  firebase_crashlytics: ^3.4.4
-  firebase_analytics: ^10.7.0
-  firebase_performance: ^0.9.3+4
-  firebase_messaging: ^14.7.4
+  # firebase_crashlytics: ^3.4.4
+  # firebase_analytics: ^10.7.0
+  # firebase_performance: ^0.9.3+4
+  # firebase_messaging: ^14.7.4
   # cloud_firestore: ^4.9.1
   # firebase_auth: ^4.9.0
   # google_sign_in: ^6.1.5
@@ -100,4 +100,3 @@ flutter:
   assets:
     - assets/icons/
     - assets/icons/svg/
-    - assets/images/onboarding/
