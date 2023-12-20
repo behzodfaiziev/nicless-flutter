@@ -33,6 +33,7 @@ class AppConst {
   static const String id = 'id';
   static const String text = 'text';
   static const String value = 'value';
+  static const String databaseSubDir = 'database';
 
   ///Onboard View
 

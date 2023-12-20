@@ -65,6 +65,9 @@ class SizeConst {
   ///CircularProgressIndicator
   static const double circularProgressIndicatorWidth = 2;
 
+  /// TILES
+  static const double smokingTileHeight = 132;
+
   /// Picker
   static const double iOSPickerHeight = 250;
 

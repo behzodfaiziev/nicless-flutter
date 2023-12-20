@@ -1,4 +1,4 @@
-import '../utils/typedef.dart';
+import '../utility/typedef.dart';
 
 abstract class UserCaseWithParams<Type, Params> {
   UserCaseWithParams();

@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../../../../../product/database/database_adapters.dart';
+import '../../../../../product/utils/constants/app/app_const.dart';
 import '../../../../utility/file_operation.dart';
 
 abstract class IHiveManager {

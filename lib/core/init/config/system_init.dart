@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../managers/database/hive/core/hive_database_manager.dart';
 import 'app_config.dart';
 
 class SystemInit {
@@ -26,7 +27,9 @@ class SystemInit {
     AppConfig.instance.isAndroid = Platform.isAndroid;
 
     /// Set orientation to portrait
-    await SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    await SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 }
