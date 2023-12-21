@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../app_colors.dart';
+import 'primary_text_theme_light.dart';
+import 'text_theme_light.dart';
 
 class AppThemeLight {
   ThemeData get theme => ThemeData(
@@ -11,5 +13,7 @@ class AppThemeLight {
           background: AppColors.backgroundLight,
           error: AppColors.errorLight,
         ),
+        textTheme: TextThemeLight.textTheme,
+        primaryTextTheme: PrimaryTextThemeLight.textTheme,
       );
 }

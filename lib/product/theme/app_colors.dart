@@ -21,4 +21,6 @@ class AppColors {
   static const Color primaryTextColor = Color(0xFF212121);
   static const Color secondaryTextColor = Color(0xFF757575);
   static const Color dividerColor = Color(0xFFBDBDBD);
+
+  static const Color white = Color(0xFFFFFFFF);
 }
