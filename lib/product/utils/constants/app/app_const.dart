@@ -40,6 +40,9 @@ class AppConst {
   ///<Default values>
   static const String emptyUserId = '';
   static const String emptyString = '';
+
+  static const String cigarette = 'cigarette';
+  static const String vape = 'vape';
 }
 
 double kZero = 0;

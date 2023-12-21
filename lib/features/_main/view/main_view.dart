@@ -22,13 +22,16 @@ class _MainViewState extends State<MainView> with MainViewMixin {
       builder: (context, child, tabController) {
         return Scaffold(
           body: child,
-          bottomNavigationBar: BottomNavigationBar(
-            elevation: 5,
-            selectedItemColor: context.colorScheme.primary,
-            unselectedItemColor: Colors.grey,
-            currentIndex: context.tabsRouter.activeIndex,
-            onTap: context.tabsRouter.setActiveIndex,
-            items: _bottomBarItems,
+          bottomNavigationBar: Container(
+            color: context.theme.bottomNavigationBarTheme.backgroundColor,
+            child: BottomNavigationBar(
+              elevation: 5,
+              selectedItemColor: context.colorScheme.primary,
+              unselectedItemColor: Colors.grey,
+              currentIndex: context.tabsRouter.activeIndex,
+              onTap: context.tabsRouter.setActiveIndex,
+              items: _bottomBarItems,
+            ),
           ),
         );
       },

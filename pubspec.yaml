@@ -100,3 +100,4 @@ flutter:
   assets:
     - assets/icons/
     - assets/icons/svg/
+    - assets/images/

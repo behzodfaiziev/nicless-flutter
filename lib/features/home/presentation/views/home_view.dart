@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/app_bar/base_app_bar.dart';
-import '../../../product/utils/constants/app/app_const.dart';
+import '../../../../core/widgets/app_bar/base_app_bar.dart';
+import '../../../../product/utils/constants/app/app_const.dart';
 import 'modules/smoking_list.dart';
 
 part 'home_view_mixin.dart';
