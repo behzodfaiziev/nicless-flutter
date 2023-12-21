@@ -45,6 +45,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfileView(),
       );
     },
+    StatisticsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const StatisticsView(),
+      );
+    },
   };
 }
 
@@ -114,6 +120,20 @@ class ProfileRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [StatisticsView]
+class StatisticsRoute extends PageRouteInfo<void> {
+  const StatisticsRoute({List<PageRouteInfo>? children})
+      : super(
+          StatisticsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'StatisticsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

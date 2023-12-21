@@ -4,7 +4,7 @@ mixin MainViewMixin on State<MainView> {
   final List<PageRouteInfo> _routes = const [
     HomeRoute(),
     HomeRoute(),
-    HomeRoute(),
+    StatisticsRoute(),
     ProfileRoute(),
   ];
 
