@@ -26,8 +26,9 @@ class SmokingTile extends StatelessWidget {
         child: Material(
           color: context.colorScheme.primary,
           child: InkWell(
+            splashColor: Colors.white.withOpacity(0.1),
             onTap: () {
-              context.push(const CounterRoute());
+              context.pushReplaceAll(const CounterRoute());
             },
             child: SizedBox(
               width: double.infinity,

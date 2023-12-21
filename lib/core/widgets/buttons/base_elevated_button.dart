@@ -31,36 +31,30 @@ class BaseElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: AppConfig.instance.isAndroid
-              ? ElevatedButton(
+    return SizedBox(
+      height: height ?? SizeConst.elevatedButtonMediumHeight,
+      width: double.infinity,
+      child: AppConfig.instance.isAndroid
+          ? ElevatedButton(
+              onPressed: onPressed,
+              style: androidStyle(context),
+              child: child,
+            )
+          : ClipRRect(
+              borderRadius: borderRadius ?? RadiusConst.elevatedButton,
+              child: ColoredBox(
+                color: context.theme.scaffoldBackgroundColor,
+                child: CupertinoButton(
                   onPressed: onPressed,
-                  style: androidStyle(context),
-                  child: child)
-              : ClipRRect(
+                  color: backgroundColor ?? context.theme.colorScheme.primary,
                   borderRadius: borderRadius ?? RadiusConst.elevatedButton,
-                  child: Container(
-                    color: context.theme.scaffoldBackgroundColor,
-                    constraints: BoxConstraints(
-                      minHeight: height ?? SizeConst.elevatedButtonMediumHeight,
-                      maxHeight: height ?? SizeConst.elevatedButtonMediumHeight,
-                    ),
-                    child: CupertinoButton(
-                      onPressed: onPressed,
-                      color:
-                          backgroundColor ?? context.theme.colorScheme.primary,
-                      borderRadius: borderRadius ?? RadiusConst.elevatedButton,
-                      padding: EdgeInsets.zero,
-                      disabledColor: context.theme.disabledColor,
-                      pressedOpacity: 0.8,
-                      child: child,
-                    ),
-                  ),
+                  padding: EdgeInsets.zero,
+                  disabledColor: context.theme.disabledColor,
+                  pressedOpacity: 0.8,
+                  child: child,
                 ),
-        ),
-      ],
+              ),
+            ),
     );
   }
 
@@ -74,10 +68,10 @@ class BaseElevatedButton extends StatelessWidget {
             : MaterialStatePropertyAll(padding),
         minimumSize: MaterialStatePropertyAll(Size(
             SizeConst.elevatedButtonMinWidth,
-            height ?? SizeConst.elevatedButtonMediumHeight)),
+            height ?? SizeConst.elevatedButtonBigHeight)),
         maximumSize: MaterialStatePropertyAll(Size(
             SizeConst.elevatedButtonMinWidth,
-            height ?? SizeConst.elevatedButtonMediumHeight)),
+            height ?? SizeConst.elevatedButtonBigHeight)),
         backgroundColor: MaterialStatePropertyAll(backgroundColor),
         shape: borderRadius != null
             ? MaterialStatePropertyAll(

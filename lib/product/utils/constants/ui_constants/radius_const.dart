@@ -25,7 +25,7 @@ class RadiusConst {
   static BorderRadius circular100 = BorderRadius.circular(100);
 
   /// Buttons
-  static BorderRadius elevatedButton = BorderRadius.circular(16);
+  static BorderRadius elevatedButton = BorderRadius.circular(12);
   static BorderRadius checkBox = BorderRadius.circular(8);
 
   /// Others
