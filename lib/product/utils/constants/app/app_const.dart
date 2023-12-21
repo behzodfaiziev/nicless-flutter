@@ -43,6 +43,9 @@ class AppConst {
 
   static const String cigarette = 'cigarette';
   static const String vape = 'vape';
+
+  static const String tempProfileUrl =
+      'https://w7.pngwing.com/pngs/186/403/png-transparent-bob-the-minion-stuart-the-minion-minions-wall-decal-the-minions-3d-film-sticker-film.png';
 }
 
 double kZero = 0;

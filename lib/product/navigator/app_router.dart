@@ -4,6 +4,7 @@ import '../../features/_initial/landing/landing_view.dart';
 import '../../features/_main/view/main_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
 import '../../features/onboard/presentation/views/onboarding_view.dart';
+import '../../features/profile/presentation/views/profile_view.dart';
 
 part 'app_router.gr.dart';
 
@@ -21,7 +22,7 @@ class AppRouter extends _$AppRouter {
           AutoRoute(page: HomeRoute.page),
           AutoRoute(page: HomeRoute.page),
           AutoRoute(page: HomeRoute.page),
-          AutoRoute(page: HomeRoute.page),
+          AutoRoute(page: ProfileRoute.page),
         ]),
         AutoRoute(page: HomeRoute.page),
       ];

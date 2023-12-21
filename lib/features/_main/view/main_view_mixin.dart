@@ -5,7 +5,7 @@ mixin MainViewMixin on State<MainView> {
     HomeRoute(),
     HomeRoute(),
     HomeRoute(),
-    HomeRoute(),
+    ProfileRoute(),
   ];
 
   final List<BottomNavigationBarItem> _bottomBarItems = const [
