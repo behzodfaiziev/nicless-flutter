@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/extensions/context_extension.dart';
-import '../../../../../product/local_data/smoking_lists.dart';
-import '../../../domain/entities/smoking_entity.dart';
+import '../../../../../../core/extensions/context_extension.dart';
+import '../../../../../../product/local_data/smoking_lists.dart';
+import '../../../../domain/entities/smoking_entity.dart';
 import 'smoking_tile.dart';
 
 class SmokingList extends StatelessWidget {
