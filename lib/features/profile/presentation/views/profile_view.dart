@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/context_extension.dart';
+import '../../../../core/widgets/buttons/base_svg_button.dart';
 import '../../../../product/utils/constants/app/app_const.dart';
+import '../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../../product/utils/constants/ui_constants/padding_const.dart';
 
 @RoutePage()
@@ -41,13 +43,10 @@ class _ProfileViewState extends State<ProfileView> {
                   Container(
                       width: 30,
                       margin: context.mainHorizontalPaddingRight,
-                      child: IconButton(
-                        onPressed: () {
-                          // context.push(const SettingsRoute());
-                        },
-                        icon: const Icon(Icons.settings),
-                        color: Colors.white,
-                      )),
+                      child:   BaseSVGButton(
+                        asset: SVGConst.instance.settings,
+                        onPressed: () {},
+                      ),),
                 ],
               ),
             ),

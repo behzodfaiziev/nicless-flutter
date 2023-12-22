@@ -7,7 +7,7 @@ class BaseIconButton extends StatelessWidget {
     this.backgroundColor,
     this.borderRadius,
     this.height,
-    this.padding,
+    this.padding = EdgeInsets.zero,
     this.alignment = Alignment.center,
     this.pressedOpacity,
     super.key,
@@ -24,14 +24,19 @@ class BaseIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      onPressed: onPressed,
-      padding: padding,
-      pressedOpacity: pressedOpacity,
-      borderRadius: borderRadius,
-      color: backgroundColor,
+    return Container(
+      height: height,
+      width: height,
       alignment: alignment,
-      child: child,
+      child: CupertinoButton(
+        onPressed: onPressed,
+        padding: padding,
+        minSize: height,
+        pressedOpacity: pressedOpacity,
+        borderRadius: borderRadius,
+        color: backgroundColor,
+        child: child,
+      ),
     );
   }
 }

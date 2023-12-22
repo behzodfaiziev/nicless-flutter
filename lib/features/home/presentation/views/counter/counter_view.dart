@@ -62,9 +62,9 @@ class _CounterViewState extends State<CounterView> with CounterViewMixin {
                   boxShadow: [
                     BoxShadow(
                       color: context.colorScheme.secondary,
-                      blurRadius: 4,
+                      blurRadius: 1,
                       spreadRadius: 0,
-                      offset: const Offset(0, 4),
+                      offset: const Offset(0,1),
                     ),
                   ],
                 ),
@@ -83,6 +83,7 @@ class _CounterViewState extends State<CounterView> with CounterViewMixin {
               child: Padding(
                 padding: context.mainHorizontalPadding,
                 child: BaseElevatedButton(
+                  borderRadius: RadiusConst.largeRadius,
                   onPressed: () {
                     context.pushReplaceAll(const MainRoute());
                   },

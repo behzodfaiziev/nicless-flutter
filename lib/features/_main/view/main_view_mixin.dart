@@ -8,22 +8,48 @@ mixin MainViewMixin on State<MainView> {
     ProfileRoute(),
   ];
 
-  final List<BottomNavigationBarItem> _bottomBarItems = const [
-    BottomNavigationBarItem(
-      icon: Icon(Icons.home),
-      label: 'Home',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.ac_unit),
-      label: 'Sport',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.settings),
-      label: 'Statistics',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.settings),
-      label: 'Profile',
-    ),
-  ];
+  List<BottomNavigationBarItem> _bottomBarItems(
+      BuildContext context, int activeIndex) {
+    return [
+      BottomNavigationBarItem(
+        icon: BaseSvgAsset(
+          asset: SVGConst.instance.home,
+          color: _getIconColor(context, activeIndex, MainViewTab.home.index),
+        ),
+        label: 'Home',
+      ),
+      BottomNavigationBarItem(
+        icon: BaseSvgAsset(
+          asset: SVGConst.instance.dumbbell,
+          color: _getIconColor(context, activeIndex, MainViewTab.health.index),
+        ),
+        label: 'Sport',
+      ),
+      BottomNavigationBarItem(
+        icon: BaseSvgAsset(
+          asset: SVGConst.instance.award,
+          color:
+              _getIconColor(context, activeIndex, MainViewTab.statistics.index),
+        ),
+        label: 'Statistics',
+      ),
+      BottomNavigationBarItem(
+        icon: BaseSvgAsset(
+          asset: SVGConst.instance.user,
+          color: _getIconColor(context, activeIndex, MainViewTab.profile.index),
+        ),
+        label: 'Profile',
+      ),
+    ];
+  }
+
+  Color? _getIconColor(BuildContext context, int activeIndex, int index) {
+    if (activeIndex == index) {
+      return context.theme.bottomNavigationBarTheme.selectedItemColor;
+    } else {
+      return context.theme.bottomNavigationBarTheme.unselectedItemColor;
+    }
+  }
 }
+
+enum MainViewTab { home, health, statistics, profile }

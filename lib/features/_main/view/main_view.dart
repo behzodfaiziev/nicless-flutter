@@ -2,7 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/extensions/context_extension.dart';
+import '../../../core/widgets/assets/base_svg_asset.dart';
 import '../../../product/navigator/app_router.dart';
+import '../../../product/utils/constants/asset_paths/svg_const.dart';
+import '../../../product/utils/constants/ui_constants/size_const.dart';
 
 part 'main_view_mixin.dart';
 
@@ -22,15 +25,12 @@ class _MainViewState extends State<MainView> with MainViewMixin {
       builder: (context, child, tabController) {
         return Scaffold(
           body: child,
-          bottomNavigationBar: Container(
-            color: context.theme.bottomNavigationBarTheme.backgroundColor,
+          bottomNavigationBar: SizedBox(
+            height: SizeConst.bottomNavBarHeight,
             child: BottomNavigationBar(
-              elevation: 5,
-              selectedItemColor: context.colorScheme.primary,
-              unselectedItemColor: Colors.grey,
               currentIndex: context.tabsRouter.activeIndex,
               onTap: context.tabsRouter.setActiveIndex,
-              items: _bottomBarItems,
+              items: _bottomBarItems(context, context.tabsRouter.activeIndex),
             ),
           ),
         );

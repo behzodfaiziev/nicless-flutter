@@ -18,10 +18,8 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: const BaseAppBar(
-        title: AppConst.appName,
-      ),
+    return Scaffold(
+      appBar: const BaseAppBar(title: AppConst.appName),
       body: const SmokingList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},

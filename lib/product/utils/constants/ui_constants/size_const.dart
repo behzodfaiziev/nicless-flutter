@@ -20,6 +20,7 @@ class SizeConst {
 
   static const double appBarHeight = 48;
   static const double appBarIconHeight = 30;
+  static const double bottomNavBarHeight = 70;
 
   /// Icons
 
@@ -28,9 +29,9 @@ class SizeConst {
   static const double mediumIconSize = 16;
   static const double bigIconSize = 20;
   static const double biggestIconSize = 24;
-  static const double largeIconSize = 28;
-  static const double largestIconSize = 32;
-  static const double hugeIconSize = 40;
+  static const double largeIconSize = 30;
+  static const double largestIconSize = 40;
+  static const double hugeIconSize = 50;
 
   ///BottomNavBar Size
 
