@@ -6,6 +6,5 @@ import '../../../core/managers/database/secure_storage/secure_database_manager.d
 
 part '_injection_container_main.dart';
 part 'auth_container.dart';
-part 'feed_container.dart';
 part 'onboarding_container.dart';
 part 'settings_container.dart';
