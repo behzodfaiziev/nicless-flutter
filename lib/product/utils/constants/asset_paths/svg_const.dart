@@ -13,6 +13,17 @@ class SVGConst {
 
   String get logo => toSvg('logo/logo');
 
-  /// Icons
+  String get award => toSvg('award');
 
+  String get dumbbell => toSvg('dumbbell');
+
+  String get home => toSvg('home');
+
+  String get settings => toSvg('settings');
+
+  String get share => toSvg('share');
+
+  String get user => toSvg('user');
+
+  /// Icons
 }
