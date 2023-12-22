@@ -6,6 +6,8 @@ import 'text_theme_dark.dart';
 
 class AppThemeDark {
   ThemeData get theme => ThemeData(
+        textTheme: TextThemeDark.textTheme,
+        primaryTextTheme: PrimaryTextThemeDark.textTheme,
         primaryColor: AppColors.primaryDark,
         colorScheme: const ColorScheme.light(
           primary: AppColors.primaryDark,
@@ -19,16 +21,16 @@ class AppThemeDark {
           titleTextStyle: TextStyle(
             color: Colors.white,
             fontSize: 20,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
           ),
         ),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.red[700],
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: AppColors.bottomNavBarDark,
+          type: BottomNavigationBarType.fixed,
           elevation: 5,
-          selectedItemColor: AppColors.primaryDark,
-          unselectedItemColor: Colors.grey,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white54,
+          showUnselectedLabels: true,
         ),
-        textTheme: TextThemeDark.textTheme,
-        primaryTextTheme: PrimaryTextThemeDark.textTheme,
       );
 }
