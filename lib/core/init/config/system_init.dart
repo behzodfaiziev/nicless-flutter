@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../../product/init/injection_container/_injection_container.dart';
 import '../../managers/database/hive/core/hive_database_manager.dart';
 import 'app_config.dart';
 
