@@ -17,12 +17,12 @@ class StatisticsTabBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tab(
       child: Container(
-          height: 50,
+          height: 40,
           width: double.infinity,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: isSelected ? Colors.white : Colors.transparent,
-            borderRadius: RadiusConst.largeRadius,
+            borderRadius: RadiusConst.extraLargeRadius,
           ),
           child: Text(text, style: context.theme.tabBarTheme.labelStyle)),
     );

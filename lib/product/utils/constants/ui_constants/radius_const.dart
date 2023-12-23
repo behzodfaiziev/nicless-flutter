@@ -14,8 +14,8 @@ class RadiusConst {
   static BorderRadius largeRadius = BorderRadius.circular(12);
   static BorderRadius largerRadius = BorderRadius.circular(16);
   static BorderRadius largestRadius = BorderRadius.circular(20);
-  static BorderRadius extraLargeRadius = BorderRadius.circular(24);
-  static BorderRadius extraLargestRadius = BorderRadius.circular(28);
+  static BorderRadius extraLargeRadius = BorderRadius.circular(28);
+  static BorderRadius extraLargestRadius = BorderRadius.circular(36);
 
   /// Circular
   static BorderRadius circular5 = BorderRadius.circular(5);

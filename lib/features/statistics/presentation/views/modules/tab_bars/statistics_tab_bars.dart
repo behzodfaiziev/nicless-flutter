@@ -12,20 +12,22 @@ class StatisticsTabBars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: RadiusConst.largeRadius,
+      borderRadius: RadiusConst.extraLargeRadius,
       child: Container(
-        height: 50,
+        height: 40,
         margin: const EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
           color: context.theme.colorScheme.primary,
-          borderRadius: RadiusConst.largeRadius,
+          borderRadius: RadiusConst.extraLargeRadius,
         ),
         child: TabBar(
           indicatorColor: Colors.transparent,
+          dividerColor: Colors.transparent,
           controller: tabController,
-          isScrollable: false,
-          labelPadding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.zero,
+          labelPadding: EdgeInsets.zero,
           indicatorSize: TabBarIndicatorSize.label,
+          isScrollable: false,
           tabs: const [
             StatisticsTabBarItem(text: 'Weekly', isSelected: true),
             StatisticsTabBarItem(text: 'Monthly', isSelected: false),
