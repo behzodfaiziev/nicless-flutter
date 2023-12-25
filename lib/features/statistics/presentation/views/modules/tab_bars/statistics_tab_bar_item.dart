@@ -22,9 +22,17 @@ class StatisticsTabBarItem extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: isSelected ? Colors.white : Colors.transparent,
-            borderRadius: RadiusConst.extraLargeRadius,
+            borderRadius: RadiusConst.bigRadius,
           ),
-          child: Text(text, style: context.theme.tabBarTheme.labelStyle)),
+          child: Text(
+            text,
+            style: TextStyle(
+              color: isSelected
+                  ? context.theme.colorScheme.primary
+                  : context.theme.colorScheme.onPrimary,
+              fontSize: isSelected ? 14 : 12,
+            ),
+          )),
     );
   }
 }

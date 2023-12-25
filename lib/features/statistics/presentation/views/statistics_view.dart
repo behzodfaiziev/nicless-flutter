@@ -1,12 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/extensions/context_extension.dart';
 import '../../../../core/widgets/app_bar/base_app_bar.dart';
+import '../../../../core/widgets/buttons/base_svg_button.dart';
 import '../../../../product/enums/views/statistics_tabs_enum.dart';
+import '../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../../product/utils/constants/ui_constants/padding_const.dart';
-import '../../../../product/utils/constants/ui_constants/radius_const.dart';
 import 'modules/tab_bars/statistics_tab_bars.dart';
+import 'modules/tabs/monthly_stats_tab.dart';
+import 'modules/tabs/weekly_stats_tab.dart';
+import 'modules/tabs/yearly_stats_tab.dart';
 
 part 'statistics_view_mixin.dart';
 
@@ -34,56 +37,32 @@ class _StatisticsViewState extends State<StatisticsView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BaseAppBar(title: 'Statistics'),
+      appBar: BaseAppBar(
+        title: 'Statistics',
+        actions: [
+          Padding(
+            padding: PaddingConst.right12,
+            child: BaseSVGButton(
+              asset: SVGConst.instance.share,
+              onPressed: () {},
+            ),
+          ),
+        ],
+      ),
       body: Column(
         children: [
-          StatisticsTabBars(tabController: _tabController),
+          Padding(
+            padding: PaddingConst.bottom12,
+            child: StatisticsTabBars(tabController: _tabController),
+          ),
           Expanded(
             child: TabBarView(
               controller: _tabController,
               physics: const NeverScrollableScrollPhysics(),
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: 160,
-                      margin: PaddingConst.vertical20 + PaddingConst.top20,
-                      decoration: BoxDecoration(
-                        color: context.theme.colorScheme.primary,
-                        borderRadius: RadiusConst.largestRadius,
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 160,
-                      margin: PaddingConst.vertical20,
-                      decoration: BoxDecoration(
-                        color: context.theme.colorScheme.primary,
-                        borderRadius: RadiusConst.largestRadius,
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 160,
-                      margin: PaddingConst.vertical20,
-                      decoration: BoxDecoration(
-                        color: context.theme.colorScheme.primary,
-                        borderRadius: RadiusConst.largestRadius,
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  color: Colors.green,
-                ),
-                Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  color: Colors.blue,
-                ),
+              children: const [
+                WeeklyStatsBar(),
+                MonthlyStatsTab(),
+                YearlyStatsTab(),
               ],
             ),
           ),

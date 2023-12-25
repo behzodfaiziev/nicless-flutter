@@ -22,12 +22,14 @@ class _MainViewState extends State<MainView> with MainViewMixin {
   Widget build(BuildContext context) {
     return AutoTabsRouter.pageView(
       routes: _routes,
+      physics: const NeverScrollableScrollPhysics(),
       builder: (context, child, tabController) {
         return Scaffold(
           body: child,
           bottomNavigationBar: SizedBox(
             height: SizeConst.bottomNavBarHeight,
             child: BottomNavigationBar(
+
               currentIndex: context.tabsRouter.activeIndex,
               onTap: context.tabsRouter.setActiveIndex,
               items: _bottomBarItems(context, context.tabsRouter.activeIndex),

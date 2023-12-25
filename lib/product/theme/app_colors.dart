@@ -8,7 +8,8 @@ class AppColors {
   /// Secondary
   static const Color secondaryLight = Color(0xFF1B0632);
   static const Color secondaryDark = Color(0xFFFFFFFF);
-///BottomNavBar
+
+  ///BottomNavBar
   static const Color bottomNavBarLight = Color(0xFFFFFFFF);
   static const Color bottomNavBarDark = Color(0xFF1C1C1C);
 
@@ -26,4 +27,9 @@ class AppColors {
   static const Color dividerColor = Color(0xFFBDBDBD);
 
   static const Color white = Color(0xFFFFFFFF);
+
+  static  Color? greyDarkHeadLineMedium = Colors.grey[600];
+  static  Color? greyDarkDisplaySmall = Colors.grey[200];
+
+
 }

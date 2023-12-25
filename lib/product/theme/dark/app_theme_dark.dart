@@ -14,6 +14,7 @@ class AppThemeDark {
           secondary: AppColors.secondaryDark,
           background: AppColors.backgroundDark,
           error: AppColors.errorDark,
+          onPrimary: Colors.white,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.backgroundDark,
