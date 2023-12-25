@@ -58,21 +58,40 @@ class _CounterViewState extends State<CounterView> with CounterViewMixin {
                 width: context.width * 0.5,
                 decoration: BoxDecoration(
                   borderRadius: RadiusConst.largerRadius,
-                  color: Colors.white,
+                  color: context.theme.colorScheme.primary,
                   boxShadow: [
                     BoxShadow(
-                      color: context.colorScheme.secondary,
+                      color: context.colorScheme.onPrimary.withOpacity(0.5),
                       blurRadius: 1,
                       spreadRadius: 0,
-                      offset: const Offset(0,1),
+                      offset: const Offset(0, 1),
                     ),
                   ],
                 ),
-                child: const Center(
-                  child: Text(
-                    '10',
-                  textScaleFactor: 7,
-                  ),
+                child: Column(
+                  children: [
+                    Text(
+                      '5',
+                      style: context.textTheme.displayMedium?.copyWith(
+                        color: context.theme.colorScheme.onPrimary
+                            .withOpacity(0.45),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        '10',
+                        textScaler: const TextScaler.linear(1.5),
+                        style: context.textTheme.displayLarge,
+                      ),
+                    ),
+                    Text(
+                      '15',
+                      style: context.textTheme.displayMedium?.copyWith(
+                        color: context.theme.colorScheme.onPrimary
+                            .withOpacity(0.45),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

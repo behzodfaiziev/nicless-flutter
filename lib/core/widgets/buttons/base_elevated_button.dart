@@ -46,7 +46,7 @@ class BaseElevatedButton extends StatelessWidget {
                 color: context.theme.scaffoldBackgroundColor,
                 child: CupertinoButton(
                   onPressed: onPressed,
-                  color: backgroundColor ?? context.theme.colorScheme.primary,
+                  color: backgroundColor,
                   borderRadius: borderRadius ?? RadiusConst.elevatedButton,
                   padding: EdgeInsets.zero,
                   disabledColor: context.theme.disabledColor,
@@ -72,7 +72,9 @@ class BaseElevatedButton extends StatelessWidget {
         maximumSize: MaterialStatePropertyAll(Size(
             SizeConst.elevatedButtonMinWidth,
             height ?? SizeConst.elevatedButtonBigHeight)),
-        backgroundColor: MaterialStatePropertyAll(backgroundColor),
+        backgroundColor: backgroundColor != null
+            ? MaterialStatePropertyAll(backgroundColor)
+            : context.theme.elevatedButtonTheme.style?.backgroundColor,
         shape: borderRadius != null
             ? MaterialStatePropertyAll(
                 RoundedRectangleBorder(borderRadius: borderRadius!))

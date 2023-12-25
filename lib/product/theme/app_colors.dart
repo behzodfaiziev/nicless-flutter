@@ -28,8 +28,9 @@ class AppColors {
 
   static const Color white = Color(0xFFFFFFFF);
 
-  static  Color? greyDarkHeadLineMedium = Colors.grey[600];
-  static  Color? greyDarkDisplaySmall = Colors.grey[200];
+  static Color? greyDarkHeadLineMedium = Colors.grey[600];
+  static Color? greyDarkDisplaySmall = Colors.grey[200];
 
-
+  /// Buttons
+  static const Color elevatedButtonColorDark = Color(0xFFDCDCDC);
 }

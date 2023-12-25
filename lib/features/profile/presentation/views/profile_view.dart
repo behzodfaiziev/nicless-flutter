@@ -22,36 +22,55 @@ class _ProfileViewState extends State<ProfileView> {
       child: Scaffold(
         body: Column(
           children: [
+            buildTopAvatar(context),
             Padding(
-              padding: PaddingConst.top24,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              padding: PaddingConst.vertical24,
+              child: Column(
                 children: [
-                  Container(
-                    margin: context.mainHorizontalPaddingLeft,
-                    width: 30,
+                  Text(
+                    AppConst.tempProfileName,
+                    style: context.textTheme.displaySmall,
                   ),
-                  Padding(
-                    padding: PaddingConst.top12,
-                    child: CircleAvatar(
-                      radius: context.width * 0.2,
-                      backgroundImage:
-                          const NetworkImage(AppConst.tempProfileUrl),
-                    ),
+                  Text(
+                    AppConst.tempProfileNickname,
+                    style: context.textTheme.titleMedium,
                   ),
-                  Container(
-                      width: 30,
-                      margin: context.mainHorizontalPaddingRight,
-                      child:   BaseSVGButton(
-                        asset: SVGConst.instance.settings,
-                        onPressed: () {},
-                      ),),
                 ],
               ),
-            ),
+            )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildTopAvatar(BuildContext context) {
+    return Padding(
+      padding: PaddingConst.top24,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            margin: context.mainHorizontalPaddingLeft,
+            width: 30,
+          ),
+          Padding(
+            padding: PaddingConst.top12,
+            child: CircleAvatar(
+              radius: context.width * 0.2,
+              backgroundImage: const NetworkImage(AppConst.tempProfileUrl),
+            ),
+          ),
+          Container(
+            width: 30,
+            margin: context.mainHorizontalPaddingRight,
+            child: BaseSVGButton(
+              asset: SVGConst.instance.settings,
+              onPressed: () {},
+            ),
+          ),
+        ],
       ),
     );
   }
