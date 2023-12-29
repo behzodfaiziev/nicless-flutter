@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../onboarding_view.dart';
+import 'onboarding_view.dart';
 
 mixin OnboardingViewMixin on State<OnboardingView>{
   PageController pageController = PageController(initialPage: 0);

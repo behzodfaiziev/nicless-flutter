@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import 'modules/onboarding_view_mixin.dart';
+import 'onboarding_view_mixin.dart';
 
 @RoutePage()
 class OnboardingView extends StatefulWidget {
