@@ -7,6 +7,8 @@ import '../../../../product/utils/constants/app/app_const.dart';
 import '../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../../product/utils/constants/ui_constants/padding_const.dart';
 
+part 'profile_view_mixin.dart';
+
 @RoutePage()
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -15,7 +17,7 @@ class ProfileView extends StatefulWidget {
   State<ProfileView> createState() => _ProfileViewState();
 }
 
-class _ProfileViewState extends State<ProfileView> {
+class _ProfileViewState extends State<ProfileView> with ProfileViewMixin {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
