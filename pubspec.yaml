@@ -25,14 +25,14 @@ dependencies:
   provider: ^6.1.1
 
   # Firebase
-  # firebase_core: ^2.15.1
-  # firebase_crashlytics: ^3.4.4
-  # firebase_analytics: ^10.7.0
-  # firebase_performance: ^0.9.3+4
-  # firebase_messaging: ^14.7.4
-  # cloud_firestore: ^4.9.1
-  # firebase_auth: ^4.9.0
-  # google_sign_in: ^6.1.5
+  firebase_core: ^2.24.2
+#  firebase_crashlytics: ^3.4.8
+#  firebase_analytics: ^10.7.4
+#  firebase_performance: ^0.9.3+8
+#  firebase_messaging: ^14.7.9
+#  cloud_firestore: ^4.13.6
+#  firebase_auth: ^4.15.3
+#  google_sign_in: ^6.2.1
 
   # Core
   jose: ^0.3.4
@@ -52,7 +52,7 @@ dependencies:
 
   # Picker
   file_picker: ^6.1.1
-  image_picker: ^1.0.4
+  image_picker: ^1.0.5
 
   # UI
   shimmer: ^3.0.0
@@ -62,10 +62,10 @@ dependencies:
   fl_chart: ^0.66.0
 
   # Others
-  url_launcher: ^6.2.1
+  url_launcher: ^6.2.2
   webview_flutter: ^4.4.2
   share_plus: ^7.2.1
-  permission_handler: ^11.0.1
+  permission_handler: ^11.1.0
   auto_route: ^7.8.4
   path_provider: ^2.1.1
   mime: ^1.0.4
@@ -75,13 +75,13 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  patrol: ^3.0.1
+  patrol: ^3.3.0
   very_good_analysis: ^5.1.0
   json_serializable: ^6.7.1
   auto_route_generator: ^7.3.2
-  build_runner: ^2.4.6
+  build_runner: ^2.4.7
   hive_generator: ^2.0.1
-  mocktail: ^1.0.1
+  mocktail: ^1.0.2
   bloc_test: ^9.1.5
   flutter_launcher_icons: ^0.13.1
 
