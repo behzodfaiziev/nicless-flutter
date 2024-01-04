@@ -69,6 +69,7 @@ dependencies:
   auto_route: ^7.8.4
   path_provider: ^2.1.1
   mime: ^1.0.4
+  flutter_bluetooth_serial: ^0.4.0
 
 dev_dependencies:
   flutter_test:
