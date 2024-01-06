@@ -52,7 +52,7 @@ class _StatisticsViewState extends State<StatisticsView>
       body: Column(
         children: [
           Padding(
-            padding: PaddingConst.bottom12,
+            padding: PaddingConst.top12,
             child: StatisticsTabBars(tabController: _tabController),
           ),
           Expanded(

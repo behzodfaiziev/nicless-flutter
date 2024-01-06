@@ -16,6 +16,7 @@ class AppColors {
   /// Background
   static const Color backgroundLight = Color(0xFFF3F8FF);
   static const Color backgroundDark = Color(0xFF212121);
+  static const Color appBarBackgroundDark = Color(0xFF2F2F2F);
 
   /// Error
   static const Color errorLight = Color(0xFFCB2828);

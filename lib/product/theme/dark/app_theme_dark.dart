@@ -18,7 +18,7 @@ class AppThemeDark {
         onPrimary: Colors.white,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.backgroundDark,
+        backgroundColor: AppColors.appBarBackgroundDark,
         elevation: 0,
         titleTextStyle: TextStyle(
           color: Colors.white,
@@ -32,7 +32,8 @@ class AppThemeDark {
         elevation: 5,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white54,
-        showUnselectedLabels: true,
+        showUnselectedLabels: false,
+        showSelectedLabels: true
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
