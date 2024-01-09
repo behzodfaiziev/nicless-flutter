@@ -36,7 +36,7 @@ class LandingView extends StatelessWidget {
           child: Center(
             child: BaseElevatedButton(
               onPressed: () {
-                context.push(const MainRoute());
+                context.push(const OnboardingRoute());
               },
               child: const Text('Get Started'),
             ),
