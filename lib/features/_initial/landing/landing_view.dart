@@ -6,6 +6,7 @@ import '../../../core/widgets/buttons/base_elevated_button.dart';
 import '../../../core/widgets/image/base_asset_image.dart';
 import '../../../product/navigator/app_router.dart';
 import '../../../product/utils/constants/asset_paths/images_const.dart';
+import '../../../product/widgets/text/top_title.dart';
 
 @RoutePage()
 class LandingView extends StatelessWidget {
@@ -44,32 +45,5 @@ class LandingView extends StatelessWidget {
         ),
       ]),
     ));
-  }
-}
-
-class TopTitle extends StatelessWidget {
-  const TopTitle({
-    required this.title,
-    required this.subTitle,
-    super.key,
-  });
-
-  final String title;
-  final String subTitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
-        Text(
-          subTitle,
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-      ],
-    );
   }
 }
