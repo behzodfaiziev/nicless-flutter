@@ -15,5 +15,7 @@ class ImagesConst {
 
   String get vozol5KMangoPeach => image('vozol_5k_mango_peach');
 
-  String get vozol10KForestBerry => image('vozol_10k_forest_berry.png');
+  String get vozol10KForestBerry => image('vozol_10k_forest_berry');
+
+  String get smokingKills => image('smoking_kills');
 }

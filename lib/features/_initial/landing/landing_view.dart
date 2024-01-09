@@ -2,7 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/extensions/context_extension.dart';
+import '../../../core/widgets/buttons/base_elevated_button.dart';
+import '../../../core/widgets/image/base_asset_image.dart';
 import '../../../product/navigator/app_router.dart';
+import '../../../product/utils/constants/asset_paths/images_const.dart';
 
 @RoutePage()
 class LandingView extends StatelessWidget {
@@ -21,19 +24,19 @@ class LandingView extends StatelessWidget {
               title: 'Welcome to Nicless',
               subTitle: 'Take control over nicotine'),
         ),
-        const Expanded(
-          flex: 10,
-          child: Placeholder(
-            fallbackHeight: 100,
-            fallbackWidth: double.infinity,
-          ),
-        ),
+        Expanded(
+            flex: 10,
+            child: Center(
+              child: BaseAssetImage(
+                  height: context.height * 0.25,
+                  ImagesConst.instance.smokingKills),
+            )),
         Expanded(
           flex: 8,
           child: Center(
-            child: ElevatedButton(
+            child: BaseElevatedButton(
               onPressed: () {
-              context.push(const MainRoute());
+                context.push(const MainRoute());
               },
               child: const Text('Get Started'),
             ),
