@@ -16,6 +16,7 @@ class AppThemeDark {
         background: AppColors.backgroundDark,
         error: AppColors.errorDark,
         onPrimary: Colors.white,
+        onSecondary: Colors.black,
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.appBarBackgroundDark,
@@ -27,20 +28,17 @@ class AppThemeDark {
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: AppColors.bottomNavBarDark,
-        type: BottomNavigationBarType.fixed,
-        elevation: 5,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white54,
-        showUnselectedLabels: false,
-        showSelectedLabels: true
-      ),
+          backgroundColor: AppColors.bottomNavBarDark,
+          type: BottomNavigationBarType.fixed,
+          elevation: 5,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white54,
+          showUnselectedLabels: false,
+          showSelectedLabels: true),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.elevatedButtonColorDark,
-          shape: RoundedRectangleBorder(
-              borderRadius: RadiusConst.extraLargeRadius),
-
+          shape: RoundedRectangleBorder(borderRadius: RadiusConst.largeRadius),
         ),
       ));
 }

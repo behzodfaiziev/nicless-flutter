@@ -25,13 +25,13 @@ class _OnboardingViewState extends State<OnboardingView>
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: context.height * 0.9,
           child: Column(
             children: [
-              Expanded(child: Padding(
+              Expanded(
+                  child: Padding(
                 padding: context.mainHorizontalPadding,
-
                 child: PopButton(
                   onPressed: () {
                     pageController.previousPage(
