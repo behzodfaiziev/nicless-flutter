@@ -40,9 +40,9 @@ class PermissionManager extends IPermissionManager {
   Future<PermissionResultModel> getPermission(
       {required Permission permission}) async {
     try {
-      if (kIsWeb && kDebugMode) {
-        return PermissionResultModel(isGranted: true);
-      }
+      // if (kIsWeb && kDebugMode) {
+      //   return PermissionResultModel(isGranted: true);
+      // }
 
       if (_isPermissionIsBeingRequested) {
         return PermissionResultModel(isGranted: false);

@@ -5,21 +5,19 @@ import '../../../../../../product/utils/constants/asset_paths/images_const.dart'
 import '../../../../../../product/widgets/text/top_title.dart';
 import 'smoking_type_tile.dart';
 
-/// TODO: make it stateless
-class OnboardingSmokingTypeView extends StatefulWidget {
-  const OnboardingSmokingTypeView({super.key});
+class SmokingTypePage extends StatefulWidget {
+  const SmokingTypePage({super.key});
 
   @override
-  State<OnboardingSmokingTypeView> createState() =>
-      _OnboardingSmokingTypeViewState();
+  State<SmokingTypePage> createState() =>
+      _SmokingTypePageState();
 }
 
-class _OnboardingSmokingTypeViewState extends State<OnboardingSmokingTypeView> {
+class _SmokingTypePageState extends State<SmokingTypePage> {
   final List<int> currentSelection = [];
 
   @override
   Widget build(BuildContext context) {
-    print('currentSelection: $currentSelection');
     return Padding(
       padding: context.mainHorizontalPadding,
       child: Column(

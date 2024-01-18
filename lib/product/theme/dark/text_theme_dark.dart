@@ -9,6 +9,7 @@ class TextThemeDark {
         ),
         titleLarge: const TextStyle(
           color: Colors.white,
+          fontWeight: FontWeight.bold,
         ),
         headlineSmall: TextStyle(
           color: AppColors.greyDarkHeadLineMedium,

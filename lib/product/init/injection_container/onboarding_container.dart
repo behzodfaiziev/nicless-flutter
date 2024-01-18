@@ -1,27 +1,27 @@
 part of '_injection_container.dart';
 
 Future<void> _onBoardingContainer() async {
-  // sl
+  sl
+
+    /// OnBoarding Bloc
+    ..registerFactory(() => OnboardingBloc(
+          getBluetoothDevices: sl(),
+          connectBluetoothDevice: sl(),
+        ))
+
+    // /// Use Cases
+    ..registerLazySingleton(() => GetBluetoothDevices(sl()))
+    ..registerLazySingleton(() => ConnectBluetoothDevice(sl()))
+    // ..registerLazySingleton(() => CheckIfUserFirstTimer(sl()))
+    //
+    /// Repositories
+    ..registerLazySingleton<OnboardingRepo>(OnboardingRepoImpl.new);
   //
-  //   /// OnBoarding Bloc
-  //   ..registerFactory(() => OnBoardingBloc(
-  //         cacheFirstTimer: sl(),
-  //         checkIfUserFirstTimer: sl(),
-  //       ))
+  // /// Data Sources
+  // ..registerLazySingleton<OnBoardingLocalDataSource>(
+  //     () => OnBoardingLocalDataSourceImplementation(sl()))
   //
-  //   /// Use Cases
-  //   ..registerLazySingleton(() => CacheFirstTimer(sl()))
-  //   ..registerLazySingleton(() => CheckIfUserFirstTimer(sl()))
-  //
-  //   /// Repositories
-  //   ..registerLazySingleton<OnBoardingRepository>(
-  //       () => OnBoardingRepositoryImplementation(sl()))
-  //
-  //   /// Data Sources
-  //   ..registerLazySingleton<OnBoardingLocalDataSource>(
-  //       () => OnBoardingLocalDataSourceImplementation(sl()))
-  //
-  //   /// External Dependencies
-  //   ..registerLazySingleton(
-  //       () => CachedValuesHiveOperation(primitiveDatabase: sl()));
+  // /// External Dependencies
+  // ..registerLazySingleton(
+  //     () => CachedValuesHiveOperation(primitiveDatabase: sl()));
 }

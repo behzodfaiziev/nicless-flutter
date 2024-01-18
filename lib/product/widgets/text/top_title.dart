@@ -5,13 +5,13 @@ import '../../utils/constants/ui_constants/padding_const.dart';
 class TopTitle extends StatelessWidget {
   const TopTitle({
     required this.title,
-    required this.subTitle,
+    this.subTitle,
     this.mainAxisAlignment,
     super.key,
   });
 
   final String title;
-  final String subTitle;
+  final String? subTitle;
   final MainAxisAlignment? mainAxisAlignment;
 
   @override
@@ -19,17 +19,17 @@ class TopTitle extends StatelessWidget {
     return Column(
       mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.center,
       children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
-        Padding(
-          padding: PaddingConst.top4,
-          child: Text(
-            subTitle,
-            style: Theme.of(context).textTheme.titleMedium,
+        Text(title,
+            style: Theme.of(context).textTheme.titleLarge,
+            textAlign: TextAlign.center),
+        if (subTitle != null)
+          Padding(
+            padding: PaddingConst.top4,
+            child: Text(
+              subTitle!,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
           ),
-        ),
       ],
     );
   }

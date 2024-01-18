@@ -14,16 +14,20 @@ part 'app_router.gr.dart';
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
 class AppRouter extends _$AppRouter {
   @override
-  List<AutoRoute> get routes => <AutoRoute>[
-        AutoRoute(page: LandingRoute.page),
+  List<AutoRoute> get routes =>
+      <AutoRoute>[
+        AutoRoute(page: LandingRoute.page,
+        ),
 
         /// Onboarding Routes
-        AutoRoute(page: OnboardingRoute.page),
+        AutoRoute(
+          page: OnboardingRoute.page,
+          initial: true,
+        ),
 
         /// Main Routes
         AutoRoute(
           page: MainRoute.page,
-          initial: true,
           children: [
             AutoRoute(page: HomeRoute.page),
             AutoRoute(page: HealthRoute.page),

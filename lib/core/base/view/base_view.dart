@@ -29,7 +29,7 @@ class _BaseViewState<B extends Bloc<dynamic, dynamic>>
     extends State<BaseView<B>> with WidgetsBindingObserver {
   @override
   void initState() {
-    WidgetsBinding.instance.addObserver(this);
+    // WidgetsBinding.instance.addObserver(this);
     widget.onBlocReady(widget.bloc);
     super.initState();
   }

@@ -10,11 +10,13 @@ class BaseSVGButton extends StatelessWidget {
     required this.asset,
     required this.onPressed,
     this.size,
+    this.color,
     super.key,
   });
 
   final String asset;
   final double? size;
+  final Color? color;
   final void Function() onPressed;
 
   @override
@@ -25,7 +27,7 @@ class BaseSVGButton extends StatelessWidget {
       height: size ?? SizeConst.largestIconSize,
       child: BaseSvgAsset(
         asset: asset,
-        color: context.theme.colorScheme.secondary,
+        color: color ?? context.theme.colorScheme.secondary,
       ),
     );
   }

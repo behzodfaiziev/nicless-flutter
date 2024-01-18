@@ -33,7 +33,7 @@ class LandingView extends StatelessWidget {
                   ImagesConst.instance.smokingKills),
             )),
         Expanded(
-          flex: 8,
+          flex: 5,
           child: Center(
             child: BaseElevatedButton(
               onPressed: () {
