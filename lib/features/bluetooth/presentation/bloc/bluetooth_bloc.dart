@@ -56,11 +56,13 @@ class BluetoothBloc extends Bloc<BluetoothEvent, BluetoothState> {
 
     result.fold(
       (failure) {
+        emit(BluetoothDeviceFailedToConnect(event.device));
         // _getBluetoothDevicesHandler(event, emit);
       },
-      (result) {
-        _onDataReceived = result;
-        emit(BluetoothDeviceConnected(event.device));
+      (connection) {
+        _onDataReceived = connection;
+        emit(BluetoothDeviceConnected(
+            connection: connection, device: event.device));
       },
     );
   }

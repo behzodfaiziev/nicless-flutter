@@ -8,7 +8,6 @@ import '../../../../../../product/utils/constants/ui_constants/padding_const.dar
 import '../../../../../../product/widgets/text/top_title.dart';
 import '../../../../../../product/widgets/tiles/bluetooth_list_tile.dart';
 import '../../../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
-import '../../../bloc/onboarding_bloc.dart';
 
 class ConnectBluetoothPage extends StatelessWidget {
   const ConnectBluetoothPage({super.key});
@@ -31,12 +30,15 @@ class ConnectBluetoothPage extends StatelessWidget {
             child: BlocConsumer<BluetoothBloc, BluetoothState>(
               listener: (context, state) {
                 if (state is BluetoothDeviceConnected) {
-                  context.pushReplaceAll(const MainRoute());
+                  context.pushReplaceAll(AutomaticCounterRoute(
+                    connection: state.connection,
+                    device: state.device,
+                  ));
                 }
               },
               bloc: context.read<BluetoothBloc>(),
               builder: (context, state) {
-                if (state is OnboardingLoading) {
+                if (state is ConnectingBluetoothDevice) {
                   return const Center(child: BaseAdaptiveCPI());
                 }
                 if (state is BluetoothDeviceScanResult) {
@@ -55,8 +57,11 @@ class ConnectBluetoothPage extends StatelessWidget {
                     },
                   );
                 }
-
-                ///TODO handle error
+                if (state is BluetoothDeviceFailedToConnect) {
+                  return const Center(
+                    child: BaseAdaptiveCPI(backgroundColor: Colors.red),
+                  );
+                }
                 return const SizedBox();
               },
             ),

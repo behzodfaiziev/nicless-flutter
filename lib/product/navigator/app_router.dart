@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 import '../../features/_initial/landing/landing_view.dart';
 import '../../features/_main/view/main_view.dart';
+import '../../features/bluetooth/data/models/bluetooth_device_model.dart';
 import '../../features/health/presentation/views/health_view.dart';
 import '../../features/home/presentation/views/automatic_counter/automatic_counter_view.dart';
 import '../../features/home/presentation/views/counter/counter_view.dart';
@@ -24,6 +26,8 @@ class AppRouter extends _$AppRouter {
         /// Onboarding Routes
         AutoRoute(
           page: OnboardingRoute.page,
+          initial: true,
+
         ),
 
         /// Main Routes
@@ -40,7 +44,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: CounterRoute.page),
         AutoRoute(
           page: AutomaticCounterRoute.page,
-          initial: true,
+          initial: false,
         ),
       ];
 }

@@ -6,7 +6,7 @@ class BaseView<B extends Bloc<dynamic, dynamic>> extends StatefulWidget {
     required this.bloc,
     required this.viewName,
     required this.onPageBuilder,
-    required this.onBlocReady,
+    this.onBlocReady,
     this.onDispose,
     this.isPopIncluded = true,
     this.shouldMainViewModelInit = true,
@@ -16,7 +16,7 @@ class BaseView<B extends Bloc<dynamic, dynamic>> extends StatefulWidget {
   final B bloc;
   final String viewName;
   final Widget Function(BuildContext context, B value) onPageBuilder;
-  final void Function(B bloc) onBlocReady;
+  final void Function(B bloc)? onBlocReady;
   final void Function(B bloc)? onDispose;
   final bool isPopIncluded;
   final bool shouldMainViewModelInit;
@@ -30,7 +30,7 @@ class _BaseViewState<B extends Bloc<dynamic, dynamic>>
   @override
   void initState() {
     // WidgetsBinding.instance.addObserver(this);
-    widget.onBlocReady(widget.bloc);
+    widget.onBlocReady?.call(widget.bloc);
     super.initState();
   }
 

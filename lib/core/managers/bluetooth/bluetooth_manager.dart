@@ -23,8 +23,15 @@ class BluetoothManager extends IBluetoothManager {
     final List<BluetoothDevice> boundedDevicesList =
         await FlutterBluetoothSerial.instance.getBondedDevices();
 
-    boundedDevices.addAll(boundedDevicesList as List<BluetoothDeviceModel>);
-
+    boundedDevices.addAll(boundedDevicesList.map((device) {
+      return BluetoothDeviceModel(
+        address: device.address,
+        name: device.name,
+        type: device.type,
+        isConnected: device.isConnected,
+        bondState: device.bondState,
+      );
+    }));
     return boundedDevices;
   }
 

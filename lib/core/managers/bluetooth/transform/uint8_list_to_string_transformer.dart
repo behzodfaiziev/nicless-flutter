@@ -5,7 +5,7 @@ class UInt8ListToStringTransformer
     extends StreamTransformerBase<Uint8List, String> {
   @override
   Stream<String> bind(Stream<Uint8List> stream) {
-    final StreamController<String> controller = StreamController<String>();
+    final controller = StreamController<String>();
 
     stream.listen(
       (Uint8List data) {

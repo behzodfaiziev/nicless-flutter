@@ -21,6 +21,7 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: AutomaticCounterView(
+          connection: args.connection,
           device: args.device,
           key: args.key,
         ),
@@ -81,12 +82,14 @@ abstract class _$AppRouter extends RootStackRouter {
 /// [AutomaticCounterView]
 class AutomaticCounterRoute extends PageRouteInfo<AutomaticCounterRouteArgs> {
   AutomaticCounterRoute({
-    String device = 'AutomaticCounterView',
+    BluetoothConnection? connection,
+    BluetoothDeviceModel? device,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
           AutomaticCounterRoute.name,
           args: AutomaticCounterRouteArgs(
+            connection: connection,
             device: device,
             key: key,
           ),
@@ -101,17 +104,20 @@ class AutomaticCounterRoute extends PageRouteInfo<AutomaticCounterRouteArgs> {
 
 class AutomaticCounterRouteArgs {
   const AutomaticCounterRouteArgs({
-    this.device = 'AutomaticCounterView',
+    this.connection,
+    this.device,
     this.key,
   });
 
-  final String device;
+  final BluetoothConnection? connection;
+
+  final BluetoothDeviceModel? device;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'AutomaticCounterRouteArgs{device: $device, key: $key}';
+    return 'AutomaticCounterRouteArgs{connection: $connection, device: $device, key: $key}';
   }
 }
 

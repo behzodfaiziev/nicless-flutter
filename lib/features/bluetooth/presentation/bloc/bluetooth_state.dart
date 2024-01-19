@@ -14,12 +14,16 @@ class BluetoothScanLoading extends BluetoothState {}
 class ConnectingBluetoothDevice extends BluetoothState {}
 
 class BluetoothDeviceConnected extends BluetoothState {
+  final BluetoothConnection connection;
   final BluetoothDeviceModel device;
 
-  const BluetoothDeviceConnected(this.device);
+  const BluetoothDeviceConnected({
+    required this.connection,
+    required this.device,
+  });
 
   @override
-  List<Object> get props => [device];
+  List<Object> get props => [device, connection];
 }
 
 class BluetoothDeviceDisconnected extends BluetoothState {

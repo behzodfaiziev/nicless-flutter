@@ -3,14 +3,14 @@ part of 'onboarding_view.dart';
 mixin OnboardingViewMixin on State<OnboardingView> {
   late final PageController pageController = PageController(initialPage: 0);
 
-  void _onboardBlocListener(BuildContext context, OnboardingState state) {
-    // if ((state is OnboardingStatus && state.isFirstTimer == false) ||
-    //     state is UserCached) {
-    //   /// If the user is not first timer or the user is cached
-    //   /// then navigate to the [SignInRoute]
-    //   context.router.replace(const SignInRoute());
-    // }
-  }
+  // void _onboardBlocListener(BuildContext context, OnboardingState state) {
+  // if ((state is OnboardingStatus && state.isFirstTimer == false) ||
+  //     state is UserCached) {
+  //   /// If the user is not first timer or the user is cached
+  //   /// then navigate to the [SignInRoute]
+  //   context.router.replace(const SignInRoute());
+  // }
+  // }
 
   void _onDispose(OnboardingBloc bloc) {
     pageController.dispose();
