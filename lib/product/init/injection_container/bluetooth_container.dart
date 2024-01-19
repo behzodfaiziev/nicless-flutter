@@ -1,16 +1,20 @@
 part of '_injection_container.dart';
 
-Future<void> _onBoardingContainer() async {
+Future<void> _bluetoothContainer() async {
   sl
 
     /// OnBoarding Bloc
-    ..registerFactory(OnboardingBloc.new)
+    ..registerFactory(() => BluetoothBloc(
+          getBluetoothDevices: sl(),
+          connectBluetoothDevice: sl(),
+        ))
 
     // /// Use Cases
-    // ..registerLazySingleton(() => CheckIfUserFirstTimer(sl()))
+    ..registerLazySingleton(() => GetBluetoothDevices(sl()))
+    ..registerLazySingleton(() => ConnectBluetoothDevice(sl()))
     //
     /// Repositories
-    ..registerLazySingleton<OnboardingRepo>(OnboardingRepoImpl.new);
+    ..registerLazySingleton<BluetoothRepo>(BluetoothRepoImpl.new);
   //
   // /// Data Sources
   // ..registerLazySingleton<OnBoardingLocalDataSource>(

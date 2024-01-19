@@ -7,6 +7,7 @@ import '../../../../../../product/navigator/app_router.dart';
 import '../../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../../../product/widgets/text/top_title.dart';
 import '../../../../../../product/widgets/tiles/bluetooth_list_tile.dart';
+import '../../../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import '../../../bloc/onboarding_bloc.dart';
 
 class ConnectBluetoothPage extends StatelessWidget {
@@ -27,19 +28,18 @@ class ConnectBluetoothPage extends StatelessWidget {
           flex: 3,
           child: Padding(
             padding: PaddingConst.vertical30,
-            child: BlocConsumer<OnboardingBloc, OnboardingState>(
+            child: BlocConsumer<BluetoothBloc, BluetoothState>(
               listener: (context, state) {
                 if (state is BluetoothDeviceConnected) {
                   context.pushReplaceAll(const MainRoute());
                 }
               },
-              bloc: context.read<OnboardingBloc>(),
+              bloc: context.read<BluetoothBloc>(),
               builder: (context, state) {
-                print('state: $state');
                 if (state is OnboardingLoading) {
                   return const Center(child: BaseAdaptiveCPI());
                 }
-                if (state is BluetoothDevicesFetched) {
+                if (state is BluetoothDeviceScanResult) {
                   return ListView.builder(
                     shrinkWrap: true,
                     itemCount: state.devices.length,
@@ -47,8 +47,8 @@ class ConnectBluetoothPage extends StatelessWidget {
                       return BluetoothListTile(
                         title: '${state.devices[index].name}',
                         onPressed: () {
-                               context.read<OnboardingBloc>().add(
-                              ConnectToDeviceEvent(
+                          context.read<BluetoothBloc>().add(
+                              ConnectBluetoothDeviceEvent(
                                   device: state.devices[index]));
                         },
                       );

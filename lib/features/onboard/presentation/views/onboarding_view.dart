@@ -6,6 +6,7 @@ import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extensions/context_extension.dart';
 import '../../../../product/init/injection_container/_injection_container.dart';
 import '../../../../product/navigator/app_router.dart';
+import '../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import '../bloc/onboarding_bloc.dart';
 import 'onboarding_body.dart';
 

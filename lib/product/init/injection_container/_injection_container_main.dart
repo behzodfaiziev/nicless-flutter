@@ -24,6 +24,7 @@ class InjectionContainer {
     //     () => AppNetworkManager.instance.networkManager);
 
     await _authContainer();
+    await _bluetoothContainer();
     await _onBoardingContainer();
     await _settingsContainer();
   }

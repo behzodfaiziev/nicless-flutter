@@ -6,14 +6,3 @@ abstract class OnboardingEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
-
-class GetBluetoothDevicesEvent extends OnboardingEvent {}
-
-class ConnectToDeviceEvent extends OnboardingEvent {
-  final BluetoothDevice device;
-
-  const ConnectToDeviceEvent({required this.device});
-
-  @override
-  List<Object> get props => [device];
-}

@@ -32,7 +32,7 @@ mixin OnboardingViewMixin on State<OnboardingView> {
 
     switch (currentPageIndex) {
       case 1:
-        context.read<OnboardingBloc>().add(GetBluetoothDevicesEvent());
+        context.read<BluetoothBloc>().add(GetBluetoothDevicesEvent());
       case 2:
         context.pushReplaceAll(const MainRoute());
       case 3:
