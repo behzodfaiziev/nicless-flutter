@@ -15,6 +15,17 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AutomaticCounterRoute.name: (routeData) {
+      final args = routeData.argsAs<AutomaticCounterRouteArgs>(
+          orElse: () => const AutomaticCounterRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AutomaticCounterView(
+          device: args.device,
+          key: args.key,
+        ),
+      );
+    },
     CounterRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -64,6 +75,44 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AutomaticCounterView]
+class AutomaticCounterRoute extends PageRouteInfo<AutomaticCounterRouteArgs> {
+  AutomaticCounterRoute({
+    String device = 'AutomaticCounterView',
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AutomaticCounterRoute.name,
+          args: AutomaticCounterRouteArgs(
+            device: device,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AutomaticCounterRoute';
+
+  static const PageInfo<AutomaticCounterRouteArgs> page =
+      PageInfo<AutomaticCounterRouteArgs>(name);
+}
+
+class AutomaticCounterRouteArgs {
+  const AutomaticCounterRouteArgs({
+    this.device = 'AutomaticCounterView',
+    this.key,
+  });
+
+  final String device;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AutomaticCounterRouteArgs{device: $device, key: $key}';
+  }
 }
 
 /// generated route for

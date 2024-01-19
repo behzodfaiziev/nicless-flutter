@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class BaseStateless extends StatelessWidget {
-  const BaseStateless({
+class BaseLottie extends StatelessWidget {
+  const BaseLottie({
     required this.assetPath,
     this.width,
     this.height,
