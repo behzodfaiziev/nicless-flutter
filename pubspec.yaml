@@ -40,7 +40,7 @@ dependencies:
   json_annotation: ^4.8.1
   intl: ^0.18.1
   dartz: ^0.10.1
-  get_it: ^7.6.4
+  get_it: ^7.6.7
 
   # Database
   hive: ^2.2.3
@@ -52,22 +52,22 @@ dependencies:
 
   # Picker
   file_picker: ^6.1.1
-  image_picker: ^1.0.5
+  image_picker: ^1.0.7
 
   # UI
   shimmer: ^3.0.0
   flutter_svg: ^2.0.9
-  lottie: ^2.7.0
+  lottie: ^3.0.0
   device_preview: ^1.1.0
   fl_chart: ^0.66.0
 
   # Others
-  url_launcher: ^6.2.2
-  webview_flutter: ^4.4.2
+  url_launcher: ^6.2.3
+  webview_flutter: ^4.4.4
   share_plus: ^7.2.1
-  permission_handler: ^11.1.0
+  permission_handler: ^11.2.0
   auto_route: ^7.8.4
-  path_provider: ^2.1.1
+  path_provider: ^2.1.2
   mime: ^1.0.4
   flutter_bluetooth_serial: ^0.4.0
 
@@ -76,11 +76,11 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  patrol: ^3.3.0
+  patrol: ^3.4.0
   very_good_analysis: ^5.1.0
   json_serializable: ^6.7.1
   auto_route_generator: ^7.3.2
-  build_runner: ^2.4.7
+  build_runner: ^2.4.8
   hive_generator: ^2.0.1
   mocktail: ^1.0.2
   bloc_test: ^9.1.5
@@ -102,3 +102,4 @@ flutter:
     - assets/icons/
     - assets/icons/svg/
     - assets/images/
+    - assets/lottie/
