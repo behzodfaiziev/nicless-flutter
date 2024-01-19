@@ -17,7 +17,8 @@ Future<void> _authContainer() async {
   //   ..registerLazySingleton(() => CheckIfAuthenticated(sl()))
   //
   //   /// Repositories
-  //   ..registerLazySingleton<AuthRepository>(() => AuthRepositoryImplementation(
+  //   ..registerLazySingleton<AuthRepository>(() =>
+  //   AuthRepositoryImplementation(
   //         authLocalDataSource: sl(),
   //         authRemoteDataSource: sl(),
   //       ))

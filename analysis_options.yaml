@@ -26,6 +26,6 @@ linter:
     depend_on_referenced_packages: false
 
     one_member_abstracts: false
-
+    flutter_style_todos: false
     # TRUE
     avoid_positional_boolean_parameters: true

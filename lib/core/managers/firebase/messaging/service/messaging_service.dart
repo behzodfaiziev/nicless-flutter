@@ -63,12 +63,10 @@ class MessagingService extends IMessagingService {
     );
   }
 
-  @override
   Future<void> subscribeToTopic(String topic) {
     return _firebaseMessaging.subscribeToTopic(topic);
   }
 
-  @override
   Future<void> unsubscribeFromTopic(String topic) {
     return _firebaseMessaging.unsubscribeFromTopic(topic);
   }
