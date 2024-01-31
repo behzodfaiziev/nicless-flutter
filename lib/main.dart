@@ -7,7 +7,6 @@ import 'product/init/injection_container/_injection_container.dart';
 import 'product/navigator/app_router.dart';
 import 'product/navigator/observer/app_route_observer.dart';
 import 'product/theme/dark/app_theme_dark.dart';
-import 'product/theme/light/_app_theme_light.dart';
 import 'product/utils/constants/app/app_const.dart';
 
 Future<void> main() async {
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: AppConst.appName,
           themeMode: ThemeMode.system,
-          theme: AppThemeLight().theme,
+          theme: AppThemeDark().theme,
           darkTheme: AppThemeDark().theme,
           routeInformationParser: _appRouter.defaultRouteParser(),
           routerDelegate: _appRouter.delegate(
