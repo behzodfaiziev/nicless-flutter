@@ -28,6 +28,7 @@ class ConnectBluetoothPage extends StatelessWidget {
           child: Padding(
             padding: PaddingConst.vertical30,
             child: BlocConsumer<BluetoothBloc, BluetoothState>(
+              bloc: context.read<BluetoothBloc>(),
               listener: (context, state) {
                 if (state is BluetoothDeviceConnected) {
                   context.pushReplaceAll(AutomaticCounterRoute(
@@ -36,7 +37,6 @@ class ConnectBluetoothPage extends StatelessWidget {
                   ));
                 }
               },
-              bloc: context.read<BluetoothBloc>(),
               builder: (context, state) {
                 if (state is ConnectingBluetoothDevice) {
                   return const Center(child: BaseAdaptiveCPI());

@@ -10,3 +10,11 @@ abstract class AutomaticCounterEvent extends Equatable {
 class StartAutomaticCounterEvent extends AutomaticCounterEvent {
   const StartAutomaticCounterEvent();
 }
+
+class AddPuffEvent extends AutomaticCounterEvent {
+  const AddPuffEvent();
+}
+
+class AddInhalingEvent extends AutomaticCounterEvent {
+  const AddInhalingEvent();
+}

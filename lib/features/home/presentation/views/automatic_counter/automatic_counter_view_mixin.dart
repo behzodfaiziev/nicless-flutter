@@ -19,12 +19,40 @@ mixin AutomaticCounterViewMixin on State<AutomaticCounterView> {
         .read<AutomaticCounterBloc>()
         .getVapeStreamSubscription(widget.connection!)
         ?.listen((bool isInhaling) {
-      print('Is Inhaling: $isInhaling');
       if (isInhaling) {
-        animationController.forward();
+        onInhaled(ctx);
       } else {
-        animationController.reverse();
+        onExhaled(ctx);
       }
     });
+  }
+
+  void ticker(BuildContext context) {
+    bool isForward = false;
+    onInhaled(context);
+    Timer.periodic(const Duration(seconds: 3), (timer) {
+      isForward ? onInhaled(context) : onExhaled(context);
+      isForward = !isForward;
+    });
+  }
+
+  Timer? timer;
+
+  void onInhaled(BuildContext context) {
+    animationController.forward();
+
+    context.read<AutomaticCounterBloc>().add(const AddPuffEvent());
+
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      context.read<AutomaticCounterBloc>().add(const AddInhalingEvent());
+    });
+  }
+
+  void onExhaled(BuildContext context) {
+    context.read<AutomaticCounterBloc>().add(const AddInhalingEvent());
+
+    timer?.cancel();
+
+    animationController.reverse();
   }
 }
