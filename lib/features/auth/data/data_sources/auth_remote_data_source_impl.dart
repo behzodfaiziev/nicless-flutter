@@ -7,4 +7,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }) : _network = networkManager;
 
   final INetworkManager _network;
+
+  @override
+  Future<bool> checkIsAuthenticated() async {
+    return await _network.currentUser() != null ? true : false;
+  }
 }

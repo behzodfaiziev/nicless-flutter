@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../domain/use_cases/anonymous_sign_in.dart';
+import '../../domain/use_cases/check_is_authenticated.dart';
 import '../../domain/use_cases/sign_out.dart';
 
 part 'auth_event.dart';
@@ -12,14 +13,40 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc({
     required AnonymousSignIn anonymousSignIn,
     required SignOut signOut,
-  })  : _anonymousSignIn = anonymousSignIn,
+    required CheckIsAuthenticated checkIsAuthenticated,
+  })  : _checkIsAuthenticated = checkIsAuthenticated,
+        _anonymousSignIn = anonymousSignIn,
         _signOut = signOut,
         super(AuthInitial()) {
-    on<AuthEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<AuthEvent>((event, emit) {});
+    on<SignInAnonymously>(_signInAnonymouslyHandler);
+    on<IsAuthenticated>(_checkIsAuthenticatedHandler);
   }
 
+  final CheckIsAuthenticated _checkIsAuthenticated;
   final AnonymousSignIn _anonymousSignIn;
   final SignOut _signOut;
+
+  Future<void> _checkIsAuthenticatedHandler(
+      IsAuthenticated event, Emitter<AuthState> emit) async {
+    final result = await _checkIsAuthenticated();
+    result.fold(
+      (failure) => emit(AuthError(
+          message: failure.message.isNotEmpty ? failure.message[0] : null)),
+      (isAuthenticated) =>
+          emit(IsAuthenticatedResult(isAuthenticated: isAuthenticated)),
+    );
+
+  }
+
+  Future<void> _signInAnonymouslyHandler(
+      SignInAnonymously event, Emitter<AuthState> emit) async {
+    print('Sign in anonymously');
+    emit(const AuthLoading());
+    final result = await _anonymousSignIn();
+    // result.fold(
+    //   (failure) => emit(AuthError(failure)),
+    //   (success) => emit(const Authenticated()),
+    // );
+  }
 }

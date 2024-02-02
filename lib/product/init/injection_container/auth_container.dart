@@ -5,6 +5,7 @@ Future<void> _authContainer() async {
 
     /// Auth Bloc
     ..registerFactory(() => AuthBloc(
+      checkIsAuthenticated: sl(),
           anonymousSignIn: sl(),
           signOut: sl(),
         ))
@@ -12,6 +13,7 @@ Future<void> _authContainer() async {
     /// Use Cases
     ..registerLazySingleton(() => AnonymousSignIn(sl()))
     ..registerLazySingleton(() => SignOut(sl()))
+    ..registerLazySingleton(() => CheckIsAuthenticated(sl()))
 
     /// Repositories
     ..registerLazySingleton<AuthRepo>(() => AuthRepoImpl(
