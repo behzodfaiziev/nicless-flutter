@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../../core/error/failures/api_failure.dart';
 import '../../../../core/utility/typedef.dart';
@@ -22,14 +23,18 @@ class AuthRepoImpl implements AuthRepo {
       final result = await _remoteDataSource.checkIsAuthenticated();
       return Right(result);
     } catch (e) {
-      return Left(APIFailure(message: [e.toString()]));
+      return Left(APIFailure(message: e.toString()));
     }
   }
 
   @override
-  ResultFuture<String> anonymousSignIn() {
-    // TODO: implement anonymousSignIn
-    throw UnimplementedError();
+  ResultFuture<UserCredential> anonymousSignIn() async {
+    try {
+      final result = await _remoteDataSource.anonymousSignIn();
+      return Right(result);
+    } catch (e) {
+      return Left(APIFailure(message: e.toString()));
+    }
   }
 
   @override

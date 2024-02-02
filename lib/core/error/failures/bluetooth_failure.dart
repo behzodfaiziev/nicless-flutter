@@ -9,7 +9,7 @@ class BluetoothFailure extends Failure {
 
   BluetoothFailure.fromException(Exception exception)
       : this(
-          message: [exception.toString()],
+          message: exception.toString(),
           statusCode: 500,
         );
 }

@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
-import '../../features/_initial/landing/landing_view.dart';
 import '../../features/_main/view/main_view.dart';
 import '../../features/auth/presentation/views/auth_checker/auth_checker_view.dart';
+import '../../features/auth/presentation/views/landing/landing_view.dart';
 import '../../features/bluetooth/data/models/bluetooth_device_model.dart';
 import '../../features/health/presentation/views/health_view.dart';
 import '../../features/home/presentation/views/automatic_counter/automatic_counter_view.dart';

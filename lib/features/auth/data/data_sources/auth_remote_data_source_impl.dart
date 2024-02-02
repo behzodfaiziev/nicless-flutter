@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../../../core/managers/network/i_network_manager.dart';
 import 'auth_remote_data_source.dart';
 
@@ -11,5 +13,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<bool> checkIsAuthenticated() async {
     return await _network.currentUser() != null ? true : false;
+  }
+
+  @override
+  Future<UserCredential> anonymousSignIn() async {
+    return _network.signInAnonymously();
   }
 }

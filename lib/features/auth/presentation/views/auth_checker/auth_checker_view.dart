@@ -37,7 +37,7 @@ class _AuthCheckerViewState extends State<AuthCheckerView>
           );
         }
       },
-      child: Center(
+      child: const Center(
         child: BaseAdaptiveCPI(),
       ),
     ));

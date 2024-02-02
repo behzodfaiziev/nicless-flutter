@@ -31,22 +31,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       IsAuthenticated event, Emitter<AuthState> emit) async {
     final result = await _checkIsAuthenticated();
     result.fold(
-      (failure) => emit(AuthError(
-          message: failure.message.isNotEmpty ? failure.message[0] : null)),
+      (failure) => emit(AuthError(message: failure.message)),
       (isAuthenticated) =>
           emit(IsAuthenticatedResult(isAuthenticated: isAuthenticated)),
     );
-
   }
 
   Future<void> _signInAnonymouslyHandler(
       SignInAnonymously event, Emitter<AuthState> emit) async {
-    print('Sign in anonymously');
     emit(const AuthLoading());
     final result = await _anonymousSignIn();
-    // result.fold(
-    //   (failure) => emit(AuthError(failure)),
-    //   (success) => emit(const Authenticated()),
-    // );
+    result.fold(
+      (failure) => emit(AuthError(message: 'Error: ${failure.message}')),
+      (value) => emit(IsAuthenticatedResult(isAuthenticated: value.user != null)),
+    );
   }
 }
