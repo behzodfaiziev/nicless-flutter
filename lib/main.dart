@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/init/config/system_init.dart';
+import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import 'product/init/injection_container/_injection_container.dart';
 import 'product/navigator/app_router.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (_) => sl<AuthBloc>()),
         BlocProvider(create: (_) => sl<BluetoothBloc>()),
       ],
       child: MaterialApp.router(
