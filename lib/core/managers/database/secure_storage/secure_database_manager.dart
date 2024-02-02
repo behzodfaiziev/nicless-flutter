@@ -17,7 +17,7 @@ class SecureDatabaseManager extends PrimitiveDatabase {
       if (response == null || response.isEmpty) return null;
       return ParserUtility.parseStringToType<T>(response);
     } catch (e) {
-      throw CacheException(message: ['Error reading from secure storage: $e']);
+      throw CacheException(message: 'Error reading from secure storage: $e');
     }
   }
 
@@ -28,7 +28,7 @@ class SecureDatabaseManager extends PrimitiveDatabase {
       await _secureStorage.write(key: key.name, value: value.toString());
       return true;
     } catch (e) {
-      throw CacheException(message: ['Error writing to secure storage: $e']);
+      throw CacheException(message: 'Error writing to secure storage: $e');
     }
   }
 }

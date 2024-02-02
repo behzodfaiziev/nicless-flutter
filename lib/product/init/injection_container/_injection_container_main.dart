@@ -14,14 +14,13 @@ class InjectionContainer {
   Future<void> init() async {
     sl
 
-        /// External Dependencies:
-        /// Cache
-        .registerLazySingleton<PrimitiveDatabase>(
-            () => SecureDatabaseManager(const FlutterSecureStorage()));
+      /// External Dependencies:
+      /// Cache
+      ..registerLazySingleton<PrimitiveDatabase>(
+          () => SecureDatabaseManager(const FlutterSecureStorage()))
 
-    /// Network
-    // ..registerLazySingleton<INetworkManager<ErrorModelCustom>>(
-    //     () => AppNetworkManager.instance.networkManager);
+      /// Network
+      ..registerLazySingleton<INetworkManager>(NetworkManager.new);
 
     await _authContainer();
     await _bluetoothContainer();

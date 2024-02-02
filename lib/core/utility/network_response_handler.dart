@@ -8,7 +8,7 @@ class ResponseHandler {
     if (response.statusCode != 200 && response.statusCode != 201) {
       throw APIException(
         statusCode: response.statusCode,
-        message: [response.statusMessage ?? ''],
+        message: response.statusMessage ?? '',
       );
     }
     return true;

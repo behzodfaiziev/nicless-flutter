@@ -7,7 +7,7 @@ class CacheException extends Equatable implements Exception {
   });
 
   final int statusCode;
-  final List<String> message;
+  final String message;
 
   @override
   List<Object?> get props => [statusCode, message];

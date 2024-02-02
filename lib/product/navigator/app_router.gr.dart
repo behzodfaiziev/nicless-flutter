@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AuthCheckerRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AuthCheckerView(),
+      );
+    },
     AutomaticCounterRoute.name: (routeData) {
       final args = routeData.argsAs<AutomaticCounterRouteArgs>(
           orElse: () => const AutomaticCounterRouteArgs());
@@ -76,6 +82,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AuthCheckerView]
+class AuthCheckerRoute extends PageRouteInfo<void> {
+  const AuthCheckerRoute({List<PageRouteInfo>? children})
+      : super(
+          AuthCheckerRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AuthCheckerRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

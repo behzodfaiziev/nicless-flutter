@@ -1,31 +1,29 @@
 part of '_injection_container.dart';
 
 Future<void> _authContainer() async {
-  // sl
-  //
-  //   /// Auth Bloc
-  //   ..registerFactory(() => AuthBloc(
-  //         signUpUser: sl(),
-  //         signInUser: sl(),
-  //         forgotPassword: sl(),
-  //         checkIfAuthenticated: sl(),
-  //       ))
-  //
-  //   /// Use Cases
-  //   ..registerLazySingleton(() => SignUpUser(sl()))
-  //   ..registerLazySingleton(() => SignInUser(sl()))
-  //   ..registerLazySingleton(() => CheckIfAuthenticated(sl()))
-  //
-  //   /// Repositories
-  //   ..registerLazySingleton<AuthRepository>(() =>
-  //   AuthRepositoryImplementation(
-  //         authLocalDataSource: sl(),
-  //         authRemoteDataSource: sl(),
-  //       ))
-  //
-  //   /// Data Sources
-  //   ..registerLazySingleton<AuthRemoteDataSource>(
-  //       () => AuthRemoteDataSourceImplementation(sl()))
-  //   ..registerLazySingleton<AuthLocalDataSource>(
-  //       () => AuthLocalDataSourceImplementation(sl()));
+  sl
+
+    /// Auth Bloc
+    ..registerFactory(() => AuthBloc(
+      checkIsAuthenticated: sl(),
+          anonymousSignIn: sl(),
+          signOut: sl(),
+        ))
+
+    /// Use Cases
+    ..registerLazySingleton(() => AnonymousSignIn(sl()))
+    ..registerLazySingleton(() => SignOut(sl()))
+    ..registerLazySingleton(() => CheckIsAuthenticated(sl()))
+
+    /// Repositories
+    ..registerLazySingleton<AuthRepo>(() => AuthRepoImpl(
+          localDataSource: sl(),
+          remoteDataSource: sl(),
+        ))
+
+    /// Data Sources
+    ..registerLazySingleton<AuthRemoteDataSource>(
+        () => AuthRemoteDataSourceImpl(networkManager: sl()))
+    ..registerLazySingleton<AuthLocalDataSource>(
+        () => AuthLocalDataSourceImpl(sl()));
 }
