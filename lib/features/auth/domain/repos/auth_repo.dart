@@ -7,7 +7,7 @@ abstract class AuthRepo {
 
   ResultFuture<bool> checkIsAuthenticated();
 
-  ResultFuture<String> signOut();
-
   ResultFuture<UserCredential> anonymousSignIn();
+
+  ResultFuture<void> signOut();
 }

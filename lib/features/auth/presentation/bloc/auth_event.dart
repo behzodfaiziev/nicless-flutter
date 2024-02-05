@@ -16,3 +16,7 @@ class SignInAnonymously extends AuthEvent {
 class IsAuthenticated extends AuthEvent {
   const IsAuthenticated();
 }
+
+class SignOutEvent extends AuthEvent {
+  const SignOutEvent();
+}

@@ -4,18 +4,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../core/error/failures/api_failure.dart';
 import '../../../../core/utility/typedef.dart';
 import '../../domain/repos/auth_repo.dart';
-import '../data_sources/auth_local_data_source.dart';
 import '../data_sources/auth_remote_data_source.dart';
 
 class AuthRepoImpl implements AuthRepo {
   const AuthRepoImpl({
-    required AuthRemoteDataSource remoteDataSource,
-    required AuthLocalDataSource localDataSource,
-  })  : _remoteDataSource = remoteDataSource,
-        _localDataSource = localDataSource;
+    required AuthRemoteDataSource remoteDataSource
+  })  : _remoteDataSource = remoteDataSource;
 
   final AuthRemoteDataSource _remoteDataSource;
-  final AuthLocalDataSource _localDataSource;
 
   @override
   ResultFuture<bool> checkIsAuthenticated() async {
@@ -31,6 +27,9 @@ class AuthRepoImpl implements AuthRepo {
   ResultFuture<UserCredential> anonymousSignIn() async {
     try {
       final result = await _remoteDataSource.anonymousSignIn();
+
+      await _remoteDataSource.createAnonymousUser(id: result.user!.uid);
+
       return Right(result);
     } catch (e) {
       return Left(APIFailure(message: e.toString()));
@@ -38,8 +37,12 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  ResultFuture<String> signOut() {
-    // TODO: implement signOut
-    throw UnimplementedError();
+  ResultFuture<void> signOut()async{
+    try {
+      final result = _remoteDataSource.signOut();
+      return Right(result);
+    } catch (e) {
+      return Left(APIFailure(message: e.toString()));
+    }
   }
 }

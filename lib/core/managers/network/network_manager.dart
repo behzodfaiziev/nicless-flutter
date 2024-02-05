@@ -38,7 +38,6 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
   }) async {
     try {
       final DocumentReference documentReference = _getDocumentReference(url);
-      body[id] = documentReference.id;
 
       await documentReference.set(body);
 
