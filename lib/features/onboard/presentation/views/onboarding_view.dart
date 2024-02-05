@@ -35,14 +35,6 @@ class _OnboardingViewState extends State<OnboardingView>
             onButtonPressed: onButtonPressed,
             pageController: pageController,
           ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            context.pushReplaceAll(AutomaticCounterRoute(
-              // connection: state.connection,
-              // device: state.device,
-            ));
-          },
-        )
         );
       },
     );

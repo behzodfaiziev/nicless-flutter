@@ -28,12 +28,14 @@ mixin OnboardingViewMixin on State<OnboardingView> {
     if (currentPageIndex != 3) {
       pageController.nextPage(
           duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+
+      context.read<OnboardingBloc>().add(const NextButtonPressed());
     }
 
     switch (currentPageIndex) {
       case 1:
-        context.read<BluetoothBloc>().add(GetBluetoothDevicesEvent());
       case 2:
+        context.read<BluetoothBloc>().add(GetBluetoothDevicesEvent());
         context.pushReplaceAll(const MainRoute());
       case 3:
         context.pushReplaceAll(const MainRoute());

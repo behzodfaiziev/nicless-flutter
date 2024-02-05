@@ -14,6 +14,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<bool> checkIsAuthenticated() async {
+    await signOut();
     return await _network.currentUser() != null ? true : false;
   }
 

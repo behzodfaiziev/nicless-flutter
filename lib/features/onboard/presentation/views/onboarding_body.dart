@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/extensions/context_extension.dart';
 import '../../../../core/widgets/buttons/base_elevated_button.dart';
 import '../../../../product/widgets/button/pop_button.dart';
+import '../bloc/onboarding_bloc.dart';
 import 'modules/connect_bluetooth/connect_bluetooth_page.dart';
+import 'modules/smoking_info/smoking_info_page.dart';
 import 'modules/smoking_type/smoking_type_page.dart';
 
-class OnboardingBody extends StatefulWidget {
+class OnboardingBody extends StatelessWidget {
   const OnboardingBody({
     required this.pageController,
     required this.onButtonPressed,
@@ -15,13 +18,6 @@ class OnboardingBody extends StatefulWidget {
 
   final PageController pageController;
   final void Function(BuildContext context, int currentIndex) onButtonPressed;
-
-  @override
-  State<OnboardingBody> createState() => _OnboardingBodyState();
-}
-
-class _OnboardingBodyState extends State<OnboardingBody> {
-  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +32,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                 padding: context.mainHorizontalPadding,
                 child: PopButton(
                   onPressed: () {
-                    widget.pageController.previousPage(
+                    pageController.previousPage(
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn);
                   },
@@ -46,20 +42,16 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                 flex: 12,
                 child: PageView(
                   physics: const NeverScrollableScrollPhysics(),
-                  controller: widget.pageController,
+                  controller: pageController,
                   onPageChanged: (index) {},
                   children: [
+                    const SmokingInfoPage(),
                     const SmokingTypePage(),
                     const ConnectBluetoothPage(),
                     Container(
                       height: double.infinity,
                       width: double.infinity,
                       color: Colors.lightGreenAccent,
-                    ),
-                    Container(
-                      height: double.infinity,
-                      width: double.infinity,
-                      color: Colors.green,
                     ),
                   ],
                 ),
@@ -69,14 +61,25 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                 child: Center(
                   child: Padding(
                     padding: context.mainHorizontalPadding,
-                    child: BaseElevatedButton(
-                      onPressed: () {
-                        currentPageIndex++;
-                        widget.onButtonPressed(context, currentPageIndex);
+                    child: BlocBuilder<OnboardingBloc, OnboardingState>(
+                      buildWhen: (previous, current) =>
+                          current is OnNextButtonTriggered,
+                      builder: (context, state) {
+                        print('state: $state');
+                        if (state is OnNextButtonTriggered) {
+                          return BaseElevatedButton(
+                            onPressed: state.isEnabled
+                                ? () => onButtonPressed(context, state.index)
+                                : null,
+                            child: Text(state.isLastPage ? 'Done' : 'Next'),
+                          );
+                        }
+
+                        return const BaseElevatedButton(
+                          onPressed: null,
+                          child: Text('Next'),
+                        );
                       },
-                      child: Text(
-                        currentPageIndex == 2 ? 'Login' : 'Next',
-                      ),
                     ),
                   ),
                 ),

@@ -17,6 +17,7 @@ class AppColors {
   static const Color backgroundLight = Color(0xFFF3F8FF);
   static const Color backgroundDark = Color(0xFF212121);
   static const Color appBarBackgroundDark = Color(0xFF2F2F2F);
+  static const Color disabledColorDark = Color(0xFF2F2F2F);
 
   /// Error
   static const Color errorLight = Color(0xFFCB2828);
@@ -31,6 +32,10 @@ class AppColors {
 
   static Color? greyDarkHeadLineMedium = Colors.grey[600];
   static Color? greyDarkDisplaySmall = Colors.grey[200];
+/// Hint Color
+  static const Color hintColor = Color(0xFFBDBDBD);
+  static const Color hintColorDark = Color(0xFFC8C8C8);
+
 
   /// Buttons
   static const Color elevatedButtonColorDark = Color(0xFFDCDCDC);
