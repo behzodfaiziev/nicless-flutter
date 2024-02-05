@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import '../../../core/managers/database/core/primitive_database.dart';
 import '../../../core/managers/database/secure_storage/secure_database_manager.dart';
 import '../../../core/managers/network/i_network_manager.dart';
+import '../../../core/managers/network/models/error_model_custom.dart';
 import '../../../core/managers/network/network_manager.dart';
 import '../../../features/auth/data/data_sources/auth_local_data_source.dart';
 import '../../../features/auth/data/data_sources/auth_local_data_source_impl.dart';
