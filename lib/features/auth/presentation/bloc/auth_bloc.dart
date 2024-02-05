@@ -21,6 +21,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEvent>((event, emit) {});
     on<SignInAnonymously>(_signInAnonymouslyHandler);
     on<IsAuthenticated>(_checkIsAuthenticatedHandler);
+    on<SignOutEvent>(_signOutHandler);
   }
 
   final CheckIsAuthenticated _checkIsAuthenticated;
@@ -45,6 +46,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       (failure) => emit(AuthError(message: 'Error: ${failure.message}')),
       (value) =>
           emit(IsAuthenticatedResult(isAuthenticated: value.user != null)),
+    );
+  }
+
+  Future<void> _signOutHandler(
+      SignOutEvent event, Emitter<AuthState> emit) async {
+    final result = await _signOut();
+    result.fold(
+      (failure) => emit(AuthError(message: 'Error: ${failure.message}')),
+      (value) => emit(const IsAuthenticatedResult(isAuthenticated: false)),
     );
   }
 }

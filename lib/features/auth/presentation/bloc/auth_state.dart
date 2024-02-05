@@ -27,3 +27,4 @@ class IsAuthenticatedResult extends AuthState {
 
   final bool isAuthenticated;
 }
+

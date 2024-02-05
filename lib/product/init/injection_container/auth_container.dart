@@ -5,7 +5,7 @@ Future<void> _authContainer() async {
 
     /// Auth Bloc
     ..registerFactory(() => AuthBloc(
-      checkIsAuthenticated: sl(),
+          checkIsAuthenticated: sl(),
           anonymousSignIn: sl(),
           signOut: sl(),
         ))
@@ -17,13 +17,12 @@ Future<void> _authContainer() async {
 
     /// Repositories
     ..registerLazySingleton<AuthRepo>(() => AuthRepoImpl(
-          localDataSource: sl(),
           remoteDataSource: sl(),
         ))
 
     /// Data Sources
     ..registerLazySingleton<AuthRemoteDataSource>(
-        () => AuthRemoteDataSourceImpl(networkManager: sl()))
-    ..registerLazySingleton<AuthLocalDataSource>(
-        () => AuthLocalDataSourceImpl(sl()));
+        () => AuthRemoteDataSourceImpl(networkManager: sl()));
+    // ..registerLazySingleton<AuthLocalDataSource>(
+    //     () => AuthLocalDataSourceImpl(sl()));
 }
