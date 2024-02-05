@@ -72,32 +72,26 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
   }
 
   @override
-  Future<T> put<T>({
+  Future<void> put<T>({
     required NetworkUrlPath url,
     required Map<String, dynamic> body,
     Map<String, dynamic>? queryParameters,
-  }) {
-    // TODO: implement put
-    throw UnimplementedError();
+  }) async {
+    try {
+      await _getDocumentReference(url).update(body);
+      return;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   @override
-  Future<T> delete<T>({
-    required NetworkUrlPath url,
-    Map<String, dynamic>? queryParameters,
-  }) {
-    // TODO: implement delete
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<T> patch<T>({
-    required NetworkUrlPath url,
-    required Map<String, dynamic> body,
-    Map<String, dynamic>? queryParameters,
-  }) {
-    // TODO: implement patch
-    throw UnimplementedError();
+  Future<void> delete<T>({required NetworkUrlPath url}) async {
+    try {
+      await _getDocumentReference(url).delete();
+    } catch (e) {
+      rethrow;
+    }
   }
 
   @override

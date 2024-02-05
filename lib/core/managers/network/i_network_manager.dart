@@ -22,22 +22,13 @@ abstract class INetworkManager<E extends INetworkModel<E>?> {
     required Map<String, dynamic> body,
   });
 
-  Future<T> put<T>({
+  Future<void> put<T>({
     required NetworkUrlPath url,
     required Map<String, dynamic> body,
     Map<String, dynamic>? queryParameters,
   });
 
-  Future<T> patch<T>({
-    required NetworkUrlPath url,
-    required Map<String, dynamic> body,
-    Map<String, dynamic>? queryParameters,
-  });
-
-  Future<T> delete<T>({
-    required NetworkUrlPath url,
-    Map<String, dynamic>? queryParameters,
-  });
+  Future<void> delete<T>({required NetworkUrlPath url});
 
   Future<UserCredential> signInAnonymously();
 
