@@ -24,7 +24,7 @@ linter:
     avoid_bool_literals_in_conditional_expressions: false
     prefer_relative_imports: true
     depend_on_referenced_packages: false
-
+    overridden_fields: false
     one_member_abstracts: false
     flutter_style_todos: false
     # TRUE

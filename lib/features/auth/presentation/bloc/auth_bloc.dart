@@ -43,7 +43,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final result = await _anonymousSignIn();
     result.fold(
       (failure) => emit(AuthError(message: 'Error: ${failure.message}')),
-      (value) => emit(IsAuthenticatedResult(isAuthenticated: value.user != null)),
+      (value) =>
+          emit(IsAuthenticatedResult(isAuthenticated: value.user != null)),
     );
   }
 }

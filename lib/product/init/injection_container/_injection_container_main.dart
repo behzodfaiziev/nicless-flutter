@@ -20,7 +20,8 @@ class InjectionContainer {
           () => SecureDatabaseManager(const FlutterSecureStorage()))
 
       /// Network
-      ..registerLazySingleton<INetworkManager>(NetworkManager.new);
+      ..registerLazySingleton<INetworkManager<ErrorModelCustom>>(
+          NetworkManager<ErrorModelCustom>.new);
 
     await _authContainer();
     await _bluetoothContainer();
