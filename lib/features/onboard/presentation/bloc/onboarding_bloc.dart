@@ -90,7 +90,10 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
       (error) {
         // emit(OnSaveVapeDataError(errorMessage: error.message));
       },
-      (vapeId) => emit(OnSaveVapeDataSuccess(vapeDataId: vapeId)),
+      (vapeId) {
+        print('Vape data saved with id: $vapeId');
+        emit(OnSaveVapeDataSuccess(vapeDataId: vapeId));
+      },
     );
   }
 }

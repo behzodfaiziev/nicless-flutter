@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../core/widgets/buttons/base_elevated_button.dart';
 import '../../../../../core/widgets/image/base_asset_image.dart';
+import '../../../../../core/widgets/toast/custom_toast.dart';
 import '../../../../../product/navigator/app_router.dart';
 import '../../../../../product/utils/constants/asset_paths/images_const.dart';
 import '../../../../../product/widgets/text/top_title.dart';
@@ -21,6 +22,9 @@ class LandingView extends StatelessWidget {
       listener: (context, state) {
         if (state is IsAuthenticatedResult && state.isAuthenticated) {
           context.pushReplaceAll(const OnboardingRoute());
+        }
+        if (state is AuthError) {
+          CustomToast.errorToast(context, state.message ?? '');
         }
       },
       child: Padding(

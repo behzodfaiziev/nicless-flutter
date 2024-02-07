@@ -28,7 +28,6 @@ class BluetoothManager extends IBluetoothManager {
         address: device.address,
         name: device.name,
         isConnected: device.isConnected,
-        bondState: device.bondState,
       );
     }));
     return boundedDevices;

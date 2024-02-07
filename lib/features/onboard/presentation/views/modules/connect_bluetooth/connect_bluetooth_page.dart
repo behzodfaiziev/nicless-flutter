@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/extensions/context_extension.dart';
 import '../../../../../../core/widgets/indicator/base_adaptive_cpi.dart';
-import '../../../../../../product/navigator/app_router.dart';
 import '../../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../../../product/widgets/text/top_title.dart';
 import '../../../../../../product/widgets/tiles/bluetooth_list_tile.dart';
@@ -34,13 +32,15 @@ class ConnectBluetoothPage extends StatelessWidget {
           child: Padding(
             padding: PaddingConst.vertical30,
             child: BlocConsumer<BluetoothBloc, BluetoothState>(
+              buildWhen: (pr, cr) =>
+                  cr is BluetoothDeviceScanResult ||
+                  cr is ConnectingBluetoothDevice ||
+                  cr is BluetoothDeviceFailedToConnect,
+              listenWhen: (pr, cr) => cr is BluetoothDeviceConnected,
               bloc: context.read<BluetoothBloc>(),
               listener: (context, state) {
                 if (state is BluetoothDeviceConnected) {
                   saveVapeDataEvent(context, state.device);
-                }
-                if (state is OnSaveVapeDataSuccess) {
-                  context.pushReplaceAll(const MainRoute());
                 }
               },
               builder: (context, state) {
