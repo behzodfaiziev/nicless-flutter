@@ -8,6 +8,7 @@ import '../../../../product/init/injection_container/_injection_container.dart';
 import '../../../../product/navigator/app_router.dart';
 import '../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import '../bloc/onboarding_bloc.dart';
+import 'modules/smoking_info/smoking_info_page.dart';
 import 'onboarding_body.dart';
 
 part 'onboarding_view_mixin.dart';
@@ -34,9 +35,23 @@ class _OnboardingViewState extends State<OnboardingView>
           body: OnboardingBody(
             onButtonPressed: onButtonPressed,
             pageController: pageController,
+            smokingInfoPageParams: smokingInfoPageParams(),
           ),
         );
       },
+    );
+  }
+
+  SmokingInfoPageParams smokingInfoPageParams() {
+    return SmokingInfoPageParams(
+      priceEditingController: priceEditingController,
+      capacityEditingController: capacityEditingController,
+      nicotineEditingController: nicotineEditingController,
+      vapeNameEditingController: vapeNameEditingController,
+      priceFocusNode: priceFocusNode,
+      capacityFocusNode: capacityFocusNode,
+      nicotineFocusNode: nicotineFocusNode,
+      vapeNameFocusNode: vapeNameFocusNode,
     );
   }
 }

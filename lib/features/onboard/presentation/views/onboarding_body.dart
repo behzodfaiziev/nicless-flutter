@@ -13,11 +13,13 @@ class OnboardingBody extends StatelessWidget {
   const OnboardingBody({
     required this.pageController,
     required this.onButtonPressed,
+    required this.smokingInfoPageParams,
     super.key,
   });
 
   final PageController pageController;
   final void Function(BuildContext context, int currentIndex) onButtonPressed;
+  final SmokingInfoPageParams smokingInfoPageParams;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,9 @@ class OnboardingBody extends StatelessWidget {
                 padding: context.mainHorizontalPadding,
                 child: PopButton(
                   onPressed: () {
+                    context
+                        .read<OnboardingBloc>()
+                        .add(const BackButtonPressed());
                     pageController.previousPage(
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn);
@@ -45,14 +50,10 @@ class OnboardingBody extends StatelessWidget {
                   controller: pageController,
                   onPageChanged: (index) {},
                   children: [
-                    const SmokingInfoPage(),
                     const SmokingTypePage(),
-                    const ConnectBluetoothPage(),
-                    Container(
-                      height: double.infinity,
-                      width: double.infinity,
-                      color: Colors.lightGreenAccent,
-                    ),
+                    SmokingInfoPage(params: smokingInfoPageParams),
+                    ConnectBluetoothPage(
+                        smokingInfoPageParams: smokingInfoPageParams),
                   ],
                 ),
               ),
@@ -65,7 +66,6 @@ class OnboardingBody extends StatelessWidget {
                       buildWhen: (previous, current) =>
                           current is OnNextButtonTriggered,
                       builder: (context, state) {
-                        print('state: $state');
                         if (state is OnNextButtonTriggered) {
                           return BaseElevatedButton(
                             onPressed: state.isEnabled

@@ -4,10 +4,10 @@ Future<void> _onBoardingContainer() async {
   sl
 
     /// OnBoarding Bloc
-    ..registerFactory(OnboardingBloc.new)
+    ..registerFactory(() => OnboardingBloc(saveVapeData: sl()))
 
-    // /// Use Cases
-    // ..registerLazySingleton(() => CheckIfUserFirstTimer(sl()))
+    /// Use Cases
+    ..registerLazySingleton(() => SaveVapeData(sl()))
     //
     /// Repositories
     ..registerLazySingleton<OnboardingRepo>(OnboardingRepoImpl.new);

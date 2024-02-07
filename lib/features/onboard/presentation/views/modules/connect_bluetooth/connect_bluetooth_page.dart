@@ -8,9 +8,13 @@ import '../../../../../../product/utils/constants/ui_constants/padding_const.dar
 import '../../../../../../product/widgets/text/top_title.dart';
 import '../../../../../../product/widgets/tiles/bluetooth_list_tile.dart';
 import '../../../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
+import '../../../bloc/onboarding_bloc.dart';
+import '../smoking_info/smoking_info_page.dart';
 
 class ConnectBluetoothPage extends StatelessWidget {
-  const ConnectBluetoothPage({super.key});
+  const ConnectBluetoothPage({required this.smokingInfoPageParams, super.key});
+
+  final SmokingInfoPageParams smokingInfoPageParams;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +35,11 @@ class ConnectBluetoothPage extends StatelessWidget {
               bloc: context.read<BluetoothBloc>(),
               listener: (context, state) {
                 if (state is BluetoothDeviceConnected) {
-                  context.pushReplaceAll(AutomaticCounterRoute(
-                    connection: state.connection,
-                    device: state.device,
-                  ));
+                  context.read<OnboardingBloc>().add(SaveVapeDataEvent(
+                        vapeData: state.device,
+                        smokingInfoPageParams: smokingInfoPageParams,
+                      ));
+                  context.pushReplaceAll(const MainRoute());
                 }
               },
               builder: (context, state) {

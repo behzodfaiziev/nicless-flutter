@@ -8,4 +8,13 @@ class BluetoothDeviceModel extends BluetoothDevice {
     super.isConnected,
     super.bondState,
   });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'bl.address': address,
+      'bl.name': name,
+      'bl.type': type,
+      'bl.bondState': bondState,
+    };
+  }
 }

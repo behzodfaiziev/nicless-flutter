@@ -102,6 +102,7 @@ class BaseTextField extends StatelessWidget {
     required this.focusNode,
     required this.hintText,
     this.keyboardType = TextInputType.text,
+    this.onSubmitted,
     super.key,
   });
 
@@ -109,6 +110,7 @@ class BaseTextField extends StatelessWidget {
   final String hintText;
   final FocusNode focusNode;
   final TextInputType keyboardType;
+  final void Function(String value)? onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -117,6 +119,7 @@ class BaseTextField extends StatelessWidget {
       focusNode: focusNode,
       keyboardType: keyboardType,
       style: context.primaryTextTheme.bodyMedium,
+      onSubmitted: onSubmitted,
       decoration: InputDecoration(
         hintText: hintText,
       ),

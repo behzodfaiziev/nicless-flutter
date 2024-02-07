@@ -39,3 +39,12 @@ class OnNextButtonTriggered extends OnboardingState {
     );
   }
 }
+
+class OnSmokingDeviceHasBluetooth extends OnboardingState {
+  const OnSmokingDeviceHasBluetooth({required this.hasBluetooth});
+
+  final bool hasBluetooth;
+
+  @override
+  List<Object> get props => [hasBluetooth];
+}
