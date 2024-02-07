@@ -28,7 +28,14 @@ class AppThemeDark {
           shape: RoundedRectangleBorder(borderRadius: RadiusConst.smallRadius),
           checkColor: MaterialStateProperty.all(AppColors.secondaryDark),
         ),
+        pageTransitionsTheme: _pageTransitionsTheme,
       );
+
+  PageTransitionsTheme get _pageTransitionsTheme =>
+      const PageTransitionsTheme(builders: {
+        TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
+        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      });
 
   AppBarTheme appBarTheme() {
     return const AppBarTheme(

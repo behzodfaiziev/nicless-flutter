@@ -64,9 +64,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     OnboardingRoute.name: (routeData) {
+      final args = routeData.argsAs<OnboardingRouteArgs>(
+          orElse: () => const OnboardingRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const OnboardingView(),
+        child: OnboardingView(
+          isUserCreated: args.isUserCreated,
+          key: args.key,
+        ),
       );
     },
     ProfileRoute.name: (routeData) {
@@ -213,16 +218,40 @@ class MainRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [OnboardingView]
-class OnboardingRoute extends PageRouteInfo<void> {
-  const OnboardingRoute({List<PageRouteInfo>? children})
-      : super(
+class OnboardingRoute extends PageRouteInfo<OnboardingRouteArgs> {
+  OnboardingRoute({
+    bool isUserCreated = false,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           OnboardingRoute.name,
+          args: OnboardingRouteArgs(
+            isUserCreated: isUserCreated,
+            key: key,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'OnboardingRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<OnboardingRouteArgs> page =
+      PageInfo<OnboardingRouteArgs>(name);
+}
+
+class OnboardingRouteArgs {
+  const OnboardingRouteArgs({
+    this.isUserCreated = false,
+    this.key,
+  });
+
+  final bool isUserCreated;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'OnboardingRouteArgs{isUserCreated: $isUserCreated, key: $key}';
+  }
 }
 
 /// generated route for

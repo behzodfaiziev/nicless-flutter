@@ -14,9 +14,11 @@ class OnboardingBody extends StatelessWidget {
     required this.pageController,
     required this.onButtonPressed,
     required this.smokingInfoPageParams,
+    required this.isUserCreated,
     super.key,
   });
 
+  final bool isUserCreated;
   final PageController pageController;
   final void Function(BuildContext context, int currentIndex) onButtonPressed;
   final SmokingInfoPageParams smokingInfoPageParams;
@@ -33,13 +35,8 @@ class OnboardingBody extends StatelessWidget {
                   child: Padding(
                 padding: context.mainHorizontalPadding,
                 child: PopButton(
-                  onPressed: () {
-                    context
-                        .read<OnboardingBloc>()
-                        .add(const BackButtonPressed());
-                    pageController.previousPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn);
+                  onPressed: () async {
+                    await onPopButtonPressed(context);
                   },
                 ),
               )),
@@ -89,5 +86,16 @@ class OnboardingBody extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> onPopButtonPressed(BuildContext context) async {
+    if (isUserCreated) {
+      await context.pop();
+      return;
+    }
+    context.read<OnboardingBloc>().add(const BackButtonPressed());
+
+    await pageController.previousPage(
+        duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
   }
 }

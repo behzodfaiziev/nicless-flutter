@@ -29,7 +29,6 @@ class _MainViewState extends State<MainView> with MainViewMixin {
           bottomNavigationBar: SizedBox(
             height: SizeConst.bottomNavBarHeight,
             child: BottomNavigationBar(
-
               currentIndex: context.tabsRouter.activeIndex,
               onTap: context.tabsRouter.setActiveIndex,
               items: _bottomBarItems(context, context.tabsRouter.activeIndex),

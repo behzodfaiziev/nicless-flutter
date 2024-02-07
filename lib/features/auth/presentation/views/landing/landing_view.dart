@@ -22,7 +22,7 @@ class LandingView extends StatelessWidget {
         body: BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is IsAuthenticatedResult && state.isAuthenticated) {
-          context.pushReplaceAll(const OnboardingRoute());
+          context.pushReplaceAll(OnboardingRoute());
         }
         if (state is AuthError) {
           CustomToast.errorToast(context, state.message ?? '');

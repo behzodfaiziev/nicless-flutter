@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../core/widgets/app_bar/base_app_bar.dart';
+import '../../../../../product/navigator/app_router.dart';
 import '../../../../../product/utils/constants/app/app_const.dart';
 import 'modules/smoking_list.dart';
 
@@ -22,7 +24,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
       appBar: const BaseAppBar(title: AppConst.appName),
       body: const SmokingList(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => context.push(OnboardingRoute(isUserCreated: true)),
         child: const Icon(Icons.add),
       ),
     );

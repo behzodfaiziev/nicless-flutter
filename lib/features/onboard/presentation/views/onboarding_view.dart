@@ -15,7 +15,9 @@ part 'onboarding_view_mixin.dart';
 
 @RoutePage()
 class OnboardingView extends StatefulWidget {
-  const OnboardingView({super.key});
+  const OnboardingView({this.isUserCreated = false, super.key});
+
+  final bool isUserCreated;
 
   @override
   State<OnboardingView> createState() => _OnboardingViewState();
@@ -46,6 +48,7 @@ class _OnboardingViewState extends State<OnboardingView>
               onButtonPressed: onButtonPressed,
               pageController: pageController,
               smokingInfoPageParams: smokingInfoPageParams(),
+              isUserCreated: widget.isUserCreated,
             );
           },
         ),
