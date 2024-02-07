@@ -7,17 +7,16 @@ import '../../domain/repos/auth_repo.dart';
 import '../data_sources/auth_remote_data_source.dart';
 
 class AuthRepoImpl implements AuthRepo {
-  const AuthRepoImpl({
-    required AuthRemoteDataSource remoteDataSource
-  })  : _remoteDataSource = remoteDataSource;
+  const AuthRepoImpl({required AuthRemoteDataSource remoteDataSource})
+      : _remoteDataSource = remoteDataSource;
 
   final AuthRemoteDataSource _remoteDataSource;
 
   @override
   ResultFuture<bool> checkIsAuthenticated() async {
     try {
-      final result = await _remoteDataSource.checkIsAuthenticated();
-      return Right(result);
+      final result = await _remoteDataSource.getCurrentUser();
+      return Right(result != null);
     } catch (e) {
       return Left(APIFailure(message: e.toString()));
     }
@@ -37,7 +36,7 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  ResultFuture<void> signOut()async{
+  ResultFuture<void> signOut() async {
     try {
       final result = _remoteDataSource.signOut();
       return Right(result);
