@@ -42,7 +42,7 @@ class LandingView extends StatelessWidget {
               child: Center(
                 child: BaseAssetImage(
                     height: context.height * 0.25,
-                    ImagesConst.instance.smokingKills),
+                    ImagesConst.instance.logo),
               )),
           Expanded(
             flex: 5,
