@@ -95,3 +95,34 @@ class BaseTextFormField extends StatelessWidget {
     );
   }
 }
+
+class BaseTextField extends StatelessWidget {
+  const BaseTextField({
+    required this.textEditingController,
+    required this.focusNode,
+    required this.hintText,
+    this.keyboardType = TextInputType.text,
+    this.onSubmitted,
+    super.key,
+  });
+
+  final TextEditingController textEditingController;
+  final String hintText;
+  final FocusNode focusNode;
+  final TextInputType keyboardType;
+  final void Function(String value)? onSubmitted;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: textEditingController,
+      focusNode: focusNode,
+      keyboardType: keyboardType,
+      style: context.primaryTextTheme.bodyMedium,
+      onSubmitted: onSubmitted,
+      decoration: InputDecoration(
+        hintText: hintText,
+      ),
+    );
+  }
+}

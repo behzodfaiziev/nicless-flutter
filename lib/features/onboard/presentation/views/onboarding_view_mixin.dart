@@ -2,6 +2,17 @@ part of 'onboarding_view.dart';
 
 mixin OnboardingViewMixin on State<OnboardingView> {
   late final PageController pageController = PageController(initialPage: 0);
+  final TextEditingController priceEditingController = TextEditingController();
+  final TextEditingController capacityEditingController =
+      TextEditingController();
+  final TextEditingController nicotineEditingController =
+      TextEditingController();
+  final TextEditingController vapeNameEditingController =
+      TextEditingController();
+  final FocusNode priceFocusNode = FocusNode();
+  final FocusNode capacityFocusNode = FocusNode();
+  final FocusNode nicotineFocusNode = FocusNode();
+  final FocusNode vapeNameFocusNode = FocusNode();
 
   // void _onboardBlocListener(BuildContext context, OnboardingState state) {
   // if ((state is OnboardingStatus && state.isFirstTimer == false) ||
@@ -25,17 +36,24 @@ mixin OnboardingViewMixin on State<OnboardingView> {
   }
 
   void onButtonPressed(BuildContext context, int currentPageIndex) {
-    if (currentPageIndex != 3) {
-      pageController.nextPage(
-          duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
-    }
-
     switch (currentPageIndex) {
+      case 0:
+        context.read<OnboardingBloc>().add(const NextButtonPressed());
+        pageController.nextPage(
+            duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
       case 1:
-        context.read<BluetoothBloc>().add(GetBluetoothDevicesEvent());
+        if (context.read<OnboardingBloc>().hasBluetooth) {
+          context.read<BluetoothBloc>().add(GetBluetoothDevicesEvent());
+          context.read<OnboardingBloc>().add(const NextButtonPressed());
+
+          pageController.nextPage(
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeIn);
+        } else {
+          context.pushReplaceAll(const MainRoute());
+        }
       case 2:
-        context.pushReplaceAll(const MainRoute());
-      case 3:
+
         context.pushReplaceAll(const MainRoute());
       default:
     }

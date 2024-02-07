@@ -100,10 +100,10 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get paddingHigh => EdgeInsets.all(highValueHeight);
 
   EdgeInsets get mainHorizontalPadding =>
-      EdgeInsets.symmetric(horizontal: width * 0.064);
+      EdgeInsets.symmetric(horizontal: width * 0.07);
 
   EdgeInsets get mainHorizontalPadding2 =>
-      EdgeInsets.symmetric(horizontal: width * 0.054);
+      EdgeInsets.symmetric(horizontal: width * 0.06);
 
   EdgeInsets get mediumHorizontalPadding =>
       EdgeInsets.symmetric(horizontal: width * 0.042);

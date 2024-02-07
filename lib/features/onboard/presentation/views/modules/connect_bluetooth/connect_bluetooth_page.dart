@@ -7,10 +7,16 @@ import '../../../../../../product/navigator/app_router.dart';
 import '../../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../../../product/widgets/text/top_title.dart';
 import '../../../../../../product/widgets/tiles/bluetooth_list_tile.dart';
+import '../../../../../bluetooth/data/models/bluetooth_device_model.dart';
 import '../../../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
+import '../../../../data/models/vape_data_model.dart';
+import '../../../bloc/onboarding_bloc.dart';
+import '../smoking_info/smoking_info_page.dart';
 
 class ConnectBluetoothPage extends StatelessWidget {
-  const ConnectBluetoothPage({super.key});
+  const ConnectBluetoothPage({required this.smokingInfoPageParams, super.key});
+
+  final SmokingInfoPageParams smokingInfoPageParams;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +37,10 @@ class ConnectBluetoothPage extends StatelessWidget {
               bloc: context.read<BluetoothBloc>(),
               listener: (context, state) {
                 if (state is BluetoothDeviceConnected) {
-                  context.pushReplaceAll(AutomaticCounterRoute(
-                    connection: state.connection,
-                    device: state.device,
-                  ));
+                  saveVapeDataEvent(context, state.device);
+                }
+                if (state is OnSaveVapeDataSuccess) {
+                  context.pushReplaceAll(const MainRoute());
                 }
               },
               builder: (context, state) {
@@ -69,5 +75,19 @@ class ConnectBluetoothPage extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void saveVapeDataEvent(BuildContext context, BluetoothDeviceModel device) {
+    context.read<OnboardingBloc>().add(SaveVapeDataEvent(
+          vapeData: VapeDataModel(
+            name: smokingInfoPageParams.vapeNameEditingController.text.trim(),
+            capacity:
+                smokingInfoPageParams.capacityEditingController.text.trim(),
+            price: smokingInfoPageParams.priceEditingController.text.trim(),
+            nicotine:
+                smokingInfoPageParams.nicotineEditingController.text.trim(),
+            bluetoothData: device,
+          ),
+        ));
   }
 }

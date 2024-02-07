@@ -27,7 +27,6 @@ class BluetoothManager extends IBluetoothManager {
       return BluetoothDeviceModel(
         address: device.address,
         name: device.name,
-        type: device.type,
         isConnected: device.isConnected,
         bondState: device.bondState,
       );
