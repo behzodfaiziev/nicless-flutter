@@ -9,6 +9,7 @@ mixin OnboardingViewMixin on State<OnboardingView> {
       TextEditingController();
   final TextEditingController vapeNameEditingController =
       TextEditingController();
+
   final FocusNode priceFocusNode = FocusNode();
   final FocusNode capacityFocusNode = FocusNode();
   final FocusNode nicotineFocusNode = FocusNode();
@@ -23,16 +24,10 @@ mixin OnboardingViewMixin on State<OnboardingView> {
   // }
   // }
 
-  void _onDispose(OnboardingBloc bloc) {
+  @override
+  void dispose() {
     pageController.dispose();
-    bloc.close();
-  }
-
-  Future<void> _onBlocReady(OnboardingBloc bloc) async {
-    /// Make sure to start the [CachedValuesHiveOperation] before
-    /// checking if the user is first timer or not
-    // await sl<CachedValuesHiveOperation>().start();
-    // bloc.add(const CheckIfUserFirstTimerEvent());
+    super.dispose();
   }
 
   void onButtonPressed(BuildContext context, int currentPageIndex) {
@@ -53,7 +48,6 @@ mixin OnboardingViewMixin on State<OnboardingView> {
           context.pushReplaceAll(const MainRoute());
         }
       case 2:
-
         context.pushReplaceAll(const MainRoute());
       default:
     }

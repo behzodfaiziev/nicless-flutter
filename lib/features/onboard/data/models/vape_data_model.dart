@@ -27,8 +27,6 @@ class VapeDataModel extends VapeData {
     return {
       'bl.name': bluetoothData.name,
       'bl.address': bluetoothData.address,
-      'bl.bondState': bluetoothData.bondState,
-      'bl.type': bluetoothData.type,
       'vape.capacity': capacity,
       'vape.price': price,
       'vape.nicotine': nicotine,

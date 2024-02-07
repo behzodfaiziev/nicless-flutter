@@ -4,6 +4,7 @@ class BluetoothDeviceModel extends BluetoothDevice {
   const BluetoothDeviceModel({
     required super.address,
     super.name,
+    super.type,
     super.isConnected,
     super.bondState,
   });
@@ -12,6 +13,7 @@ class BluetoothDeviceModel extends BluetoothDevice {
     return {
       'bl.address': address,
       'bl.name': name,
+      'bl.type': type,
       'bl.bondState': bondState,
     };
   }
