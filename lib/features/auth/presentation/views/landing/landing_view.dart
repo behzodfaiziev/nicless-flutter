@@ -8,6 +8,7 @@ import '../../../../../core/widgets/image/base_asset_image.dart';
 import '../../../../../core/widgets/toast/custom_toast.dart';
 import '../../../../../product/navigator/app_router.dart';
 import '../../../../../product/utils/constants/asset_paths/images_const.dart';
+import '../../../../../product/utils/constants/ui_constants/radius_const.dart';
 import '../../../../../product/widgets/text/top_title.dart';
 import '../../bloc/auth_bloc.dart';
 
@@ -40,9 +41,12 @@ class LandingView extends StatelessWidget {
           Expanded(
               flex: 10,
               child: Center(
-                child: BaseAssetImage(
-                    height: context.height * 0.25,
-                    ImagesConst.instance.smokingKills),
+                child: ClipRRect(
+                  borderRadius: RadiusConst.extraLargeRadius,
+                  child: BaseAssetImage(
+                      height: context.height * 0.25,
+                      ImagesConst.instance.logo),
+                ),
               )),
           Expanded(
             flex: 5,
