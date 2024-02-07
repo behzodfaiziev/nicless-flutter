@@ -8,15 +8,12 @@ Future<void> _onBoardingContainer() async {
 
     /// Use Cases
     ..registerLazySingleton(() => SaveVapeData(sl()))
-    //
+
     /// Repositories
-    ..registerLazySingleton<OnboardingRepo>(OnboardingRepoImpl.new);
-  //
-  // /// Data Sources
-  // ..registerLazySingleton<OnBoardingLocalDataSource>(
-  //     () => OnBoardingLocalDataSourceImplementation(sl()))
-  //
-  // /// External Dependencies
-  // ..registerLazySingleton(
-  //     () => CachedValuesHiveOperation(primitiveDatabase: sl()));
+    ..registerLazySingleton<OnboardingRepo>(
+        () => OnboardingRepoImpl(remoteDataSource: sl()))
+
+    /// Data Sources
+    ..registerLazySingleton<OnboardingRemoteDataSource>(
+        () => OnboardingRemoteDataSourceImpl(network: sl()));
 }

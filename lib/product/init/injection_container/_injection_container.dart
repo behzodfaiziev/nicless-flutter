@@ -19,6 +19,8 @@ import '../../../features/bluetooth/domain/repo/bluetooth_repo.dart';
 import '../../../features/bluetooth/domain/use_cases/connect_bluetooth_device.dart';
 import '../../../features/bluetooth/domain/use_cases/get_bluetooth_devices.dart';
 import '../../../features/bluetooth/presentation/bloc/bluetooth_bloc.dart';
+import '../../../features/onboard/data/data_sources/onboarding_remote_data_source.dart';
+import '../../../features/onboard/data/data_sources/onboarding_remote_data_source_impl.dart';
 import '../../../features/onboard/data/repo/onboarding_repo_impl.dart';
 import '../../../features/onboard/domain/repo/onboarding_repo.dart';
 import '../../../features/onboard/domain/use_cases/save_vape_data.dart';

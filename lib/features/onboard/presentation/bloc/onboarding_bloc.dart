@@ -1,10 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../bluetooth/data/models/bluetooth_device_model.dart';
-import '../../domain/entity/vape_data.dart';
+import '../../data/models/vape_data_model.dart';
 import '../../domain/use_cases/save_vape_data.dart';
-import '../views/modules/smoking_info/smoking_info_page.dart';
 
 part 'onboarding_event.dart';
 
@@ -86,15 +84,13 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
 
   Future<void> _onSaveVapeDataHandler(
       SaveVapeDataEvent event, Emitter<OnboardingState> emit) async {
-    final result = await _saveVapeData(
-      VapeData(
-          smokingInfoPageParams: event.smokingInfoPageParams,
-          vapeData: event.vapeData),
-    );
+    final result = await _saveVapeData(event.vapeData);
 
-    // result.fold(
-    //   (error) => emit(OnSaveVapeDataError(errorMessage: error.message)),
-    //   (success) => emit(OnSaveVapeDataSuccess()),
-    // );
+    result.fold(
+      (error) {
+        // emit(OnSaveVapeDataError(errorMessage: error.message));
+      },
+      (vapeId) => emit(OnSaveVapeDataSuccess(vapeDataId: vapeId)),
+    );
   }
 }

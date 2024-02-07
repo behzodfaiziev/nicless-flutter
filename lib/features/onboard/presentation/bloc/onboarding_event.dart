@@ -40,11 +40,7 @@ class SmokingDeviceHasBluetooth extends OnboardingEvent {
 }
 
 class SaveVapeDataEvent extends OnboardingEvent {
-  const SaveVapeDataEvent({
-    required this.vapeData,
-    required this.smokingInfoPageParams,
-  });
+  const SaveVapeDataEvent({required this.vapeData});
 
-  final BluetoothDeviceModel vapeData;
-  final SmokingInfoPageParams smokingInfoPageParams;
+  final VapeDataModel vapeData;
 }

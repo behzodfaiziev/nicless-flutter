@@ -9,7 +9,14 @@ abstract class OnboardingState extends Equatable {
 
 class OnboardingInitial extends OnboardingState {}
 
-class OnboardingLoading extends OnboardingState {}
+class OnboardingLoading extends OnboardingState {
+  const OnboardingLoading({required this.isLoading});
+
+  final bool isLoading;
+
+  @override
+  List<Object> get props => [isLoading];
+}
 
 class OnboardingCompleted extends OnboardingState {}
 
@@ -47,4 +54,13 @@ class OnSmokingDeviceHasBluetooth extends OnboardingState {
 
   @override
   List<Object> get props => [hasBluetooth];
+}
+
+class OnSaveVapeDataSuccess extends OnboardingState {
+  const OnSaveVapeDataSuccess({required this.vapeDataId});
+
+  final String vapeDataId;
+
+  @override
+  List<Object> get props => [vapeDataId];
 }
