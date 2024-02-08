@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../data/models/vape_data_model.dart';
+import '../../../../product/models/vape_data_model.dart';
 import '../../domain/use_cases/save_vape_data.dart';
 
 part 'onboarding_event.dart';

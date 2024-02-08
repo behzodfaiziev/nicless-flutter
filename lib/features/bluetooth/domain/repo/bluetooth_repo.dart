@@ -8,4 +8,6 @@ abstract class BluetoothRepo {
 
   ResultFuture<BluetoothConnection> connectBluetoothDevice(
       BluetoothDeviceModel device);
+
+  ResultFuture<void> disconnectBluetoothDevice(BluetoothConnection device);
 }

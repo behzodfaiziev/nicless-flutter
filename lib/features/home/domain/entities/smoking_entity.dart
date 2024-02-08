@@ -1,14 +1,15 @@
 class SmokingEntity {
-  SmokingEntity(
-      {required this.id,
-      required this.name,
-      required this.image,
-      required this.capacity,
-      required this.price,
-      required this.nicotineValue,
-      required this.dailyLimit,
-      required this.dailyUsed,
-      required this.type});
+  SmokingEntity({
+    required this.id,
+    required this.name,
+    required this.image,
+    required this.capacity,
+    required this.price,
+    required this.nicotineValue,
+    required this.dailyLimit,
+    required this.dailyUsed,
+    required this.type,
+  });
 
   final String id;
   final String name;

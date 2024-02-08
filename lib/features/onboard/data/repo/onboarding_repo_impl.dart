@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/error/failures/api_failure.dart';
 import '../../../../core/utility/typedef.dart';
+import '../../../../product/models/vape_data_model.dart';
 import '../../domain/repo/onboarding_repo.dart';
 import '../data_sources/onboarding_remote_data_source.dart';
-import '../models/vape_data_model.dart';
 
 class OnboardingRepoImpl implements OnboardingRepo {
   OnboardingRepoImpl({required OnboardingRemoteDataSource remoteDataSource})

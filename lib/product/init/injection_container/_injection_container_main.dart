@@ -26,6 +26,8 @@ class InjectionContainer {
     await _authContainer();
     await _bluetoothContainer();
     await _onBoardingContainer();
+    await _homeContainer();
     await _settingsContainer();
+
   }
 }

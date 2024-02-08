@@ -3,6 +3,9 @@ part of 'automatic_counter_view.dart';
 mixin AutomaticCounterViewMixin on State<AutomaticCounterView> {
   StreamSubscription<bool>? _vapeStreamSubscription;
   late final AnimationController animationController;
+  final AutomaticCounterBloc automaticCounterBloc = sl<AutomaticCounterBloc>();
+
+
 
   @override
   void dispose() {

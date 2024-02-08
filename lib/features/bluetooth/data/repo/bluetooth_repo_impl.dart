@@ -37,4 +37,15 @@ class BluetoothRepoImpl implements BluetoothRepo {
       return Left(BluetoothFailure.fromException(e));
     }
   }
+
+  @override
+  ResultFuture<void> disconnectBluetoothDevice(
+      BluetoothConnection device) async {
+    try {
+      await bluetoothManager.disconnectBl(device);
+      return const Right(null);
+    } on Exception catch (e) {
+      return Left(BluetoothFailure.fromException(e));
+    }
+  }
 }

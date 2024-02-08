@@ -7,11 +7,13 @@ Future<void> _bluetoothContainer() async {
     ..registerFactory(() => BluetoothBloc(
           getBluetoothDevices: sl(),
           connectBluetoothDevice: sl(),
+          disconnectBluetoothDevice: sl(),
         ))
 
     // /// Use Cases
     ..registerLazySingleton(() => GetBluetoothDevices(sl()))
     ..registerLazySingleton(() => ConnectBluetoothDevice(sl()))
+    ..registerLazySingleton(() => DisconnectBluetoothDevice(sl()))
     //
     /// Repositories
     ..registerLazySingleton<BluetoothRepo>(BluetoothRepoImpl.new);
