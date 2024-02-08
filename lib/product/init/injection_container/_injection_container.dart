@@ -17,8 +17,16 @@ import '../../../features/auth/presentation/bloc/auth_bloc.dart';
 import '../../../features/bluetooth/data/repo/bluetooth_repo_impl.dart';
 import '../../../features/bluetooth/domain/repo/bluetooth_repo.dart';
 import '../../../features/bluetooth/domain/use_cases/connect_bluetooth_device.dart';
+import '../../../features/bluetooth/domain/use_cases/disconnect_bluetooth_device.dart';
 import '../../../features/bluetooth/domain/use_cases/get_bluetooth_devices.dart';
 import '../../../features/bluetooth/presentation/bloc/bluetooth_bloc.dart';
+import '../../../features/home/data/data_sources/home_remote_data_source.dart';
+import '../../../features/home/data/data_sources/home_remote_data_source_impl.dart';
+import '../../../features/home/data/repo/home_repo_impl.dart';
+import '../../../features/home/domain/repo/home_repo.dart';
+import '../../../features/home/domain/use_cases/fetch_devices.dart';
+import '../../../features/home/presentation/bloc/automatic_counter/automatic_counter_bloc.dart';
+import '../../../features/home/presentation/bloc/home/home_bloc.dart';
 import '../../../features/onboard/data/data_sources/onboarding_remote_data_source.dart';
 import '../../../features/onboard/data/data_sources/onboarding_remote_data_source_impl.dart';
 import '../../../features/onboard/data/repo/onboarding_repo_impl.dart';
@@ -35,3 +43,5 @@ part 'bluetooth_container.dart';
 part 'onboarding_container.dart';
 
 part 'settings_container.dart';
+
+part 'home_container.dart';

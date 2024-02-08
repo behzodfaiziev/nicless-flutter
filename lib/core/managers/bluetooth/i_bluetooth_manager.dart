@@ -8,5 +8,7 @@ abstract class IBluetoothManager {
 
   Future<BluetoothConnection> connectBl(String address);
 
+  Future<void> disconnectBl(BluetoothConnection connection);
+
   Future<void> sendMessage(BluetoothConnection connection, String text);
 }

@@ -31,6 +31,17 @@ class ConnectBluetoothDeviceEvent extends BluetoothEvent {
   List<Object> get props => [device];
 }
 
+class BluetoothDisconnectEvent extends BluetoothEvent {
+  final BluetoothDeviceModel device;
+  final BluetoothConnection connection;
+
+  const BluetoothDisconnectEvent(
+      {required this.device, required this.connection});
+
+  @override
+  List<Object> get props => [device, connection];
+}
+
 /// BluetoothDeviceDataSent is a state that is emitted  when
 /// the device sends data to the connected device.
 class SendDataToBluetoothDeviceEvent extends BluetoothEvent {

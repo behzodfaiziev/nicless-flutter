@@ -42,7 +42,18 @@ class BluetoothManager extends IBluetoothManager {
       if (newConnection.isConnected == false) {
         throw Exception('Not connected');
       }
+
       return newConnection;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> disconnectBl(BluetoothConnection connection) async {
+    try {
+      await connection.close();
+      connection.dispose();
     } catch (e) {
       rethrow;
     }
