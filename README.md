@@ -28,3 +28,14 @@ git clone https://github.com/behzodfaiziev/nicless-flutter
 flutter run --debug
  ```
 4. Congratulations! You have successfully set up and run Nicless on your device. If you encounter any issues, don't hesitate to create an issue [here](https://github.com/behzodfaiziev/nicless-flutter/issues).
+
+
+## GDSC Solution Challenge 2024
+
+
+
+https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/2f28d629-4628-4e95-866d-03dfda60495d
+
+
+
+
