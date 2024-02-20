@@ -63,6 +63,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MainView(),
       );
     },
+    MapsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MapsView(),
+      );
+    },
     OnboardingRoute.name: (routeData) {
       final args = routeData.argsAs<OnboardingRouteArgs>(
           orElse: () => const OnboardingRouteArgs());
@@ -212,6 +218,20 @@ class MainRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MainRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MapsView]
+class MapsRoute extends PageRouteInfo<void> {
+  const MapsRoute({List<PageRouteInfo>? children})
+      : super(
+          MapsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MapsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

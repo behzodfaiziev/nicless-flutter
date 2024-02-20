@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../core/widgets/app_bar/base_app_bar.dart';
 import '../../../../../product/init/injection_container/_injection_container.dart';
-import '../../../../../product/navigator/app_router.dart';
+import '../../../../../product/init/navigator/app_router.dart';
 import '../../../../../product/utils/constants/app/app_const.dart';
 import '../../bloc/home/home_bloc.dart';
 import 'modules/smoking_list.dart';

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/extensions/context_extension.dart';
 import '../../../core/widgets/assets/base_svg_asset.dart';
-import '../../../product/navigator/app_router.dart';
+import '../../../product/init/navigator/app_router.dart';
 import '../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../product/utils/constants/ui_constants/size_const.dart';
 

@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/extensions/context_extension.dart';
 import '../../../../core/widgets/indicator/base_adaptive_cpi.dart';
 import '../../../../product/init/injection_container/_injection_container.dart';
-import '../../../../product/navigator/app_router.dart';
+import '../../../../product/init/navigator/app_router.dart';
 import '../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import '../bloc/onboarding_bloc.dart';
 import 'modules/smoking_info/smoking_info_page.dart';

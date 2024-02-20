@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../core/widgets/buttons/base_elevated_button.dart';
-import '../../../../../product/navigator/app_router.dart';
+import '../../../../../product/init/navigator/app_router.dart';
 import '../../../../../product/utils/constants/ui_constants/radius_const.dart';
 
 part 'counter_view_mixin.dart';

@@ -5,8 +5,8 @@ import 'core/init/config/system_init.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import 'product/init/injection_container/_injection_container.dart';
-import 'product/navigator/app_router.dart';
-import 'product/navigator/observer/app_route_observer.dart';
+import 'product/init/navigator/app_router.dart';
+import 'product/init/navigator/observer/app_route_observer.dart';
 import 'product/theme/dark/app_theme_dark.dart';
 import 'product/utils/constants/app/app_const.dart';
 

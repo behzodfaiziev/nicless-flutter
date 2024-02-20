@@ -12,7 +12,7 @@ import '../../../../../core/widgets/buttons/base_elevated_button.dart';
 import '../../../../../core/widgets/lottie/base_lottie.dart';
 import '../../../../../core/widgets/toast/custom_toast.dart';
 import '../../../../../product/init/injection_container/_injection_container.dart';
-import '../../../../../product/navigator/app_router.dart';
+import '../../../../../product/init/navigator/app_router.dart';
 import '../../../../../product/utils/constants/asset_paths/lottie_const.dart';
 import '../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../bluetooth/data/models/bluetooth_device_model.dart';

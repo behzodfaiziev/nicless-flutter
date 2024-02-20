@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/managers/print/print_dev_manager.dart';
+import '../../../../core/managers/print/print_dev_manager.dart';
+
 
 class AppRouteObserver extends AutoRouterObserver {
   final PrintDev printDev = PrintDev.instance;
