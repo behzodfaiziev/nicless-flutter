@@ -1,4 +1,4 @@
-## Nicless App
+# Nicless App
 ### Introduction
 Our project aims to revolutionize smoking cessation by offering a comprehensive mobile app integrated with hardware to help individuals track their smoking habits, set personalized goals, and receive support on their quit journey. By leveraging real-time data insights, interactive features, and community support, we strive to empower users to break free from smoking addiction and improve their overall health and well-being.
 
@@ -30,12 +30,11 @@ flutter run --debug
 4. Congratulations! You have successfully set up and run Nicless on your device. If you encounter any issues, don't hesitate to create an issue [here](https://github.com/behzodfaiziev/nicless-flutter/issues).
 
 
+## Hardware
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/37b57488-4151-44a7-b6f4-4342a370e79a"  width="200">
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/4d40d075-2f7c-4dc5-93db-dd1d2da8a287"  width="200">
+
 ## GDSC Solution Challenge 2024
 
-
-
-https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/2f28d629-4628-4e95-866d-03dfda60495d
-
-
-
+<video src='https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/2f28d629-4628-4e95-866d-03dfda60495d' width=360/></video>
 
