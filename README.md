@@ -34,6 +34,17 @@ flutter run --debug
 <img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/37b57488-4151-44a7-b6f4-4342a370e79a"  width="200">
 <img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/4d40d075-2f7c-4dc5-93db-dd1d2da8a287"  width="200">
 
+## Software
+The app follows the Clean Architecture pattern, separating the business logic from the UI layer for improved scalability and testability. It also uses BLoC (Business Logic Component) for state management, providing a robust and predictable way to manage the app's state
+#### Featured:
+- Clean Architecture
+- TDD (tests are not written, but Clean Architecture allows easily write tests)
+- Firebase: Authentication, Firestore, Analytics
+- [BLoC](https://pub.dev/packages/bloc)
+- [Bluetooth](https://pub.dev/packages/flutter_bluetooth_serial) 
+- Network manager inspired by [Vexana](https://pub.dev/packages/vexana)
+- [Google Maps (under development)](https://pub.dev/packages/google_maps_flutter)
+
 ## GDSC Solution Challenge 2024
 
 <video src='https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/2f28d629-4628-4e95-866d-03dfda60495d' width=360/></video>
