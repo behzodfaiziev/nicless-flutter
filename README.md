@@ -38,7 +38,6 @@ flutter run --debug
 The app follows the Clean Architecture pattern, separating the business logic from the UI layer for improved scalability and testability. It also uses BLoC (Business Logic Component) for state management, providing a robust and predictable way to manage the app's state
 #### Featured:
 - Clean Architecture
-- TDD (tests are not written, but Clean Architecture allows easily write tests)
 - Firebase: Authentication, Firestore, Analytics
 - [BLoC](https://pub.dev/packages/bloc)
 - [Bluetooth](https://pub.dev/packages/flutter_bluetooth_serial) 
