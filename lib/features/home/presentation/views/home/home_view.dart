@@ -4,9 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../core/widgets/app_bar/base_app_bar.dart';
+import '../../../../../core/widgets/buttons/base_svg_button.dart';
 import '../../../../../product/init/injection_container/_injection_container.dart';
 import '../../../../../product/init/navigator/app_router.dart';
 import '../../../../../product/utils/constants/app/app_const.dart';
+import '../../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../bloc/home/home_bloc.dart';
 import 'modules/smoking_list.dart';
 
@@ -26,7 +28,20 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
     return BlocProvider(
       create: (context) => bloc,
       child: Scaffold(
-        appBar: const BaseAppBar(title: AppConst.appName),
+        appBar: BaseAppBar(
+          title: AppConst.appName,
+          actions: [
+            Container(
+              margin: context.mainHorizontalPaddingRight2,
+              child: BaseSVGButton(
+                asset: SVGConst.instance.settings,
+                onPressed: () {
+                  context.push(const MapsRoute());
+                },
+              ),
+            )
+          ],
+        ),
         body: const SmokingList(),
         floatingActionButton: FloatingActionButton(
           onPressed: () => context.push(OnboardingRoute(isUserCreated: true)),
