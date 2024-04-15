@@ -21,12 +21,12 @@ void main() {
   });
 
   test(
-    'should call the [AuthRepo.]',
+    'should call the [AuthRepo.anonymousSignIn()] method'
+    ' and return [UserCredential] when successfull',
     () async {
       /// Arrange
       when(() => repository.anonymousSignIn())
           .thenAnswer((_) async => Right(mockUserCredential));
-
 
       /// act
       final Result<UserCredential> result = await usecase();
