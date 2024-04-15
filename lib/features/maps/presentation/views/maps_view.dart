@@ -4,6 +4,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../core/widgets/app_bar/base_app_bar.dart';
 import '../../../../core/widgets/maps/maps_widget.dart';
+import '../../../../product/utils/constants/maps/allowed_places/allowed_places.dart';
+import '../../../../product/utils/constants/maps/prohibited_places/prohibited_places.dart';
 import '../../../../product/widgets/button/pop_button.dart';
 
 part 'maps_view_mixin.dart';
@@ -25,6 +27,7 @@ class _MapsViewState extends State<MapsView> with MapsViewMixin {
         leading: PopButton(),
       ),
       body: MapsWidget(
+        polygons: {...ProhibitedPlaces.places, ...AllowedPlaces.places},
         initialCameraPosition: _cameraPosition,
       ),
     );

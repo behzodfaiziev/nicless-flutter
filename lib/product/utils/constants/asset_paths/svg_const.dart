@@ -25,5 +25,7 @@ class SVGConst {
 
   String get user => toSvg('user');
 
+  String get map => toSvg('map');
+
   /// Icons
 }
