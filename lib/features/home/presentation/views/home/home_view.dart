@@ -34,7 +34,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
             Container(
               margin: context.mainHorizontalPaddingRight2,
               child: BaseSVGButton(
-                asset: SVGConst.instance.settings,
+                asset: SVGConst.instance.map,
                 onPressed: () {
                   context.push(const MapsRoute());
                 },
