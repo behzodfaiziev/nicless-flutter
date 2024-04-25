@@ -14,7 +14,7 @@ class OnboardingRemoteDataSourceImpl extends OnboardingRemoteDataSource {
   @override
   Future<String> saveVapeData(VapeDataModel vapeData) async {
     final currentUser = await _network.currentUser();
-    if(currentUser == null) {
+    if (currentUser == null) {
       throw Exception('User not found');
     }
     final result = await _network.post(
