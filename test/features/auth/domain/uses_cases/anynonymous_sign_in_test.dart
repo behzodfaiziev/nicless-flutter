@@ -6,7 +6,7 @@ import 'package:nicless_flutter/core/utility/typedef.dart';
 import 'package:nicless_flutter/features/auth/domain/repos/auth_repo.dart';
 import 'package:nicless_flutter/features/auth/domain/use_cases/anonymous_sign_in.dart';
 
-class AuthRepoMock extends Mock implements AuthRepo {}
+import '../../../../mocks/repo_mocks.dart';
 
 class MockUserCredential extends Mock implements UserCredential {}
 
