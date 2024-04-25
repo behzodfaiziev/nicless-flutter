@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nicless_flutter/core/utility/typedef.dart';
 import 'package:nicless_flutter/features/auth/domain/repos/auth_repo.dart';
-import 'package:nicless_flutter/features/auth/domain/use_cases/check_is_authenticated.dart';
 import 'package:nicless_flutter/features/auth/domain/use_cases/sign_out.dart';
 
 import '../../../../mocks/repo_mocks.dart';
