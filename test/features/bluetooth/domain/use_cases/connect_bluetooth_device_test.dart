@@ -1,11 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nicless_flutter/core/utility/typedef.dart';
-import 'package:nicless_flutter/features/auth/domain/repos/auth_repo.dart';
-import 'package:nicless_flutter/features/auth/domain/use_cases/check_is_authenticated.dart';
 import 'package:nicless_flutter/features/bluetooth/data/models/bluetooth_device_model.dart';
 import 'package:nicless_flutter/features/bluetooth/domain/repo/bluetooth_repo.dart';
 import 'package:nicless_flutter/features/bluetooth/domain/use_cases/connect_bluetooth_device.dart';
