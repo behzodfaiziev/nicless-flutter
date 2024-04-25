@@ -35,14 +35,14 @@ void main() {
       );
 
       when(() => repository.saveVapeData(vapeData))
-          .thenAnswer((_) async => Right(resultId));
+          .thenAnswer((_) async => const Right(resultId));
 
       /// act
       final Result<String> result = await useCase(vapeData);
 
       /// assert
       expect(result,
-          equals(Right<dynamic, String>(resultId)));
+          equals(const Right<dynamic, String>(resultId)));
 
       verify(() => repository.saveVapeData(vapeData)).called(1);
 
