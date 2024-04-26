@@ -31,7 +31,7 @@ mixin MainViewMixin on State<MainView> {
           color:
               _getIconColor(context, activeIndex, MainViewTab.statistics.index),
         ),
-        label: 'Statistics',
+        label: 'Ranking',
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
