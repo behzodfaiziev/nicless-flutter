@@ -8,7 +8,6 @@ analyzer:
 
 linter:
   rules:
-    # FALSE
     always_declare_return_types: true
     always_use_package_imports: false
     sort_pub_dependencies: false
@@ -17,15 +16,17 @@ linter:
     always_specify_types: false
     eol_at_end_of_file: false
     prefer_constructors_over_static_methods: false
-    require_trailing_commas: false
-    sort_constructors_first: false
-    no_default_cases: false
-    avoid_redundant_argument_values: false
-    avoid_bool_literals_in_conditional_expressions: false
+    require_trailing_commas: true
+    sort_constructors_first: true
+
     prefer_relative_imports: true
-    depend_on_referenced_packages: false
-    overridden_fields: false
-    one_member_abstracts: false
-    flutter_style_todos: false
-    # TRUE
+    no_default_cases: true
+    avoid_redundant_argument_values: true
+    avoid_bool_literals_in_conditional_expressions: true
+    depend_on_referenced_packages: true
+    use_setters_to_change_properties: true
+    flutter_style_todos: true
     avoid_positional_boolean_parameters: true
+
+    one_member_abstracts: false
+    avoid_setters_without_getters: false
