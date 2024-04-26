@@ -13,7 +13,7 @@ import '../../../features/home/presentation/views/home/home_view.dart';
 import '../../../features/maps/presentation/views/maps_view.dart';
 import '../../../features/onboard/presentation/views/onboarding_view.dart';
 import '../../../features/profile/presentation/views/profile_view.dart';
-import '../../../features/statistics/presentation/views/statistics_view.dart';
+import '../../../features/ranking/presentation/views/ranking_view.dart';
 
 part 'app_router.gr.dart';
 

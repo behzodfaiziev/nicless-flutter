@@ -3,15 +3,10 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/app_bar/base_app_bar.dart';
 import '../../../../core/widgets/buttons/base_svg_button.dart';
-import '../../../../product/enums/views/statistics_tabs_enum.dart';
 import '../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../../product/utils/constants/ui_constants/padding_const.dart';
-import 'modules/tab_bars/statistics_tab_bars.dart';
-import 'modules/tabs/monthly_stats_tab.dart';
-import 'modules/tabs/weekly_stats_tab.dart';
-import 'modules/tabs/yearly_stats_tab.dart';
 
-part 'statistics_view_mixin.dart';
+part 'ranking_view_mixin.dart';
 
 @RoutePage()
 class StatisticsView extends StatefulWidget {
@@ -25,12 +20,7 @@ class _StatisticsViewState extends State<StatisticsView>
     with StatisticsMixin, SingleTickerProviderStateMixin {
   @override
   void initState() {
-    _tabController = TabController(length: 3, vsync: this)
-      ..addListener(() {
-        if (_tabController.indexIsChanging == true) {
-          switchTab(StatisticsTabsEnum.values[_tabController.index]);
-        }
-      });
+    _tabController = TabController(length: 3, vsync: this);
     super.initState();
   }
 
@@ -38,7 +28,7 @@ class _StatisticsViewState extends State<StatisticsView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseAppBar(
-        title: 'Statistics',
+        title: 'Ranking',
         actions: [
           Padding(
             padding: PaddingConst.right12,
@@ -49,24 +39,8 @@ class _StatisticsViewState extends State<StatisticsView>
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: PaddingConst.top12,
-            child: StatisticsTabBars(tabController: _tabController),
-          ),
-          Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: const [
-                WeeklyStatsBar(),
-                MonthlyStatsTab(),
-                YearlyStatsTab(),
-              ],
-            ),
-          ),
-        ],
+      body: const Column(
+        children: [],
       ),
     );
   }
