@@ -21,7 +21,6 @@ class ConnectBluetoothPage extends StatelessWidget {
     return Column(
       children: [
         const Expanded(
-          flex: 1,
           child: TopTitle(
             title: 'Connect Your \n Bluetooth Device',
             mainAxisAlignment: MainAxisAlignment.end,
@@ -57,7 +56,7 @@ class ConnectBluetoothPage extends StatelessWidget {
                         onPressed: () {
                           context.read<BluetoothBloc>().add(
                               ConnectBluetoothDeviceEvent(
-                                  device: state.devices[index]));
+                                  device: state.devices[index],),);
                         },
                       );
                     },
@@ -88,6 +87,6 @@ class ConnectBluetoothPage extends StatelessWidget {
                 smokingInfoPageParams.nicotineEditingController.text.trim(),
             bluetoothData: device,
           ),
-        ));
+        ),);
   }
 }

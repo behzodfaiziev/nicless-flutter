@@ -21,7 +21,6 @@ class _ProgressCard extends StatelessWidget {
             color: context.colorScheme.secondary,
             blurRadius: 2,
             spreadRadius: 0.1,
-            offset: Offset.zero,
           ),
         ],
       ),

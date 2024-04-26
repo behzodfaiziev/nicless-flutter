@@ -40,6 +40,7 @@ dependencies:
   intl: ^0.18.1
   dartz: ^0.10.1
   get_it: ^7.6.7
+  auto_route: ^7.9.2
 
   # Database
   hive: ^2.2.3

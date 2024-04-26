@@ -17,15 +17,15 @@ class HiveEncryption {
     if (_encryptionKey != null) return _encryptionKey!;
 
     final encryptionKeyString = await primitiveDatabase.read<String>(
-        key: PrimitiveDatabaseKeys.securedDatabaseKey);
+        key: PrimitiveDatabaseKeys.securedDatabaseKey,);
     if (encryptionKeyString == null) {
       final key = Hive.generateSecureKey();
       await primitiveDatabase.write<String>(
           key: PrimitiveDatabaseKeys.securedDatabaseKey,
-          value: base64Url.encode(key));
+          value: base64Url.encode(key),);
     }
     final key = await primitiveDatabase.read<String>(
-        key: PrimitiveDatabaseKeys.securedDatabaseKey);
+        key: PrimitiveDatabaseKeys.securedDatabaseKey,);
 
     if (key == null) throw Exception('key is null');
 

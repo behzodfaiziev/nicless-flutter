@@ -1,11 +1,11 @@
 class ImagesConst {
+
+  ImagesConst._init();
   static ImagesConst? _instance;
 
   static ImagesConst get instance {
     return _instance ??= ImagesConst._init();
   }
-
-  ImagesConst._init();
 
   String image(String name) => 'assets/images/$name.png';
 

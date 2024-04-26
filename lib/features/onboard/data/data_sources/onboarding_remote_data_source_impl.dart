@@ -5,11 +5,11 @@ import '../../../../product/models/vape_data_model.dart';
 import 'onboarding_remote_data_source.dart';
 
 class OnboardingRemoteDataSourceImpl extends OnboardingRemoteDataSource {
-  final INetworkManager<ErrorModelCustom> _network;
 
   OnboardingRemoteDataSourceImpl(
-      {required INetworkManager<ErrorModelCustom> network})
+      {required INetworkManager<ErrorModelCustom> network,})
       : _network = network;
+  final INetworkManager<ErrorModelCustom> _network;
 
   @override
   Future<String> saveVapeData(VapeDataModel vapeData) async {
@@ -23,7 +23,7 @@ class OnboardingRemoteDataSourceImpl extends OnboardingRemoteDataSource {
           docId: currentUser.uid,
           path2: 'vapeData',
         ),
-        body: vapeData.toJson());
+        body: vapeData.toJson(),);
     return result.id;
   }
 }

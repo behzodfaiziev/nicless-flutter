@@ -40,7 +40,7 @@ void main() {
 
       /// assert
       expect(
-          result, equals(Right<dynamic, BluetoothConnection>(newConnection)));
+          result, equals(Right<dynamic, BluetoothConnection>(newConnection)),);
 
       verify(() => repository.connectBluetoothDevice(params)).called(1);
 

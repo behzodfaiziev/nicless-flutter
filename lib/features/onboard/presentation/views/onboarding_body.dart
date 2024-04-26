@@ -39,7 +39,7 @@ class OnboardingBody extends StatelessWidget {
                     await onPopButtonPressed(context);
                   },
                 ),
-              )),
+              ),),
               Expanded(
                 flex: 12,
                 child: PageView(
@@ -50,7 +50,7 @@ class OnboardingBody extends StatelessWidget {
                     const SmokingTypePage(),
                     SmokingInfoPage(params: smokingInfoPageParams),
                     ConnectBluetoothPage(
-                        smokingInfoPageParams: smokingInfoPageParams),
+                        smokingInfoPageParams: smokingInfoPageParams,),
                   ],
                 ),
               ),
@@ -73,14 +73,13 @@ class OnboardingBody extends StatelessWidget {
                         }
 
                         return const BaseElevatedButton(
-                          onPressed: null,
                           child: Text('Next'),
                         );
                       },
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -96,6 +95,6 @@ class OnboardingBody extends StatelessWidget {
     context.read<OnboardingBloc>().add(const BackButtonPressed());
 
     await pageController.previousPage(
-        duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+        duration: const Duration(milliseconds: 500), curve: Curves.easeIn,);
   }
 }

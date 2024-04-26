@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/use_cases/anonymous_sign_in.dart';
 import '../../domain/use_cases/check_is_authenticated.dart';
@@ -29,7 +29,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final SignOut _signOut;
 
   Future<void> _checkIsAuthenticatedHandler(
-      IsAuthenticated event, Emitter<AuthState> emit) async {
+      IsAuthenticated event, Emitter<AuthState> emit,) async {
     final result = await _checkIsAuthenticated();
     result.fold(
       (failure) => emit(AuthError(message: failure.message)),
@@ -39,7 +39,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> _signInAnonymouslyHandler(
-      SignInAnonymously event, Emitter<AuthState> emit) async {
+      SignInAnonymously event, Emitter<AuthState> emit,) async {
     emit(const AuthLoading());
     final result = await _anonymousSignIn();
     result.fold(
@@ -50,7 +50,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> _signOutHandler(
-      SignOutEvent event, Emitter<AuthState> emit) async {
+      SignOutEvent event, Emitter<AuthState> emit,) async {
     final result = await _signOut();
     result.fold(
       (failure) => emit(AuthError(message: 'Error: ${failure.message}')),

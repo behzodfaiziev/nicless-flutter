@@ -58,8 +58,6 @@ class _BaseViewState<B extends Bloc<dynamic, dynamic>>
         return;
       case AppLifecycleState.hidden:
         return;
-      default:
-        return;
     }
   }
 

@@ -18,7 +18,7 @@ class BluetoothManager extends IBluetoothManager {
     await permissionManager.getPermission(permission: Permission.bluetooth);
     await permissionManager.getPermission(permission: Permission.bluetoothScan);
     await permissionManager.getPermission(
-        permission: Permission.bluetoothConnect);
+        permission: Permission.bluetoothConnect,);
 
     final List<BluetoothDevice> boundedDevicesList =
         await FlutterBluetoothSerial.instance.getBondedDevices();
@@ -29,7 +29,7 @@ class BluetoothManager extends IBluetoothManager {
         name: device.name,
         isConnected: device.isConnected,
       );
-    }));
+    }),);
     return boundedDevices;
   }
 

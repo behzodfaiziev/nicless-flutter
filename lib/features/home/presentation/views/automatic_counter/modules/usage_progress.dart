@@ -28,7 +28,7 @@ class _UsageProgress extends StatelessWidget {
               text,
               style: context.primaryTextTheme.headlineSmall,
             ),
-          )
+          ),
         ],
       ),
     );

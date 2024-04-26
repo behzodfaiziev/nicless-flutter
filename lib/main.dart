@@ -31,19 +31,18 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: AppConst.appName,
-          themeMode: ThemeMode.system,
           theme: AppThemeDark().theme,
           darkTheme: AppThemeDark().theme,
           routeInformationParser: _appRouter.defaultRouteParser(),
           routerDelegate: _appRouter.delegate(
               navigatorObservers: () =>
-                  <NavigatorObserver>[AppRouteObserver()]),
+                  <NavigatorObserver>[AppRouteObserver()],),
           builder: (context, child) {
             return MediaQuery(
                 data: MediaQuery.of(context)
                     .copyWith(textScaler: TextScaler.noScaling),
-                child: child!);
-          }),
+                child: child!,);
+          },),
     );
   }
 }

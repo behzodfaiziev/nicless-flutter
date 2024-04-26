@@ -45,7 +45,7 @@ void main() {
 
       /// assert
       expect(result,
-          equals(const Right<dynamic, List<BluetoothDeviceModel>>(devices)));
+          equals(const Right<dynamic, List<BluetoothDeviceModel>>(devices)),);
 
       verify(() => repository.getBluetoothDevices()).called(1);
 

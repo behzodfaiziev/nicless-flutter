@@ -4,11 +4,13 @@ Future<void> _bluetoothContainer() async {
   sl
 
     /// OnBoarding Bloc
-    ..registerFactory(() => BluetoothBloc(
-          getBluetoothDevices: sl(),
-          connectBluetoothDevice: sl(),
-          disconnectBluetoothDevice: sl(),
-        ))
+    ..registerFactory(
+      () => BluetoothBloc(
+        getBluetoothDevices: sl(),
+        connectBluetoothDevice: sl(),
+        disconnectBluetoothDevice: sl(),
+      ),
+    )
 
     // /// Use Cases
     ..registerLazySingleton(() => GetBluetoothDevices(sl()))

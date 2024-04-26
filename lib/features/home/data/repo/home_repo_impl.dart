@@ -7,11 +7,11 @@ import '../../domain/repo/home_repo.dart';
 import '../data_sources/home_remote_data_source.dart';
 
 class HomeRepoImpl implements HomeRepo {
-  final HomeRemoteDataSource _remoteDataSource;
 
   HomeRepoImpl({
     required HomeRemoteDataSource remoteDataSource,
   }) : _remoteDataSource = remoteDataSource;
+  final HomeRemoteDataSource _remoteDataSource;
 
   @override
   ResultFuture<List<VapeDataModel>> fetchDevices() async {

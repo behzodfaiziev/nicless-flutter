@@ -27,7 +27,7 @@ class BluetoothRepoImpl implements BluetoothRepo {
 
   @override
   ResultFuture<BluetoothConnection> connectBluetoothDevice(
-      BluetoothDeviceModel device) async {
+      BluetoothDeviceModel device,) async {
     try {
       final BluetoothConnection dataStream =
           await bluetoothManager.connectBl(device.address);
@@ -40,7 +40,7 @@ class BluetoothRepoImpl implements BluetoothRepo {
 
   @override
   ResultFuture<void> disconnectBluetoothDevice(
-      BluetoothConnection device) async {
+      BluetoothConnection device,) async {
     try {
       await bluetoothManager.disconnectBl(device);
       return const Right(null);

@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../product/models/vape_data_model.dart';
 import '../../domain/use_cases/save_vape_data.dart';
@@ -34,56 +34,85 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   bool get isVapeDataEntered => _isVapeDataEntered;
 
   void _onNextButtonPressedHandler(
-      NextButtonPressed event, Emitter<OnboardingState> emit) {
+    NextButtonPressed event,
+    Emitter<OnboardingState> emit,
+  ) {
     _currentIndex++;
-    emit(OnNextButtonTriggered(
-      index: _currentIndex,
-      isEnabled: false,
-      isLastPage: _currentIndex == 2,
-    ));
+    emit(
+      OnNextButtonTriggered(
+        index: _currentIndex,
+        isEnabled: false,
+        isLastPage: _currentIndex == 2,
+      ),
+    );
   }
 
   void _onBackButtonPressedHandler(
-      BackButtonPressed event, Emitter<OnboardingState> emit) {
+    BackButtonPressed event,
+    Emitter<OnboardingState> emit,
+  ) {
     _currentIndex--;
-    emit(OnNextButtonTriggered(
-      index: _currentIndex,
-      isEnabled: true,
-      isLastPage: false,
-    ));
+    emit(
+      OnNextButtonTriggered(
+        index: _currentIndex,
+        isEnabled: true,
+        isLastPage: false,
+      ),
+    );
   }
 
   void _onSmokingTypeAddedHandler(
-      SmokingTypeAdded event, Emitter<OnboardingState> emit) {
+    SmokingTypeAdded event,
+    Emitter<OnboardingState> emit,
+  ) {
     _smokingTypes.add(event.smokingType);
 
-    emit(OnNextButtonTriggered(
-        isEnabled: true, index: _currentIndex, isLastPage: false));
+    emit(
+      OnNextButtonTriggered(
+        isEnabled: true,
+        index: _currentIndex,
+        isLastPage: false,
+      ),
+    );
   }
 
   void _onSmokingTypeRemovedHandler(
-      SmokingTypeRemoved event, Emitter<OnboardingState> emit) {
+    SmokingTypeRemoved event,
+    Emitter<OnboardingState> emit,
+  ) {
     _smokingTypes.remove(event.smokingType);
 
     if (_smokingTypes.isEmpty) {
-      emit(OnNextButtonTriggered(
-          index: _currentIndex, isEnabled: false, isLastPage: false));
+      emit(
+        OnNextButtonTriggered(
+          index: _currentIndex,
+          isEnabled: false,
+          isLastPage: false,
+        ),
+      );
     }
   }
 
   void _onSmokingDeviceHasBluetoothHandler(
-      SmokingDeviceHasBluetooth event, Emitter<OnboardingState> emit) {
+    SmokingDeviceHasBluetooth event,
+    Emitter<OnboardingState> emit,
+  ) {
     _hasBluetooth = event.hasBluetooth;
 
     emit(OnSmokingDeviceHasBluetooth(hasBluetooth: _hasBluetooth));
-    emit(OnNextButtonTriggered(
+    emit(
+      OnNextButtonTriggered(
         index: _currentIndex,
-        isEnabled: _isVapeDataEntered || _hasBluetooth ? true : false,
-        isLastPage: _hasBluetooth ? false : true));
+        isEnabled: _isVapeDataEntered || _hasBluetooth,
+        isLastPage: !_hasBluetooth,
+      ),
+    );
   }
 
   Future<void> _onSaveVapeDataHandler(
-      SaveVapeDataEvent event, Emitter<OnboardingState> emit) async {
+    SaveVapeDataEvent event,
+    Emitter<OnboardingState> emit,
+  ) async {
     final result = await _saveVapeData(event.vapeData);
 
     result.fold(

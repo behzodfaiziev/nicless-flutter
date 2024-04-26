@@ -9,7 +9,9 @@ mixin MainViewMixin on State<MainView> {
   ];
 
   List<BottomNavigationBarItem> _bottomBarItems(
-      BuildContext context, int activeIndex) {
+    BuildContext context,
+    int activeIndex,
+  ) {
     return [
       BottomNavigationBarItem(
         icon: BaseSvgAsset(

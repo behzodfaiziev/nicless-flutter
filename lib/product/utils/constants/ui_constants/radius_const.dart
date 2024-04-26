@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class RadiusConst {
   static BorderRadius bottomNavBar = const BorderRadius.only(
-      topLeft: Radius.circular(14), topRight: Radius.circular(14));
+    topLeft: Radius.circular(14),
+    topRight: Radius.circular(14),
+  );
   static BorderRadius listTile = BorderRadius.circular(16);
   static BorderRadius gridTile = BorderRadius.circular(8);
 
@@ -68,9 +70,9 @@ enum RadiusConstEnum {
   /// 50
   extraLargest(50);
 
-  final double value;
-
   const RadiusConstEnum(this.value);
+
+  final double value;
 
   Radius get all => Radius.circular(value);
 

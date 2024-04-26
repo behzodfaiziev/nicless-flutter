@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../product/models/vape_data_model.dart';
 import '../../../domain/use_cases/fetch_devices.dart';
@@ -20,7 +20,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final FetchDevices _fetchDevices;
 
   Future<void> _fetchDevicesHandler(
-      FetchDevicesEvent event, Emitter<HomeState> emit) async {
+      FetchDevicesEvent event, Emitter<HomeState> emit,) async {
     emit(HomeLoading());
 
     final result = await _fetchDevices();
@@ -32,7 +32,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> _connectToDeviceHandler(
-      ConnectToDeviceEvent event, Emitter<HomeState> emit) async {
+      ConnectToDeviceEvent event, Emitter<HomeState> emit,) async {
     emit(HomeLoading());
 
 

@@ -35,7 +35,7 @@ mixin HiveManagerMixin<T> on BaseHiveManagerMixin {
     }
 
     _box = await Hive.openBox<T>(_key,
-        encryptionCipher: HiveAesCipher(encryptionKey));
+        encryptionCipher: HiveAesCipher(encryptionKey),);
   }
 
   /// the clear function is used to clear the box

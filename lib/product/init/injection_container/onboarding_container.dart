@@ -11,9 +11,11 @@ Future<void> _onBoardingContainer() async {
 
     /// Repositories
     ..registerLazySingleton<OnboardingRepo>(
-        () => OnboardingRepoImpl(remoteDataSource: sl()))
+      () => OnboardingRepoImpl(remoteDataSource: sl()),
+    )
 
     /// Data Sources
     ..registerLazySingleton<OnboardingRemoteDataSource>(
-        () => OnboardingRemoteDataSourceImpl(network: sl()));
+      () => OnboardingRemoteDataSourceImpl(network: sl()),
+    );
 }

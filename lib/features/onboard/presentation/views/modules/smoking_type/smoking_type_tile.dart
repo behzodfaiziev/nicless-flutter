@@ -63,6 +63,6 @@ class SmokingTypeTile extends StatelessWidget {
             blurRadius: 2,
             offset: const Offset(0, 2),
           ),
-        ]);
+        ],);
   }
 }

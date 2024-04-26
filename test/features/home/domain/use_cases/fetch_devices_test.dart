@@ -49,7 +49,7 @@ void main() {
 
       /// assert
       expect(result,
-          equals(Right<dynamic, List<VapeDataModel>>(bluetoothDevices)));
+          equals(Right<dynamic, List<VapeDataModel>>(bluetoothDevices)),);
 
       verify(() => repository.fetchDevices()).called(1);
 

@@ -4,12 +4,12 @@ import 'package:flutter/foundation.dart';
 import '../../enums/app/platform_os_enum.dart';
 
 class AppConfig {
+
+  AppConfig._();
   /// It is created to make tests easier to execute
   /// Use it instead of Platform.isAndroid to be able to
   /// where this getter is used
   bool isAndroid = true;
-
-  AppConfig._();
 
   static AppConfig? _instance;
 

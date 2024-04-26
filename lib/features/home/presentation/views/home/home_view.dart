@@ -39,7 +39,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
                   context.push(const MapsRoute());
                 },
               ),
-            )
+            ),
           ],
         ),
         body: const SmokingList(),

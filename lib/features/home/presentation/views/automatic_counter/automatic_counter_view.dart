@@ -79,12 +79,12 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
                 child: Center(
                   child: BaseLottie(
                       assetPath: LottieConst.instance.lungs,
-                      controller: animationController),
+                      controller: animationController,),
                 ),
               ),
               const Expanded(
                   flex: 5,
-                  child: _TotalAmountOfUsage(maxPuffs: 10, maxSeconds: 60)),
+                  child: _TotalAmountOfUsage(maxPuffs: 10, maxSeconds: 60),),
               Expanded(
                 flex: 3,
                 child: Center(
@@ -97,7 +97,7 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
                         }
                         if (state is BluetoothDeviceFailedToConnect) {
                           CustomToast.errorToast(
-                              context, 'Failed to disconnect!');
+                              context, 'Failed to disconnect!',);
                         }
                       },
                       child: BaseElevatedButton(
@@ -109,14 +109,14 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
                           context.read<BluetoothBloc>().add(
                                 BluetoothDisconnectEvent(
                                     connection: widget.connection!,
-                                    device: widget.device!),
+                                    device: widget.device!,),
                               );
                         },
                       ),
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

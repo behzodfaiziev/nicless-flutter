@@ -33,7 +33,7 @@ void main() {
 
       /// assert
       expect(
-          result, equals(Right<dynamic, UserCredential>(mockUserCredential)));
+          result, equals(Right<dynamic, UserCredential>(mockUserCredential)),);
 
       verify(() => repository.anonymousSignIn()).called(1);
 

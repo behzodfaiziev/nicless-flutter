@@ -8,36 +8,36 @@ class PermissionManager extends IPermissionManager {
 
   @override
   Future<PermissionResultModel> getCameraPermission(
-      {void Function()? onPermanentlyDenied}) async {
+      {void Function()? onPermanentlyDenied,}) async {
     return getPermission(permission: Permission.camera);
   }
 
   @override
   Future<PermissionResultModel> getStoragePermission(
-      {void Function()? onPermanentlyDenied}) async {
+      {void Function()? onPermanentlyDenied,}) async {
     return getPermission(permission: Permission.storage);
   }
 
   @override
   Future<PermissionResultModel> getNotificationPermission(
-      {void Function()? onPermanentlyDenied}) async {
+      {void Function()? onPermanentlyDenied,}) async {
     return getPermission(permission: Permission.notification);
   }
 
   @override
   Future<PermissionResultModel> getPhotosPermission(
-      {void Function()? onPermanentlyDenied}) async {
+      {void Function()? onPermanentlyDenied,}) async {
     return getPermission(permission: Permission.photos);
   }
 
   @override
   Future<PermissionResultModel> getAppTrackingTransparency(
-      {void Function()? onPermanentlyDenied}) async {
+      {void Function()? onPermanentlyDenied,}) async {
     return getPermission(permission: Permission.appTrackingTransparency);
   }
 
   Future<PermissionResultModel> getPermission(
-      {required Permission permission}) async {
+      {required Permission permission,}) async {
     try {
       // if (kIsWeb && kDebugMode) {
       //   return PermissionResultModel(isGranted: true);
@@ -56,7 +56,7 @@ class PermissionManager extends IPermissionManager {
 
       if (permissionStatus.isPermanentlyDenied) {
         return PermissionResultModel(
-            isGranted: false, isPermanentlyDenied: true);
+            isGranted: false, isPermanentlyDenied: true,);
       }
       if (permissionStatus.isDenied ||
           permissionStatus.isRestricted ||

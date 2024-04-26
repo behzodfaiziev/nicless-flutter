@@ -1,7 +1,9 @@
 import 'i_network_model.dart';
 
 abstract class IErrorModel<T extends INetworkModel<T>?> {
-  int? statusCode;
-  String? description;
-  T? model;
+  const IErrorModel({this.statusCode, this.description, this.model});
+
+  final int? statusCode;
+  final String? description;
+  final T? model;
 }

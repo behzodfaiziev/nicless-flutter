@@ -13,9 +13,9 @@ import 'models/error_model.dart';
 import 'models/response_model.dart';
 
 class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
-  static const String id = 'id';
 
   NetworkManager();
+  static const String id = 'id';
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -159,7 +159,7 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
   ) {
     Query<Object?> query = queryParameters.isDescending
         ? collectionReference.orderBy(queryParameters.orderBy!,
-            descending: queryParameters.isDescending)
+            descending: queryParameters.isDescending,)
         : collectionReference.orderBy(queryParameters.orderBy!);
 
     if (queryParameters.orderBy != null) {
@@ -171,12 +171,12 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
     if (queryParameters.whereField != null &&
         queryParameters.whereIsEqualTo != null) {
       query = query.where(queryParameters.whereField!,
-          isEqualTo: queryParameters.whereIsEqualTo);
+          isEqualTo: queryParameters.whereIsEqualTo,);
     }
     if (queryParameters.whereField2 != null &&
         queryParameters.whereIsEqualTo2 != null) {
       query = query.where(queryParameters.whereField2!,
-          isEqualTo: queryParameters.whereIsEqualTo2);
+          isEqualTo: queryParameters.whereIsEqualTo2,);
     }
     return query;
   }
@@ -191,7 +191,7 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
   }
 
   R? _parseBody<R, T extends INetworkModel<T>>(dynamic responseBody, T model,
-      [bool isLoggerEnabled = false]) {
+      [bool isLoggerEnabled = false,]) {
     try {
       if (responseBody is List<QueryDocumentSnapshot<Object?>>?) {
         final List<Map<String, dynamic>?>? mappedList =
@@ -232,9 +232,9 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
   ResponseModel<R, E> _onError<R>(Object e) {
     final errorResponse = e.toString();
     debugPrint(errorResponse);
-    final error = ErrorModel<E>(description: errorResponse, statusCode: null);
+    final error = ErrorModel<E>(description: errorResponse);
     return ResponseModel<R, E>(
         error: ErrorModel<E>(
-            description: error.description, statusCode: error.statusCode));
+            description: error.description, statusCode: error.statusCode,),);
   }
 }

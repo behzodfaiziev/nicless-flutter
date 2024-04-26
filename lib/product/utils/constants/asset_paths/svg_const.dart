@@ -1,11 +1,11 @@
 class SVGConst {
+
+  SVGConst._init();
   static SVGConst? _instance;
 
   static SVGConst get instance {
     return _instance ??= SVGConst._init();
   }
-
-  SVGConst._init();
 
   String toSvg(String name) => 'assets/icons/svg/$name.svg';
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../product/utils/constants/ui_constants/padding_const.dart';
 
 typedef ImageErrorWidgetBuilder = Widget Function(
-    BuildContext context, Object error, StackTrace? stackTrace);
+    BuildContext context, Object error, StackTrace? stackTrace,);
 
 class BaseNetworkImage extends StatelessWidget {
   const BaseNetworkImage(
