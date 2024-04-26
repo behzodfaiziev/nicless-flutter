@@ -44,9 +44,8 @@ class AppConst {
   static const String cigarette = 'cigarette';
   static const String vape = 'vape';
   static const String tempProfileName = 'Behzod Faiziev';
-  static const String tempProfileNickname = 'BBilllionaire';
-  static const String tempProfileUrl =
-      'https://github-production-user-asset-6210df.s3.amazonaws.com/63793311/292779296-4f2333c8-bd79-46b0-83a0-9aa241996d38.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231225%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231225T211111Z&X-Amz-Expires=300&X-Amz-Signature=173257c64093fbd0ad60a985910fe2bc8bb27c25e0a2fb528709fd07f6bd2d61&X-Amz-SignedHeaders=host&actor_id=63793311&key_id=0&repo_id=364339735';
+  static const String tempProfileNickname = 'behzod.faiziev';
+  static const String tempProfileUrl = 'https://i.pravatar.cc/150?img=2%27';
 }
 
 double kZero = 0;

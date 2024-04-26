@@ -13,7 +13,7 @@ import '../../../features/home/presentation/views/home/home_view.dart';
 import '../../../features/maps/presentation/views/maps_view.dart';
 import '../../../features/onboard/presentation/views/onboarding_view.dart';
 import '../../../features/profile/presentation/views/profile_view.dart';
-import '../../../features/statistics/presentation/views/statistics_view.dart';
+import '../../../features/rating/presentation/views/rating_view.dart';
 
 part 'app_router.gr.dart';
 
@@ -34,7 +34,7 @@ class AppRouter extends _$AppRouter {
           children: [
             AutoRoute(page: HomeRoute.page),
             AutoRoute(page: HealthRoute.page),
-            AutoRoute(page: StatisticsRoute.page),
+            AutoRoute(page: RatingRoute.page),
             AutoRoute(page: ProfileRoute.page),
           ],
         ),

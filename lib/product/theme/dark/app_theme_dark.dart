@@ -16,7 +16,7 @@ class AppThemeDark {
           background: AppColors.backgroundDark,
           error: AppColors.errorDark,
           onPrimary: Colors.white,
-          onSecondary: Colors.black,
+          onSecondary: AppColors.secondaryTextColor,
         ),
         appBarTheme: appBarTheme(),
         bottomNavigationBarTheme: bottomNavigationBarThemeData(),

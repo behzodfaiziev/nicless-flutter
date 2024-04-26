@@ -8,12 +8,14 @@ class MonthlyStatsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children:  [
-        const UsageTimeChartLine(),
-        const UsageAmountCharBar(),
-        Container(height: 300)
-      ],
+    return const SingleChildScrollView(
+      physics: NeverScrollableScrollPhysics(),
+      child: Column(
+        children: [
+          UsageTimeChartLine(),
+          UsageAmountCharBar(),
+        ],
+      ),
     );
   }
 }

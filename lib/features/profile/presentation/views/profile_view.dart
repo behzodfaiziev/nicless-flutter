@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/context_extension.dart';
 import '../../../../core/widgets/buttons/base_svg_button.dart';
+import '../../../../product/enums/views/statistics_tabs_enum.dart';
 import '../../../../product/utils/constants/app/app_const.dart';
 import '../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../../product/utils/constants/ui_constants/padding_const.dart';
+import 'tab_bars/statistics_tab_bars.dart';
+import 'tab_bars/tabs/monthly_stats_tab.dart';
+import 'tab_bars/tabs/weekly_stats_tab.dart';
+import 'tab_bars/tabs/yearly_stats_tab.dart';
 
 part 'profile_view_mixin.dart';
 
@@ -17,31 +22,67 @@ class ProfileView extends StatefulWidget {
   State<ProfileView> createState() => _ProfileViewState();
 }
 
-class _ProfileViewState extends State<ProfileView> with ProfileViewMixin {
+class _ProfileViewState extends State<ProfileView>
+    with ProfileViewMixin, SingleTickerProviderStateMixin {
+  @override
+  void initState() {
+    _tabController = TabController(length: 3, vsync: this)
+      ..addListener(() {
+        if (_tabController.indexIsChanging == true) {
+          switchTab(StatisticsTabsEnum.values[_tabController.index]);
+        }
+      });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            buildTopAvatar(context),
-            Padding(
-              padding: PaddingConst.vertical24,
-              child: Column(
-                children: [
-                  Text(
-                    AppConst.tempProfileName,
-                    style: context.textTheme.displaySmall,
-                  ),
-                  Text(
-                    AppConst.tempProfileNickname,
-                    style: context.textTheme.titleMedium,
-                  ),
+        body: CustomScrollView(
+          // Add this
+          slivers: [
+            SliverToBoxAdapter(child: buildTopAvatar(context)),
+            SliverToBoxAdapter(child: nameNicknameText(context)),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: PaddingConst.top12,
+                child: StatisticsTabBars(tabController: _tabController),
+              ),
+            ),
+            SliverFillRemaining(
+              child: TabBarView(
+                controller: _tabController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: const [
+                  WeeklyStatsBar(),
+                  MonthlyStatsTab(),
+                  YearlyStatsTab(),
                 ],
               ),
-            )
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget nameNicknameText(BuildContext context) {
+    return Padding(
+      padding: PaddingConst.vertical24,
+      child: Column(
+        children: [
+          Text(
+            AppConst.tempProfileName,
+            style: context.textTheme.titleLarge,
+          ),
+          Text(
+            AppConst.tempProfileNickname,
+            style: context.textTheme.titleMedium?.copyWith(
+              color: context.colorScheme.onSecondary,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -53,10 +94,7 @@ class _ProfileViewState extends State<ProfileView> with ProfileViewMixin {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            margin: context.mainHorizontalPaddingLeft,
-            width: 30,
-          ),
+          Container(margin: context.mainHorizontalPaddingLeft, width: 30),
           Padding(
             padding: PaddingConst.top12,
             child: CircleAvatar(
