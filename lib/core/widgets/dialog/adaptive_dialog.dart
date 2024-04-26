@@ -26,7 +26,7 @@ class AdaptiveDialog extends IAdaptiveDialog {
       required String confirmText,
       required void Function({bool isConfirm}) onPressed,
       String? cancelText,
-      Color? barrierColor}) async {
+      Color? barrierColor,}) async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false,

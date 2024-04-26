@@ -19,14 +19,13 @@ class SmokingInfoPage extends StatelessWidget {
         const Expanded(
           child: TopTitle(
               title: 'Tell Us About Your \n Smoking Device',
-              mainAxisAlignment: MainAxisAlignment.end),
+              mainAxisAlignment: MainAxisAlignment.end,),
         ),
         Expanded(
           flex: 3,
           child: Padding(
             padding: context.mainHorizontalPadding,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 buildTextField(
@@ -80,20 +79,20 @@ class SmokingInfoPage extends StatelessWidget {
                           onChanged: (bool? value) {
                             context.read<OnboardingBloc>().add(
                                   SmokingDeviceHasBluetooth(
-                                      hasBluetooth: value ?? false),
+                                      hasBluetooth: value ?? false,),
                                 );
                           },
                         );
                       },
                     ),
                     Text('My smoking device has bluetooth',
-                        style: context.primaryTextTheme.titleSmall),
+                        style: context.primaryTextTheme.titleSmall,),
                   ],
                 ),
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }

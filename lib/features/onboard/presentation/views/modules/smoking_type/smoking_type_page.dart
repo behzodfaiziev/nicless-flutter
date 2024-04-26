@@ -33,7 +33,6 @@ class _SmokingTypePageState extends State<SmokingTypePage> {
           Expanded(
             flex: 3,
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SmokingTypeTile(
@@ -44,7 +43,7 @@ class _SmokingTypePageState extends State<SmokingTypePage> {
                     context.read<OnboardingBloc>().add(
                         currentSelection.contains(1)
                             ? const SmokingTypeRemoved(smokingType: 1)
-                            : const SmokingTypeAdded(smokingType: 1));
+                            : const SmokingTypeAdded(smokingType: 1),);
                     setState(() {
                       currentSelection.contains(1)
                           ? currentSelection.remove(1)
@@ -60,7 +59,7 @@ class _SmokingTypePageState extends State<SmokingTypePage> {
                     context.read<OnboardingBloc>().add(
                         currentSelection.contains(2)
                             ? const SmokingTypeRemoved(smokingType: 2)
-                            : const SmokingTypeAdded(smokingType: 2));
+                            : const SmokingTypeAdded(smokingType: 2),);
                     setState(() {
                       currentSelection.contains(2)
                           ? currentSelection.remove(2)
@@ -70,7 +69,7 @@ class _SmokingTypePageState extends State<SmokingTypePage> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

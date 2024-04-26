@@ -20,7 +20,7 @@ extension ContextExtension on BuildContext {
 
 extension NavigationExtension on BuildContext {
   Future<bool> pop() async {
-    return router.pop();
+    return router.maybePop();
   }
 
   bool canPop() {
@@ -28,13 +28,13 @@ extension NavigationExtension on BuildContext {
   }
 
   Future<T?> push<T extends Object?>(PageRouteInfo<T> pageRoute,
-      {OnNavigationFailure? onFailure}) async {
+      {OnNavigationFailure? onFailure,}) async {
     return router.push(pageRoute, onFailure: onFailure);
   }
 
   Future<void> pushReplaceAll<T extends Object?, TO extends Object?>(
       PageRouteInfo<T> pageRoute,
-      {OnNavigationFailure? onFailure}) async {
+      {OnNavigationFailure? onFailure,}) async {
     return router.replaceAll([pageRoute], onFailure: onFailure);
   }
 }

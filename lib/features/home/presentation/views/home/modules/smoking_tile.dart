@@ -42,7 +42,6 @@ class SmokingTile extends StatelessWidget {
             child: Padding(
               padding: PaddingConst.horizontal8 + PaddingConst.vertical16,
               child: Row(
-                mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
                       flex: 4,
@@ -51,7 +50,7 @@ class SmokingTile extends StatelessWidget {
                         fit: BoxFit.fitHeight,
                         width: double.infinity,
                         height: double.infinity,
-                      )),
+                      ),),
                   Expanded(
                     flex: 10,
                     child: Column(
@@ -63,7 +62,7 @@ class SmokingTile extends StatelessWidget {
                               color: Colors.white,
                               height: 1,
                               fontWeight: FontWeight.w600,
-                            )),
+                            ),),
                         KeyValueText(
                           keyText: 'Capacity: ',
                           valueText: CustomConverter.capacity(
@@ -83,7 +82,7 @@ class SmokingTile extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: RadiusConst.largeRadius,
                               color: Colors.white,
-                            ))
+                            ),),
                       ],
                     ),
                   ),
@@ -101,21 +100,19 @@ class SmokingTile extends StatelessWidget {
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text('320',
                                   style: context.textTheme.bodySmall?.copyWith(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
-                                  )),
+                                  ),),
                               Text('left',
                                   style:
-                                      context.textTheme.bodySmall?.copyWith()),
+                                      context.textTheme.bodySmall?.copyWith(),),
                             ],
                           ),
                         ),
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             BaseOutlinedTextButton(
@@ -124,9 +121,9 @@ class SmokingTile extends StatelessWidget {
                               fontColor: Colors.white,
                             ),
                             const Icon(Icons.chevron_right,
-                                color: Colors.white),
+                                color: Colors.white,),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),

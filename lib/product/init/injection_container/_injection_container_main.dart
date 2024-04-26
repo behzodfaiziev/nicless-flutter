@@ -4,12 +4,12 @@ part of '_injection_container.dart';
 final sl = GetIt.instance;
 
 class InjectionContainer {
+  InjectionContainer._();
+
   static InjectionContainer? _instance;
 
   static InjectionContainer get instance =>
       _instance ??= InjectionContainer._();
-
-  InjectionContainer._();
 
   Future<void> init() async {
     sl
@@ -17,17 +17,18 @@ class InjectionContainer {
       /// External Dependencies:
       /// Cache
       ..registerLazySingleton<PrimitiveDatabase>(
-          () => SecureDatabaseManager(const FlutterSecureStorage()))
+        () => SecureDatabaseManager(const FlutterSecureStorage()),
+      )
 
       /// Network
       ..registerLazySingleton<INetworkManager<ErrorModelCustom>>(
-          NetworkManager<ErrorModelCustom>.new);
+        NetworkManager<ErrorModelCustom>.new,
+      );
 
     await _authContainer();
     await _bluetoothContainer();
     await _onBoardingContainer();
     await _homeContainer();
     await _settingsContainer();
-
   }
 }

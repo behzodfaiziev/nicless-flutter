@@ -18,7 +18,7 @@ class BaseElevatedButton extends StatelessWidget {
     this.buttonElevation,
     super.key,
   }) : assert(setZeroPaddingForAndroid == false || padding == null,
-            'Cannot provide both padding and setZeroPaddingForAndroid');
+            'Cannot provide both padding and setZeroPaddingForAndroid',);
 
   final void Function()? onPressed;
   final Widget child;
@@ -68,16 +68,16 @@ class BaseElevatedButton extends StatelessWidget {
             : MaterialStatePropertyAll(padding),
         minimumSize: MaterialStatePropertyAll(Size(
             SizeConst.elevatedButtonMinWidth,
-            height ?? SizeConst.elevatedButtonBigHeight)),
+            height ?? SizeConst.elevatedButtonBigHeight,),),
         maximumSize: MaterialStatePropertyAll(Size(
             SizeConst.elevatedButtonMinWidth,
-            height ?? SizeConst.elevatedButtonBigHeight)),
+            height ?? SizeConst.elevatedButtonBigHeight,),),
         backgroundColor: backgroundColor != null
             ? MaterialStatePropertyAll(backgroundColor)
             : context.theme.elevatedButtonTheme.style?.backgroundColor,
         shape: borderRadius != null
             ? MaterialStatePropertyAll(
-                RoundedRectangleBorder(borderRadius: borderRadius!))
-            : context.theme.elevatedButtonTheme.style?.shape);
+                RoundedRectangleBorder(borderRadius: borderRadius!),)
+            : context.theme.elevatedButtonTheme.style?.shape,);
   }
 }

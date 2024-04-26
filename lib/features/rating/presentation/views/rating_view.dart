@@ -40,7 +40,7 @@ class _RatingViewState extends State<RatingView>
         ],
       ),
       body: const Column(
-        children: [],
+        
       ),
     );
   }

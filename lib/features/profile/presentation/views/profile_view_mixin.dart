@@ -1,5 +1,6 @@
 part of 'profile_view.dart';
-mixin ProfileViewMixin on State<ProfileView>{
+
+mixin ProfileViewMixin on State<ProfileView> {
   late final TabController _tabController;
 
   @override
@@ -7,6 +8,7 @@ mixin ProfileViewMixin on State<ProfileView>{
     _tabController.dispose();
     super.dispose();
   }
+
   Future<bool> switchTab(StatisticsTabsEnum index) async {
     switch (index) {
       case StatisticsTabsEnum.weekly:
@@ -15,9 +17,6 @@ mixin ProfileViewMixin on State<ProfileView>{
         return true;
       case StatisticsTabsEnum.yearly:
         return true;
-      default:
-        return false;
     }
   }
-
 }

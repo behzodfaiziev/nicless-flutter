@@ -8,7 +8,7 @@ import '../../utils/constants/ui_constants/radius_const.dart';
 
 class BluetoothListTile extends StatelessWidget {
   const BluetoothListTile(
-      {required this.title, required this.onPressed, super.key});
+      {required this.title, required this.onPressed, super.key,});
 
   final String title;
   final void Function() onPressed;
@@ -27,7 +27,6 @@ class BluetoothListTile extends StatelessWidget {
               borderRadius: RadiusConst.largeRadius,
               side: BorderSide(
                 color: context.colorScheme.secondary.withOpacity(0.05),
-                width: 1,
               ),
             ),
             leading: Icon(
@@ -37,13 +36,13 @@ class BluetoothListTile extends StatelessWidget {
             title: Text(title,
                 style: context.primaryTextTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w400,
-                )),
+                ),),
             trailing: BaseSVGButton(
               asset: SVGConst.instance.settings,
               color: context.colorScheme.secondary.withOpacity(0.6),
               size: 24,
               onPressed: () {},
-            )),
+            ),),
       ),
     );
   }

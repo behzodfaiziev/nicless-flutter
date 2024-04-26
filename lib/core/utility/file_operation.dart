@@ -11,13 +11,13 @@ import 'package:path_provider/path_provider.dart';
 /// ```
 @immutable
 final class FileOperation {
+
+  const FileOperation._init();
   static FileOperation? _instance;
 
   static FileOperation get instance {
     return _instance ??= const FileOperation._init();
   }
-
-  const FileOperation._init();
 
   /// Creates a sub directory in the given path
   /// Arguments:

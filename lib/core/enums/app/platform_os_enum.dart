@@ -9,8 +9,6 @@ extension PlatformOSEnumExtension on PlatformOSEnum {
         return 'ios';
       case PlatformOSEnum.web:
         return 'web';
-      default:
-        return 'unknown';
     }
   }
 }

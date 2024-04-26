@@ -14,13 +14,13 @@ class BluetoothScanLoading extends BluetoothState {}
 class ConnectingBluetoothDevice extends BluetoothState {}
 
 class BluetoothDeviceConnected extends BluetoothState {
-  final BluetoothConnection connection;
-  final BluetoothDeviceModel device;
 
   const BluetoothDeviceConnected({
     required this.connection,
     required this.device,
   });
+  final BluetoothConnection connection;
+  final BluetoothDeviceModel device;
 
   @override
   List<Object> get props => [device, connection];
@@ -41,9 +41,9 @@ class BluetoothDeviceFailedToDisconnect extends BluetoothState {
 }
 
 class BluetoothDeviceFailedToConnect extends BluetoothState {
-  final BluetoothDeviceModel device;
 
   const BluetoothDeviceFailedToConnect(this.device);
+  final BluetoothDeviceModel device;
 
   @override
   List<Object> get props => [device];
@@ -52,9 +52,9 @@ class BluetoothDeviceFailedToConnect extends BluetoothState {
 /// BluetoothDeviceDataReceived is a state that is emitted  when
 /// the device receives data from the connected device.
 class BluetoothDeviceDataReceived extends BluetoothState {
-  final String data;
 
   const BluetoothDeviceDataReceived(this.data);
+  final String data;
 
   @override
   List<Object> get props => [data];
@@ -67,18 +67,18 @@ class BluetoothDeviceScanStarted extends BluetoothState {}
 class BluetoothDeviceScanStopped extends BluetoothState {}
 
 class BluetoothDeviceScanResult extends BluetoothState {
-  final List<BluetoothDeviceModel> devices;
 
   const BluetoothDeviceScanResult({required this.devices});
+  final List<BluetoothDeviceModel> devices;
 
   @override
   List<Object> get props => [devices];
 }
 
 class BluetoothDeviceScanFailed extends BluetoothState {
-  final String error;
 
   const BluetoothDeviceScanFailed(this.error);
+  final String error;
 
   @override
   List<Object> get props => [error];

@@ -44,7 +44,7 @@ class BaseOutlinedTextButton extends StatelessWidget {
               fontWeight: fontWeight,
               decoration:
                   isUnderline ? TextDecoration.underline : TextDecoration.none,
-              decorationColor: underlineColor ?? context.theme.primaryColor),
+              decorationColor: underlineColor ?? context.theme.primaryColor,),
         ),
       ),
     );

@@ -16,11 +16,11 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   Future<List<VapeDataModel>> fetchDevices() async {
     try {
       final result = await _network.get<VapeDataModel, List<VapeDataModel>>(
-          url: NetworkUrlPath(path: 'vapes'), parseModel: VapeDataModel());
+          url: NetworkUrlPath(path: 'vapes'), parseModel: VapeDataModel(),);
 
       return result.data ?? [];
     } catch (e) {
-      throw APIException(message: e.toString(), statusCode: 505);
+      throw APIException(message: e.toString());
     }
   }
 }

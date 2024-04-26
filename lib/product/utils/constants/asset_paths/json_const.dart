@@ -1,11 +1,11 @@
 class JsonConst {
+
+  JsonConst._init();
   static JsonConst? _instance;
 
   static JsonConst get instance {
     return _instance ??= JsonConst._init();
   }
-
-  JsonConst._init();
 
   String json(String name) => 'assets/json/$name.json';
 

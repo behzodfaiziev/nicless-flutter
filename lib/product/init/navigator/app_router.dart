@@ -42,7 +42,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: CounterRoute.page),
         AutoRoute(
           page: AutomaticCounterRoute.page,
-          initial: false,
         ),
 
         /// Maps Route

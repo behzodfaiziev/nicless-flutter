@@ -10,11 +10,11 @@ import '../../managers/database/hive/core/hive_database_manager.dart';
 import 'app_config.dart';
 
 class SystemInit {
+
+  SystemInit._();
   static SystemInit? _instance;
 
   static SystemInit get instance => _instance ??= SystemInit._();
-
-  SystemInit._();
 
   Future<void> init() async {
     /// Needs to be called so that we can await for

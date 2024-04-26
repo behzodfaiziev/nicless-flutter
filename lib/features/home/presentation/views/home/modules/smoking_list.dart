@@ -64,7 +64,7 @@ class SmokingList extends StatelessWidget {
     
     if (state is BluetoothDeviceConnected) {
       context.pushReplaceAll(AutomaticCounterRoute(
-          connection: state.connection, device: state.device));
+          connection: state.connection, device: state.device,),);
     }
   }
 

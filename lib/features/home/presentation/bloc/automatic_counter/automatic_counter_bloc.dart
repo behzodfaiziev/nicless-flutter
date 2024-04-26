@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 import '../../../../../core/managers/bluetooth/transform/string_to_bool_transformer.dart';
@@ -22,7 +22,7 @@ class AutomaticCounterBloc
   }
 
   void _startAutomaticCounterHandler(
-      StartAutomaticCounterEvent event, Emitter<AutomaticCounterState> emit) {
+      StartAutomaticCounterEvent event, Emitter<AutomaticCounterState> emit,) {
     emit(const AutomaticCounterStarted());
   }
 
@@ -55,11 +55,11 @@ class AutomaticCounterBloc
     'Powerful investment: quit smoking, live well.',
     'Triumph over smoke, embrace vitality.',
     'Commit to health, shape a better tomorrow.',
-    'Short path to a smoke-free, vibrant life.'
+    'Short path to a smoke-free, vibrant life.',
   ];
 
   Stream<bool>? getVapeStreamSubscription(
-      BluetoothConnection bluetoothConnection) {
+      BluetoothConnection bluetoothConnection,) {
     vapeStream = bluetoothConnection.input
         ?.transform(UInt8ListToStringTransformer())
         .transform(StringToBoolTransformer());
@@ -71,16 +71,16 @@ class AutomaticCounterBloc
   }
 
   void _addPuffHandler(
-      AddPuffEvent event, Emitter<AutomaticCounterState> emit) {
+      AddPuffEvent event, Emitter<AutomaticCounterState> emit,) {
     amountOfPuffs++;
     final randomIndex =
        Random.secure().nextInt(motivationalMessages.length);
     emit(TotalPuffsAdded(
-        amount: amountOfPuffs, message: motivationalMessages[randomIndex]));
+        amount: amountOfPuffs, message: motivationalMessages[randomIndex],),);
   }
 
   void _addInhalingHandler(
-      AddInhalingEvent event, Emitter<AutomaticCounterState> emit) {
+      AddInhalingEvent event, Emitter<AutomaticCounterState> emit,) {
     secondsInhaled++;
     emit(TotalInhaledSeconds(secondsInhaled));
   }

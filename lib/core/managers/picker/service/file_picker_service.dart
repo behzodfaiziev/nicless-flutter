@@ -8,7 +8,7 @@ class FilePickerService extends IFilePickerService {
 
   @override
   Future<File?> pickFile(
-      {FileType? fileType, List<String>? allowedExtensions}) async {
+      {FileType? fileType, List<String>? allowedExtensions,}) async {
     try {
       final FilePickerResult? result = await FilePicker.platform.pickFiles(
         type: fileType ?? FileType.any,

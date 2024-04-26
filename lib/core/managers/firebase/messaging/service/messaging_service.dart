@@ -5,13 +5,13 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'i_messaging_service.dart';
 
 class MessagingService extends IMessagingService {
+
+  MessagingService._init();
   static MessagingService? _instance;
 
   static MessagingService get instance {
     return _instance ??= MessagingService._init();
   }
-
-  MessagingService._init();
 
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 

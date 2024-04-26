@@ -15,7 +15,6 @@ class AppThemeDark {
           secondary: AppColors.secondaryDark,
           background: AppColors.backgroundDark,
           error: AppColors.errorDark,
-          onPrimary: Colors.white,
           onSecondary: AppColors.secondaryTextColor,
         ),
         appBarTheme: appBarTheme(),
@@ -35,7 +34,7 @@ class AppThemeDark {
       const PageTransitionsTheme(builders: {
         TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      });
+      },);
 
   AppBarTheme appBarTheme() {
     return const AppBarTheme(
@@ -57,7 +56,7 @@ class AppThemeDark {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white54,
         showUnselectedLabels: false,
-        showSelectedLabels: true);
+        showSelectedLabels: true,);
   }
 
   ElevatedButtonThemeData elevatedButtonThemeData() {
@@ -91,7 +90,7 @@ class AppThemeDark {
       hintStyle: TextStyle(
           color: AppColors.hintColorDark,
           fontWeight: FontWeight.w300,
-          fontSize: 14),
+          fontSize: 14,),
     );
   }
 }

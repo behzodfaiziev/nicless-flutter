@@ -21,7 +21,6 @@ class _CounterViewState extends State<CounterView> with CounterViewMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
@@ -36,7 +35,6 @@ class _CounterViewState extends State<CounterView> with CounterViewMixin {
             ),
           ),
           Expanded(
-            flex: 1,
             child: Column(
               children: [
                 Text(
@@ -46,7 +44,7 @@ class _CounterViewState extends State<CounterView> with CounterViewMixin {
                 Text(
                   'seconds passed',
                   style: context.textTheme.titleMedium,
-                )
+                ),
               ],
             ),
           ),
@@ -63,7 +61,6 @@ class _CounterViewState extends State<CounterView> with CounterViewMixin {
                     BoxShadow(
                       color: context.colorScheme.onPrimary.withOpacity(0.5),
                       blurRadius: 1,
-                      spreadRadius: 0,
                       offset: const Offset(0, 1),
                     ),
                   ],

@@ -42,7 +42,7 @@ void main() {
 
       /// assert
       expect(result,
-          equals(const Right<dynamic, String>(resultId)));
+          equals(const Right<dynamic, String>(resultId)),);
 
       verify(() => repository.saveVapeData(vapeData)).called(1);
 

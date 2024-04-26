@@ -35,7 +35,6 @@ class BaseLineChart extends StatelessWidget {
             ],
             isCurved: true,
             curveSmoothness: 0.3,
-            barWidth: 2,
             dotData: const FlDotData(show: false),
             belowBarData: BarAreaData(
               show: true,

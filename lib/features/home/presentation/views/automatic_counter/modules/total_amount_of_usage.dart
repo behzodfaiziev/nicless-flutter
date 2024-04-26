@@ -24,7 +24,7 @@ class _TotalAmountOfUsage extends StatelessWidget {
                       : 1,
                 );
               },
-            )),
+            ),),
         _ProgressCard(
           title: 'Puffs',
           child: BlocBuilder<AutomaticCounterBloc, AutomaticCounterState>(

@@ -40,7 +40,7 @@ class AppRouteObserver extends AutoRouterObserver {
 
   @override
   void didStartUserGesture(
-      Route<dynamic> route, Route<dynamic>? previousRoute) {
+      Route<dynamic> route, Route<dynamic>? previousRoute,) {
     printDev
         .onRoute('User started gesture(didReplace): ${route.settings.name}');
   }

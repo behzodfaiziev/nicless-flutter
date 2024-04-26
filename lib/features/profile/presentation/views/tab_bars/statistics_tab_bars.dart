@@ -40,7 +40,6 @@ class _StatisticsTabBarsState extends State<StatisticsTabBars> {
           padding: EdgeInsets.zero,
           labelPadding: EdgeInsets.zero,
           indicatorSize: TabBarIndicatorSize.label,
-          isScrollable: false,
           tabs: [
             StatisticsTabBarItem(
               text: 'Weekly',

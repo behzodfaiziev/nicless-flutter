@@ -32,7 +32,7 @@ class StatisticsTabBarItem extends StatelessWidget {
                   : context.theme.colorScheme.onPrimary,
               fontSize: isSelected ? 14 : 12,
             ),
-          )),
+          ),),
     );
   }
 }

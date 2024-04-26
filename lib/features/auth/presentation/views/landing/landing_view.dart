@@ -36,7 +36,7 @@ class LandingView extends StatelessWidget {
             flex: 3,
             child: TopTitle(
                 title: 'Welcome to Nicless',
-                subTitle: 'Take control over nicotine'),
+                subTitle: 'Take control over nicotine',),
           ),
           Expanded(
               flex: 10,
@@ -45,9 +45,9 @@ class LandingView extends StatelessWidget {
                   borderRadius: RadiusConst.extraLargeRadius,
                   child: BaseAssetImage(
                       height: context.height * 0.25,
-                      ImagesConst.instance.logo),
+                      ImagesConst.instance.logo,),
                 ),
-              )),
+              ),),
           Expanded(
             flex: 5,
             child: Center(
@@ -59,8 +59,8 @@ class LandingView extends StatelessWidget {
               ),
             ),
           ),
-        ]),
+        ],),
       ),
-    ));
+    ),);
   }
 }
