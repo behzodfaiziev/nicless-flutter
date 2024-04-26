@@ -1,6 +1,6 @@
-part of 'ranking_view.dart';
+part of 'rating_view.dart';
 
-mixin StatisticsMixin on State<StatisticsView> {
+mixin RatingMixin on State<RatingView> {
   late final TabController _tabController;
 
   @override

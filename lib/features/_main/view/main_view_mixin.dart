@@ -4,7 +4,7 @@ mixin MainViewMixin on State<MainView> {
   final List<PageRouteInfo> _routes = const [
     HomeRoute(),
     HealthRoute(),
-    StatisticsRoute(),
+    RatingRoute(),
     ProfileRoute(),
   ];
 
@@ -31,7 +31,7 @@ mixin MainViewMixin on State<MainView> {
           color:
               _getIconColor(context, activeIndex, MainViewTab.statistics.index),
         ),
-        label: 'Ranking',
+        label: 'Rating',
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(

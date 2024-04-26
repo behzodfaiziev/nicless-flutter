@@ -6,18 +6,18 @@ import '../../../../core/widgets/buttons/base_svg_button.dart';
 import '../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../../product/utils/constants/ui_constants/padding_const.dart';
 
-part 'ranking_view_mixin.dart';
+part 'rating_view_mixin.dart';
 
 @RoutePage()
-class StatisticsView extends StatefulWidget {
-  const StatisticsView({super.key});
+class RatingView extends StatefulWidget {
+  const RatingView({super.key});
 
   @override
-  State<StatisticsView> createState() => _StatisticsViewState();
+  State<RatingView> createState() => _RatingViewState();
 }
 
-class _StatisticsViewState extends State<StatisticsView>
-    with StatisticsMixin, SingleTickerProviderStateMixin {
+class _RatingViewState extends State<RatingView>
+    with RatingMixin, SingleTickerProviderStateMixin {
   @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
@@ -28,7 +28,7 @@ class _StatisticsViewState extends State<StatisticsView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseAppBar(
-        title: 'Ranking',
+        title: 'Rating',
         actions: [
           Padding(
             padding: PaddingConst.right12,
