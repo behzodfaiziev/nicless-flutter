@@ -5,6 +5,7 @@ import '../../../../core/widgets/app_bar/base_app_bar.dart';
 import '../../../../core/widgets/buttons/base_svg_button.dart';
 import '../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../../product/utils/constants/ui_constants/padding_const.dart';
+import '../../../../product/widgets/dialog/_app_dialog.dart';
 
 part 'rating_view_mixin.dart';
 
@@ -33,8 +34,10 @@ class _RatingViewState extends State<RatingView>
           Padding(
             padding: PaddingConst.right12,
             child: BaseSVGButton(
-              asset: SVGConst.instance.share,
-              onPressed: () {},
+              asset: SVGConst.instance.question,
+              onPressed: () {
+                AppDialog.showRatingInfo(context);
+              },
             ),
           ),
         ],
