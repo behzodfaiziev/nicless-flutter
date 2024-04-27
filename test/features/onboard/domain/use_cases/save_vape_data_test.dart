@@ -5,7 +5,7 @@ import 'package:nicless_flutter/core/utility/typedef.dart';
 import 'package:nicless_flutter/features/bluetooth/data/models/bluetooth_device_model.dart';
 import 'package:nicless_flutter/features/onboard/domain/repo/onboarding_repo.dart';
 import 'package:nicless_flutter/features/onboard/domain/use_cases/save_vape_data.dart';
-import 'package:nicless_flutter/product/models/vape_data_model.dart';
+import 'package:nicless_flutter/product/data_objects/models/vape_data_model.dart';
 
 import '../../../../mocks/repo_mocks.dart';
 
