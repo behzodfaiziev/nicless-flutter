@@ -45,3 +45,5 @@ part 'onboarding_container.dart';
 part 'settings_container.dart';
 
 part 'home_container.dart';
+
+part 'rating_container.dart';

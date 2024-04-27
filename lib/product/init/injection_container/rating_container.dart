@@ -1,21 +1,21 @@
 part of '_injection_container.dart';
 
-void _onBoardingContainer() {
+void _ratingContainer() async {
   sl
 
-    /// OnBoarding Bloc
+  /// OnBoarding Bloc
     ..registerFactory(() => OnboardingBloc(saveVapeData: sl()))
 
-    /// Use Cases
+  /// Use Cases
     ..registerLazySingleton(() => SaveVapeData(sl()))
 
-    /// Repositories
+  /// Repositories
     ..registerLazySingleton<OnboardingRepo>(
-      () => OnboardingRepoImpl(remoteDataSource: sl()),
+          () => OnboardingRepoImpl(remoteDataSource: sl()),
     )
 
-    /// Data Sources
+  /// Data Sources
     ..registerLazySingleton<OnboardingRemoteDataSource>(
-      () => OnboardingRemoteDataSourceImpl(network: sl()),
+          () => OnboardingRemoteDataSourceImpl(network: sl()),
     );
 }
