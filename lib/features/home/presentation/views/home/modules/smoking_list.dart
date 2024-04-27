@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/extensions/context_extension.dart';
 import '../../../../../../core/widgets/toast/custom_toast.dart';
+import '../../../../../../product/data_objects/models/vape_data_model.dart';
 import '../../../../../../product/init/navigator/app_router.dart';
-import '../../../../../../product/models/vape_data_model.dart';
 import '../../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import '../../../bloc/home/home_bloc.dart';

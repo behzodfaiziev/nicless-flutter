@@ -33,6 +33,11 @@ import '../../../features/onboard/data/repo/onboarding_repo_impl.dart';
 import '../../../features/onboard/domain/repo/onboarding_repo.dart';
 import '../../../features/onboard/domain/use_cases/save_vape_data.dart';
 import '../../../features/onboard/presentation/bloc/onboarding_bloc.dart';
+import '../../../features/rating/domain/repo/rating_repo.dart';
+import '../../../features/rating/domain/use_cases/get_monthly_rating.dart';
+import '../../../features/rating/domain/use_cases/get_weekly_rating.dart';
+import '../../../features/rating/domain/use_cases/get_yearly_rating.dart';
+import '../../../features/rating/presentation/bloc/rating_bloc.dart';
 
 part '_injection_container_main.dart';
 

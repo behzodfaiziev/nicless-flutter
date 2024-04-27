@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/extensions/context_extension.dart';
 import '../../../../../../core/widgets/buttons/base_outlined_text_button.dart';
 import '../../../../../../core/widgets/image/base_asset_image.dart';
-import '../../../../../../product/models/vape_data_model.dart';
+import '../../../../../../product/data_objects/models/vape_data_model.dart';
 import '../../../../../../product/utils/constants/asset_paths/images_const.dart';
 import '../../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../../../product/utils/constants/ui_constants/radius_const.dart';
