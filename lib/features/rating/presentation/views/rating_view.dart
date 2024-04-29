@@ -2,13 +2,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/extensions/context_extension.dart';
 import '../../../../core/widgets/app_bar/base_app_bar.dart';
 import '../../../../core/widgets/buttons/base_svg_button.dart';
+import '../../../../product/data_objects/params/pagination_params.dart';
 import '../../../../product/init/injection_container/_injection_container.dart';
 import '../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../product/widgets/dialog/_app_dialog.dart';
+import '../../../../product/widgets/tab/stats_and_rating_tab_bars.dart';
 import '../bloc/rating_bloc.dart';
+import 'modules/bar/monthly_rating_bar.dart';
+import 'modules/bar/weekly_rating_bar.dart';
+import 'modules/bar/yearly_rating_bar.dart';
 
 part 'rating_view_mixin.dart';
 
@@ -26,6 +32,7 @@ class _RatingViewState extends State<RatingView>
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
     _ratingBloc = sl<RatingBloc>();
+    _ratingBloc.add(const WeeklyRatingEvent(PaginationParams(page: 1)));
     super.initState();
   }
 
@@ -35,6 +42,7 @@ class _RatingViewState extends State<RatingView>
       create: (context) => _ratingBloc,
       child: Scaffold(
         appBar: BaseAppBar(
+          backgroundColor: context.theme.scaffoldBackgroundColor,
           title: 'Rating',
           actions: [
             Padding(
@@ -48,7 +56,25 @@ class _RatingViewState extends State<RatingView>
             ),
           ],
         ),
-        body: const Column(),
+        body: Column(
+          children: [
+            Padding(
+              padding: PaddingConst.top4,
+              child: StatsAndRatingTabBars(tabController: _tabController),
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: const [
+                  WeeklyRatingBar(),
+                  MonthlyRatingTab(),
+                  YearlyRatingTab(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

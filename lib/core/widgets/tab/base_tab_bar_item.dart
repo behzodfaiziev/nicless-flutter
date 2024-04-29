@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/extensions/context_extension.dart';
-import '../../../../../../product/utils/constants/ui_constants/radius_const.dart';
+import '../../../../core/extensions/context_extension.dart';
+import '../../../../product/utils/constants/ui_constants/radius_const.dart';
 
-class StatisticsTabBarItem extends StatelessWidget {
-  const StatisticsTabBarItem({
+class BaseTabBarItem extends StatelessWidget {
+  const BaseTabBarItem({
     required this.text,
     required this.isSelected,
     super.key,

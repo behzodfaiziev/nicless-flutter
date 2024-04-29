@@ -68,6 +68,8 @@ class SizeConst {
 
   /// TILES
   static const double smokingTileHeight = 132;
+  static const double rankingTileTopHeight = 64;
+  static const double rankingTileHeight = 50;
 
   /// Picker
   static const double iOSPickerHeight = 250;

@@ -24,6 +24,6 @@ void _ratingContainer() {
 
     /// Data Sources
     ..registerLazySingleton<RatingRemoteDataSource>(
-      () => RatingRemoteDataSourceImpl(network: sl()),
+      RatingRemoteDataSourceImpl.new,
     );
 }

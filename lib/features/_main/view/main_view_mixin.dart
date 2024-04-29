@@ -16,29 +16,44 @@ mixin MainViewMixin on State<MainView> {
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
           asset: SVGConst.instance.home,
-          color: _getIconColor(context, activeIndex, MainViewTabsEnum.home.index),
+          color: _getIconColor(
+            context,
+            activeIndex,
+            MainViewTabsEnum.home.index,
+          ),
         ),
         label: 'Home',
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
           asset: SVGConst.instance.dumbbell,
-          color: _getIconColor(context, activeIndex, MainViewTabsEnum.health.index),
+          color: _getIconColor(
+            context,
+            activeIndex,
+            MainViewTabsEnum.health.index,
+          ),
         ),
         label: 'Sport',
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
           asset: SVGConst.instance.award,
-          color:
-              _getIconColor(context, activeIndex, MainViewTabsEnum.statistics.index),
+          color: _getIconColor(
+            context,
+            activeIndex,
+            MainViewTabsEnum.statistics.index,
+          ),
         ),
         label: 'Rating',
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
           asset: SVGConst.instance.user,
-          color: _getIconColor(context, activeIndex, MainViewTabsEnum.profile.index),
+          color: _getIconColor(
+            context,
+            activeIndex,
+            MainViewTabsEnum.profile.index,
+          ),
         ),
         label: 'Profile',
       ),
@@ -53,4 +68,3 @@ mixin MainViewMixin on State<MainView> {
     }
   }
 }
-

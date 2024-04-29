@@ -7,7 +7,7 @@ import '../../../../product/enums/views/statistics_tabs_enum.dart';
 import '../../../../product/utils/constants/app/app_const.dart';
 import '../../../../product/utils/constants/asset_paths/svg_const.dart';
 import '../../../../product/utils/constants/ui_constants/padding_const.dart';
-import 'tab_bars/statistics_tab_bars.dart';
+import '../../../../product/widgets/tab/stats_and_rating_tab_bars.dart';
 import 'tab_bars/tabs/monthly_stats_tab.dart';
 import 'tab_bars/tabs/weekly_stats_tab.dart';
 import 'tab_bars/tabs/yearly_stats_tab.dart';
@@ -47,7 +47,7 @@ class _ProfileViewState extends State<ProfileView>
             SliverToBoxAdapter(
               child: Padding(
                 padding: PaddingConst.top12,
-                child: StatisticsTabBars(tabController: _tabController),
+                child: StatsAndRatingTabBars(tabController: _tabController),
               ),
             ),
             SliverFillRemaining(

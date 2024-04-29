@@ -32,11 +32,18 @@ class AppColors {
 
   static Color? greyDarkHeadLineMedium = Colors.grey[600];
   static Color? greyDarkDisplaySmall = Colors.grey[200];
-/// Hint Color
+
+  /// Hint Color
   static const Color hintColor = Color(0xFFBDBDBD);
   static const Color hintColorDark = Color(0xFFC8C8C8);
 
-
   /// Buttons
   static const Color elevatedButtonColorDark = Color(0xFFDCDCDC);
+
+  /// Card
+  static const Color cardTopRatingColor = Color(0xFF3E3E3E);
+  static const Color cardRatingColor = Color(0xFF303030);
+
+  /// Icon
+  static const Color iconColor = Color(0xFF585858);
 }

@@ -10,8 +10,9 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.centerTitle = true,
     this.actions,
     this.leading,
-    super.key,
     this.titleTextStyle,
+    this.backgroundColor,
+    super.key,
   });
 
   final String title;
@@ -21,6 +22,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final Widget? leading;
   final TextStyle? titleTextStyle;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: leading,
       centerTitle: centerTitle,
       elevation: 0,
+      backgroundColor: backgroundColor,
       title: Text(title, style: titleTextStyle),
       actions: actions,
     );

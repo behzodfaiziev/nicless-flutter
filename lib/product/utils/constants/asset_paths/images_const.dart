@@ -1,6 +1,6 @@
 class ImagesConst {
-
   ImagesConst._init();
+
   static ImagesConst? _instance;
 
   static ImagesConst get instance {
@@ -18,4 +18,10 @@ class ImagesConst {
   String get vozol10KForestBerry => image('vozol_10k_forest_berry');
 
   String get logo => image('logo');
+
+  String get ratingFirst => image('rating_first');
+
+  String get ratingSecond => image('rating_second');
+
+  String get ratingThird => image('rating_third');
 }
