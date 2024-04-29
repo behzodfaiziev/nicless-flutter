@@ -23,11 +23,10 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => <AutoRoute>[
         /// Auth Routes
         AutoRoute(page: LandingRoute.page),
-        AutoRoute(page: AuthCheckerRoute.page),
+        AutoRoute(page: AuthCheckerRoute.page, initial: true),
 
         /// Onboarding Routes
         AutoRoute(page: OnboardingRoute.page),
-        AutoRoute(page: RatingRoute.page, initial: true),
 
         /// Main Routes
         AutoRoute(
@@ -35,6 +34,7 @@ class AppRouter extends _$AppRouter {
           children: [
             AutoRoute(page: HomeRoute.page),
             AutoRoute(page: HealthRoute.page),
+            AutoRoute(page: RatingRoute.page),
             AutoRoute(page: ProfileRoute.page),
           ],
         ),
