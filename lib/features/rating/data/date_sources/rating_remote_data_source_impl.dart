@@ -7,16 +7,19 @@ class RatingRemoteDataSourceImpl implements RatingRemoteDataSource {
 
   @override
   Future<List<RatingModel>> getWeeklyRating(PaginationParams params) async {
+    await Future<void>.delayed(const Duration(seconds: 1));
     return mockRatings;
   }
 
   @override
   Future<List<RatingModel>> getMonthlyRating(PaginationParams params) async {
+    await Future<void>.delayed(const Duration(seconds: 1));
     return mockRatings;
   }
 
   @override
   Future<List<RatingModel>> getYearlyRating(PaginationParams params) async {
+    await Future<void>.delayed(const Duration(seconds: 1));
     return mockRatings;
   }
 
