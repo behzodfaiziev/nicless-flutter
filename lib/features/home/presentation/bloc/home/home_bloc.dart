@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../product/models/vape_data_model.dart';
+import '../../../../../product/data_objects/models/vape_data_model.dart';
 import '../../../domain/use_cases/fetch_devices.dart';
 
 part 'home_event.dart';

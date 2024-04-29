@@ -1,4 +1,4 @@
-import '../../features/bluetooth/data/models/bluetooth_device_model.dart';
+import '../../../features/bluetooth/data/models/bluetooth_device_model.dart';
 
 abstract class VapeData {
   VapeData({

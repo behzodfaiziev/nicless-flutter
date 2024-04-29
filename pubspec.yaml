@@ -13,11 +13,11 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6
 
-#  # Local Dependencies
-#  widgets:
-#    path: module/widgets
-#  core:
-#    path: module/core
+  #  # Local Dependencies
+  #  widgets:
+  #    path: module/widgets
+  #  core:
+  #    path: module/core
 
 
   # State Management
@@ -31,7 +31,7 @@ dependencies:
   firebase_messaging: ^14.7.9
   cloud_firestore: ^4.13.6
   firebase_auth: ^4.15.3
-#  google_sign_in: ^6.2.1
+  #  google_sign_in: ^6.2.1
 
   # Core
   jose: ^0.3.4
@@ -104,3 +104,10 @@ flutter:
     - assets/images/
     - assets/lottie/
     - assets/json/
+  fonts:
+    - family: Inria Serif
+      fonts:
+        - asset: assets/fonts/inria_serif/InriaSerif-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/inria_serif/InriaSerif-Bold.ttf
+          weight: 700

@@ -1,6 +1,6 @@
 class SVGConst {
-
   SVGConst._init();
+
   static SVGConst? _instance;
 
   static SVGConst get instance {
@@ -26,6 +26,8 @@ class SVGConst {
   String get user => toSvg('user');
 
   String get map => toSvg('map');
+
+  String get question => toSvg('question');
 
   /// Icons
 }

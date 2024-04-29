@@ -1,6 +1,6 @@
 part of '_injection_container.dart';
 
-Future<void> _authContainer() async {
+void _authContainer() {
   sl
 
     /// Auth Bloc

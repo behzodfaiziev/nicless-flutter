@@ -25,10 +25,11 @@ class InjectionContainer {
         NetworkManager<ErrorModelCustom>.new,
       );
 
-    await _authContainer();
-    await _bluetoothContainer();
-    await _onBoardingContainer();
-    await _homeContainer();
-    await _settingsContainer();
+    _authContainer();
+    _bluetoothContainer();
+    _onBoardingContainer();
+    _homeContainer();
+    _settingsContainer();
+    _ratingContainer();
   }
 }

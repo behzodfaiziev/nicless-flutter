@@ -1,6 +1,6 @@
 part of '_injection_container.dart';
 
-Future<void> _settingsContainer() async {
+void _settingsContainer() {
   // sl
   //
   //     /// Settings Bloc

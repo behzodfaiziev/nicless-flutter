@@ -1,6 +1,6 @@
 part of '_injection_container.dart';
 
-Future<void> _homeContainer() async {
+void _homeContainer() {
   sl
 
     /// OnBoarding Bloc

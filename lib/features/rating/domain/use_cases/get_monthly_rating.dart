@@ -1,0 +1,16 @@
+import '../../../../core/usecase/usecase.dart';
+import '../../../../core/utility/typedef.dart';
+import '../../../../product/data_objects/params/pagination_params.dart';
+import '../../data/models/rating_model.dart';
+import '../repo/rating_repo.dart';
+
+class GetMonthlyRating
+    extends UserCaseWithParams<List<RatingModel>, PaginationParams> {
+  GetMonthlyRating(this._repo);
+
+  final RatingRepo _repo;
+
+  @override
+  ResultFuture<List<RatingModel>> call(PaginationParams params) =>
+      _repo.getWeeklyRating(params);
+}

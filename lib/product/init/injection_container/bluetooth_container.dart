@@ -1,6 +1,6 @@
 part of '_injection_container.dart';
 
-Future<void> _bluetoothContainer() async {
+void _bluetoothContainer() {
   sl
 
     /// OnBoarding Bloc

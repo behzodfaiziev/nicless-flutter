@@ -1,6 +1,6 @@
 import '../../../../core/use_cases/use_cases.dart';
 import '../../../../core/utility/typedef.dart';
-import '../../../../product/models/vape_data_model.dart';
+import '../../../../product/data_objects/models/vape_data_model.dart';
 import '../repo/onboarding_repo.dart';
 
 class SaveVapeData extends UsecaseWithParams<String, VapeDataModel> {
