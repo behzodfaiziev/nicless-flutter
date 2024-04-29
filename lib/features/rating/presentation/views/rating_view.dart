@@ -31,8 +31,8 @@ class _RatingViewState extends State<RatingView>
   @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
-    _ratingBloc = sl<RatingBloc>();
-    _ratingBloc.add(const WeeklyRatingEvent(PaginationParams(page: 1)));
+    init();
+
     super.initState();
   }
 
