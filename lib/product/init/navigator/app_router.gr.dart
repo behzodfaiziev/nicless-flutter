@@ -39,12 +39,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CounterView(),
       );
     },
-    HealthRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HealthView(),
-      );
-    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -162,20 +156,6 @@ class CounterRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CounterRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [HealthView]
-class HealthRoute extends PageRouteInfo<void> {
-  const HealthRoute({List<PageRouteInfo>? children})
-      : super(
-          HealthRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HealthRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

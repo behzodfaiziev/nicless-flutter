@@ -3,7 +3,6 @@ part of 'main_view.dart';
 mixin MainViewMixin on State<MainView> {
   final List<PageRouteInfo> _routes = const [
     HomeRoute(),
-    HealthRoute(),
     RatingRoute(),
     ProfileRoute(),
   ];
