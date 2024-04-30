@@ -50,6 +50,9 @@ dependencies:
   # Network
   dio: ^5.4.0
 
+  # Gemini
+  google_generative_ai: ^0.2.3
+
   # Picker
   file_picker: ^6.1.1
   image_picker: ^1.0.7
