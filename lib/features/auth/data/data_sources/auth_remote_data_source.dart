@@ -5,7 +5,7 @@ abstract class AuthRemoteDataSource {
 
   Future<User?> getCurrentUser();
 
-  Future<UserCredential> anonymousSignIn();
+  Future<String?> anonymousSignIn();
 
   Future<void> createAnonymousUser({required String id});
 

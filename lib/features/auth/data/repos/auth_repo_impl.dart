@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../../../core/error/exceptions/api_exception.dart';
 import '../../../../core/error/failures/api_failure.dart';
 import '../../../../core/utility/typedef.dart';
 import '../../domain/repos/auth_repo.dart';
@@ -17,20 +17,24 @@ class AuthRepoImpl implements AuthRepo {
     try {
       final result = await _remoteDataSource.getCurrentUser();
       return Right(result != null);
-    } catch (e) {
-      return Left(APIFailure(message: e.toString()));
+    } on APIException catch (e) {
+      return Left(APIFailure.fromAPIException(e));
     }
   }
 
   @override
-  ResultFuture<UserCredential> anonymousSignIn() async {
+  ResultFuture<String> anonymousSignIn() async {
     try {
-      final result = await _remoteDataSource.anonymousSignIn();
+      final userId = await _remoteDataSource.anonymousSignIn();
 
-      await _remoteDataSource.createAnonymousUser(id: result.user!.uid);
-
-      return Right(result);
-    } catch (e) {
+      if (userId == null) {
+        return const Left(APIFailure(message: 'User id is null'));
+      }
+      await _remoteDataSource.createAnonymousUser(id: userId);
+      return Right(userId);
+    } on APIException catch (e) {
+      return Left(APIFailure.fromAPIException(e));
+    } on Exception catch (e) {
       return Left(APIFailure(message: e.toString()));
     }
   }
@@ -38,9 +42,11 @@ class AuthRepoImpl implements AuthRepo {
   @override
   ResultFuture<void> signOut() async {
     try {
-      final result = _remoteDataSource.signOut();
+      final result = await _remoteDataSource.signOut();
       return Right(result);
-    } catch (e) {
+    } on APIException catch (e) {
+      return Left(APIFailure.fromAPIException(e));
+    } on Exception catch (e) {
       return Left(APIFailure(message: e.toString()));
     }
   }

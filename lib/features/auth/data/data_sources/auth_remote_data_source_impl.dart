@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../../../core/error/exceptions/api_exception.dart';
 import '../../../../core/managers/network/entities/network_url_path.dart';
 import '../../../../core/managers/network/i_network_manager.dart';
 import '../../../../core/managers/network/models/error_model_custom.dart';
@@ -14,24 +15,32 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<User?> getCurrentUser() async {
-    return _network.currentUser();
+    try {
+      return _network.currentUser();
+    } catch (e) {
+      throw APIException(message: e.toString());
+    }
   }
 
   @override
-  Future<UserCredential> anonymousSignIn() async {
-    return _network.signInAnonymously();
+  Future<String?> anonymousSignIn() async {
+    final result = await _network.signInAnonymously();
+    return result.user?.uid;
   }
 
   @override
   Future<void> createAnonymousUser({required String id}) async {
-    await _network.post(url: NetworkUrlPath(path: 'users', docId: id), body: {
-      'id': id,
-      'name': 'Anonymous',
-      'email': '',
-      'photoUrl': '',
-      'createdAt': DateTime.now().toIso8601String(),
-      'updatedAt': DateTime.now().toIso8601String(),
-    },);
+    await _network.post(
+      url: NetworkUrlPath(path: 'users', docId: id),
+      body: {
+        'id': id,
+        'name': 'Anonymous',
+        'email': '',
+        'photoUrl': '',
+        'createdAt': DateTime.now().toIso8601String(),
+        'updatedAt': DateTime.now().toIso8601String(),
+      },
+    );
   }
 
   @override
