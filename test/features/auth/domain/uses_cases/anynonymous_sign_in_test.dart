@@ -8,16 +8,14 @@ import 'package:nicless_flutter/features/auth/domain/use_cases/anonymous_sign_in
 
 import '../../../../mocks/repo_mocks.dart';
 
-class MockUserCredential extends Mock implements UserCredential {}
+class MockUser extends Mock implements User {}
 
 void main() {
   late AnonymousSignIn usecase;
   late AuthRepo repository;
-  late UserCredential mockUserCredential;
   setUpAll(() {
     repository = AuthRepoMock();
     usecase = AnonymousSignIn(repository);
-    mockUserCredential = MockUserCredential();
   });
 
   test(
@@ -26,14 +24,14 @@ void main() {
     () async {
       /// Arrange
       when(() => repository.anonymousSignIn())
-          .thenAnswer((_) async => Right(mockUserCredential));
+          .thenAnswer((_) async => const Right('123'));
 
       /// act
-      final Result<UserCredential> result = await usecase();
+      final Result<String> result = await usecase();
 
       /// assert
       expect(
-          result, equals(Right<dynamic, UserCredential>(mockUserCredential)),);
+          result, equals(const Right<dynamic, String>('123')),);
 
       verify(() => repository.anonymousSignIn()).called(1);
 
