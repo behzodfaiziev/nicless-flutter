@@ -32,14 +32,15 @@ class OnboardingBody extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                  child: Padding(
-                padding: context.mainHorizontalPadding,
-                child: PopButton(
-                  onPressed: () async {
-                    await onPopButtonPressed(context);
-                  },
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: PopButton(
+                    onPressed: () async {
+                      await onPopButtonPressed(context);
+                    },
+                  ),
                 ),
-              ),),
+              ),
               Expanded(
                 flex: 12,
                 child: PageView(
@@ -50,7 +51,8 @@ class OnboardingBody extends StatelessWidget {
                     const SmokingTypePage(),
                     SmokingInfoPage(params: smokingInfoPageParams),
                     ConnectBluetoothPage(
-                        smokingInfoPageParams: smokingInfoPageParams,),
+                      smokingInfoPageParams: smokingInfoPageParams,
+                    ),
                   ],
                 ),
               ),
@@ -95,6 +97,8 @@ class OnboardingBody extends StatelessWidget {
     context.read<OnboardingBloc>().add(const BackButtonPressed());
 
     await pageController.previousPage(
-        duration: const Duration(milliseconds: 500), curve: Curves.easeIn,);
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeIn,
+    );
   }
 }
