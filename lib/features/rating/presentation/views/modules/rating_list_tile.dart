@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../product/theme/app_colors.dart';
 import '../../../../../product/utils/constants/asset_paths/images_const.dart';
+import '../../../../../product/utils/constants/ui_constants/font_size_const.dart';
 import '../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../../product/utils/constants/ui_constants/radius_const.dart';
 import '../../../../../product/utils/constants/ui_constants/size_const.dart';
@@ -41,14 +42,18 @@ class RatingListTile extends StatelessWidget {
             padding: PaddingConst.left20,
             child: Text(
               rating.name ?? '',
-              style: context.primaryTextTheme.displaySmall,
+              style: context.primaryTextTheme.displaySmall?.copyWith(
+                fontSize: isTopThree ? null : FontSizeConst.big,
+              ),
             ),
           ),
           Row(
             children: [
               Text(
                 rating.averageCO2.toString(),
-                style: context.primaryTextTheme.titleMedium,
+                style: context.primaryTextTheme.titleMedium?.copyWith(
+                  fontSize: isTopThree ? null : FontSizeConst.medium,
+                ),
               ),
               Padding(
                 padding: PaddingConst.left2 + PaddingConst.right16,
