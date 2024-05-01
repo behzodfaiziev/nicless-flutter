@@ -43,8 +43,8 @@ class AppConst {
 
   static const String cigarette = 'cigarette';
   static const String vape = 'vape';
-  static const String tempProfileName = 'Behzod Faiziev';
-  static const String tempProfileNickname = 'behzod.faiziev';
+  static const String tempProfileName = 'John John';
+  static const String tempProfileNickname = 'john.john';
   static const String tempProfileUrl = 'https://i.pravatar.cc/150?img=2%27';
 }
 
