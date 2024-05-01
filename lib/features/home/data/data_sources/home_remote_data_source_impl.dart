@@ -16,7 +16,9 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   Future<List<VapeDataModel>> fetchDevices() async {
     try {
       final result = await _network.get<VapeDataModel, List<VapeDataModel>>(
-          url: NetworkUrlPath(path: 'vapes'), parseModel: VapeDataModel(),);
+        url: NetworkUrlPath(path: 'vapes'),
+        parseModel: const VapeDataModel(),
+      );
 
       return result.data ?? [];
     } catch (e) {

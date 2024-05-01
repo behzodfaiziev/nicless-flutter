@@ -26,9 +26,9 @@ void main() {
 
       const String resultId = 'id';
 
-      final VapeDataModel vapeData = VapeDataModel(
+      const VapeDataModel vapeData = VapeDataModel(
         name: 'device',
-        bluetoothData: const BluetoothDeviceModel(
+        bluetoothData: BluetoothDeviceModel(
           name: 'device',
           address: 'address',
         ),
