@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AssistAIRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AssistAIView(),
+      );
+    },
     AuthCheckerRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -87,6 +93,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AssistAIView]
+class AssistAIRoute extends PageRouteInfo<void> {
+  const AssistAIRoute({List<PageRouteInfo>? children})
+      : super(
+          AssistAIRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AssistAIRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

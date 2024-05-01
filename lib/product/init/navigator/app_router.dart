@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 import '../../../features/_main/view/main_view.dart';
+import '../../../features/assist_ai/presentation/view/assist_ai_view.dart';
 import '../../../features/auth/presentation/views/auth_checker/auth_checker_view.dart';
 import '../../../features/auth/presentation/views/landing/landing_view.dart';
 import '../../../features/bluetooth/data/models/bluetooth_device_model.dart';
@@ -32,6 +33,7 @@ class AppRouter extends _$AppRouter {
           page: MainRoute.page,
           children: [
             AutoRoute(page: HomeRoute.page),
+            AutoRoute(page: AssistAIRoute.page),
             AutoRoute(page: RatingRoute.page),
             AutoRoute(page: ProfileRoute.page),
           ],
