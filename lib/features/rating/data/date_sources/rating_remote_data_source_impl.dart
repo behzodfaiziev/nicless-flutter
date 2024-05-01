@@ -1,5 +1,4 @@
 import '../../../../core/error/exceptions/api_exception.dart';
-import '../../../../core/error/failures/api_failure.dart';
 import '../../../../product/data_objects/params/pagination_params.dart';
 import '../models/rating_model.dart';
 import 'rating_remote_data_source.dart';
