@@ -59,7 +59,8 @@ void main() {
       final result = await repoImpl.getWeeklyRating(paginationParams);
       // assert
       expect(result, const Right<dynamic, List<RatingModel>>(mockRatingList));
-      verify(() => remoteDataSource.getWeeklyRating(paginationParams)).called(1);
+      verify(() => remoteDataSource.getWeeklyRating(paginationParams))
+          .called(1);
       verifyNoMoreInteractions(remoteDataSource);
     });
 
@@ -75,7 +76,8 @@ void main() {
         result,
         Left<APIFailure, void>(APIFailure.fromAPIException(apiException)),
       );
-      verify(() => remoteDataSource.getWeeklyRating(paginationParams)).called(1);
+      verify(() => remoteDataSource.getWeeklyRating(paginationParams))
+          .called(1);
       verifyNoMoreInteractions(remoteDataSource);
     });
   });
@@ -93,7 +95,8 @@ void main() {
       final result = await repoImpl.getMonthlyRating(paginationParams);
       // assert
       expect(result, const Right<dynamic, List<RatingModel>>(mockRatingList));
-      verify(() => remoteDataSource.getMonthlyRating(paginationParams)).called(1);
+      verify(() => remoteDataSource.getMonthlyRating(paginationParams))
+          .called(1);
       verifyNoMoreInteractions(remoteDataSource);
     });
 
@@ -109,7 +112,8 @@ void main() {
         result,
         Left<APIFailure, void>(APIFailure.fromAPIException(apiException)),
       );
-      verify(() => remoteDataSource.getMonthlyRating(paginationParams)).called(1);
+      verify(() => remoteDataSource.getMonthlyRating(paginationParams))
+          .called(1);
       verifyNoMoreInteractions(remoteDataSource);
     });
   });
@@ -127,7 +131,8 @@ void main() {
       final result = await repoImpl.getYearlyRating(paginationParams);
       // assert
       expect(result, const Right<dynamic, List<RatingModel>>(mockRatingList));
-      verify(() => remoteDataSource.getYearlyRating(paginationParams)).called(1);
+      verify(() => remoteDataSource.getYearlyRating(paginationParams))
+          .called(1);
       verifyNoMoreInteractions(remoteDataSource);
     });
 
@@ -143,7 +148,8 @@ void main() {
         result,
         Left<APIFailure, void>(APIFailure.fromAPIException(apiException)),
       );
-      verify(() => remoteDataSource.getYearlyRating(paginationParams)).called(1);
+      verify(() => remoteDataSource.getYearlyRating(paginationParams))
+          .called(1);
       verifyNoMoreInteractions(remoteDataSource);
     });
   });
