@@ -30,6 +30,10 @@ class InjectionContainer {
         () => GenerativeModel(
           model: 'gemini-pro',
           apiKey: CredentialsConst.geminiApiKey,
+          generationConfig: GenerationConfig(
+            maxOutputTokens: 1000,
+
+          ),
         ),
       );
 

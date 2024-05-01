@@ -63,6 +63,7 @@ dependencies:
   lottie: ^3.0.0
   device_preview: ^1.1.0
   fl_chart: ^0.66.0
+  flutter_markdown: ^0.7.1
 
   # Others
   url_launcher: ^6.2.3
@@ -73,6 +74,8 @@ dependencies:
   mime: ^1.0.4
   flutter_bluetooth_serial: ^0.4.0
   google_maps_flutter: ^2.5.3
+
+
 
 dev_dependencies:
   flutter_test:

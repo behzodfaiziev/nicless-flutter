@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:google_generative_ai/google_generative_ai.dart';
 
 import '../../../../core/error/failures/api_failure.dart';
 import '../../../../core/utility/typedef.dart';
@@ -13,9 +12,9 @@ class GeminiRepoImpl extends GeminiRepo {
   final GeminiRemoteDataSource _remoteDataSource;
 
   @override
-  Result<Stream<GenerateContentResponse>> sendTextToGemini(String text) {
+  Result<Stream<String>> sendTextToGemini(String text) {
     try {
-      final Stream<GenerateContentResponse> response =
+      final  response =
           _remoteDataSource.sendTextToGemini(text);
       return Right(response);
     } catch (e) {

@@ -9,8 +9,14 @@ class GeminiRemoteDataSourceImpl extends GeminiRemoteDataSource {
   final GenerativeModel _generativeModel;
 
   @override
-  Stream<GenerateContentResponse> sendTextToGemini(String text) {
+  Stream<String> sendTextToGemini(String text) {
     final Content content = Content.text(text);
-    return _generativeModel.generateContentStream([content]);
+    return _generativeModel.generateContentStream([content]).map((response) {
+      return response.candidates.first.content.parts.map((part) {
+        if (part is TextPart) {
+          return part.text;
+        }
+      }).join(' ');
+    });
   }
 }

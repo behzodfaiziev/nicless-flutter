@@ -26,14 +26,14 @@ mixin MainViewMixin on State<MainView> {
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
-          asset: SVGConst.instance.dumbbell,
+          asset: SVGConst.instance.message,
           color: _getIconColor(
             context,
             activeIndex,
             MainViewTabsEnum.health.index,
           ),
         ),
-        label: 'Sport',
+        label: 'Gemini',
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(

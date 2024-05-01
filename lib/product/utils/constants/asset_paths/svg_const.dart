@@ -29,5 +29,7 @@ class SVGConst {
 
   String get question => toSvg('question');
 
+  String get message => toSvg('message');
+
   /// Icons
 }
