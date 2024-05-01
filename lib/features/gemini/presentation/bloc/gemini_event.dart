@@ -6,3 +6,12 @@ sealed class GeminiEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+final class SendTextToGeminiEvent extends GeminiEvent {
+  const SendTextToGeminiEvent(this.text);
+
+  final String text;
+
+  @override
+  List<Object> get props => [text];
+}

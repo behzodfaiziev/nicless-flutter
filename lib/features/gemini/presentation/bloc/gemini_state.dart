@@ -8,3 +8,12 @@ sealed class GeminiState extends Equatable {
 }
 
 final class AssistAiInitial extends GeminiState {}
+
+final class ErrorState extends GeminiState {
+  const ErrorState(this.message);
+
+  final String message;
+
+  @override
+  List<Object> get props => [message];
+}
