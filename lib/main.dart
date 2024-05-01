@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/init/config/system_init.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/bluetooth/presentation/bloc/bluetooth_bloc.dart';
+import 'features/gemini/presentation/bloc/gemini_bloc.dart';
 import 'product/init/injection_container/_injection_container.dart';
 import 'product/init/navigator/app_router.dart';
 import 'product/init/navigator/observer/app_route_observer.dart';
@@ -27,22 +28,25 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => sl<AuthBloc>()),
         BlocProvider(create: (_) => sl<BluetoothBloc>()),
+        BlocProvider(create: (_) => sl<GeminiBloc>()),
       ],
       child: MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          title: AppConst.appName,
-          theme: AppThemeDark().theme,
-          darkTheme: AppThemeDark().theme,
-          routeInformationParser: _appRouter.defaultRouteParser(),
-          routerDelegate: _appRouter.delegate(
-              navigatorObservers: () =>
-                  <NavigatorObserver>[AppRouteObserver()],),
-          builder: (context, child) {
-            return MediaQuery(
-                data: MediaQuery.of(context)
-                    .copyWith(textScaler: TextScaler.noScaling),
-                child: child!,);
-          },),
+        debugShowCheckedModeBanner: false,
+        title: AppConst.appName,
+        theme: AppThemeDark().theme,
+        darkTheme: AppThemeDark().theme,
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        routerDelegate: _appRouter.delegate(
+          navigatorObservers: () => <NavigatorObserver>[AppRouteObserver()],
+        ),
+        builder: (context, child) {
+          return MediaQuery(
+            data: MediaQuery.of(context)
+                .copyWith(textScaler: TextScaler.noScaling),
+            child: child!,
+          );
+        },
+      ),
     );
   }
 }

@@ -21,6 +21,7 @@ class RadiusConst {
 
   /// Circular
   static BorderRadius circular5 = BorderRadius.circular(5);
+  static BorderRadius circular12 = BorderRadius.circular(12);
   static BorderRadius circular25 = BorderRadius.circular(25);
   static BorderRadius circular50 = BorderRadius.circular(50);
   static BorderRadius circular75 = BorderRadius.circular(75);

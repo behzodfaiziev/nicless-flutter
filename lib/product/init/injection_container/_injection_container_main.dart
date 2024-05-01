@@ -23,6 +23,18 @@ class InjectionContainer {
       /// Network
       ..registerLazySingleton<INetworkManager<ErrorModelCustom>>(
         NetworkManager<ErrorModelCustom>.new,
+      )
+
+      /// Gemini
+      ..registerLazySingleton<GenerativeModel>(
+        () => GenerativeModel(
+          model: 'gemini-pro',
+          apiKey: CredentialsConst.geminiApiKey,
+          generationConfig: GenerationConfig(
+            maxOutputTokens: 1000,
+
+          ),
+        ),
       );
 
     _authContainer();
@@ -31,5 +43,6 @@ class InjectionContainer {
     _homeContainer();
     _settingsContainer();
     _ratingContainer();
+    _geminiContainer();
   }
 }

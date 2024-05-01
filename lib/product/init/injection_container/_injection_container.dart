@@ -1,5 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 
 import '../../../core/managers/database/core/primitive_database.dart';
 import '../../../core/managers/database/secure_storage/secure_database_manager.dart';
@@ -20,6 +21,12 @@ import '../../../features/bluetooth/domain/use_cases/connect_bluetooth_device.da
 import '../../../features/bluetooth/domain/use_cases/disconnect_bluetooth_device.dart';
 import '../../../features/bluetooth/domain/use_cases/get_bluetooth_devices.dart';
 import '../../../features/bluetooth/presentation/bloc/bluetooth_bloc.dart';
+import '../../../features/gemini/data/data_sources/gemini_remote_data_source.dart';
+import '../../../features/gemini/data/data_sources/gemini_remote_data_source_impl.dart';
+import '../../../features/gemini/data/repo/gemini_repo_impl.dart';
+import '../../../features/gemini/domain/repo/gemini_repo.dart';
+import '../../../features/gemini/domain/use_cases/send_text_to_gemini.dart';
+import '../../../features/gemini/presentation/bloc/gemini_bloc.dart';
 import '../../../features/home/data/data_sources/home_remote_data_source.dart';
 import '../../../features/home/data/data_sources/home_remote_data_source_impl.dart';
 import '../../../features/home/data/repo/home_repo_impl.dart';
@@ -41,6 +48,7 @@ import '../../../features/rating/domain/use_cases/get_monthly_rating.dart';
 import '../../../features/rating/domain/use_cases/get_weekly_rating.dart';
 import '../../../features/rating/domain/use_cases/get_yearly_rating.dart';
 import '../../../features/rating/presentation/bloc/rating_bloc.dart';
+import '../../utils/constants/app/credentials_const.dart';
 
 part '_injection_container_main.dart';
 
@@ -55,3 +63,5 @@ part 'settings_container.dart';
 part 'home_container.dart';
 
 part 'rating_container.dart';
+
+part 'gemini_container.dart';

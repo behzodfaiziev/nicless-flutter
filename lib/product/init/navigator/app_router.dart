@@ -6,6 +6,7 @@ import '../../../features/_main/view/main_view.dart';
 import '../../../features/auth/presentation/views/auth_checker/auth_checker_view.dart';
 import '../../../features/auth/presentation/views/landing/landing_view.dart';
 import '../../../features/bluetooth/data/models/bluetooth_device_model.dart';
+import '../../../features/gemini/presentation/view/gemini_view.dart';
 import '../../../features/home/presentation/views/automatic_counter/automatic_counter_view.dart';
 import '../../../features/home/presentation/views/counter/counter_view.dart';
 import '../../../features/home/presentation/views/home/home_view.dart';
@@ -32,6 +33,7 @@ class AppRouter extends _$AppRouter {
           page: MainRoute.page,
           children: [
             AutoRoute(page: HomeRoute.page),
+            AutoRoute(page: GeminiRoute.page),
             AutoRoute(page: RatingRoute.page),
             AutoRoute(page: ProfileRoute.page),
           ],

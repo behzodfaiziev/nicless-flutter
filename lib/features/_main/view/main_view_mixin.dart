@@ -3,6 +3,7 @@ part of 'main_view.dart';
 mixin MainViewMixin on State<MainView> {
   final List<PageRouteInfo> _routes = const [
     HomeRoute(),
+    GeminiRoute(),
     RatingRoute(),
     ProfileRoute(),
   ];
@@ -25,14 +26,14 @@ mixin MainViewMixin on State<MainView> {
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
-          asset: SVGConst.instance.dumbbell,
+          asset: SVGConst.instance.message,
           color: _getIconColor(
             context,
             activeIndex,
             MainViewTabsEnum.health.index,
           ),
         ),
-        label: 'Sport',
+        label: 'Gemini',
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(

@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CounterView(),
       );
     },
+    GeminiRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const GeminiView(),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -156,6 +162,20 @@ class CounterRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CounterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [GeminiView]
+class GeminiRoute extends PageRouteInfo<void> {
+  const GeminiRoute({List<PageRouteInfo>? children})
+      : super(
+          GeminiRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GeminiRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
