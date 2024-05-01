@@ -58,6 +58,7 @@ class _GeminiViewState extends State<GeminiView> with GeminiMixin {
           ),
           child: TextFormField(
             controller: _textEditingController,
+            focusNode: _focusNode,
             onFieldSubmitted: (_) => onSendButtonPressed(),
             style: context.primaryTextTheme.bodyMedium,
             decoration: InputDecoration(

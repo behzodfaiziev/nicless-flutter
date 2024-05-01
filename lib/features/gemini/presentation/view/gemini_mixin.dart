@@ -4,6 +4,7 @@ mixin GeminiMixin on State<GeminiView> {
   late final GeminiBloc _geminiBloc;
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _textEditingController = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
 
   @override
   void initState() {
@@ -15,12 +16,14 @@ mixin GeminiMixin on State<GeminiView> {
   void dispose() {
     _scrollController.dispose();
     _textEditingController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
   void onSendButtonPressed() {
     _geminiBloc.add(SendTextToGeminiEvent(_textEditingController.text));
     _textEditingController.clear();
+    _focusNode.unfocus();
   }
 
   void pageListener(BuildContext context, GeminiState state) {
