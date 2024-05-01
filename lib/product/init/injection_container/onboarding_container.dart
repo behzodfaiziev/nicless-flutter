@@ -10,12 +10,12 @@ void _onBoardingContainer() {
     ..registerLazySingleton(() => SaveVapeData(sl()))
 
     /// Repositories
-    ..registerLazySingleton<OnboardingRepo>(
-      () => OnboardingRepoImpl(remoteDataSource: sl()),
+    ..registerLazySingleton<OnboardRepo>(
+      () => OnboardRepoImpl(remoteDataSource: sl()),
     )
 
     /// Data Sources
-    ..registerLazySingleton<OnboardingRemoteDataSource>(
-      () => OnboardingRemoteDataSourceImpl(network: sl()),
+    ..registerLazySingleton<OnboardRemoteDataSource>(
+      () => OnboardRemoteDataSourceImpl(network: sl()),
     );
 }

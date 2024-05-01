@@ -3,7 +3,7 @@ import '../../../features/bluetooth/data/models/bluetooth_device_model.dart';
 import '../entities/vape_data.dart';
 
 class VapeDataModel extends VapeData implements INetworkModel<VapeDataModel> {
-  VapeDataModel({
+  const VapeDataModel({
     super.bluetoothData,
     super.capacity,
     super.price,
@@ -20,6 +20,19 @@ class VapeDataModel extends VapeData implements INetworkModel<VapeDataModel> {
       bluetoothData: BluetoothDeviceModel(
         name: json['bl.name'] as String?,
         address: json['bl.address'] as String,
+      ),
+    );
+  }
+
+  factory VapeDataModel.empty() {
+    return const VapeDataModel(
+      capacity: 'capacity',
+      price: 'price',
+      nicotine: 'nicotine',
+      name: 'name',
+      bluetoothData: BluetoothDeviceModel(
+        name: 'name',
+        address: 'address',
       ),
     );
   }

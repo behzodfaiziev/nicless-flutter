@@ -25,16 +25,16 @@ void main() {
       /// Arrange
 
       final List<VapeDataModel> bluetoothDevices = [
-        VapeDataModel(
+        const VapeDataModel(
           name: 'device',
-          bluetoothData: const BluetoothDeviceModel(
+          bluetoothData: BluetoothDeviceModel(
             name: 'device',
             address: 'address',
           ),
         ),
-        VapeDataModel(
+        const VapeDataModel(
           name: 'device2',
-          bluetoothData: const BluetoothDeviceModel(
+          bluetoothData: BluetoothDeviceModel(
             name: 'device2',
             address: 'address2',
           ),
