@@ -19,7 +19,7 @@ void _ratingContainer() {
 
     /// Repositories
     ..registerLazySingleton<RatingRepo>(
-      () => RatingRepoImpl(sl()),
+      () => RatingRepoImpl(remoteDataSource: sl()),
     )
 
     /// Data Sources

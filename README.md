@@ -1,4 +1,5 @@
 # Nicless App
+
 ### Introduction
 Our project aims to revolutionize smoking cessation by offering a comprehensive mobile app integrated with hardware to help individuals track their smoking habits, set personalized goals, and receive support on their quit journey. By leveraging real-time data insights, interactive features, and community support, we strive to empower users to break free from smoking addiction and improve their overall health and well-being.
 
@@ -38,13 +39,27 @@ flutter run --debug
 The app follows the Clean Architecture pattern, separating the business logic from the UI layer for improved scalability and testability. It also uses BLoC (Business Logic Component) for state management, providing a robust and predictable way to manage the app's state
 #### Featured:
 - Clean Architecture
+- Unit test covered
 - Firebase: Authentication, Firestore, Analytics
 - [BLoC](https://pub.dev/packages/bloc)
 - [Bluetooth](https://pub.dev/packages/flutter_bluetooth_serial) 
 - Network manager inspired by [Vexana](https://pub.dev/packages/vexana)
-- [Google Maps (under development)](https://pub.dev/packages/google_maps_flutter)
+- [Google Maps](https://pub.dev/packages/google_maps_flutter)
+- [Gemini](https://pub.dev/packages/google_generative_ai)
 
 ## GDSC Solution Challenge 2024
 
 <video src='https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/2f28d629-4628-4e95-866d-03dfda60495d' width=360/></video>
+
+## User interface
+
+#### Logo
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/bc96d40c-0cf0-4a18-9124-789a58d9c214" width="150" height="150">
+
+### Onboarding
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/db0f4121-3c83-4e80-9eb4-8b5e4e1467e1" height="450">
+
+#### Rating
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/39689661-41d4-4df2-8a49-0c9cc678d7ad" height="450">
+
 
