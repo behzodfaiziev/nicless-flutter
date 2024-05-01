@@ -15,12 +15,6 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    AssistAIRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const AssistAIView(),
-      );
-    },
     AuthCheckerRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -43,6 +37,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const CounterView(),
+      );
+    },
+    GeminiRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const GeminiView(),
       );
     },
     HomeRoute.name: (routeData) {
@@ -93,20 +93,6 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
-}
-
-/// generated route for
-/// [AssistAIView]
-class AssistAIRoute extends PageRouteInfo<void> {
-  const AssistAIRoute({List<PageRouteInfo>? children})
-      : super(
-          AssistAIRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'AssistAIRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -176,6 +162,20 @@ class CounterRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CounterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [GeminiView]
+class GeminiRoute extends PageRouteInfo<void> {
+  const GeminiRoute({List<PageRouteInfo>? children})
+      : super(
+          GeminiRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GeminiRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
