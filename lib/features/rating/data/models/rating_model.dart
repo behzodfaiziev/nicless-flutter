@@ -7,7 +7,7 @@ part 'rating_model.g.dart';
 
 @JsonSerializable()
 class RatingModel extends INetworkModel<RatingModel> with EquatableMixin {
-  RatingModel({
+  const RatingModel({
     this.id,
     this.rank,
     this.name,

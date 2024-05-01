@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../error/exceptions/api_exception.dart';
 import 'entities/created_id_response.dart';
 import 'entities/network_query_parameters.dart';
 import 'entities/network_url_path.dart';
@@ -13,8 +14,8 @@ import 'models/error_model.dart';
 import 'models/response_model.dart';
 
 class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
-
   NetworkManager();
+
   static const String id = 'id';
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -43,7 +44,7 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
 
       return CreatedIdResponse(id: documentReference.id);
     } catch (e) {
-      rethrow;
+      throw APIException(message: e.toString());
     }
   }
 
@@ -158,8 +159,10 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
     NetworkQueryParameters queryParameters,
   ) {
     Query<Object?> query = queryParameters.isDescending
-        ? collectionReference.orderBy(queryParameters.orderBy!,
-            descending: queryParameters.isDescending,)
+        ? collectionReference.orderBy(
+            queryParameters.orderBy!,
+            descending: queryParameters.isDescending,
+          )
         : collectionReference.orderBy(queryParameters.orderBy!);
 
     if (queryParameters.orderBy != null) {
@@ -170,13 +173,17 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
     }
     if (queryParameters.whereField != null &&
         queryParameters.whereIsEqualTo != null) {
-      query = query.where(queryParameters.whereField!,
-          isEqualTo: queryParameters.whereIsEqualTo,);
+      query = query.where(
+        queryParameters.whereField!,
+        isEqualTo: queryParameters.whereIsEqualTo,
+      );
     }
     if (queryParameters.whereField2 != null &&
         queryParameters.whereIsEqualTo2 != null) {
-      query = query.where(queryParameters.whereField2!,
-          isEqualTo: queryParameters.whereIsEqualTo2,);
+      query = query.where(
+        queryParameters.whereField2!,
+        isEqualTo: queryParameters.whereIsEqualTo2,
+      );
     }
     return query;
   }
@@ -190,8 +197,11 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
     return ResponseModel<R, E>(data: model);
   }
 
-  R? _parseBody<R, T extends INetworkModel<T>>(dynamic responseBody, T model,
-      [bool isLoggerEnabled = false,]) {
+  R? _parseBody<R, T extends INetworkModel<T>>(
+    dynamic responseBody,
+    T model, [
+    bool isLoggerEnabled = false,
+  ]) {
     try {
       if (responseBody is List<QueryDocumentSnapshot<Object?>>?) {
         final List<Map<String, dynamic>?>? mappedList =
@@ -234,7 +244,10 @@ class NetworkManager<E extends INetworkModel<E>?> extends INetworkManager<E> {
     debugPrint(errorResponse);
     final error = ErrorModel<E>(description: errorResponse);
     return ResponseModel<R, E>(
-        error: ErrorModel<E>(
-            description: error.description, statusCode: error.statusCode,),);
+      error: ErrorModel<E>(
+        description: error.description,
+        statusCode: error.statusCode,
+      ),
+    );
   }
 }

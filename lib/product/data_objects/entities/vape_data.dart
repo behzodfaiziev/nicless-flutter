@@ -1,7 +1,7 @@
 import '../../../features/bluetooth/data/models/bluetooth_device_model.dart';
 
 abstract class VapeData {
-  VapeData({
+  const VapeData({
     this.bluetoothData,
     this.capacity = '',
     this.price = '',
