@@ -7,9 +7,9 @@ import 'package:nicless_flutter/features/bluetooth/data/models/bluetooth_device_
 import 'package:nicless_flutter/features/bluetooth/domain/repo/bluetooth_repo.dart';
 import 'package:nicless_flutter/features/bluetooth/domain/use_cases/connect_bluetooth_device.dart';
 
+import '../../../../mocks/bluetooth_mocks.dart';
 import '../../../../mocks/repo_mocks.dart';
 
-class MockBluetoothConnection extends Mock implements BluetoothConnection {}
 
 void main() {
   late ConnectBluetoothDevice useCase;
