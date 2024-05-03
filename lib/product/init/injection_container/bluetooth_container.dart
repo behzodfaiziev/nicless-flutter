@@ -18,7 +18,9 @@ void _bluetoothContainer() {
     ..registerLazySingleton(() => DisconnectBluetoothDevice(sl()))
     //
     /// Repositories
-    ..registerLazySingleton<BluetoothRepo>(BluetoothRepoImpl.new);
+    ..registerLazySingleton<BluetoothRepo>(
+      () => BluetoothRepoImpl(bluetoothManager: sl()),
+    );
   //
   // /// Data Sources
   // ..registerLazySingleton<OnBoardingLocalDataSource>(

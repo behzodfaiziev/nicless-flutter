@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nicless_flutter/core/utility/typedef.dart';
@@ -8,8 +7,6 @@ import 'package:nicless_flutter/features/bluetooth/domain/repo/bluetooth_repo.da
 import 'package:nicless_flutter/features/bluetooth/domain/use_cases/get_bluetooth_devices.dart';
 
 import '../../../../mocks/repo_mocks.dart';
-
-class MockBluetoothConnection extends Mock implements BluetoothConnection {}
 
 void main() {
   late GetBluetoothDevices useCase;

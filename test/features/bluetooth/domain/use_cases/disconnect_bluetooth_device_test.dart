@@ -6,9 +6,8 @@ import 'package:nicless_flutter/core/utility/typedef.dart';
 import 'package:nicless_flutter/features/bluetooth/domain/repo/bluetooth_repo.dart';
 import 'package:nicless_flutter/features/bluetooth/domain/use_cases/disconnect_bluetooth_device.dart';
 
+import '../../../../mocks/bluetooth_mocks.dart';
 import '../../../../mocks/repo_mocks.dart';
-
-class MockBluetoothConnection extends Mock implements BluetoothConnection {}
 
 void main() {
   late DisconnectBluetoothDevice useCase;
@@ -41,4 +40,5 @@ void main() {
       verifyNoMoreInteractions(repository);
     },
   );
+
 }

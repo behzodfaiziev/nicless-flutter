@@ -20,6 +20,9 @@ class InjectionContainer {
         () => SecureDatabaseManager(const FlutterSecureStorage()),
       )
 
+      /// Bluetooth Manager
+      ..registerLazySingleton<BluetoothManager>(BluetoothManager.new)
+
       /// Network
       ..registerLazySingleton<INetworkManager<ErrorModelCustom>>(
         NetworkManager<ErrorModelCustom>.new,
@@ -32,7 +35,6 @@ class InjectionContainer {
           apiKey: CredentialsConst.geminiApiKey,
           generationConfig: GenerationConfig(
             maxOutputTokens: 1000,
-
           ),
         ),
       );

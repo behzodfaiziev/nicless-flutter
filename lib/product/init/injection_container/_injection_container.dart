@@ -2,6 +2,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
+import '../../../core/managers/bluetooth/bluetooth_manager.dart';
 import '../../../core/managers/database/core/primitive_database.dart';
 import '../../../core/managers/database/secure_storage/secure_database_manager.dart';
 import '../../../core/managers/network/i_network_manager.dart';

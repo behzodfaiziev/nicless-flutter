@@ -12,7 +12,7 @@ class MockHomeRemoteDataSource extends Mock implements HomeRemoteDataSource {}
 
 void main() {
   late HomeRemoteDataSource remoteDataSource;
-  late HomeRepoImpl repoImpl;
+  late HomeRepo repoImpl;
 
   const APIException apiException = APIException(
     statusCode: 500,
