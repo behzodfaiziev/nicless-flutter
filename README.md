@@ -24,7 +24,15 @@ git clone https://github.com/behzodfaiziev/nicless-flutter
     android:name="com.google.android.geo.API_KEY"
     android:value="YOUR_API_KEY_HERE"/>
 ```
-3. Ensure that the app is running in debug mode to sign in successfully.
+3. Add your Gemini API key to ```lib/product/utils/constants/app/credentials_const```
+   - note:
+```dart
+    class CredentialsConst {
+       static const geminiApiKey = 'YOUR_API_KEY';
+    }
+```
+
+5. Ensure that the app is running in debug mode to sign in successfully.
 ```dart
 flutter run --debug
  ```
@@ -39,7 +47,11 @@ flutter run --debug
 The app follows the Clean Architecture pattern, separating the business logic from the UI layer for improved scalability and testability. It also uses BLoC (Business Logic Component) for state management, providing a robust and predictable way to manage the app's state
 #### Featured:
 - Clean Architecture
-- Unit test covered
+- Unit test covered (aiming to follow TDD)
+  - Use case test: :white_check_mark: ```100%```
+  - Repository test: :white_check_mark: ```100%```
+  - Bloc test: (under development) ```0%```
+  - Data source test: (under development) ```0%```
 - Firebase: Authentication, Firestore, Analytics
 - [BLoC](https://pub.dev/packages/bloc)
 - [Bluetooth](https://pub.dev/packages/flutter_bluetooth_serial) 
