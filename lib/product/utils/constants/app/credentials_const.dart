@@ -1,3 +1,3 @@
 class CredentialsConst {
-  static const geminiApiKey = 'AIzaSyDqDUNHzT9W2-QzVMgwMiqy3PpTfhQvRK0';
+  static const geminiApiKey = 'YOUR_API_KEY';
 }
