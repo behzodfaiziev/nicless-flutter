@@ -63,15 +63,30 @@ The app follows the Clean Architecture pattern, separating the business logic fr
 
 <video src='https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/2f28d629-4628-4e95-866d-03dfda60495d' width=360/></video>
 
-## User interface
+# User interface
 
 #### Logo
 <img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/bc96d40c-0cf0-4a18-9124-789a58d9c214" width="150" height="150">
 
 ### Onboarding
-<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/db0f4121-3c83-4e80-9eb4-8b5e4e1467e1" height="450">
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/db0f4121-3c83-4e80-9eb4-8b5e4e1467e1" height="447">
+
+### Home & Automatic Counter
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/1936cf97-2cc3-41d9-ab4a-b8442d6af57b" height="450">
+
+### Profile
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/a6699290-2bf2-416e-8918-f2e6270fad2e" height="450">
+
+
+### Gemini
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/62e0aea0-9850-4e53-9aa8-8e4d39025313" height="450">
+
+### Google Maps
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/47c5d98b-e993-4539-a070-925bda0870ee" height="450">
 
 #### Rating
 <img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/39689661-41d4-4df2-8a49-0c9cc678d7ad" height="450">
+
+
 
 
