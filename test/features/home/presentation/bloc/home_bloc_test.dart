@@ -12,11 +12,12 @@ void main() {
   late HomeBloc bloc;
   late FetchDevices fetchDevices;
 
-  setUpAll(() {
+  setUp(() {
     fetchDevices = FetchDevicesMock();
     bloc = HomeBloc(fetchDevices: fetchDevices);
   });
-  tearDownAll(() => bloc.close());
+
+  tearDown(() => bloc.close());
 
   test('initial state is HomeInitial', () {
     expect(bloc.state, const HomeInitial());
