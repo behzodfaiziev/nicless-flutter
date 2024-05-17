@@ -13,7 +13,6 @@ class AppThemeDark {
         colorScheme: const ColorScheme.light(
           primary: AppColors.primaryDark,
           secondary: AppColors.secondaryDark,
-          background: AppColors.backgroundDark,
           error: AppColors.errorDark,
           onSecondary: AppColors.secondaryTextColor,
         ),
@@ -25,7 +24,7 @@ class AppThemeDark {
         checkboxTheme: CheckboxThemeData(
           side: const BorderSide(color: AppColors.secondaryDark),
           shape: RoundedRectangleBorder(borderRadius: RadiusConst.smallRadius),
-          checkColor: MaterialStateProperty.all(AppColors.secondaryDark),
+          checkColor: WidgetStateProperty.all(AppColors.secondaryDark),
         ),
         pageTransitionsTheme: _pageTransitionsTheme,
       );

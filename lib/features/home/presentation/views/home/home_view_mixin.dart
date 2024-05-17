@@ -6,7 +6,7 @@ mixin HomeViewMixin on State<HomeView> {
   @override
   void initState() {
     super.initState();
-    bloc.add(FetchDevicesEvent());
+    bloc.add(const FetchDevicesEvent());
   }
 
   @override

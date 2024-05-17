@@ -61,22 +61,22 @@ class BaseElevatedButton extends StatelessWidget {
   ButtonStyle? androidStyle(BuildContext context) {
     return context.theme.elevatedButtonTheme.style?.copyWith(
         elevation: buttonElevation != null
-            ? MaterialStateProperty.all(buttonElevation)
+            ? WidgetStateProperty.all(buttonElevation)
             : null,
         padding: setZeroPaddingForAndroid
-            ? const MaterialStatePropertyAll(EdgeInsets.zero)
-            : MaterialStatePropertyAll(padding),
-        minimumSize: MaterialStatePropertyAll(Size(
+            ? const WidgetStatePropertyAll(EdgeInsets.zero)
+            : WidgetStatePropertyAll(padding),
+        minimumSize: WidgetStatePropertyAll(Size(
             SizeConst.elevatedButtonMinWidth,
             height ?? SizeConst.elevatedButtonBigHeight,),),
-        maximumSize: MaterialStatePropertyAll(Size(
+        maximumSize: WidgetStatePropertyAll(Size(
             SizeConst.elevatedButtonMinWidth,
             height ?? SizeConst.elevatedButtonBigHeight,),),
         backgroundColor: backgroundColor != null
-            ? MaterialStatePropertyAll(backgroundColor)
+            ? WidgetStatePropertyAll(backgroundColor)
             : context.theme.elevatedButtonTheme.style?.backgroundColor,
         shape: borderRadius != null
-            ? MaterialStatePropertyAll(
+            ? WidgetStatePropertyAll(
                 RoundedRectangleBorder(borderRadius: borderRadius!),)
             : context.theme.elevatedButtonTheme.style?.shape,);
   }

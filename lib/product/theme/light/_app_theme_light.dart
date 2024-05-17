@@ -15,7 +15,6 @@ class AppThemeLight {
         colorScheme: const ColorScheme.light(
           primary: AppColors.primaryLight,
           secondary: AppColors.secondaryLight,
-          background: AppColors.backgroundLight,
           error: AppColors.errorLight,
         ),
 
