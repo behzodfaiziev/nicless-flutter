@@ -5,23 +5,23 @@ import '../../../../../product/data_objects/models/vape_data_model.dart';
 import '../../../domain/use_cases/fetch_devices.dart';
 
 part 'home_event.dart';
-
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({required FetchDevices fetchDevices})
       : _fetchDevices = fetchDevices,
-        super(HomeInitial()) {
+        super(const HomeInitial()) {
     on<HomeEvent>((event, emit) {});
     on<FetchDevicesEvent>(_fetchDevicesHandler);
-    on<ConnectToDeviceEvent>(_connectToDeviceHandler);
   }
 
   final FetchDevices _fetchDevices;
 
   Future<void> _fetchDevicesHandler(
-      FetchDevicesEvent event, Emitter<HomeState> emit,) async {
-    emit(HomeLoading());
+    FetchDevicesEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(const HomeLoading());
 
     final result = await _fetchDevices();
 
@@ -29,12 +29,5 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       (failure) => emit(HomeError(failure.message ?? 'Unknown error')),
       (devices) => emit(HomeLoaded(devices)),
     );
-  }
-
-  Future<void> _connectToDeviceHandler(
-      ConnectToDeviceEvent event, Emitter<HomeState> emit,) async {
-    emit(HomeLoading());
-
-
   }
 }

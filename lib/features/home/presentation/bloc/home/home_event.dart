@@ -7,13 +7,6 @@ abstract class HomeEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchDevicesEvent extends HomeEvent {}
-
-class ConnectToDeviceEvent extends HomeEvent {
-  const ConnectToDeviceEvent(this.device);
-
-  final VapeDataModel device;
-
-  @override
-  List<Object> get props => [device];
+class FetchDevicesEvent extends HomeEvent {
+  const FetchDevicesEvent();
 }
