@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/extensions/context_extension.dart';
 import '../../../../core/widgets/buttons/base_elevated_button.dart';
+import '../../../../product/init/lang/locale_keys.g.dart';
 import '../../../../product/widgets/button/pop_button.dart';
 import '../bloc/onboarding_bloc.dart';
 import 'modules/connect_bluetooth/connect_bluetooth_page.dart';
@@ -70,12 +72,16 @@ class OnboardingBody extends StatelessWidget {
                             onPressed: state.isEnabled
                                 ? () => onButtonPressed(context, state.index)
                                 : null,
-                            child: Text(state.isLastPage ? 'Done' : 'Next'),
+                            child: Text(
+                              state.isLastPage
+                                  ? LocaleKeys.buttons_done.tr()
+                                  : LocaleKeys.buttons_next.tr(),
+                            ),
                           );
                         }
 
-                        return const BaseElevatedButton(
-                          child: Text('Next'),
+                        return BaseElevatedButton(
+                          child: Text(LocaleKeys.buttons_next.tr()),
                         );
                       },
                     ),

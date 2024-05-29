@@ -22,7 +22,7 @@ mixin MainViewMixin on State<MainView> {
             MainViewTabsEnum.home.index,
           ),
         ),
-        label: 'Home',
+        label: LocaleKeys.buttons_home.tr(),
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
@@ -33,7 +33,7 @@ mixin MainViewMixin on State<MainView> {
             MainViewTabsEnum.health.index,
           ),
         ),
-        label: 'Gemini',
+        label: LocaleKeys.buttons_gemini.tr(),
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
@@ -44,7 +44,7 @@ mixin MainViewMixin on State<MainView> {
             MainViewTabsEnum.statistics.index,
           ),
         ),
-        label: 'Rating',
+        label: LocaleKeys.buttons_rating.tr(),
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
@@ -55,7 +55,7 @@ mixin MainViewMixin on State<MainView> {
             MainViewTabsEnum.profile.index,
           ),
         ),
-        label: 'Profile',
+        label: LocaleKeys.buttons_profile.tr(),
       ),
     ];
   }

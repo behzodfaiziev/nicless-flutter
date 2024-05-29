@@ -13,7 +13,6 @@ import 'product/utils/constants/app/app_const.dart';
 
 Future<void> main() async {
   await SystemInit.instance.init();
-
   runApp(MyApp());
 }
 
