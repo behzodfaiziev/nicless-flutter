@@ -61,7 +61,7 @@ The app follows the Clean Architecture pattern, separating the business logic fr
 
 ## GDSC Solution Challenge 2024
 
-<video src='https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/2f28d629-4628-4e95-866d-03dfda60495d' width=360/></video>
+<video src='https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/cef51897-5d3d-4bfb-8ad2-32715166b50f' width=360/></video>
 
 # User interface
 
