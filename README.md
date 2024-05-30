@@ -75,7 +75,8 @@ The app follows the Clean Architecture pattern, separating the business logic fr
 <img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/1936cf97-2cc3-41d9-ab4a-b8442d6af57b" height="450">
 
 ### Profile
-<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/a6699290-2bf2-416e-8918-f2e6270fad2e" height="450">
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/90db10a9-eada-432b-9114-77290131fde3" height="450">
+
 
 
 ### Gemini
