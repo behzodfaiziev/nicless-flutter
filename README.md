@@ -61,7 +61,7 @@ The app follows the Clean Architecture pattern, separating the business logic fr
 
 ## GDSC Solution Challenge 2024
 
-<video src='https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/2f28d629-4628-4e95-866d-03dfda60495d' width=360/></video>
+<video src='https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/cef51897-5d3d-4bfb-8ad2-32715166b50f' width=360/></video>
 
 # User interface
 
@@ -75,7 +75,8 @@ The app follows the Clean Architecture pattern, separating the business logic fr
 <img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/1936cf97-2cc3-41d9-ab4a-b8442d6af57b" height="450">
 
 ### Profile
-<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/a6699290-2bf2-416e-8918-f2e6270fad2e" height="450">
+<img src="https://github.com/behzodfaiziev/nicless-flutter/assets/63793311/90db10a9-eada-432b-9114-77290131fde3" height="450">
+
 
 
 ### Gemini
