@@ -9,6 +9,7 @@ class AppThemeDark {
   ThemeData get theme => ThemeData(
         textTheme: TextThemeDark.textTheme,
         primaryTextTheme: PrimaryTextThemeDark.textTheme,
+        scaffoldBackgroundColor: AppColors.backgroundDark,
         primaryColor: AppColors.primaryDark,
         colorScheme: const ColorScheme.light(
           primary: AppColors.primaryDark,
@@ -29,11 +30,12 @@ class AppThemeDark {
         pageTransitionsTheme: _pageTransitionsTheme,
       );
 
-  PageTransitionsTheme get _pageTransitionsTheme =>
-      const PageTransitionsTheme(builders: {
-        TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
-        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      },);
+  PageTransitionsTheme get _pageTransitionsTheme => const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: OpenUpwardsPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        },
+      );
 
   AppBarTheme appBarTheme() {
     return const AppBarTheme(
@@ -49,13 +51,14 @@ class AppThemeDark {
 
   BottomNavigationBarThemeData bottomNavigationBarThemeData() {
     return const BottomNavigationBarThemeData(
-        backgroundColor: AppColors.bottomNavBarDark,
-        type: BottomNavigationBarType.fixed,
-        elevation: 5,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white54,
-        showUnselectedLabels: false,
-        showSelectedLabels: true,);
+      backgroundColor: AppColors.bottomNavBarDark,
+      type: BottomNavigationBarType.fixed,
+      elevation: 5,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.white54,
+      showUnselectedLabels: false,
+      showSelectedLabels: true,
+    );
   }
 
   ElevatedButtonThemeData elevatedButtonThemeData() {
@@ -87,9 +90,10 @@ class AppThemeDark {
         borderSide: BorderSide(color: AppColors.errorDark),
       ),
       hintStyle: TextStyle(
-          color: AppColors.hintColorDark,
-          fontWeight: FontWeight.w300,
-          fontSize: 14,),
+        color: AppColors.hintColorDark,
+        fontWeight: FontWeight.w300,
+        fontSize: 14,
+      ),
     );
   }
 }
