@@ -115,6 +115,7 @@ flutter:
     - assets/images/
     - assets/lottie/
     - assets/json/
+    - assets/translations/
   fonts:
     - family: Inria Serif
       fonts:

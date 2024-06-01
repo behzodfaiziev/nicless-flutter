@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +14,13 @@ import 'product/utils/constants/app/app_const.dart';
 
 Future<void> main() async {
   await SystemInit.instance.init();
-  runApp(MyApp());
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en', 'US')],
+      path: AppConst.localizationPath,
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -32,12 +39,23 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: AppConst.appName,
+
+        /// Theme
         theme: AppThemeDark().theme,
         darkTheme: AppThemeDark().theme,
+
+        /// Localization
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+
+        /// Router
         routeInformationParser: _appRouter.defaultRouteParser(),
         routerDelegate: _appRouter.delegate(
           navigatorObservers: () => <NavigatorObserver>[AppRouteObserver()],
         ),
+
+        /// Builder
         builder: (context, child) {
           return MediaQuery(
             data: MediaQuery.of(context)
