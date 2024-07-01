@@ -15,6 +15,25 @@ mixin OnboardingViewMixin on State<OnboardingView> {
   final FocusNode nicotineFocusNode = FocusNode();
   final FocusNode vapeNameFocusNode = FocusNode();
 
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+
+      final event = CalendarEventData(
+        date: DateTime(2024, 6, 16),
+        startTime: DateTime(2024, 6, 16, 4, 0),
+        endTime: DateTime(2024, 6, 16, 8, 0),
+        endDate: DateTime(2024, 6, 17),
+        event: "Event 1",
+        title: 'Event 1',
+        // color: Colors.red,
+      );
+
+      CalendarControllerProvider.of(context).controller.add(event);
+    });
+    super.initState();
+  }
+
   // void _onboardBlocListener(BuildContext context, OnboardingState state) {
   // if ((state is OnboardingStatus && state.isFirstTimer == false) ||
   //     state is UserCached) {

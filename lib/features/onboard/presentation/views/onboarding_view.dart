@@ -1,15 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/extensions/context_extension.dart';
-import '../../../../core/widgets/indicator/base_adaptive_cpi.dart';
+import '../../../../core/widgets/toast/custom_toast.dart';
 import '../../../../product/init/injection_container/_injection_container.dart';
 import '../../../../product/init/navigator/app_router.dart';
 import '../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import '../bloc/onboarding_bloc.dart';
-import 'modules/smoking_info/smoking_info_page.dart';
-import 'onboarding_body.dart';
 
 part 'onboarding_view_mixin.dart';
 
@@ -30,42 +29,36 @@ class _OnboardingViewState extends State<OnboardingView>
     return BlocProvider(
       create: (context) => sl<OnboardingBloc>(),
       child: Scaffold(
-        body: BlocConsumer<OnboardingBloc, OnboardingState>(
-          listenWhen: (pr, cr) => cr is OnSaveVapeDataSuccess,
-          listener: (context, state) {
-            if (state is OnSaveVapeDataSuccess) {
-              context.pushReplaceAll(const MainRoute());
-            }
-          },
-          buildWhen: (pr, cr) =>
-              cr is OnboardingLoading || cr is OnboardingInitial,
-          builder: (context, state) {
-            if (state is OnboardingLoading && state.isLoading) {
-              return const Center(child: BaseAdaptiveCPI());
-            }
-
-            return OnboardingBody(
-              onButtonPressed: onButtonPressed,
-              pageController: pageController,
-              smokingInfoPageParams: smokingInfoPageParams(),
-              isUserCreated: widget.isUserCreated,
-            );
-          },
+        appBar: AppBar(
+          backgroundColor: Colors.green[100],
+          title: const Text(
+            'Daily View',
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
+            Expanded(
+                flex: 6,
+                child: DayView(
+                  onEventTap:
+                      (List<CalendarEventData<Object?>> event, DateTime g) {
+                    CustomToast.successToast(context, 'Event tapped');
+                  },
+                )),
+            Expanded(
+                child: Column(
+              children: [
+                ElevatedButton(
+                  child: const Text('Next'),
+                  onPressed: () {},
+                ),
+              ],
+            )),
+          ],
         ),
       ),
-    );
-  }
-
-  SmokingInfoPageParams smokingInfoPageParams() {
-    return SmokingInfoPageParams(
-      priceEditingController: priceEditingController,
-      capacityEditingController: capacityEditingController,
-      nicotineEditingController: nicotineEditingController,
-      vapeNameEditingController: vapeNameEditingController,
-      priceFocusNode: priceFocusNode,
-      capacityFocusNode: capacityFocusNode,
-      nicotineFocusNode: nicotineFocusNode,
-      vapeNameFocusNode: vapeNameFocusNode,
     );
   }
 }

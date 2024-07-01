@@ -74,6 +74,7 @@ dependencies:
   mime: ^1.0.4
   flutter_bluetooth_serial: ^0.4.0
   google_maps_flutter: ^2.5.3
+  calendar_view: ^1.2.0
 
 
 

@@ -1,3 +1,4 @@
+import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,22 +31,25 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => sl<BluetoothBloc>()),
         BlocProvider(create: (_) => sl<GeminiBloc>()),
       ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: AppConst.appName,
-        theme: AppThemeDark().theme,
-        darkTheme: AppThemeDark().theme,
-        routeInformationParser: _appRouter.defaultRouteParser(),
-        routerDelegate: _appRouter.delegate(
-          navigatorObservers: () => <NavigatorObserver>[AppRouteObserver()],
+      child: CalendarControllerProvider(
+        controller: EventController(),
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: AppConst.appName,
+          theme: AppThemeDark().theme,
+          darkTheme: AppThemeDark().theme,
+          routeInformationParser: _appRouter.defaultRouteParser(),
+          routerDelegate: _appRouter.delegate(
+            navigatorObservers: () => <NavigatorObserver>[AppRouteObserver()],
+          ),
+          builder: (context, child) {
+            return MediaQuery(
+              data: MediaQuery.of(context)
+                  .copyWith(textScaler: TextScaler.noScaling),
+              child: child!,
+            );
+          },
         ),
-        builder: (context, child) {
-          return MediaQuery(
-            data: MediaQuery.of(context)
-                .copyWith(textScaler: TextScaler.noScaling),
-            child: child!,
-          );
-        },
       ),
     );
   }
