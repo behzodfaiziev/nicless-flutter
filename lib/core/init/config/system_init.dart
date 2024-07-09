@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../firebase_options.dart';
+// import '../../../firebase_options.dart';
 import '../../../product/init/injection_container/_injection_container.dart';
 import '../../managers/database/hive/core/hive_database_manager.dart';
 import 'app_config.dart';
@@ -24,7 +24,7 @@ class SystemInit {
     /// EasyLocalization.ensureInitialized();
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
+      // options: DefaultFirebaseOptions.currentPlatform,
     );
 
     // /// Pass all uncaught "fatal" errors from the framework to Crashlytics
