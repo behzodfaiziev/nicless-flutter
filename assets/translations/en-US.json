@@ -1,0 +1,12 @@
+{
+  "buttons": {
+    "home": "Home",
+    "gemini": "Gemini",
+    "rating": "Rating",
+    "profile": "Profile",
+    "signInAnonymously": "Sign In Anonymously",
+    "finish": "Finish",
+    "done": "Done",
+    "next": "Next"
+  }
+}

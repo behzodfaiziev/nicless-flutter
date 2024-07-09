@@ -46,6 +46,7 @@ class AppConst {
   static const String tempProfileName = 'John John';
   static const String tempProfileNickname = 'john.john';
   static const String tempProfileUrl = 'https://i.pravatar.cc/150?img=12%24';
+  static const String localizationPath = 'assets/translations';
 }
 
 double kZero = 0;

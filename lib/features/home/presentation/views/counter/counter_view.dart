@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../core/widgets/buttons/base_elevated_button.dart';
+import '../../../../../product/init/lang/locale_keys.g.dart';
 import '../../../../../product/init/navigator/app_router.dart';
 import '../../../../../product/utils/constants/ui_constants/radius_const.dart';
 
@@ -103,7 +105,7 @@ class _CounterViewState extends State<CounterView> with CounterViewMixin {
                   onPressed: () {
                     context.pushReplaceAll(const MainRoute());
                   },
-                  child: const Text('Finish'),
+                  child: Text(LocaleKeys.buttons_finish.tr()),
                 ),
               ),
             ),
