@@ -3,7 +3,7 @@ description: "Take control over Nicotine"
 
 publish_to: 'none'
 
-version: 0.0.1+1
+version: 1.0.1+1
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
