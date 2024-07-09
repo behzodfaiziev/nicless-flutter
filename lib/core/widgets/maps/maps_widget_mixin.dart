@@ -12,7 +12,7 @@ mixin MapsWidgetMixin on State<MapsWidget> {
     super.dispose();
   }
 
-  Future<String> _loadMapStyle() async {
-    return rootBundle.loadString(JsonConst.instance.darkModeMapsStyle);
-  }
+  // Future<String> _loadMapStyle() async {
+  //   return rootBundle.loadString(JsonConst.instance.darkModeMapsStyle);
+  // }
 }
