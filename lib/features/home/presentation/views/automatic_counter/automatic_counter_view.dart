@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:auto_route/annotations.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart'
@@ -12,6 +13,7 @@ import '../../../../../core/widgets/buttons/base_elevated_button.dart';
 import '../../../../../core/widgets/lottie/base_lottie.dart';
 import '../../../../../core/widgets/toast/custom_toast.dart';
 import '../../../../../product/init/injection_container/_injection_container.dart';
+import '../../../../../product/init/lang/locale_keys.g.dart';
 import '../../../../../product/init/navigator/app_router.dart';
 import '../../../../../product/utils/constants/asset_paths/lottie_const.dart';
 import '../../../../../product/utils/constants/ui_constants/padding_const.dart';
@@ -20,12 +22,9 @@ import '../../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import '../../bloc/automatic_counter/automatic_counter_bloc.dart';
 
 part 'automatic_counter_view_mixin.dart';
-
-part 'modules/usage_progress.dart';
-
 part 'modules/progress_card.dart';
-
 part 'modules/total_amount_of_usage.dart';
+part 'modules/usage_progress.dart';
 
 @RoutePage()
 class AutomaticCounterView extends StatefulWidget {
@@ -78,13 +77,15 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
                 flex: 5,
                 child: Center(
                   child: BaseLottie(
-                      assetPath: LottieConst.instance.lungs,
-                      controller: animationController,),
+                    assetPath: LottieConst.instance.lungs,
+                    controller: animationController,
+                  ),
                 ),
               ),
               const Expanded(
-                  flex: 5,
-                  child: _TotalAmountOfUsage(maxPuffs: 10, maxSeconds: 60),),
+                flex: 5,
+                child: _TotalAmountOfUsage(maxPuffs: 10, maxSeconds: 60),
+              ),
               Expanded(
                 flex: 3,
                 child: Center(
@@ -97,19 +98,22 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
                         }
                         if (state is BluetoothDeviceFailedToConnect) {
                           CustomToast.errorToast(
-                              context, 'Failed to disconnect!',);
+                            context,
+                            'Failed to disconnect!',
+                          );
                         }
                       },
                       child: BaseElevatedButton(
                         child: Text(
-                          'Finish',
+                          LocaleKeys.buttons_finish.tr(),
                           style: context.theme.textTheme.labelLarge,
                         ),
                         onPressed: () {
                           context.read<BluetoothBloc>().add(
                                 BluetoothDisconnectEvent(
-                                    connection: widget.connection!,
-                                    device: widget.device!,),
+                                  connection: widget.connection!,
+                                  device: widget.device!,
+                                ),
                               );
                         },
                       ),
