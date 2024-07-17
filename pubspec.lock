@@ -1044,6 +1044,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  logger:
+    dependency: transitive
+    description:
+      name: logger
+      sha256: "697d067c60c20999686a0add96cf6aba723b3aa1f83ecf806a8097231529ec32"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.0"
   logging:
     dependency: transitive
     description:
@@ -1348,6 +1356,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
+  retry:
+    dependency: transitive
+    description:
+      name: retry
+      sha256: "822e118d5b3aafed083109c72d5f484c6dc66707885e07c0fbcb8b986bba7efc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.2"
   sanitize_html:
     dependency: transitive
     description:
@@ -1721,6 +1737,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.0"
+  vexana:
+    dependency: "direct main"
+    description:
+      name: vexana
+      sha256: "774fdf99da0f7a54da40ad8a7f802b3cd309dbca5a280f650f740d8c201cfd81"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.4"
   vm_service:
     dependency: transitive
     description:
