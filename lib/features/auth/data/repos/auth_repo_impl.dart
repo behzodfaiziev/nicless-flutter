@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/error/exceptions/api_exception.dart';
+import '../../../../core/error/exceptions/server_exception.dart';
 import '../../../../core/error/failures/api_failure.dart';
 import '../../../../core/utility/typedef.dart';
 import '../../domain/repos/auth_repo.dart';
@@ -17,7 +17,7 @@ class AuthRepoImpl implements AuthRepo {
     try {
       final result = await _remoteDataSource.getCurrentUser();
       return Right(result != null);
-    } on APIException catch (e) {
+    } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));
     }
   }
@@ -32,7 +32,7 @@ class AuthRepoImpl implements AuthRepo {
       }
       await _remoteDataSource.createAnonymousUser(id: userId);
       return Right(userId);
-    } on APIException catch (e) {
+    } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));
     } on Exception catch (e) {
       return Left(APIFailure(message: e.toString()));
@@ -44,7 +44,7 @@ class AuthRepoImpl implements AuthRepo {
     try {
       final result = await _remoteDataSource.signOut();
       return Right(result);
-    } on APIException catch (e) {
+    } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));
     } on Exception catch (e) {
       return Left(APIFailure(message: e.toString()));

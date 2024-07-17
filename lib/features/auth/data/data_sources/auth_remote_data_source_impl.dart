@@ -1,50 +1,39 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../../../../core/error/exceptions/api_exception.dart';
-import '../../../../core/managers/network_v1/entities/network_url_path.dart';
-import '../../../../core/managers/network_v1/i_network_manager.dart';
-import '../../../../core/managers/network_v1/models/error_model_custom.dart';
+import '../../../../core/managers/network/app_network_manager.dart';
+import '../../../../core/managers/network/enum/app_request_type.dart';
+import '../../../../core/managers/network/model/app_empty_model.dart';
 import 'auth_remote_data_source.dart';
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   const AuthRemoteDataSourceImpl({
-    required INetworkManager<ErrorModelCustom> networkManager,
+    required AppNetworkManager networkManager,
   }) : _network = networkManager;
 
-  final INetworkManager<ErrorModelCustom> _network;
+  final AppNetworkManager _network;
 
   @override
   Future<User?> getCurrentUser() async {
-    try {
-      return _network.currentUser();
-    } catch (e) {
-      throw APIException(message: e.toString());
-    }
+    throw UnimplementedError();
   }
 
   @override
   Future<String?> anonymousSignIn() async {
-    final result = await _network.signInAnonymously();
-    return result.user?.uid;
+    await _network.send<AppEmptyModel, AppEmptyModel>(
+      'url',
+      method: AppRequestType.post,
+      parseModel: const AppEmptyModel(),
+    );
+    return null;
   }
 
   @override
   Future<void> createAnonymousUser({required String id}) async {
-    await _network.post(
-      url: NetworkUrlPath(path: 'users', docId: id),
-      body: {
-        'id': id,
-        'name': 'Anonymous',
-        'email': '',
-        'photoUrl': '',
-        'createdAt': DateTime.now().toIso8601String(),
-        'updatedAt': DateTime.now().toIso8601String(),
-      },
-    );
+    throw UnimplementedError();
   }
 
   @override
   Future<void> signOut() async {
-    await _network.signOut();
+    throw UnimplementedError();
   }
 }

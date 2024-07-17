@@ -1,30 +1,23 @@
-import '../../../../core/error/exceptions/api_exception.dart';
-import '../../../../core/managers/network_v1/entities/network_url_path.dart';
-import '../../../../core/managers/network_v1/i_network_manager.dart';
-import '../../../../core/managers/network_v1/models/error_model_custom.dart';
+import '../../../../core/managers/network/app_network_manager.dart';
+import '../../../../core/managers/network/enum/app_request_type.dart';
+import '../../../../core/managers/network/model/app_empty_model.dart';
 import '../../../../product/data_objects/models/vape_data_model.dart';
 import 'onboard_remote_data_source.dart';
 
 class OnboardRemoteDataSourceImpl extends OnboardRemoteDataSource {
   OnboardRemoteDataSourceImpl({
-    required INetworkManager<ErrorModelCustom> network,
+    required AppNetworkManager network,
   }) : _network = network;
-  final INetworkManager<ErrorModelCustom> _network;
+  final AppNetworkManager _network;
 
   @override
   Future<String> saveVapeData(VapeDataModel vapeData) async {
-    final currentUser = await _network.currentUser();
-    if (currentUser == null) {
-      throw const APIException(message: 'User not found');
-    }
-    final result = await _network.post(
-      url: NetworkUrlPath(
-        path: 'vapes',
-        docId: currentUser.uid,
-        path2: 'vapeData',
-      ),
-      body: vapeData.toJson(),
+    await _network.send<AppEmptyModel, AppEmptyModel>(
+      'url',
+      parseModel: const AppEmptyModel(),
+      method: AppRequestType.post,
+      data: vapeData.toJson(),
     );
-    return result.id;
+    return '';
   }
 }

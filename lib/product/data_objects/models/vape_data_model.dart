@@ -1,8 +1,8 @@
-import '../../../core/managers/network_v1/interface/i_network_model.dart';
+import '../../../core/managers/network/model/app_network_model.dart';
 import '../../../features/bluetooth/data/models/bluetooth_device_model.dart';
 import '../entities/vape_data.dart';
 
-class VapeDataModel extends VapeData implements INetworkModel<VapeDataModel> {
+class VapeDataModel extends VapeData implements AppNetworkModel<VapeDataModel> {
   const VapeDataModel({
     super.bluetoothData,
     super.capacity,

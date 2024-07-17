@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nicless_flutter/core/error/exceptions/api_exception.dart';
+import 'package:nicless_flutter/core/error/exceptions/server_exception.dart';
 import 'package:nicless_flutter/core/error/failures/api_failure.dart';
 import 'package:nicless_flutter/features/rating/data/date_sources/rating_remote_data_source.dart';
 import 'package:nicless_flutter/features/rating/data/models/rating_model.dart';
@@ -17,7 +17,7 @@ void main() {
   late RatingRepoImpl repoImpl;
 
   const PaginationParams paginationParams = PaginationParams(page: 1);
-  const APIException apiException = APIException(
+  const ServerException apiException = ServerException(
     statusCode: 500,
     message: 'Internal Server Error',
   );

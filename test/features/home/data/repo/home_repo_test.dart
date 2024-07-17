@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nicless_flutter/core/error/exceptions/api_exception.dart';
+import 'package:nicless_flutter/core/error/exceptions/server_exception.dart';
 import 'package:nicless_flutter/core/error/failures/api_failure.dart';
 import 'package:nicless_flutter/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:nicless_flutter/features/home/data/repo/home_repo_impl.dart';
@@ -14,7 +14,7 @@ void main() {
   late HomeRemoteDataSource remoteDataSource;
   late HomeRepo repoImpl;
 
-  const APIException apiException = APIException(
+  const ServerException apiException = ServerException(
     statusCode: 500,
     message: 'Internal Server Error',
   );

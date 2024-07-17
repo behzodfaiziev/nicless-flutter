@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class APIException extends Equatable implements Exception {
-  const APIException({
+class ServerException extends Equatable implements Exception {
+  const ServerException({
     required this.message,
     this.statusCode = 505,
   });

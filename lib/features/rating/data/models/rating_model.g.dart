@@ -8,7 +8,7 @@ part of 'rating_model.dart';
 
 RatingModel _$RatingModelFromJson(Map<String, dynamic> json) => RatingModel(
       id: json['id'] as String?,
-      rank: json['rank'] as int?,
+      rank: (json['rank'] as num?)?.toInt(),
       name: json['name'] as String?,
       averageCO2: (json['averageCO2'] as num?)?.toDouble(),
     );

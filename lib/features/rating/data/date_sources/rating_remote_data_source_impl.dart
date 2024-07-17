@@ -1,4 +1,4 @@
-import '../../../../core/error/exceptions/api_exception.dart';
+import '../../../../core/error/exceptions/server_exception.dart';
 import '../../../../product/data_objects/params/pagination_params.dart';
 import '../models/rating_model.dart';
 import 'rating_remote_data_source.dart';
@@ -12,7 +12,7 @@ class RatingRemoteDataSourceImpl implements RatingRemoteDataSource {
       await Future<void>.delayed(const Duration(seconds: 1));
       return mockRatings;
     } catch (e) {
-      throw APIException(message: e.toString());
+      throw ServerException(message: e.toString());
     }
   }
 
@@ -22,7 +22,7 @@ class RatingRemoteDataSourceImpl implements RatingRemoteDataSource {
       await Future<void>.delayed(const Duration(seconds: 1));
       return mockRatings;
     } catch (e) {
-      throw APIException(message: e.toString());
+      throw ServerException(message: e.toString());
     }
   }
 
@@ -32,7 +32,7 @@ class RatingRemoteDataSourceImpl implements RatingRemoteDataSource {
       await Future<void>.delayed(const Duration(seconds: 1));
       return mockRatings;
     } catch (e) {
-      throw APIException(message: e.toString());
+      throw ServerException(message: e.toString());
     }
   }
 

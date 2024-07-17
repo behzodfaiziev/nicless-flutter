@@ -24,9 +24,7 @@ class InjectionContainer {
       ..registerLazySingleton<BluetoothManager>(BluetoothManager.new)
 
       /// Network
-      ..registerLazySingleton<INetworkManager<ErrorModelCustom>>(
-        NetworkManager<ErrorModelCustom>.new,
-      )
+      ..registerLazySingleton<AppNetworkManager>(AppNetworkManagerImpl.new)
 
       /// Gemini
       ..registerLazySingleton<GenerativeModel>(

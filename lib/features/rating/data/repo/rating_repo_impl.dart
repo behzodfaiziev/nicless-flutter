@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/error/exceptions/api_exception.dart';
+import '../../../../core/error/exceptions/server_exception.dart';
 import '../../../../core/error/failures/api_failure.dart';
 import '../../../../core/utility/typedef.dart';
 import '../../../../product/data_objects/params/pagination_params.dart';
@@ -22,7 +22,7 @@ class RatingRepoImpl extends RatingRepo {
     try {
       final result = await _remoteDataSource.getWeeklyRating(params);
       return Right(result);
-    } on APIException catch (e) {
+    } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));
     }
   }
@@ -34,7 +34,7 @@ class RatingRepoImpl extends RatingRepo {
     try {
       final result = await _remoteDataSource.getMonthlyRating(params);
       return Right(result);
-    } on APIException catch (e) {
+    } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));
     }
   }
@@ -46,7 +46,7 @@ class RatingRepoImpl extends RatingRepo {
     try {
       final result = await _remoteDataSource.getYearlyRating(params);
       return Right(result);
-    } on APIException catch (e) {
+    } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));
     }
   }

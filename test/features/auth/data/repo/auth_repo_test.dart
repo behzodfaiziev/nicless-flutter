@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nicless_flutter/core/error/exceptions/api_exception.dart';
+import 'package:nicless_flutter/core/error/exceptions/server_exception.dart';
 import 'package:nicless_flutter/core/error/failures/api_failure.dart';
 import 'package:nicless_flutter/features/auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:nicless_flutter/features/auth/data/repos/auth_repo_impl.dart';
@@ -16,7 +16,7 @@ void main() {
   late AuthRemoteDataSource remoteDataSource;
   late AuthRepoImpl repoImpl;
   final mockUser = MockUser();
-  const APIException apiException = APIException(
+  const ServerException apiException = ServerException(
     statusCode: 500,
     message: 'Internal Server Error',
   );
