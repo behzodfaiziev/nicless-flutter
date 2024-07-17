@@ -1,7 +1,7 @@
 import '../../../../core/error/exceptions/api_exception.dart';
-import '../../../../core/managers/network/entities/network_url_path.dart';
-import '../../../../core/managers/network/i_network_manager.dart';
-import '../../../../core/managers/network/models/error_model_custom.dart';
+import '../../../../core/managers/network_v1/entities/network_url_path.dart';
+import '../../../../core/managers/network_v1/i_network_manager.dart';
+import '../../../../core/managers/network_v1/models/error_model_custom.dart';
 import '../../../../product/data_objects/models/vape_data_model.dart';
 import 'home_remote_data_source.dart';
 

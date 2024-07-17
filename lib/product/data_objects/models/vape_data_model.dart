@@ -1,4 +1,4 @@
-import '../../../core/managers/network/interface/i_network_model.dart';
+import '../../../core/managers/network_v1/interface/i_network_model.dart';
 import '../../../features/bluetooth/data/models/bluetooth_device_model.dart';
 import '../entities/vape_data.dart';
 

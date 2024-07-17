@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../core/managers/network/interface/i_network_model.dart';
+import '../../../../core/managers/network_v1/interface/i_network_model.dart';
 
 part 'rating_model.g.dart';
 

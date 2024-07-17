@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../../core/error/exceptions/api_exception.dart';
-import '../../../../core/managers/network/entities/network_url_path.dart';
-import '../../../../core/managers/network/i_network_manager.dart';
-import '../../../../core/managers/network/models/error_model_custom.dart';
+import '../../../../core/managers/network_v1/entities/network_url_path.dart';
+import '../../../../core/managers/network_v1/i_network_manager.dart';
+import '../../../../core/managers/network_v1/models/error_model_custom.dart';
 import 'auth_remote_data_source.dart';
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
