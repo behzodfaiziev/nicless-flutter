@@ -49,6 +49,8 @@ dependencies:
 
   # Network
   dio: ^5.4.0
+  connectivity_plus: ^6.0.3
+  vexana: ^4.0.4
 
   # Gemini
   google_generative_ai: ^0.2.3
@@ -78,7 +80,7 @@ dependencies:
   mime: ^1.0.4
   flutter_bluetooth_serial: ^0.4.0
   google_maps_flutter: ^2.5.3
-  connectivity_plus: ^6.0.3
+
 
 
 

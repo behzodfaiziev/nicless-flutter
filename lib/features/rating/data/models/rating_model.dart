@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../core/managers/network/interface/i_network_model.dart';
+import '../../../../core/managers/network/model/app_network_model.dart';
 
 part 'rating_model.g.dart';
 
 @JsonSerializable()
-class RatingModel extends INetworkModel<RatingModel> with EquatableMixin {
+class RatingModel extends AppNetworkModel<RatingModel> with EquatableMixin {
   const RatingModel({
     this.id,
     this.rank,

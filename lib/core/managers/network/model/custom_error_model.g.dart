@@ -1,18 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'error_model_custom.dart';
+part of 'custom_error_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ErrorModelCustom _$ErrorModelCustomFromJson(Map<String, dynamic> json) =>
-    ErrorModelCustom(
-      statusCode: json['statusCode'] as int?,
-      message: json['message'],
+CustomErrorModel _$CustomErrorModelFromJson(Map<String, dynamic> json) =>
+    CustomErrorModel(
+      statusCode: (json['statusCode'] as num?)?.toInt(),
+      message: json['message'] as String?,
     );
 
-Map<String, dynamic> _$ErrorModelCustomToJson(ErrorModelCustom instance) =>
+Map<String, dynamic> _$CustomErrorModelToJson(CustomErrorModel instance) =>
     <String, dynamic>{
       'statusCode': instance.statusCode,
       'message': instance.message,
