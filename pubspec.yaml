@@ -35,8 +35,8 @@ dependencies:
 
   # Core
   jose: ^0.3.4
+  json_annotation: ^4.9.0
   equatable: ^2.0.5
-  json_annotation: ^4.8.1
   intl: ^0.19.0
   dartz: ^0.10.1
   get_it: ^7.6.7
@@ -80,9 +80,6 @@ dependencies:
   mime: ^1.0.4
   flutter_bluetooth_serial: ^0.4.0
   google_maps_flutter: ^2.5.3
-
-
-
 
 dev_dependencies:
   flutter_test:
