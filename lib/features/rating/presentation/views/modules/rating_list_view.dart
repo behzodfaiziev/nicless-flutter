@@ -15,7 +15,7 @@ class RatingListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: PaddingConst.bottom100,
+      padding: AppPadding.bottom100,
       itemCount: data.length,
       itemBuilder: (context, index) {
         return RatingListTile(rating: data[index]);

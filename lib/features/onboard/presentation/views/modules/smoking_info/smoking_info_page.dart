@@ -105,7 +105,7 @@ class SmokingInfoPage extends StatelessWidget {
     required void Function(String value)? onSubmitted,
   }) {
     return Padding(
-      padding: PaddingConst.vertical8,
+      padding: AppPadding.vertical8,
       child: BaseTextField(
         keyboardType: keyboardType,
         hintText: hintText,

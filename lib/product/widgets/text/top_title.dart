@@ -24,7 +24,7 @@ class TopTitle extends StatelessWidget {
             textAlign: TextAlign.center,),
         if (subTitle != null)
           Padding(
-            padding: PaddingConst.top4,
+            padding: AppPadding.top4,
             child: Text(
               subTitle!,
               style: Theme.of(context).textTheme.titleMedium,

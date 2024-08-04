@@ -38,7 +38,7 @@ class SmokingList extends StatelessWidget {
             },
             child: ListView.builder(
               itemCount: state.devices.length,
-              padding: context.mainHorizontalPadding + PaddingConst.top24,
+              padding: context.mainHorizontalPadding + AppPadding.top24,
               itemBuilder: (BuildContext context, int index) {
                 final device = state.devices[index];
                 return SmokingTile(

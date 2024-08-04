@@ -19,8 +19,13 @@ class AppThemeDark {
         ),
         appBarTheme: appBarTheme(),
         bottomNavigationBarTheme: bottomNavigationBarThemeData(),
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: AppColors.primaryDark,
+          selectionHandleColor: AppColors.primaryDark,
+        ),
         elevatedButtonTheme: elevatedButtonThemeData(),
         inputDecorationTheme: inputDecorationTheme(),
+        iconTheme: const IconThemeData(color: AppColors.secondaryDark),
         disabledColor: AppColors.disabledColorDark,
         checkboxTheme: CheckboxThemeData(
           side: const BorderSide(color: AppColors.secondaryDark),

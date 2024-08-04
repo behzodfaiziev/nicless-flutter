@@ -32,38 +32,6 @@ void main() {
     expect(repoImpl, isA<AuthRepo>());
   });
 
-  group('checkIsAuthenticated', () {
-    test(
-        'should call the [AuthRemoteDataSource.checkIsAuthenticated] '
-        'and return the right data', () async {
-      // arrange
-      when(() => remoteDataSource.getCurrentUser()).thenAnswer((_) async {
-        return mockUser;
-      });
-      // act
-      final result = await repoImpl.checkIsAuthenticated();
-      // assert
-      expect(result, const Right<dynamic, bool>(true));
-      verify(() => remoteDataSource.getCurrentUser()).called(1);
-      verifyNoMoreInteractions(remoteDataSource);
-    });
-
-    test('should return a [APIFailure] when call to remote source fails',
-        () async {
-      // arrange
-      when(() => remoteDataSource.getCurrentUser()).thenThrow(apiException);
-      // act
-      final result = await repoImpl.checkIsAuthenticated();
-      // assert
-      expect(
-        result,
-        Left<APIFailure, void>(APIFailure.fromAPIException(apiException)),
-      );
-      verify(() => remoteDataSource.getCurrentUser()).called(1);
-      verifyNoMoreInteractions(remoteDataSource);
-    });
-  });
-
   group('anonymousSignIn', () {
     test(
         'should call the [AuthRemoteDataSource.anonymousSignIn] '

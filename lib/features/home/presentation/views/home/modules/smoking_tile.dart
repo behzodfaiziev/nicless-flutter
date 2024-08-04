@@ -25,7 +25,7 @@ class SmokingTile extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Padding(
-        padding: PaddingConst.bottom24,
+        padding: AppPadding.bottom24,
         child: ClipRRect(
           borderRadius: RadiusConst.largeRadius,
           // child: Material(
@@ -40,7 +40,7 @@ class SmokingTile extends StatelessWidget {
             height: SizeConst.smokingTileHeight,
             color: context.colorScheme.primary,
             child: Padding(
-              padding: PaddingConst.horizontal8 + PaddingConst.vertical16,
+              padding: AppPadding.horizontal8 + AppPadding.vertical16,
               child: Row(
                 children: [
                   Expanded(
@@ -77,7 +77,7 @@ class SmokingTile extends StatelessWidget {
                         ),
                         Container(
                             height: 8,
-                            margin: PaddingConst.top4,
+                            margin: AppPadding.top4,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               borderRadius: RadiusConst.largeRadius,

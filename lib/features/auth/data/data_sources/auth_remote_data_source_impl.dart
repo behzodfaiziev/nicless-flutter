@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-
 import '../../../../core/managers/network/app_network_manager.dart';
 import '../../../../core/managers/network/enum/app_request_type.dart';
 import '../../../../core/managers/network/model/app_empty_model.dart';
@@ -11,11 +9,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }) : _network = networkManager;
 
   final AppNetworkManager _network;
-
-  @override
-  Future<User?> getCurrentUser() async {
-    throw UnimplementedError();
-  }
 
   @override
   Future<String?> anonymousSignIn() async {

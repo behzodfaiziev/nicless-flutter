@@ -46,8 +46,8 @@ class _GeminiViewState extends State<GeminiView> with GeminiMixin {
       child: ColoredBox(
         color: context.theme.scaffoldBackgroundColor,
         child: Container(
-          margin: PaddingConst.horizontal12 + PaddingConst.bottom12,
-          padding: PaddingConst.horizontal16,
+          margin: AppPadding.horizontal12 + AppPadding.bottom12,
+          padding: AppPadding.horizontal16,
           decoration: BoxDecoration(
             borderRadius: RadiusConst.circular12,
             border: Border.all(
@@ -89,7 +89,7 @@ class _GeminiViewState extends State<GeminiView> with GeminiMixin {
             return ListView.builder(
               controller: _scrollController,
               itemCount: state.history.length,
-              padding: PaddingConst.bottom100 + PaddingConst.top24,
+              padding: AppPadding.bottom100 + AppPadding.top24,
               itemBuilder: (context, index) {
                 return GeminiResponseText(
                   text: state.history[index].text,

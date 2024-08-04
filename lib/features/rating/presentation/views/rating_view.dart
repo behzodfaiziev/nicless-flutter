@@ -46,7 +46,7 @@ class _RatingViewState extends State<RatingView>
           title: 'Rating',
           actions: [
             Padding(
-              padding: PaddingConst.right12,
+              padding: AppPadding.right12,
               child: BaseSVGButton(
                 asset: SVGConst.instance.question,
                 onPressed: () {
@@ -59,7 +59,7 @@ class _RatingViewState extends State<RatingView>
         body: Column(
           children: [
             Padding(
-              padding: PaddingConst.top4,
+              padding: AppPadding.top4,
               child: StatsAndRatingTabBars(tabController: _tabController),
             ),
             Expanded(

@@ -12,7 +12,7 @@ class PopButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: PaddingConst.left16,
+      margin: AppPadding.left16,
       alignment: Alignment.topLeft,
       width: 40,
       child: BaseIconButton(

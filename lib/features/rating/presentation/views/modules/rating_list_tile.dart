@@ -17,7 +17,7 @@ class RatingListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: PaddingConst.top20 + PaddingConst.horizontal20,
+      margin: AppPadding.top20 + AppPadding.horizontal20,
       height: isTopThree
           ? SizeConst.rankingTileTopHeight
           : SizeConst.rankingTileHeight,
@@ -39,7 +39,7 @@ class RatingListTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: PaddingConst.left20,
+            padding: AppPadding.left20,
             child: Text(
               rating.name ?? '',
               style: context.primaryTextTheme.displaySmall?.copyWith(
@@ -56,7 +56,7 @@ class RatingListTile extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: PaddingConst.left2 + PaddingConst.right16,
+                padding: AppPadding.left2 + AppPadding.right16,
                 child: Text(
                   'gr/p',
                   style: context.primaryTextTheme.labelMedium?.copyWith(
@@ -82,7 +82,7 @@ class RatingListTile extends StatelessWidget {
       child: Center(
         child: isTopThree
             ? Padding(
-                padding: PaddingConst.all16,
+                padding: AppPadding.all16,
                 child: Image.asset(topThreeRatingAsset),
               )
             : Text(

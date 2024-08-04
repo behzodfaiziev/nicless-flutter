@@ -19,11 +19,11 @@ class GeminiResponseText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: PaddingConst.vertical8 + PaddingConst.horizontal12,
-      margin: PaddingConst.vertical8 +
-          PaddingConst.horizontal20 +
-          (isQuestion ? PaddingConst.right16 : EdgeInsets.zero) +
-          (isQuestion ? EdgeInsets.zero : PaddingConst.left16),
+      padding: AppPadding.vertical8 + AppPadding.horizontal12,
+      margin: AppPadding.vertical8 +
+          AppPadding.horizontal20 +
+          (isQuestion ? AppPadding.right16 : EdgeInsets.zero) +
+          (isQuestion ? EdgeInsets.zero : AppPadding.left16),
       decoration: BoxDecoration(
         border: Border.all(color: context.theme.primaryColor),
         borderRadius: RadiusConst.circular12,

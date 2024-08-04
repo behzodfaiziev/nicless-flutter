@@ -90,7 +90,7 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
                 flex: 3,
                 child: Center(
                   child: Padding(
-                    padding: PaddingConst.horizontal24,
+                    padding: AppPadding.horizontal24,
                     child: BlocListener<BluetoothBloc, BluetoothState>(
                       listener: (context, state) {
                         if (state is BluetoothDeviceDisconnected) {
@@ -131,7 +131,7 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
   Center message() {
     return Center(
       child: Padding(
-        padding: PaddingConst.horizontal30,
+        padding: AppPadding.horizontal30,
         child: BlocBuilder<AutomaticCounterBloc, AutomaticCounterState>(
           buildWhen: (previous, current) => current is TotalPuffsAdded,
           builder: (context, state) {

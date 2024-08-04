@@ -52,7 +52,7 @@ class BaseNetworkImage extends StatelessWidget {
 
   Padding buildPlaceHolderImage() {
     return Padding(
-      padding: errorPadding ?? PaddingConst.all8,
+      padding: errorPadding ?? AppPadding.all8,
       child: const SizedBox(),
       // child: Image.asset(errorImage ?? AssetImage.instance.errorImage),
     );

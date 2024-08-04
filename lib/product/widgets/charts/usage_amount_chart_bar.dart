@@ -13,7 +13,7 @@ class UsageAmountCharBar extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 340,
-      margin: PaddingConst.all24 + PaddingConst.top20,
+      margin: AppPadding.all24 + AppPadding.top20,
       decoration: BoxDecoration(
         color: context.theme.colorScheme.primary,
         borderRadius: RadiusConst.bigRadius,
@@ -22,7 +22,7 @@ class UsageAmountCharBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: PaddingConst.horizontal24 + PaddingConst.vertical20,
+            padding: AppPadding.horizontal24 + AppPadding.vertical20,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -33,7 +33,7 @@ class UsageAmountCharBar extends StatelessWidget {
           ),
           Container(
             height: 200,
-            margin: PaddingConst.left12 + PaddingConst.right30,
+            margin: AppPadding.left12 + AppPadding.right30,
             child: const BaseBarChart(),
           ),
         ],

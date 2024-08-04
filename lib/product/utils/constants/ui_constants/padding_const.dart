@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PaddingConst {
+class AppPadding {
   ///Width Factor
   static double widthFactor = 1;
 

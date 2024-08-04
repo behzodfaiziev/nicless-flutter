@@ -7,6 +7,9 @@
     "signInAnonymously": "Sign In Anonymously",
     "finish": "Finish",
     "done": "Done",
-    "next": "Next"
+    "next": "Next",
+    "getStarted": "Get Started",
+    "signIn": "Sign In",
+    "signUp": "Sign Up"
   }
 }

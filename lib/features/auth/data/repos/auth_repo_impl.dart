@@ -15,8 +15,7 @@ class AuthRepoImpl implements AuthRepo {
   @override
   ResultFuture<bool> checkIsAuthenticated() async {
     try {
-      final result = await _remoteDataSource.getCurrentUser();
-      return Right(result != null);
+      return const Right(false);
     } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));
     }

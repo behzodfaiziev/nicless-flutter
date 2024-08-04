@@ -46,7 +46,7 @@ class _ProfileViewState extends State<ProfileView>
             SliverToBoxAdapter(child: nameNicknameText(context)),
             SliverToBoxAdapter(
               child: Padding(
-                padding: PaddingConst.top12,
+                padding: AppPadding.top12,
                 child: StatsAndRatingTabBars(tabController: _tabController),
               ),
             ),
@@ -69,7 +69,7 @@ class _ProfileViewState extends State<ProfileView>
 
   Widget nameNicknameText(BuildContext context) {
     return Padding(
-      padding: PaddingConst.vertical24,
+      padding: AppPadding.vertical24,
       child: Column(
         children: [
           Text(
@@ -89,14 +89,14 @@ class _ProfileViewState extends State<ProfileView>
 
   Widget buildTopAvatar(BuildContext context) {
     return Padding(
-      padding: PaddingConst.top24,
+      padding: AppPadding.top24,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(margin: context.mainHorizontalPaddingLeft, width: 30),
           Padding(
-            padding: PaddingConst.top12,
+            padding: AppPadding.top12,
             child: CircleAvatar(
               radius: context.width * 0.2,
               backgroundImage: const NetworkImage(AppConst.tempProfileUrl),

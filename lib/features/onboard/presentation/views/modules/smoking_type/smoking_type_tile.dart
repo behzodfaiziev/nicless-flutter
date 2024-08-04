@@ -29,14 +29,14 @@ class SmokingTypeTile extends StatelessWidget {
           Container(
             height: context.width * 0.35,
             width: context.width * 0.35,
-            padding: PaddingConst.all20,
+            padding: AppPadding.all20,
             decoration: buildBoxDecoration(context),
             child: Center(
               child: BaseAssetImage(assetPath),
             ),
           ),
           Padding(
-            padding: PaddingConst.top8,
+            padding: AppPadding.top8,
             child: Text(
               smokingName,
               style: context.primaryTextTheme.bodyLarge,

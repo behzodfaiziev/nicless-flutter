@@ -24,7 +24,7 @@ class _StatsAndRatingTabBarsState extends State<StatsAndRatingTabBars> {
       borderRadius: RadiusConst.bigRadius,
       child: Container(
         height: 40,
-        margin: PaddingConst.horizontal20,
+        margin: AppPadding.horizontal20,
         decoration: BoxDecoration(
           color: context.theme.colorScheme.primary,
           borderRadius: RadiusConst.bigRadius,

@@ -18,11 +18,11 @@ class BluetoothListTile extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: Padding(
-        padding: PaddingConst.vertical12 + context.mainHorizontalPadding,
+        padding: AppPadding.vertical12 + context.mainHorizontalPadding,
         child: ListTile(
             onTap: onPressed,
             tileColor: context.colorScheme.primary,
-            contentPadding: PaddingConst.vertical2 + PaddingConst.horizontal12,
+            contentPadding: AppPadding.vertical2 + AppPadding.horizontal12,
             shape: RoundedRectangleBorder(
               borderRadius: RadiusConst.largeRadius,
               side: BorderSide(

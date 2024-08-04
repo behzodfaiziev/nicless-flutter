@@ -15,7 +15,7 @@ class UsageTimeChartLine extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 340,
-      margin: PaddingConst.horizontal24 + PaddingConst.top30,
+      margin: AppPadding.horizontal24 + AppPadding.top30,
       decoration: BoxDecoration(
         color: context.theme.colorScheme.primary,
         borderRadius: RadiusConst.bigRadius,
@@ -24,7 +24,7 @@ class UsageTimeChartLine extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: PaddingConst.horizontal24 + PaddingConst.vertical20,
+            padding: AppPadding.horizontal24 + AppPadding.vertical20,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -35,7 +35,7 @@ class UsageTimeChartLine extends StatelessWidget {
           ),
           Container(
             height: 200,
-            margin: PaddingConst.left12 + PaddingConst.right30,
+            margin: AppPadding.left12 + AppPadding.right30,
             child: const BaseLineChart(),
           ),
         ],

@@ -29,7 +29,7 @@ class ConnectBluetoothPage extends StatelessWidget {
         Expanded(
           flex: 3,
           child: Padding(
-            padding: PaddingConst.vertical30,
+            padding: AppPadding.vertical30,
             child: BlocConsumer<BluetoothBloc, BluetoothState>(
               buildWhen: (pr, cr) =>
                   cr is BluetoothDeviceScanResult ||

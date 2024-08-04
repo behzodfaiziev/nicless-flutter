@@ -14,7 +14,7 @@ class RatingInfoDialog extends StatelessWidget {
       shape:
           RoundedRectangleBorder(borderRadius: RadiusConstEnum.high.circular),
       child: Padding(
-        padding: PaddingConst.vertical20 + PaddingConst.horizontal24,
+        padding: AppPadding.vertical20 + AppPadding.horizontal24,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -25,7 +25,7 @@ class RatingInfoDialog extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Padding(
-              padding: PaddingConst.vertical20,
+              padding: AppPadding.vertical20,
               child: Text(
                 'This ranking shows cities based on average CO2 emissions '
                 'per person from smoking. Lower emissions mean higher '
@@ -37,7 +37,7 @@ class RatingInfoDialog extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: PaddingConst.horizontal30,
+              padding: AppPadding.horizontal30,
               child: BaseElevatedButton(
                 buttonElevation: 2,
                 backgroundColor: context.colorScheme.primary,

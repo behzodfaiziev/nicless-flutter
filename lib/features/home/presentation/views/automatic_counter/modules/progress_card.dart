@@ -30,14 +30,14 @@ class _ProgressCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: PaddingConst.left16 + PaddingConst.top16,
+            padding: AppPadding.left16 + AppPadding.top16,
             child: Text(
               title,
               style: context.primaryTextTheme.titleMedium,
             ),
           ),
           Padding(
-            padding: PaddingConst.vertical16,
+            padding: AppPadding.vertical16,
             child: Center(
               child: child,
             ),

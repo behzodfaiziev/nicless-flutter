@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../extensions/context_extension.dart';
 
 class BaseTextFormField extends StatelessWidget {
@@ -26,10 +27,9 @@ class BaseTextFormField extends StatelessWidget {
     this.keyboardAppearance,
     super.key,
   }) : assert(
-            decoration != null &&
-                (hintText == null || icon == null || suffixIconButton == null),
-            'You can not use hintText, icon or '
-            'suffixIconButton together with decoration');
+            decoration == null ||
+                (hintText == null && icon == null && suffixIconButton == null),
+            'You cannot use hintText, icon, or suffixIconButton together with decoration');
 
   final FocusNode focusNode;
   final TextEditingController? controller;
@@ -63,7 +63,7 @@ class BaseTextFormField extends StatelessWidget {
       enabled: enabled,
       maxLength: maxLength,
       maxLines: maxLines,
-      style: style,
+      style: style ?? context.primaryTextTheme.bodyMedium,
       textAlign: textAlign,
       obscureText: obscureText,
       autocorrect: false,
@@ -82,15 +82,26 @@ class BaseTextFormField extends StatelessWidget {
       decoration: decoration ??
           InputDecoration(
             hintText: hintText,
+            contentPadding: AppPadding.top12,
             prefixIcon: icon != null
                 ? Icon(icon, color: context.theme.iconTheme.color)
                 : null,
             suffixIcon: suffixIconButton,
             errorStyle: TextStyle(color: Colors.red.withOpacity(0.75)),
-            enabledBorder:
-                isUnderLine ? const UnderlineInputBorder() : InputBorder.none,
-            focusedBorder:
-                isUnderLine ? const UnderlineInputBorder() : InputBorder.none,
+            border: isUnderLine
+                ? UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: context.colorScheme.secondary),
+                  )
+                : InputBorder.none,
+            focusedBorder: isUnderLine
+                ? UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: context.colorScheme.secondary,
+                      width: 2,
+                    ),
+                  )
+                : InputBorder.none,
           ),
     );
   }
@@ -122,6 +133,7 @@ class BaseTextField extends StatelessWidget {
       onSubmitted: onSubmitted,
       decoration: InputDecoration(
         hintText: hintText,
+        icon: const Icon(Icons.email),
       ),
     );
   }
