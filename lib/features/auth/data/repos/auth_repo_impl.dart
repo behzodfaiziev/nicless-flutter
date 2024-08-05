@@ -5,6 +5,8 @@ import '../../../../core/error/failures/api_failure.dart';
 import '../../../../core/utility/typedef.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../data_sources/auth_remote_data_source.dart';
+import '../models/sign_in_request_model.dart';
+import '../models/sign_in_response_model.dart';
 
 class AuthRepoImpl implements AuthRepo {
   const AuthRepoImpl({required AuthRemoteDataSource remoteDataSource})
@@ -13,28 +15,23 @@ class AuthRepoImpl implements AuthRepo {
   final AuthRemoteDataSource _remoteDataSource;
 
   @override
-  ResultFuture<bool> checkIsAuthenticated() async {
+  ResultFuture<SignInResponseModel> signIn({
+    required SignInRequestModel params,
+  }) async {
     try {
-      return const Right(false);
+      final result = await _remoteDataSource.signIn(params: params);
+      return Right(result);
     } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));
     }
   }
 
   @override
-  ResultFuture<String> anonymousSignIn() async {
+  ResultFuture<bool> checkIsAuthenticated() async {
     try {
-      final userId = await _remoteDataSource.anonymousSignIn();
-
-      if (userId == null) {
-        return const Left(APIFailure(message: 'User id is null'));
-      }
-      await _remoteDataSource.createAnonymousUser(id: userId);
-      return Right(userId);
+      return const Right(false);
     } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));
-    } on Exception catch (e) {
-      return Left(APIFailure(message: e.toString()));
     }
   }
 

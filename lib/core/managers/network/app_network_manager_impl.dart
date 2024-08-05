@@ -1,5 +1,6 @@
 import 'package:vexana/vexana.dart';
 
+import '../../../product/constants/api_const.dart';
 import '../../error/exceptions/server_exception.dart';
 import 'app_network_manager.dart';
 import 'enum/app_request_type.dart';
@@ -51,7 +52,7 @@ class AppNetworkManagerImpl implements AppNetworkManager {
       errorModel: const CustomErrorModel(),
       isEnableLogger: false,
       options: BaseOptions(
-        baseUrl: 'https://fakestoreapi.com',
+        baseUrl: ApiConst.baseUrl,
         headers: isCleaned ? _jsonHeader : _bearerHeader(token),
       ),
     );

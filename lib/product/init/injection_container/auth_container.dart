@@ -7,14 +7,14 @@ void _authContainer() {
     ..registerFactory(
       () => AuthBloc(
         checkIsAuthenticated: sl(),
-        anonymousSignIn: sl(),
+        signIn: sl(),
         signOut: sl(),
       ),
     )
 
     /// Use Cases
-    ..registerLazySingleton(() => AnonymousSignIn(sl()))
     ..registerLazySingleton(() => SignOut(sl()))
+    ..registerLazySingleton(() => SignIn(sl()))
     ..registerLazySingleton(() => CheckIsAuthenticated(sl()))
 
     /// Repositories

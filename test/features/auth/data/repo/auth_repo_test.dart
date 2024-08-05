@@ -32,44 +32,6 @@ void main() {
     expect(repoImpl, isA<AuthRepo>());
   });
 
-  group('anonymousSignIn', () {
-    test(
-        'should call the [AuthRemoteDataSource.anonymousSignIn] '
-        'and return the right data', () async {
-      // arrange
-      const mockUserId = '123';
-      when(() => remoteDataSource.anonymousSignIn()).thenAnswer((_) async {
-        return mockUserId;
-      });
-      when(() => remoteDataSource.createAnonymousUser(id: mockUserId))
-          .thenAnswer((_) async {
-        return;
-      });
-      // act
-      final result = await repoImpl.anonymousSignIn();
-      // assert
-      expect(result, const Right<dynamic, String>(mockUserId));
-      verify(() => remoteDataSource.anonymousSignIn()).called(1);
-      verify(() => remoteDataSource.createAnonymousUser(id: mockUserId))
-          .called(1);
-      verifyNoMoreInteractions(remoteDataSource);
-    });
-    test('should return a [APIFailure] when call to remote source fails',
-        () async {
-      // arrange
-      when(() => remoteDataSource.anonymousSignIn()).thenThrow(apiException);
-      // act
-      final result = await repoImpl.anonymousSignIn();
-      // assert
-      expect(
-        result,
-        Left<APIFailure, void>(APIFailure.fromAPIException(apiException)),
-      );
-      verify(() => remoteDataSource.anonymousSignIn()).called(1);
-      verifyNoMoreInteractions(remoteDataSource);
-    });
-  });
-
   group('signOut', () {
     test(
         'should call the [AuthRemoteDataSource.signOut] '

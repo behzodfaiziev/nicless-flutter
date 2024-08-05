@@ -43,80 +43,14 @@ class _SignInViewState extends State<SignInView> with SignInViewMixin {
               ),
               Expanded(
                 flex: 5,
-                child: Padding(
-                  padding: AppPadding.top50,
-                  child: Column(
-                    children: [
-                      buildTextField(
-                        focusNode: emailFocusNode,
-                        textEditingController: emailTextEditingController,
-                        hintText: 'Email',
-                        icon: Icons.email,
-                        keyboardType: TextInputType.emailAddress,
-                        onSubmitted: (value) {
-                          passwordFocusNode.requestFocus();
-                        },
-                        onChanged: (value) {
-                          emailTextEditingController.text = value.toLowerCase();
-                        },
-                      ),
-                      buildTextField(
-                        focusNode: passwordFocusNode,
-                        textEditingController: passwordTextEditingController,
-                        hintText: 'Password',
-                        icon: Icons.lock,
-                        isObscureText: true,
-                        keyboardType: TextInputType.visiblePassword,
-                        onSubmitted: (value) {
-                          passwordFocusNode.unfocus();
-                        },
-                        onChanged: (value) {
-                          passwordTextEditingController.text =
-                              value.toLowerCase();
-                        },
-                      ),
-                    ],
-                  ),
-                ),
+                child: inputFields(),
               ),
               Expanded(
                 flex: 2,
                 child: Column(
                   children: [
-                    BaseElevatedButton(
-                      child: Text(
-                        LocaleKeys.buttons_signIn.tr(),
-                        style: context.primaryTextTheme.bodyMedium,
-                      ),
-                      onPressed: () {},
-                    ),
-                    Padding(
-                      padding: AppPadding.top12,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Don't have an account?",
-                            style: context.textTheme.bodyMedium?.copyWith(
-                              color: context.colorScheme.secondary,
-                            ),
-                          ),
-                          Padding(
-                            padding: AppPadding.left8,
-                            child: BaseOutlinedTextButton(
-                              text: LocaleKeys.buttons_signUp.tr(),
-                              fontColor:
-                                  context.primaryTextTheme.bodyMedium?.color,
-                              fontSize: FontSizeConst.small,
-                              isUnderline: false,
-                              onPressed: () {
-                                context.push(const SignUpRoute());
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    signInButton(context),
+                    signUpTextButton(context),
                   ],
                 ),
               ),
@@ -124,6 +58,82 @@ class _SignInViewState extends State<SignInView> with SignInViewMixin {
           ),
         ),
       ),
+    );
+  }
+
+  Widget inputFields() {
+    return Padding(
+      padding: AppPadding.top50,
+      child: Column(
+        children: [
+          buildTextField(
+            focusNode: emailFocusNode,
+            textEditingController: emailTextEditingController,
+            hintText: 'Email',
+            icon: Icons.email,
+            keyboardType: TextInputType.emailAddress,
+            onSubmitted: (value) {
+              passwordFocusNode.requestFocus();
+            },
+            onChanged: (value) {
+              emailTextEditingController.text = value.toLowerCase();
+            },
+          ),
+          buildTextField(
+            focusNode: passwordFocusNode,
+            textEditingController: passwordTextEditingController,
+            hintText: 'Password',
+            icon: Icons.lock,
+            isObscureText: true,
+            keyboardType: TextInputType.visiblePassword,
+            onSubmitted: (value) {
+              passwordFocusNode.unfocus();
+            },
+            onChanged: (value) {
+              passwordTextEditingController.text = value.toLowerCase();
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget signUpTextButton(BuildContext context) {
+    return Padding(
+      padding: AppPadding.top12,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Don't have an account?",
+            style: context.textTheme.bodyMedium?.copyWith(
+              color: context.colorScheme.secondary,
+            ),
+          ),
+          Padding(
+            padding: AppPadding.left8,
+            child: BaseOutlinedTextButton(
+              text: LocaleKeys.buttons_signUp.tr(),
+              fontColor: context.primaryTextTheme.bodyMedium?.color,
+              fontSize: FontSizeConst.small,
+              isUnderline: false,
+              onPressed: () {
+                context.push(const SignUpRoute());
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  BaseElevatedButton signInButton(BuildContext context) {
+    return BaseElevatedButton(
+      child: Text(
+        LocaleKeys.buttons_signIn.tr(),
+        style: context.primaryTextTheme.bodyMedium,
+      ),
+      onPressed: () {},
     );
   }
 

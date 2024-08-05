@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vexana/vexana.dart';
+
+import '../../../../core/managers/network/model/app_network_model.dart';
 
 part 'sign_in_request_model.g.dart';
 
 @JsonSerializable()
-class SignInRequestModel extends INetworkModel<SignInRequestModel>
+class SignInRequestModel extends AppNetworkModel<SignInRequestModel>
     with EquatableMixin {
   SignInRequestModel({
     this.email,

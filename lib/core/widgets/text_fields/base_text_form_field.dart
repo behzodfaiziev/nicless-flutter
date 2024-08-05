@@ -29,7 +29,8 @@ class BaseTextFormField extends StatelessWidget {
   }) : assert(
             decoration == null ||
                 (hintText == null && icon == null && suffixIconButton == null),
-            'You cannot use hintText, icon, or suffixIconButton together with decoration');
+            'You cannot use hintText, icon, or suffixIconButton '
+            'together with decoration');
 
   final FocusNode focusNode;
   final TextEditingController? controller;
