@@ -29,14 +29,16 @@ final class SignUpEvent extends AuthEvent {
     required this.email,
     required this.password,
     required this.fullName,
+    required this.isAndroid,
   });
 
   final String email;
   final String password;
   final String fullName;
+  final bool isAndroid;
 
   @override
-  List<Object> get props => [email, password, fullName];
+  List<Object> get props => [email, password, fullName, isAndroid];
 }
 
 final class SignOutEvent extends AuthEvent {

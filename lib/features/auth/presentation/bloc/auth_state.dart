@@ -27,3 +27,7 @@ class IsAuthenticatedState extends AuthState {
 
   final bool isAuth;
 }
+
+final class UserSignedUpState extends AuthState {
+  const UserSignedUpState();
+}

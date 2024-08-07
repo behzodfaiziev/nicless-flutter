@@ -145,7 +145,7 @@ class _SignInViewState extends State<SignInView> with SignInViewMixin {
           current is AuthLoading || current is AuthError,
       builder: (context, state) {
         return BaseElevatedButton(
-          onPressed: onSignInButtonPressed,
+          onPressed: state is AuthLoading ? null : onSignInButtonPressed,
           child: state is AuthLoading
               ? const BaseAdaptiveCPI()
               : Text(

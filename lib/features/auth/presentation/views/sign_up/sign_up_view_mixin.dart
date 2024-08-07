@@ -43,8 +43,12 @@ mixin SignUpViewMixin on State<SignUpView> {
   }
 
   void pageListener(BuildContext context, AuthState state) {
-    if (state is IsAuthenticatedState) {
-      context.pushReplaceAll(const MainRoute());
+    if (state is UserSignedUpState) {
+      CustomToast.successToast(
+        context,
+        'Successfully signed up. Now you can sign in',
+      );
+      context.pushReplaceAll(const SignInRoute());
     }
     if (state is AuthError) {
       CustomToast.errorToast(context, state.message);
@@ -65,6 +69,7 @@ mixin SignUpViewMixin on State<SignUpView> {
         email: emailTextEditingController.text.trim(),
         password: passwordTextEditingController.text.trim(),
         fullName: fullNameTextEditingController.text.trim(),
+        isAndroid: Platform.isAndroid,
       ),
     );
   }

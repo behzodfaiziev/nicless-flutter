@@ -4,6 +4,7 @@ import '../../../../core/managers/network/model/app_empty_model.dart';
 import '../../../../product/constants/api_const.dart';
 import '../models/sign_in_request_model.dart';
 import '../models/sign_in_response_model.dart';
+import '../models/sign_up_request_model.dart';
 import 'auth_remote_data_source.dart';
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -35,5 +36,15 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   void setToken(String accessToken, String refreshToken) {
     _network.setToken(accessToken: accessToken, refreshToken: refreshToken);
+  }
+
+  @override
+  Future<void> signUp({required SignUpRequestModel params}) {
+    return _network.send<AppEmptyModel, AppEmptyModel>(
+      ApiConst.signUp,
+      method: AppRequestType.post,
+      parseModel: const AppEmptyModel(),
+      data: params,
+    );
   }
 }

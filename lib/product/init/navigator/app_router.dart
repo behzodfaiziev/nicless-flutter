@@ -4,7 +4,6 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 import '../../../features/_main/view/main_view.dart';
 import '../../../features/auth/presentation/views/auth_checker/auth_checker_view.dart';
-import '../../../features/auth/presentation/views/landing/landing_view.dart';
 import '../../../features/auth/presentation/views/sign_in/sign_in_view.dart';
 import '../../../features/auth/presentation/views/sign_up/sign_up_view.dart';
 import '../../../features/bluetooth/data/models/bluetooth_device_model.dart';
@@ -24,7 +23,6 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => <AutoRoute>[
         /// Auth Routes
-        AutoRoute(page: LandingRoute.page),
         AutoRoute(page: AuthCheckerRoute.page, initial: true),
         AutoRoute(page: SignInRoute.page),
         AutoRoute(page: SignUpRoute.page),

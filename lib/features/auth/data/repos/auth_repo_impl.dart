@@ -92,6 +92,8 @@ class AuthRepoImpl implements AuthRepo {
   @override
   ResultFuture<void> signUp({required SignUpRequestModel params}) async {
     try {
+      await _remoteDataSource.signUp(params: params);
+
       return const Right(null);
     } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));

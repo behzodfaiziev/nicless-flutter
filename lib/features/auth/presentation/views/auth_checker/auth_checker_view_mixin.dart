@@ -12,12 +12,15 @@ mixin AuthCheckerViewMixin on State<AuthCheckerView> {
   void pageListener(BuildContext context, AuthState state) {
     if (state is IsAuthenticatedState) {
       context.pushReplaceAll(
-        state.isAuth ? const HomeRoute() : const LandingRoute(),
+        state.isAuth ? const HomeRoute() : const SignInRoute(),
       );
     }
     if (state is AuthError) {
       AppToast.error(
-          context: context, message: state.message ?? 'An error occurred');
+        context: context,
+        message: state.message ?? 'An error occurred',
+      );
+      context.pushReplaceAll(const SignInRoute());
     }
   }
 }

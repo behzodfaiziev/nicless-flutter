@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/annotations.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../core/widgets/buttons/base_elevated_button.dart';
 import '../../../../../core/widgets/buttons/base_outlined_text_button.dart';
+import '../../../../../core/widgets/indicator/base_adaptive_cpi.dart';
 import '../../../../../core/widgets/text_fields/base_text_form_field.dart';
 import '../../../../../core/widgets/toast/custom_toast.dart';
 import '../../../../../product/init/lang/locale_keys.g.dart';
@@ -28,33 +31,39 @@ class _SignUpViewState extends State<SignUpView> with SignUpViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: context.mainHorizontalPadding,
-          height: context.safeHeight,
-          child: Column(
-            children: [
-              Expanded(
-                flex: 4,
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    'Sign up',
-                    style: context.primaryTextTheme.headlineMedium,
+      body: BlocListener<AuthBloc, AuthState>(
+        listenWhen: (previous, current) {
+          return current is UserSignedUpState || current is AuthError;
+        },
+        listener: pageListener,
+        child: SingleChildScrollView(
+          child: Container(
+            margin: context.mainHorizontalPadding,
+            height: context.safeHeight,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      'Sign up',
+                      style: context.primaryTextTheme.headlineMedium,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(flex: 6, child: inputFields()),
-              Expanded(
-                flex: 2,
-                child: Column(
-                  children: [
-                    signUpButton(context),
-                    signInTextButton(context),
-                  ],
+                Expanded(flex: 6, child: inputFields()),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      signUpButton(context),
+                      signInTextButton(context),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -142,13 +151,20 @@ class _SignUpViewState extends State<SignUpView> with SignUpViewMixin {
     );
   }
 
-  BaseElevatedButton signUpButton(BuildContext context) {
-    return BaseElevatedButton(
-      onPressed: onSignUpButtonPressed,
-      child: Text(
-        LocaleKeys.buttons_signUp.tr(),
-        style: context.primaryTextTheme.bodyMedium,
-      ),
+  Widget signUpButton(BuildContext context) {
+    return BlocBuilder<AuthBloc, AuthState>(
+      buildWhen: (pr, cr) => cr is AuthLoading || cr is AuthError,
+      builder: (context, state) {
+        return BaseElevatedButton(
+          onPressed: state is AuthLoading ? null : onSignUpButtonPressed,
+          child: state is AuthLoading
+              ? const BaseAdaptiveCPI()
+              : Text(
+                  LocaleKeys.buttons_signUp.tr(),
+                  style: context.primaryTextTheme.bodyMedium,
+                ),
+        );
+      },
     );
   }
 }

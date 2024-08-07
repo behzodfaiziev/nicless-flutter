@@ -1,6 +1,5 @@
 class ApiConst {
   static const String baseUrl = 'http://api-nicless.eu-west-1.elasticbeanstalk.com';
-
   static const String _api = '/api';
 
   /// Auth

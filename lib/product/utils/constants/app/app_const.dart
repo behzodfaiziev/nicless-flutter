@@ -1,6 +1,9 @@
 class AppConst {
   static const String appName = 'Nicless';
 
+  static const String platformAndroid = 'ANDROID';
+  static const String platformIOS = 'IOS';
+
   /// Fonts
   static const String appFont = 'Roboto';
 

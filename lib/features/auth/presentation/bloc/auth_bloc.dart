@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../product/utils/constants/app/app_const.dart';
 import '../../data/models/sign_in_request_model.dart';
+import '../../data/models/sign_up_request_model.dart';
 import '../../domain/use_cases/check_is_authenticated.dart';
 import '../../domain/use_cases/sign_in.dart';
 import '../../domain/use_cases/sign_out.dart';
@@ -26,6 +28,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEvent>((event, emit) {});
     on<IsAuthenticated>(_checkIsAuthenticatedHandler);
     on<SignInEvent>(_signInHandler);
+    on<SignUpEvent>(_signUpHandler);
     on<SignOutEvent>(_signOutHandler);
   }
 
@@ -38,12 +41,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     IsAuthenticated event,
     Emitter<AuthState> emit,
   ) async {
-    final result = await _checkIsAuthenticated();
-    result.fold(
-      (failure) => emit(AuthError(message: failure.message)),
-      (authResult) =>
-          emit(IsAuthenticatedState(isAuth: authResult)),
-    );
+    emit(const IsAuthenticatedState(isAuth: false));
+    // final result = await _checkIsAuthenticated();
+    // result.fold(
+    //   (failure) => emit(AuthError(message: failure.message)),
+    //   (authResult) => emit(IsAuthenticatedState(isAuth: authResult)),
+    // );
   }
 
   Future<void> _signOutHandler(
@@ -72,6 +75,28 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     result.fold(
       (failure) => emit(AuthError(message: failure.message)),
       (value) => emit(const IsAuthenticatedState(isAuth: true)),
+    );
+  }
+
+  Future<void> _signUpHandler(
+    SignUpEvent event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(const AuthLoading());
+
+    final result = await _signUp(
+      SignUpRequestModel(
+        email: event.email,
+        password: event.password,
+        fullName: event.fullName,
+        fcmToken: 'fcmToken',
+        platform:
+            event.isAndroid ? AppConst.platformAndroid : AppConst.platformIOS,
+      ),
+    );
+    result.fold(
+      (failure) => emit(AuthError(message: failure.message)),
+      (value) => emit(const UserSignedUpState()),
     );
   }
 }
