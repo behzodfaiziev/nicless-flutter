@@ -57,10 +57,6 @@ class OnSmokingDeviceHasBluetooth extends OnboardingState {
 }
 
 class OnSaveVapeDataSuccess extends OnboardingState {
-  const OnSaveVapeDataSuccess({required this.vapeDataId});
+  const OnSaveVapeDataSuccess();
 
-  final String vapeDataId;
-
-  @override
-  List<Object> get props => [vapeDataId];
 }

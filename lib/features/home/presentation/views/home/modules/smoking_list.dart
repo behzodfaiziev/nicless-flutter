@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/extensions/context_extension.dart';
 import '../../../../../../core/widgets/toast/custom_toast.dart';
-import '../../../../../../product/data_objects/models/vape_data_model.dart';
+import '../../../../../../product/data_objects/models/smoking/smoking_data_model.dart';
 import '../../../../../../product/init/navigator/app_router.dart';
 import '../../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
@@ -37,10 +37,13 @@ class SmokingList extends StatelessWidget {
               bluetoothStateListener(state, context);
             },
             child: ListView.builder(
-              itemCount: state.devices.length,
+              itemCount: state.smokingList.data?.length,
               padding: context.mainHorizontalPadding + AppPadding.top24,
               itemBuilder: (BuildContext context, int index) {
-                final device = state.devices[index];
+                final device = state.smokingList.data?[index];
+                if (device == null) {
+                  return const SizedBox();
+                }
                 return SmokingTile(
                   smokingDevice: device,
                   onPressed: () => onStartButtonPressed(context, device),
@@ -61,20 +64,26 @@ class SmokingList extends StatelessWidget {
     if (state is ConnectingBluetoothDevice) {
       CustomToast.infoToast(context, 'Connecting...');
     }
-    
+
     if (state is BluetoothDeviceConnected) {
-      context.pushReplaceAll(AutomaticCounterRoute(
-          connection: state.connection, device: state.device,),);
+      context.pushReplaceAll(
+        AutomaticCounterRoute(
+          connection: state.connection,
+          device: state.device,
+        ),
+      );
     }
   }
 
-  void onStartButtonPressed(BuildContext context, VapeDataModel smokingDevice) {
-    if (smokingDevice.bluetoothData == null) {
+  void onStartButtonPressed(BuildContext context, SmokingDataModel smoking) {
+    if (smoking.smokingDetails?.bluetoothAddress == null) {
       context.pushReplaceAll(const CounterRoute());
       return;
     }
-    context
-        .read<BluetoothBloc>()
-        .add(ConnectBluetoothDeviceEvent(device: smokingDevice.bluetoothData!));
+    context.read<BluetoothBloc>().add(
+          ConnectBluetoothDeviceEvent(
+            device: smoking.smokingDetails!.bluetoothDeviceModel,
+          ),
+        );
   }
 }

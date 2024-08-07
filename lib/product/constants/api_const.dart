@@ -1,5 +1,6 @@
 class ApiConst {
-  static const String baseUrl = 'http://api-nicless.eu-west-1.elasticbeanstalk.com';
+  static const String baseUrl =
+      'http://api-nicless.eu-west-1.elasticbeanstalk.com';
   static const String _api = '/api';
 
   /// Auth
@@ -7,4 +8,8 @@ class ApiConst {
   static const String signIn = '$_auth/login';
   static const String signUp = '$_auth/sign_up';
   static const String signOut = '$_auth/logout';
+
+  /// Smoking
+  static const String smoking = '$_api/smoking';
+  static const String createSmoking = '$smoking/create';
 }

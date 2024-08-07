@@ -1,6 +1,5 @@
-
-import '../../../../product/data_objects/models/vape_data_model.dart';
+import '../../../../product/data_objects/models/smoking/smoking_list_model.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<List<VapeDataModel>> fetchDevices();
+  Future<SmokingListModel> fetchDevices();
 }

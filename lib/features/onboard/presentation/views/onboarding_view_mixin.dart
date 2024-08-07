@@ -9,11 +9,14 @@ mixin OnboardingViewMixin on State<OnboardingView> {
       TextEditingController();
   final TextEditingController vapeNameEditingController =
       TextEditingController();
+  final TextEditingController vapeTotalPuffLimitController =
+      TextEditingController();
 
   final FocusNode priceFocusNode = FocusNode();
   final FocusNode capacityFocusNode = FocusNode();
   final FocusNode nicotineFocusNode = FocusNode();
   final FocusNode vapeNameFocusNode = FocusNode();
+  final FocusNode vapeTotalPuffLimitFocusNode = FocusNode();
 
   // void _onboardBlocListener(BuildContext context, OnboardingState state) {
   // if ((state is OnboardingStatus && state.isFirstTimer == false) ||

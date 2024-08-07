@@ -49,20 +49,21 @@ class SmokingTypeTile extends StatelessWidget {
 
   Decoration buildBoxDecoration(BuildContext context) {
     return BoxDecoration(
-        color: context.theme.primaryColor,
-        borderRadius: RadiusConst.largerRadius,
-        border: Border.all(
-          color: isSelected
-              ? context.colorScheme.onPrimary
-              : context.theme.primaryColor,
-          width: isSelected ? 0.6 : 0.3,
+      color: context.theme.disabledColor,
+      borderRadius: RadiusConst.largerRadius,
+      border: Border.all(
+        color: isSelected
+            ? context.theme.primaryColor
+            : context.colorScheme.onPrimary,
+        width: isSelected ? 1 : 0.3,
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: context.colorScheme.onSecondary.withOpacity(0.25),
+          blurRadius: 2,
+          offset: const Offset(0, 2),
         ),
-        boxShadow: [
-          BoxShadow(
-            color: context.colorScheme.onSecondary.withOpacity(0.25),
-            blurRadius: 2,
-            offset: const Offset(0, 2),
-          ),
-        ],);
+      ],
+    );
   }
 }

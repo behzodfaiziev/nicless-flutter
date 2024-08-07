@@ -1,13 +1,14 @@
 import '../../../../core/use_cases/use_cases.dart';
 import '../../../../core/utility/typedef.dart';
-import '../../../../product/data_objects/models/vape_data_model.dart';
+import '../../../../product/data_objects/models/smoking/create_smoking_model.dart';
 import '../repo/onboard_repo.dart';
 
-class SaveVapeData extends UsecaseWithParams<String, VapeDataModel> {
+class SaveVapeData extends UsecaseWithParams<void, CreateSmokingModel> {
   const SaveVapeData(this._repo);
 
   final OnboardRepo _repo;
 
   @override
-  ResultFuture<String> call(VapeDataModel params) => _repo.saveVapeData(params);
+  ResultFuture<void> call(CreateSmokingModel params) =>
+      _repo.saveVapeData(params);
 }

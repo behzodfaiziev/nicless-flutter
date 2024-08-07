@@ -1,11 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../product/data_objects/models/vape_data_model.dart';
+import '../../../../product/data_objects/models/smoking/create_smoking_model.dart';
 import '../../domain/use_cases/save_vape_data.dart';
 
 part 'onboarding_event.dart';
-
 part 'onboarding_state.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
@@ -14,11 +13,11 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
         super(OnboardingInitial()) {
     on<OnboardingEvent>((event, emit) {});
     on<NextButtonPressed>(_onNextButtonPressedHandler);
-    on<BackButtonPressed>(_onBackButtonPressedHandler);
+    on<BackButtonPressedEvent>(_onBackButtonPressedHandler);
     on<SmokingTypeAdded>(_onSmokingTypeAddedHandler);
     on<SmokingTypeRemoved>(_onSmokingTypeRemovedHandler);
     on<SmokingDeviceHasBluetooth>(_onSmokingDeviceHasBluetoothHandler);
-    on<SaveVapeDataEvent>(_onSaveVapeDataHandler);
+    on<SaveSmokingDataEvent>(_onSaveVapeDataHandler);
   }
 
   final SaveVapeData _saveVapeData;
@@ -48,7 +47,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   }
 
   void _onBackButtonPressedHandler(
-    BackButtonPressed event,
+    BackButtonPressedEvent event,
     Emitter<OnboardingState> emit,
   ) {
     _currentIndex--;
@@ -110,17 +109,17 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   }
 
   Future<void> _onSaveVapeDataHandler(
-    SaveVapeDataEvent event,
+    SaveSmokingDataEvent event,
     Emitter<OnboardingState> emit,
   ) async {
-    final result = await _saveVapeData(event.vapeData);
+    final result = await _saveVapeData(event.smoking);
 
     result.fold(
       (error) {
         // emit(OnSaveVapeDataError(errorMessage: error.message));
       },
       (vapeId) {
-        emit(OnSaveVapeDataSuccess(vapeDataId: vapeId));
+        emit(const OnSaveVapeDataSuccess());
       },
     );
   }

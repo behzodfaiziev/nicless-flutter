@@ -18,8 +18,9 @@ class SmokingInfoPage extends StatelessWidget {
       children: [
         const Expanded(
           child: TopTitle(
-              title: 'Tell Us About Your \n Smoking Device',
-              mainAxisAlignment: MainAxisAlignment.end,),
+            title: 'Tell Us About Your \n Smoking Device',
+            mainAxisAlignment: MainAxisAlignment.end,
+          ),
         ),
         Expanded(
           flex: 3,
@@ -30,7 +31,7 @@ class SmokingInfoPage extends StatelessWidget {
               children: [
                 buildTextField(
                   focusNode: params.priceFocusNode,
-                  hintText: 'What is the price of your device (in USD)',
+                  hintText: 'Price of your device (in USD)',
                   keyboardType: TextInputType.number,
                   textEditingController: params.priceEditingController,
                   onSubmitted: (value) {
@@ -40,17 +41,27 @@ class SmokingInfoPage extends StatelessWidget {
                 ),
                 buildTextField(
                   focusNode: params.capacityFocusNode,
-                  hintText: 'What is capacity of your device',
+                  hintText: 'Capacity of your device',
                   keyboardType: TextInputType.number,
                   textEditingController: params.capacityEditingController,
                   onSubmitted: (value) {
                     params.capacityFocusNode.unfocus();
+                    params.vapeTotalPuffLimitFocusNode.requestFocus();
+                  },
+                ),
+                buildTextField(
+                  focusNode: params.vapeTotalPuffLimitFocusNode,
+                  hintText: 'Daily limit of puffs',
+                  keyboardType: TextInputType.number,
+                  textEditingController: params.vapeTotalPuffLimitController,
+                  onSubmitted: (value) {
+                    params.vapeTotalPuffLimitFocusNode.unfocus();
                     params.nicotineFocusNode.requestFocus();
                   },
                 ),
                 buildTextField(
                   focusNode: params.nicotineFocusNode,
-                  hintText: 'What is the nicotine percentage in 100 ml',
+                  hintText: 'Nicotine percentage in 100 ml',
                   keyboardType: TextInputType.number,
                   textEditingController: params.nicotineEditingController,
                   onSubmitted: (value) {
@@ -79,14 +90,17 @@ class SmokingInfoPage extends StatelessWidget {
                           onChanged: (bool? value) {
                             context.read<OnboardingBloc>().add(
                                   SmokingDeviceHasBluetooth(
-                                      hasBluetooth: value ?? false,),
+                                    hasBluetooth: value ?? false,
+                                  ),
                                 );
                           },
                         );
                       },
                     ),
-                    Text('My smoking device has bluetooth',
-                        style: context.primaryTextTheme.titleSmall,),
+                    Text(
+                      'My smoking device has bluetooth',
+                      style: context.primaryTextTheme.titleSmall,
+                    ),
                   ],
                 ),
               ],
@@ -106,10 +120,10 @@ class SmokingInfoPage extends StatelessWidget {
   }) {
     return Padding(
       padding: AppPadding.vertical8,
-      child: BaseTextField(
+      child: BaseTextFormField(
+        controller: textEditingController,
         keyboardType: keyboardType,
         hintText: hintText,
-        textEditingController: textEditingController,
         focusNode: focusNode,
         onSubmitted: onSubmitted,
       ),
@@ -123,18 +137,22 @@ class SmokingInfoPageParams {
     required this.capacityEditingController,
     required this.nicotineEditingController,
     required this.vapeNameEditingController,
+    required this.vapeTotalPuffLimitController,
     required this.priceFocusNode,
     required this.capacityFocusNode,
     required this.nicotineFocusNode,
     required this.vapeNameFocusNode,
+    required this.vapeTotalPuffLimitFocusNode,
   });
 
   final TextEditingController priceEditingController;
   final TextEditingController capacityEditingController;
   final TextEditingController nicotineEditingController;
   final TextEditingController vapeNameEditingController;
+  final TextEditingController vapeTotalPuffLimitController;
   final FocusNode priceFocusNode;
   final FocusNode capacityFocusNode;
   final FocusNode nicotineFocusNode;
   final FocusNode vapeNameFocusNode;
+  final FocusNode vapeTotalPuffLimitFocusNode;
 }

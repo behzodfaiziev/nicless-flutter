@@ -16,11 +16,9 @@ class OnboardingBody extends StatelessWidget {
     required this.pageController,
     required this.onButtonPressed,
     required this.smokingInfoPageParams,
-    required this.isUserCreated,
     super.key,
   });
 
-  final bool isUserCreated;
   final PageController pageController;
   final void Function(BuildContext context, int currentIndex) onButtonPressed;
   final SmokingInfoPageParams smokingInfoPageParams;
@@ -53,7 +51,7 @@ class OnboardingBody extends StatelessWidget {
                     const SmokingTypePage(),
                     SmokingInfoPage(params: smokingInfoPageParams),
                     ConnectBluetoothPage(
-                      smokingInfoPageParams: smokingInfoPageParams,
+                      vapeInfoPageParams: smokingInfoPageParams,
                     ),
                   ],
                 ),
@@ -73,6 +71,7 @@ class OnboardingBody extends StatelessWidget {
                                 ? () => onButtonPressed(context, state.index)
                                 : null,
                             child: Text(
+                              style: context.primaryTextTheme.bodyMedium,
                               state.isLastPage
                                   ? LocaleKeys.buttons_done.tr()
                                   : LocaleKeys.buttons_next.tr(),
@@ -81,7 +80,10 @@ class OnboardingBody extends StatelessWidget {
                         }
 
                         return BaseElevatedButton(
-                          child: Text(LocaleKeys.buttons_next.tr()),
+                          child: Text(
+                            LocaleKeys.buttons_next.tr(),
+                            style: context.primaryTextTheme.bodyMedium,
+                          ),
                         );
                       },
                     ),
@@ -96,11 +98,12 @@ class OnboardingBody extends StatelessWidget {
   }
 
   Future<void> onPopButtonPressed(BuildContext context) async {
-    if (isUserCreated) {
+    if (pageController.page == 0) {
       await context.pop();
       return;
     }
-    context.read<OnboardingBloc>().add(const BackButtonPressed());
+
+    context.read<OnboardingBloc>().add(const BackButtonPressedEvent());
 
     await pageController.previousPage(
       duration: const Duration(milliseconds: 500),

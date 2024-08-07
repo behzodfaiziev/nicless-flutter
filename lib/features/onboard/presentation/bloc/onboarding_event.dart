@@ -11,8 +11,8 @@ class NextButtonPressed extends OnboardingEvent {
   const NextButtonPressed();
 }
 
-class BackButtonPressed extends OnboardingEvent {
-  const BackButtonPressed();
+class BackButtonPressedEvent extends OnboardingEvent {
+  const BackButtonPressedEvent();
 }
 
 class SmokingTypeAdded extends OnboardingEvent {
@@ -39,8 +39,8 @@ class SmokingDeviceHasBluetooth extends OnboardingEvent {
   final bool hasBluetooth;
 }
 
-class SaveVapeDataEvent extends OnboardingEvent {
-  const SaveVapeDataEvent({required this.vapeData});
+class SaveSmokingDataEvent extends OnboardingEvent {
+  const SaveSmokingDataEvent({required this.smoking});
 
-  final VapeDataModel vapeData;
+  final CreateSmokingModel smoking;
 }

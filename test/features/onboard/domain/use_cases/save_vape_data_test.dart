@@ -2,10 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nicless_flutter/core/utility/typedef.dart';
-import 'package:nicless_flutter/features/bluetooth/data/models/bluetooth_device_model.dart';
 import 'package:nicless_flutter/features/onboard/domain/repo/onboard_repo.dart';
 import 'package:nicless_flutter/features/onboard/domain/use_cases/save_vape_data.dart';
-import 'package:nicless_flutter/product/data_objects/models/vape_data_model.dart';
+import 'package:nicless_flutter/product/data_objects/models/smoking/create_smoking_model.dart';
+import 'package:nicless_flutter/product/data_objects/models/smoking/smoking_details_model.dart';
 
 import '../../../../mocks/repo_mocks.dart';
 
@@ -26,23 +26,25 @@ void main() {
 
       const String resultId = 'id';
 
-      const VapeDataModel vapeData = VapeDataModel(
+      const CreateSmokingModel vapeData = CreateSmokingModel(
         name: 'device',
-        bluetoothData: BluetoothDeviceModel(
-          name: 'device',
-          address: 'address',
+        priceInUSDollars: 1,
+        smoking: SmokingDetailsModel(
+          bluetoothAddress: 'address',
         ),
       );
 
       when(() => repository.saveVapeData(vapeData))
-          .thenAnswer((_) async => const Right(resultId));
+          .thenAnswer((_) async => const Right(null));
 
       /// act
-      final Result<String> result = await useCase(vapeData);
+      final Result<void> result = await useCase(vapeData);
 
       /// assert
-      expect(result,
-          equals(const Right<dynamic, String>(resultId)),);
+      expect(
+        result,
+        equals(const Right<dynamic, String>(resultId)),
+      );
 
       verify(() => repository.saveVapeData(vapeData)).called(1);
 

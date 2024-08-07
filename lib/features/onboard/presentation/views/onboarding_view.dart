@@ -15,9 +15,7 @@ part 'onboarding_view_mixin.dart';
 
 @RoutePage()
 class OnboardingView extends StatefulWidget {
-  const OnboardingView({this.isUserCreated = false, super.key});
-
-  final bool isUserCreated;
+  const OnboardingView({super.key});
 
   @override
   State<OnboardingView> createState() => _OnboardingViewState();
@@ -48,7 +46,6 @@ class _OnboardingViewState extends State<OnboardingView>
               onButtonPressed: onButtonPressed,
               pageController: pageController,
               smokingInfoPageParams: smokingInfoPageParams(),
-              isUserCreated: widget.isUserCreated,
             );
           },
         ),
@@ -62,10 +59,12 @@ class _OnboardingViewState extends State<OnboardingView>
       capacityEditingController: capacityEditingController,
       nicotineEditingController: nicotineEditingController,
       vapeNameEditingController: vapeNameEditingController,
+      vapeTotalPuffLimitController: vapeTotalPuffLimitController,
       priceFocusNode: priceFocusNode,
       capacityFocusNode: capacityFocusNode,
       nicotineFocusNode: nicotineFocusNode,
       vapeNameFocusNode: vapeNameFocusNode,
+      vapeTotalPuffLimitFocusNode: vapeTotalPuffLimitFocusNode,
     );
   }
 }

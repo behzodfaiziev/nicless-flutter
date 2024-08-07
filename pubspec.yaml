@@ -80,6 +80,7 @@ dependencies:
   mime: ^1.0.4
   flutter_bluetooth_serial: ^0.4.0
   google_maps_flutter: ^2.5.3
+  freezed_annotation: ^2.4.4
 
 dev_dependencies:
   flutter_test:
@@ -95,6 +96,7 @@ dev_dependencies:
   mocktail: ^1.0.2
   bloc_test: ^9.1.5
   flutter_launcher_icons: ^0.13.1
+  freezed: ^2.5.2
 
 flutter_launcher_icons: # flutter pub run flutter_launcher_icons
   android: "launcher_icon"

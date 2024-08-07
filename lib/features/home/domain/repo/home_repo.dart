@@ -1,6 +1,6 @@
 import '../../../../core/utility/typedef.dart';
-import '../../../../product/data_objects/models/vape_data_model.dart';
+import '../../../../product/data_objects/models/smoking/smoking_list_model.dart';
 
 abstract class HomeRepo {
-  ResultFuture<List<VapeDataModel>> fetchDevices();
+  ResultFuture<SmokingListModel> fetchDevices();
 }

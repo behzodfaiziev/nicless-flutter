@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/extensions/context_extension.dart';
 import '../../../../../../core/widgets/buttons/base_outlined_text_button.dart';
 import '../../../../../../core/widgets/image/base_asset_image.dart';
-import '../../../../../../product/data_objects/models/vape_data_model.dart';
+import '../../../../../../product/data_objects/models/smoking/smoking_data_model.dart';
 import '../../../../../../product/utils/constants/asset_paths/images_const.dart';
 import '../../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../../../product/utils/constants/ui_constants/radius_const.dart';
 import '../../../../../../product/utils/constants/ui_constants/size_const.dart';
-import '../../../../../../product/utils/converter.dart';
 
 class SmokingTile extends StatelessWidget {
   const SmokingTile({
@@ -17,7 +16,7 @@ class SmokingTile extends StatelessWidget {
     super.key,
   });
 
-  final VapeDataModel smokingDevice;
+  final SmokingDataModel smokingDevice;
   final void Function() onPressed;
 
   @override
@@ -63,18 +62,18 @@ class SmokingTile extends StatelessWidget {
                               height: 1,
                               fontWeight: FontWeight.w600,
                             ),),
-                        KeyValueText(
-                          keyText: 'Capacity: ',
-                          valueText: CustomConverter.capacity(
-                            smokingDevice.capacity != null
-                                ? double.parse(smokingDevice.capacity!)
-                                : 0,
-                          ),
-                        ),
-                        KeyValueText(
-                          keyText: 'Nicotine: ',
-                          valueText: '${smokingDevice.nicotine}%',
-                        ),
+                        // KeyValueText(
+                        //   keyText: 'Capacity: ',
+                        //   valueText: CustomConverter.capacity(
+                        //     smokingDevice.capacity != null
+                        //         ? double.parse(smokingDevice.capacity!)
+                        //         : 0,
+                        //   ),
+                        // ),
+                        // KeyValueText(
+                        //   keyText: 'Nicotine: ',
+                        //   valueText: '${smokingDevice.nicotine}%',
+                        // ),
                         Container(
                             height: 8,
                             margin: AppPadding.top4,

@@ -44,7 +44,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
         ),
         body: const SmokingList(),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => context.push(OnboardingRoute(isUserCreated: true)),
+          onPressed: () => context.push(const OnboardingRoute()),
           child: const Icon(Icons.add),
         ),
       ),

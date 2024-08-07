@@ -1,6 +1,7 @@
 import '../../../../core/managers/network/app_network_manager.dart';
 import '../../../../core/managers/network/enum/app_request_type.dart';
-import '../../../../product/data_objects/models/vape_data_model.dart';
+import '../../../../product/constants/api_const.dart';
+import '../../../../product/data_objects/models/smoking/smoking_list_model.dart';
 import 'home_remote_data_source.dart';
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -11,11 +12,11 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   final AppNetworkManager _network;
 
   @override
-  Future<List<VapeDataModel>> fetchDevices() async {
-    return _network.send<VapeDataModel, List<VapeDataModel>>(
-      'vapes',
+  Future<SmokingListModel> fetchDevices() async {
+    return _network.send<SmokingListModel, SmokingListModel>(
+     ApiConst.smoking,
       method: AppRequestType.get,
-      parseModel: const VapeDataModel(),
+      parseModel: const SmokingListModel(),
     );
   }
 }

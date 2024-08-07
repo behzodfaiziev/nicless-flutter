@@ -55,6 +55,9 @@ class AppNetworkManagerImpl implements AppNetworkManager {
         baseUrl: ApiConst.baseUrl,
         headers: isCleaned ? _jsonHeader : _bearerHeader(token),
       ),
+      onRefreshFail: () {
+
+      },
     );
   }
 

@@ -5,6 +5,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:nicless_flutter/core/error/failures/api_failure.dart';
 import 'package:nicless_flutter/features/home/domain/use_cases/fetch_devices.dart';
 import 'package:nicless_flutter/features/home/presentation/bloc/home/home_bloc.dart';
+import 'package:nicless_flutter/product/data_objects/models/smoking/smoking_list_model.dart';
 
 final class FetchDevicesMock extends Mock implements FetchDevices {}
 
@@ -24,16 +25,18 @@ void main() {
   });
 
   group('FetchDevicesEvent', () {
+    const SmokingListModel smokingList = SmokingListModel(data: []);
     blocTest<HomeBloc, HomeState>(
       'emits [HomeLoading, HomeLoaded] when FetchDevicesEvent is added',
       build: () {
-        when(() => fetchDevices()).thenAnswer((_) async => const Right([]));
+        when(() => fetchDevices())
+            .thenAnswer((_) async => const Right(smokingList));
         return bloc;
       },
       act: (bloc) => bloc.add(const FetchDevicesEvent()),
       expect: () => const <HomeState>[
         HomeLoading(),
-        HomeLoaded([]),
+        HomeLoaded(smokingList),
       ],
     );
 

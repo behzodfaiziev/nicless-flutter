@@ -25,10 +25,10 @@ class HomeError extends HomeState {
 }
 
 class HomeLoaded extends HomeState {
-  const HomeLoaded(this.devices);
+  const HomeLoaded(this.smokingList);
 
-  final List<VapeDataModel> devices;
+  final SmokingListModel smokingList;
 
   @override
-  List<Object> get props => [devices];
+  List<Object> get props => [smokingList];
 }

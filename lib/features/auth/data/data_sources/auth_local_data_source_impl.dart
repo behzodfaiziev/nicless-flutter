@@ -9,6 +9,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
 
   @override
   Future<String?> getAccessToken() {
+    removeAccessToken();
     return _database.read<String>(key: PrimitiveDatabaseKeys.accessToken);
   }
 
@@ -21,7 +22,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   Future<void> removeAccessToken() {
     return _database.write(
       key: PrimitiveDatabaseKeys.accessToken,
-      value: null,
+      value: '',
     );
   }
 
@@ -29,7 +30,7 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   Future<void> removeRefreshToken() {
     return _database.write(
       key: PrimitiveDatabaseKeys.refreshToken,
-      value: null,
+      value: '',
     );
   }
 

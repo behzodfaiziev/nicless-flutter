@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../../../../core/error/exceptions/server_exception.dart';
 import '../../../../core/error/failures/api_failure.dart';
 import '../../../../core/utility/typedef.dart';
-import '../../../../product/data_objects/models/vape_data_model.dart';
+import '../../../../product/data_objects/models/smoking/create_smoking_model.dart';
 import '../../domain/repo/onboard_repo.dart';
 import '../data_sources/onboard_remote_data_source.dart';
 
@@ -13,9 +13,9 @@ class OnboardRepoImpl implements OnboardRepo {
   final OnboardRemoteDataSource _remoteDataSource;
 
   @override
-  ResultFuture<String> saveVapeData(VapeDataModel vapeData) async {
+  ResultFuture<void> saveVapeData(CreateSmokingModel smoking) async {
     try {
-      final result = await _remoteDataSource.saveVapeData(vapeData);
+      final result = await _remoteDataSource.saveVapeData(smoking);
       return Right(result);
     } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));

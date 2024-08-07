@@ -44,8 +44,8 @@ class AppConst {
   static const String emptyUserId = '';
   static const String emptyString = '';
 
-  static const String cigarette = 'cigarette';
-  static const String vape = 'vape';
+  static const String cigarette = 'Cigarette';
+  static const String vape = 'Vape';
   static const String tempProfileName = 'John John';
   static const String tempProfileNickname = 'john.john';
   static const String tempProfileUrl = 'https://i.pravatar.cc/150?img=12%24';

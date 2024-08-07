@@ -41,12 +41,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     IsAuthenticated event,
     Emitter<AuthState> emit,
   ) async {
-    emit(const IsAuthenticatedState(isAuth: false));
-    // final result = await _checkIsAuthenticated();
-    // result.fold(
-    //   (failure) => emit(AuthError(message: failure.message)),
-    //   (authResult) => emit(IsAuthenticatedState(isAuth: authResult)),
-    // );
+    final result = await _checkIsAuthenticated();
+    result.fold(
+      (failure) => emit(AuthError(message: failure.message)),
+      (authResult) => emit(IsAuthenticatedState(isAuth: authResult)),
+    );
   }
 
   Future<void> _signOutHandler(
