@@ -7,6 +7,7 @@ import '../../data/models/sign_in_request_model.dart';
 import '../../domain/use_cases/check_is_authenticated.dart';
 import '../../domain/use_cases/sign_in.dart';
 import '../../domain/use_cases/sign_out.dart';
+import '../../domain/use_cases/sign_up.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -15,9 +16,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc({
     required CheckIsAuthenticated checkIsAuthenticated,
     required SignIn signIn,
+    required SignUp signUp,
     required SignOut signOut,
   })  : _checkIsAuthenticated = checkIsAuthenticated,
         _signIn = signIn,
+        _signUp = signUp,
         _signOut = signOut,
         super(AuthInitial()) {
     on<AuthEvent>((event, emit) {});
@@ -28,6 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   final CheckIsAuthenticated _checkIsAuthenticated;
   final SignIn _signIn;
+  final SignUp _signUp;
   final SignOut _signOut;
 
   Future<void> _checkIsAuthenticatedHandler(
@@ -37,22 +41,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final result = await _checkIsAuthenticated();
     result.fold(
       (failure) => emit(AuthError(message: failure.message)),
-      (isAuthenticated) =>
-          emit(IsAuthenticatedResult(isAuthenticated: isAuthenticated)),
+      (authResult) =>
+          emit(IsAuthenticatedState(isAuth: authResult)),
     );
   }
-
-  // Future<void> _signInAnonymouslyHandler(
-  //   SignInAnonymously event,
-  //   Emitter<AuthState> emit,
-  // ) async {
-  //   emit(const AuthLoading());
-  //   final result = await _anonymousSignIn();
-  //   result.fold(
-  //     (failure) => emit(AuthError(message: 'Error: ${failure.message}')),
-  //     (user) => emit(const IsAuthenticatedResult(isAuthenticated: true)),
-  //   );
-  // }
 
   Future<void> _signOutHandler(
     SignOutEvent event,
@@ -61,7 +53,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final result = await _signOut();
     result.fold(
       (failure) => emit(AuthError(message: 'Error: ${failure.message}')),
-      (value) => emit(const IsAuthenticatedResult(isAuthenticated: false)),
+      (value) => emit(const IsAuthenticatedState(isAuth: false)),
     );
   }
 
@@ -69,6 +61,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     SignInEvent event,
     Emitter<AuthState> emit,
   ) async {
+    emit(const AuthLoading());
+
     final result = await _signIn(
       SignInRequestModel(
         email: event.email,
@@ -77,7 +71,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
     result.fold(
       (failure) => emit(AuthError(message: failure.message)),
-      (value) => emit(const IsAuthenticatedResult(isAuthenticated: true)),
+      (value) => emit(const IsAuthenticatedState(isAuth: true)),
     );
   }
 }

@@ -1,1 +1,6 @@
-enum PrimitiveDatabaseKeys { securedDatabaseKey, apiToken }
+enum PrimitiveDatabaseKeys {
+  securedDatabaseKey,
+  apiToken,
+  accessToken,
+  refreshToken,
+}

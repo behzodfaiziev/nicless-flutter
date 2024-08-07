@@ -1,6 +1,7 @@
 import '../../../../core/utility/typedef.dart';
 import '../../data/models/sign_in_request_model.dart';
 import '../../data/models/sign_in_response_model.dart';
+import '../../data/models/sign_up_request_model.dart';
 
 abstract class AuthRepo {
   const AuthRepo();
@@ -12,4 +13,6 @@ abstract class AuthRepo {
   ResultFuture<SignInResponseModel> signIn({
     required SignInRequestModel params,
   });
+
+  ResultFuture<void> signUp({required SignUpRequestModel params});
 }

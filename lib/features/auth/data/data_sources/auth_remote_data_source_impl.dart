@@ -31,4 +31,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       parseModel: const AppEmptyModel(),
     );
   }
+
+  @override
+  void setToken(String accessToken, String refreshToken) {
+    _network.setToken(accessToken: accessToken, refreshToken: refreshToken);
+  }
 }

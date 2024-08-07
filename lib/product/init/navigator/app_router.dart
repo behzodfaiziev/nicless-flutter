@@ -25,8 +25,8 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => <AutoRoute>[
         /// Auth Routes
         AutoRoute(page: LandingRoute.page),
-        AutoRoute(page: AuthCheckerRoute.page),
-        AutoRoute(page: SignInRoute.page, initial: true),
+        AutoRoute(page: AuthCheckerRoute.page, initial: true),
+        AutoRoute(page: SignInRoute.page),
         AutoRoute(page: SignUpRoute.page),
 
         /// Onboarding Routes

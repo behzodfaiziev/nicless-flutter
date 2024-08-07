@@ -7,4 +7,6 @@ abstract class AuthRemoteDataSource {
   Future<SignInResponseModel> signIn({required SignInRequestModel params});
 
   Future<void> signOut();
+
+  void setToken(String accessToken, String refreshToken);
 }

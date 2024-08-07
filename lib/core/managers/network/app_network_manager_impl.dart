@@ -70,7 +70,10 @@ class AppNetworkManagerImpl implements AppNetworkManager {
   }
 
   @override
-  void setToken(String token) {}
+  void setToken({required String accessToken, required String refreshToken}) {
+    _token = accessToken;
+    _manager = _getManager(token: accessToken);
+  }
 
   @override
   void clearHeader() {

@@ -11,5 +11,5 @@ abstract class AppNetworkManager {
 
   void clearHeader();
 
-  void setToken(String token);
+  void setToken({required String accessToken, required String refreshToken});
 }

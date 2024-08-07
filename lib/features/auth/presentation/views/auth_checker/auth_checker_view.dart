@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../product/init/navigator/app_router.dart';
+import '../../../../../product/widgets/toast/app_toast.dart';
 import '../../bloc/auth_bloc.dart';
 
 part 'auth_checker_view_mixin.dart';
@@ -22,22 +23,11 @@ class _AuthCheckerViewState extends State<AuthCheckerView>
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocListener<AuthBloc, AuthState>(
-        listener: (context, state) {
-          if (state is IsAuthenticatedResult) {
-            context.pushReplaceAll(
-              state.isAuthenticated ? const HomeRoute() : const LandingRoute(),
-            );
-          }
-          if (state is AuthError) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(state.message ?? 'An error occurred'),
-              ),
-            );
-          }
-        },
+        listener: pageListener,
         child: const SizedBox(),
       ),
     );
   }
+
+
 }

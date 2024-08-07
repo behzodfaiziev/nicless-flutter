@@ -50,11 +50,11 @@ class CustomToast {
 
   static void errorToast(
     BuildContext context,
-    String message,
+    String? message,
   ) {
     _showSnackBar(
       context: context,
-      message: message,
+      message: message ?? 'An error occurred',
       textColor: Colors.white,
       backgroundColor: Colors.red[800],
     );

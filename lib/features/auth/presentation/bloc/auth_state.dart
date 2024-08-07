@@ -22,9 +22,8 @@ class AuthError extends AuthState {
   List<Object?> get props => [message];
 }
 
-class IsAuthenticatedResult extends AuthState {
-  const IsAuthenticatedResult({required this.isAuthenticated});
+class IsAuthenticatedState extends AuthState {
+  const IsAuthenticatedState({required this.isAuth});
 
-  final bool isAuthenticated;
+  final bool isAuth;
 }
-

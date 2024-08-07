@@ -1,15 +1,19 @@
 import 'package:auto_route/annotations.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../core/widgets/buttons/base_elevated_button.dart';
 import '../../../../../core/widgets/buttons/base_outlined_text_button.dart';
+import '../../../../../core/widgets/indicator/base_adaptive_cpi.dart';
 import '../../../../../core/widgets/text_fields/base_text_form_field.dart';
+import '../../../../../core/widgets/toast/custom_toast.dart';
 import '../../../../../product/init/lang/locale_keys.g.dart';
 import '../../../../../product/init/navigator/app_router.dart';
 import '../../../../../product/utils/constants/ui_constants/font_size_const.dart';
 import '../../../../../product/utils/constants/ui_constants/padding_const.dart';
+import '../../bloc/auth_bloc.dart';
 
 part 'sign_in_view_mixin.dart';
 
@@ -25,36 +29,37 @@ class _SignInViewState extends State<SignInView> with SignInViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          margin: context.mainHorizontalPadding,
-          height: context.safeHeight,
-          child: Column(
-            children: [
-              Expanded(
-                flex: 4,
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    'Sign In',
-                    style: context.primaryTextTheme.headlineMedium,
+      body: BlocListener<AuthBloc, AuthState>(
+        bloc: context.read<AuthBloc>(),
+        listener: pageListener,
+        child: SingleChildScrollView(
+          child: Container(
+            margin: context.mainHorizontalPadding,
+            height: context.safeHeight,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      'Sign In',
+                      style: context.primaryTextTheme.headlineMedium,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 5,
-                child: inputFields(),
-              ),
-              Expanded(
-                flex: 2,
-                child: Column(
-                  children: [
-                    signInButton(context),
-                    signUpTextButton(context),
-                  ],
+                Expanded(flex: 6, child: inputFields()),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      signInButton(context),
+                      signUpTextButton(context),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -66,9 +71,10 @@ class _SignInViewState extends State<SignInView> with SignInViewMixin {
       padding: AppPadding.top50,
       child: Column(
         children: [
-          buildTextField(
+          const Spacer(),
+          BaseTextFormField(
             focusNode: emailFocusNode,
-            textEditingController: emailTextEditingController,
+            controller: emailTextEditingController,
             hintText: 'Email',
             icon: Icons.email,
             keyboardType: TextInputType.emailAddress,
@@ -79,19 +85,25 @@ class _SignInViewState extends State<SignInView> with SignInViewMixin {
               emailTextEditingController.text = value.toLowerCase();
             },
           ),
-          buildTextField(
-            focusNode: passwordFocusNode,
-            textEditingController: passwordTextEditingController,
-            hintText: 'Password',
-            icon: Icons.lock,
-            isObscureText: true,
-            keyboardType: TextInputType.visiblePassword,
-            onSubmitted: (value) {
-              passwordFocusNode.unfocus();
-            },
-            onChanged: (value) {
-              passwordTextEditingController.text = value.toLowerCase();
-            },
+          Padding(
+            padding: AppPadding.top16,
+            child: BaseTextFormField(
+              focusNode: passwordFocusNode,
+              controller: passwordTextEditingController,
+              hintText: 'Password',
+              icon: Icons.lock,
+              obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
+              onSubmitted: (value) {
+                passwordFocusNode.unfocus();
+              },
+              onChanged: (value) {
+                passwordTextEditingController.text = value.toLowerCase();
+              },
+            ),
+          ),
+          const Spacer(
+            flex: 10,
           ),
         ],
       ),
@@ -118,7 +130,7 @@ class _SignInViewState extends State<SignInView> with SignInViewMixin {
               fontSize: FontSizeConst.small,
               isUnderline: false,
               onPressed: () {
-                context.push(const SignUpRoute());
+                context.pushReplaceAll(const SignUpRoute());
               },
             ),
           ),
@@ -127,38 +139,21 @@ class _SignInViewState extends State<SignInView> with SignInViewMixin {
     );
   }
 
-  BaseElevatedButton signInButton(BuildContext context) {
-    return BaseElevatedButton(
-      child: Text(
-        LocaleKeys.buttons_signIn.tr(),
-        style: context.primaryTextTheme.bodyMedium,
-      ),
-      onPressed: () {},
-    );
-  }
-
-  Widget buildTextField({
-    required String hintText,
-    required IconData icon,
-    required TextEditingController textEditingController,
-    required FocusNode focusNode,
-    required TextInputType keyboardType,
-    required void Function(String value)? onSubmitted,
-    required void Function(String value) onChanged,
-    bool isObscureText = false,
-  }) {
-    return Padding(
-      padding: AppPadding.vertical8,
-      child: BaseTextFormField(
-        icon: icon,
-        controller: textEditingController,
-        keyboardType: keyboardType,
-        obscureText: isObscureText,
-        hintText: hintText,
-        focusNode: focusNode,
-        onChanged: onChanged,
-        onSubmitted: onSubmitted,
-      ),
+  Widget signInButton(BuildContext context) {
+    return BlocBuilder<AuthBloc, AuthState>(
+      buildWhen: (previous, current) =>
+          current is AuthLoading || current is AuthError,
+      builder: (context, state) {
+        return BaseElevatedButton(
+          onPressed: onSignInButtonPressed,
+          child: state is AuthLoading
+              ? const BaseAdaptiveCPI()
+              : Text(
+                  LocaleKeys.buttons_signIn.tr(),
+                  style: context.primaryTextTheme.bodyMedium,
+                ),
+        );
+      },
     );
   }
 }

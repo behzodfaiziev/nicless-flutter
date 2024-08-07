@@ -21,7 +21,7 @@ class BaseAdaptiveCPI extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircularProgressIndicator.adaptive(
       valueColor: AlwaysStoppedAnimation<Color>(
-        valueColor ?? context.colorScheme.secondary,
+        valueColor ?? context.colorScheme.surface,
       ),
       value: value,
       strokeWidth: strokeWidth ?? SizeConst.circularProgressIndicatorWidth,

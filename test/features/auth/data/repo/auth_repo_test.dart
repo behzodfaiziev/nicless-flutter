@@ -4,17 +4,22 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nicless_flutter/core/error/exceptions/server_exception.dart';
 import 'package:nicless_flutter/core/error/failures/api_failure.dart';
+import 'package:nicless_flutter/features/auth/data/data_sources/auth_local_data_source.dart';
 import 'package:nicless_flutter/features/auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:nicless_flutter/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:nicless_flutter/features/auth/domain/repos/auth_repo.dart';
 
 class MockAuthRemoteDataSource extends Mock implements AuthRemoteDataSource {}
 
+class MockAuthLocalDataSource extends Mock implements AuthLocalDataSource {}
+
 class MockUser extends Mock implements User {}
 
 void main() {
   late AuthRemoteDataSource remoteDataSource;
+  late AuthLocalDataSource localDataSource;
   late AuthRepoImpl repoImpl;
+
   final mockUser = MockUser();
   const ServerException apiException = ServerException(
     statusCode: 500,
@@ -23,7 +28,12 @@ void main() {
 
   setUp(() {
     remoteDataSource = MockAuthRemoteDataSource();
-    repoImpl = AuthRepoImpl(remoteDataSource: remoteDataSource);
+    localDataSource = MockAuthLocalDataSource();
+    repoImpl = AuthRepoImpl(
+      remoteDataSource: remoteDataSource,
+      localDataSource: localDataSource,
+    );
+
     when(() => mockUser.uid).thenReturn('123');
     registerFallbackValue(mockUser);
   });
