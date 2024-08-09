@@ -56,12 +56,10 @@ class _OnboardingViewState extends State<OnboardingView>
   SmokingInfoPageParams smokingInfoPageParams() {
     return SmokingInfoPageParams(
       priceEditingController: priceEditingController,
-      capacityEditingController: capacityEditingController,
       nicotineEditingController: nicotineEditingController,
       vapeNameEditingController: vapeNameEditingController,
       vapeTotalPuffLimitController: vapeTotalPuffLimitController,
       priceFocusNode: priceFocusNode,
-      capacityFocusNode: capacityFocusNode,
       nicotineFocusNode: nicotineFocusNode,
       vapeNameFocusNode: vapeNameFocusNode,
       vapeTotalPuffLimitFocusNode: vapeTotalPuffLimitFocusNode,

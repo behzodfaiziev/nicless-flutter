@@ -5,8 +5,6 @@ mixin AutomaticCounterViewMixin on State<AutomaticCounterView> {
   late final AnimationController animationController;
   final AutomaticCounterBloc automaticCounterBloc = sl<AutomaticCounterBloc>();
 
-
-
   @override
   void dispose() {
     _vapeStreamSubscription?.cancel();
@@ -57,5 +55,44 @@ mixin AutomaticCounterViewMixin on State<AutomaticCounterView> {
     timer?.cancel();
 
     animationController.reverse();
+  }
+
+  void pageListener(BuildContext context, AutomaticCounterState state) {
+    if (state is AutomaticCounterStarted) {
+      setIsInhalingStreamSubscription(context);
+    }
+    if (state is SaveDailySmokingFailure) {
+      CustomToast.errorToast(context, state.message);
+    }
+    if (state is SaveDailySmokingSuccess) {
+      context.read<BluetoothBloc>().add(
+            BluetoothDisconnectEvent(
+              connection: widget.connection!,
+              device: widget.device!,
+            ),
+          );
+    }
+  }
+
+  void bluetoothListener(BuildContext context, BluetoothState state) {
+    if (state is BluetoothDeviceDisconnected) {
+      context.pushReplaceAll(const MainRoute());
+    }
+    if (state is BluetoothDeviceFailedToConnect) {
+      CustomToast.errorToast(
+        context,
+        'Failed to disconnect!',
+      );
+      context.pushReplaceAll(const MainRoute());
+    }
+  }
+
+  Null Function()? onFinishButtonPressed(AutomaticCounterState state) {
+    return state is AutomaticCounterLoading
+        ? null
+        : () {
+            automaticCounterBloc
+                .add(SaveDailySmokingEvent(smokingId: widget.smokingId));
+          };
   }
 }

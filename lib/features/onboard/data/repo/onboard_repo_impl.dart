@@ -13,9 +13,9 @@ class OnboardRepoImpl implements OnboardRepo {
   final OnboardRemoteDataSource _remoteDataSource;
 
   @override
-  ResultFuture<void> saveVapeData(CreateSmokingModel smoking) async {
+  ResultFuture<void> saveSmokingData(CreateSmokingModel smoking) async {
     try {
-      final result = await _remoteDataSource.saveVapeData(smoking);
+      final result = await _remoteDataSource.saveSmokingData(smoking);
       return Right(result);
     } on ServerException catch (e) {
       return Left(APIFailure.fromAPIException(e));

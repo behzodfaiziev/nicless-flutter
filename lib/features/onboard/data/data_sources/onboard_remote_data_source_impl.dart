@@ -12,7 +12,7 @@ class OnboardRemoteDataSourceImpl extends OnboardRemoteDataSource {
   final AppNetworkManager _network;
 
   @override
-  Future<void> saveVapeData(CreateSmokingModel smoking) async {
+  Future<void> saveSmokingData(CreateSmokingModel smoking) async {
     await _network.send<AppEmptyModel, AppEmptyModel>(
       ApiConst.createSmoking,
       parseModel: const AppEmptyModel(),

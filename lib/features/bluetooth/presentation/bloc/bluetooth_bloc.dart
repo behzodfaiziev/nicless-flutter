@@ -10,7 +10,6 @@ import '../../domain/use_cases/disconnect_bluetooth_device.dart';
 import '../../domain/use_cases/get_bluetooth_devices.dart';
 
 part 'bluetooth_event.dart';
-
 part 'bluetooth_state.dart';
 
 class BluetoothBloc extends Bloc<BluetoothEvent, BluetoothState> {
@@ -42,7 +41,9 @@ class BluetoothBloc extends Bloc<BluetoothEvent, BluetoothState> {
   }
 
   Future<void> _getBluetoothDevicesHandler(
-      GetBluetoothDevicesEvent event, Emitter<BluetoothState> emit,) async {
+    GetBluetoothDevicesEvent event,
+    Emitter<BluetoothState> emit,
+  ) async {
     emit(BluetoothScanLoading());
     final result = await _getBluetoothDevices();
 
@@ -55,25 +56,35 @@ class BluetoothBloc extends Bloc<BluetoothEvent, BluetoothState> {
   }
 
   Future<void> _connectToDeviceHandler(
-      ConnectBluetoothDeviceEvent event, Emitter<BluetoothState> emit,) async {
-    emit(ConnectingBluetoothDevice());
+    ConnectBluetoothDeviceEvent event,
+    Emitter<BluetoothState> emit,
+  ) async {
+    emit(ConnectingBluetoothDeviceState());
     final result = await _connectBluetoothDevice(event.device);
 
     result.fold(
       (failure) {
         emit(BluetoothDeviceFailedToConnect(event.device));
-        // _getBluetoothDevicesHandler(event, emit);
+        emit(BluetoothInitial());
+        add(GetBluetoothDevicesEvent());
       },
       (connection) {
         _onDataReceived = connection;
-        emit(BluetoothDeviceConnected(
-            connection: connection, device: event.device,),);
+        emit(
+          BluetoothDeviceConnectedState(
+            connection: connection,
+            device: event.device,
+            smokingId: event.smokingId,
+          ),
+        );
       },
     );
   }
 
   Future<void> _disconnectBluetoothDeviceHandler(
-      BluetoothDisconnectEvent event, Emitter<BluetoothState> emit,) async {
+    BluetoothDisconnectEvent event,
+    Emitter<BluetoothState> emit,
+  ) async {
     final result = await _disconnectBluetoothDevice(event.connection);
     result.fold(
       (failure) {

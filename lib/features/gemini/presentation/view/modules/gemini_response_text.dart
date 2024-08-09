@@ -28,7 +28,7 @@ class GeminiResponseText extends StatelessWidget {
         border: Border.all(color: context.theme.primaryColor),
         borderRadius: RadiusConst.circular12,
         color: isQuestion
-            ? AppColors.cardTopRatingColor
+            ? AppColors.cardColor
             : AppColors.cardRatingColor,
       ),
       child: BaseMarkDown(text: text),

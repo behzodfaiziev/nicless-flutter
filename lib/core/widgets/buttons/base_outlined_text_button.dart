@@ -7,7 +7,7 @@ class BaseOutlinedTextButton extends StatelessWidget {
   const BaseOutlinedTextButton({
     required this.text,
     this.onPressed,
-    this.isUnderline = true,
+    this.isUnderline = false,
     this.fontSize,
     this.fontColor,
     this.fontStyle,

@@ -18,6 +18,7 @@ class AppThemeDark {
           onSecondary: AppColors.secondaryTextColor,
         ),
         appBarTheme: appBarTheme(),
+        cardColor: AppColors.cardColor,
         bottomNavigationBarTheme: bottomNavigationBarThemeData(),
         textSelectionTheme: const TextSelectionThemeData(
           cursorColor: AppColors.primaryDark,

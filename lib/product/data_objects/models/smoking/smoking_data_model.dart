@@ -11,7 +11,8 @@ part 'smoking_data_model.g.dart';
 class SmokingDataModel extends AppNetworkModel<SmokingDataModel>
     with _$SmokingDataModel {
   const factory SmokingDataModel({
-    String? id,
+    // ignore: invalid_annotation_target
+    @JsonKey(name: '_id') String? id,
     SmokingDetailsModel? smokingDetails,
     String? name,
     int? priceInUSDollars,

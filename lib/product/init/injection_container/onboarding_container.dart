@@ -7,7 +7,7 @@ void _onBoardingContainer() {
     ..registerFactory(() => OnboardingBloc(saveVapeData: sl()))
 
     /// Use Cases
-    ..registerLazySingleton(() => SaveVapeData(sl()))
+    ..registerLazySingleton(() => SaveSmokingData(sl()))
 
     /// Repositories
     ..registerLazySingleton<OnboardRepo>(

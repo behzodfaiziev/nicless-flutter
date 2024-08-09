@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/context_extension.dart';
 import '../../../../product/utils/constants/ui_constants/radius_const.dart';
+import '../../../product/theme/app_colors.dart';
 
 class BaseTabBarItem extends StatelessWidget {
   const BaseTabBarItem({
@@ -17,22 +18,23 @@ class BaseTabBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tab(
       child: Container(
-          height: 40,
-          width: double.infinity,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: isSelected ? Colors.white : Colors.transparent,
-            borderRadius: RadiusConst.bigRadius,
+        height: 40,
+        width: double.infinity,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.white : Colors.transparent,
+          borderRadius: RadiusConst.bigRadius,
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: isSelected
+                ? AppColors.primaryTextColor
+                : context.theme.colorScheme.onPrimary,
+            fontSize: isSelected ? 14 : 12,
           ),
-          child: Text(
-            text,
-            style: TextStyle(
-              color: isSelected
-                  ? context.theme.colorScheme.primary
-                  : context.theme.colorScheme.onPrimary,
-              fontSize: isSelected ? 14 : 12,
-            ),
-          ),),
+        ),
+      ),
     );
   }
 }

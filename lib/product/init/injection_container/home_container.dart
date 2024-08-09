@@ -3,9 +3,8 @@ part of '_injection_container.dart';
 void _homeContainer() {
   sl
 
-    /// OnBoarding Bloc
+    /// Bloc
     ..registerFactory(() => HomeBloc(fetchDevices: sl()))
-    ..registerFactory(AutomaticCounterBloc.new)
 
     /// Use Cases
     ..registerLazySingleton(() => FetchDevices(sl()))

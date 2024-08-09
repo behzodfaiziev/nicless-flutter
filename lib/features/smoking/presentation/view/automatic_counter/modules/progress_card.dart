@@ -13,7 +13,7 @@ class _ProgressCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: context.colorScheme.primary,
+        color: context.theme.cardColor,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: context.colorScheme.secondary, width: 0.2),
         boxShadow: [

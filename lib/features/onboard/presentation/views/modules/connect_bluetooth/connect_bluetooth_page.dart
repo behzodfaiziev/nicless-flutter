@@ -8,6 +8,7 @@ import '../../../../../../product/utils/constants/app/app_const.dart';
 import '../../../../../../product/utils/constants/ui_constants/padding_const.dart';
 import '../../../../../../product/widgets/text/top_title.dart';
 import '../../../../../../product/widgets/tiles/bluetooth_list_tile.dart';
+import '../../../../../../product/widgets/toast/app_toast.dart';
 import '../../../../../bluetooth/data/models/bluetooth_device_model.dart';
 import '../../../../../bluetooth/presentation/bloc/bluetooth_bloc.dart';
 import '../../../bloc/onboarding_bloc.dart';
@@ -33,43 +34,21 @@ class ConnectBluetoothPage extends StatelessWidget {
           child: Padding(
             padding: AppPadding.vertical30,
             child: BlocConsumer<BluetoothBloc, BluetoothState>(
+              listenWhen: (pr, cr) =>
+                  cr is BluetoothDeviceConnectedState ||
+                  cr is BluetoothDeviceFailedToConnect,
+              bloc: context.read<BluetoothBloc>(),
+              listener: pageListener,
               buildWhen: (pr, cr) =>
                   cr is BluetoothDeviceScanResult ||
-                  cr is ConnectingBluetoothDevice ||
+                  cr is ConnectingBluetoothDeviceState ||
                   cr is BluetoothDeviceFailedToConnect,
-              listenWhen: (pr, cr) => cr is BluetoothDeviceConnected,
-              bloc: context.read<BluetoothBloc>(),
-              listener: (context, state) {
-                if (state is BluetoothDeviceConnected) {
-                  saveVapeDataEvent(context, state.device);
-                }
-              },
               builder: (context, state) {
-                if (state is ConnectingBluetoothDevice) {
+                if (state is ConnectingBluetoothDeviceState) {
                   return const Center(child: BaseAdaptiveCPI());
                 }
                 if (state is BluetoothDeviceScanResult) {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: state.devices.length,
-                    itemBuilder: (context, index) {
-                      return BluetoothListTile(
-                        title: '${state.devices[index].name}',
-                        onPressed: () {
-                          context.read<BluetoothBloc>().add(
-                                ConnectBluetoothDeviceEvent(
-                                  device: state.devices[index],
-                                ),
-                              );
-                        },
-                      );
-                    },
-                  );
-                }
-                if (state is BluetoothDeviceFailedToConnect) {
-                  return const Center(
-                    child: BaseAdaptiveCPI(backgroundColor: Colors.red),
-                  );
+                  return bluetoothList(state.devices);
                 }
                 return const SizedBox();
               },
@@ -78,6 +57,38 @@ class ConnectBluetoothPage extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget bluetoothList(List<BluetoothDeviceModel> devices) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: devices.length,
+      itemBuilder: (context, index) {
+        return BluetoothListTile(
+          title: '${devices[index].name}',
+          onPressed: () {
+            context.read<BluetoothBloc>().add(
+                  ConnectBluetoothDeviceEvent(
+                    device: devices[index],
+                    smokingId: '',
+                  ),
+                );
+          },
+        );
+      },
+    );
+  }
+
+  void pageListener(BuildContext context, BluetoothState state) {
+    if (state is BluetoothDeviceConnectedState) {
+      saveVapeDataEvent(context, state.device);
+    }
+    if (state is BluetoothDeviceFailedToConnect) {
+      AppToast.error(
+        context: context,
+        message: 'Failed to connect to device',
+      );
+    }
   }
 
   void saveVapeDataEvent(BuildContext context, BluetoothDeviceModel device) {
@@ -99,7 +110,7 @@ class ConnectBluetoothPage extends StatelessWidget {
   }
 
   double get vapeTotalPuffLimit {
-    return double.parse(vapeInfoPageParams.capacityEditingController.text);
+    return double.parse(vapeInfoPageParams.vapeTotalPuffLimitController.text);
   }
 
   double get price {

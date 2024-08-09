@@ -41,13 +41,18 @@ class _SmokingTypePageState extends State<SmokingTypePage> {
                   isSelected: currentSelection.contains(1),
                   onTap: () {
                     context.read<OnboardingBloc>().add(
-                        currentSelection.contains(1)
-                            ? const SmokingTypeRemoved(smokingType: 1)
-                            : const SmokingTypeAdded(smokingType: 1),);
+                          currentSelection.contains(1)
+                              ? const SmokingTypeRemoved(smokingType: 1)
+                              : const SmokingTypeAdded(smokingType: 1),
+                        );
+                    context
+                        .read<OnboardingBloc>()
+                        .add(const SmokingTypeRemoved(smokingType: 2));
                     setState(() {
                       currentSelection.contains(1)
                           ? currentSelection.remove(1)
                           : currentSelection.add(1);
+                      currentSelection.remove(2);
                     });
                   },
                 ),
@@ -57,13 +62,18 @@ class _SmokingTypePageState extends State<SmokingTypePage> {
                   isSelected: currentSelection.contains(2),
                   onTap: () {
                     context.read<OnboardingBloc>().add(
-                        currentSelection.contains(2)
-                            ? const SmokingTypeRemoved(smokingType: 2)
-                            : const SmokingTypeAdded(smokingType: 2),);
+                          currentSelection.contains(2)
+                              ? const SmokingTypeRemoved(smokingType: 2)
+                              : const SmokingTypeAdded(smokingType: 2),
+                        );
+                    context
+                        .read<OnboardingBloc>()
+                        .add(const SmokingTypeRemoved(smokingType: 1));
                     setState(() {
                       currentSelection.contains(2)
                           ? currentSelection.remove(2)
                           : currentSelection.add(2);
+                      currentSelection.remove(1);
                     });
                   },
                 ),

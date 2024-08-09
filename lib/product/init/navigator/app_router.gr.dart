@@ -22,11 +22,11 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     AutomaticCounterRoute.name: (routeData) {
-      final args = routeData.argsAs<AutomaticCounterRouteArgs>(
-          orElse: () => const AutomaticCounterRouteArgs());
+      final args = routeData.argsAs<AutomaticCounterRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: AutomaticCounterView(
+          smokingId: args.smokingId,
           connection: args.connection,
           device: args.device,
           key: args.key,
@@ -114,6 +114,7 @@ class AuthCheckerRoute extends PageRouteInfo<void> {
 /// [AutomaticCounterView]
 class AutomaticCounterRoute extends PageRouteInfo<AutomaticCounterRouteArgs> {
   AutomaticCounterRoute({
+    required String smokingId,
     BluetoothConnection? connection,
     BluetoothDeviceModel? device,
     Key? key,
@@ -121,6 +122,7 @@ class AutomaticCounterRoute extends PageRouteInfo<AutomaticCounterRouteArgs> {
   }) : super(
           AutomaticCounterRoute.name,
           args: AutomaticCounterRouteArgs(
+            smokingId: smokingId,
             connection: connection,
             device: device,
             key: key,
@@ -136,10 +138,13 @@ class AutomaticCounterRoute extends PageRouteInfo<AutomaticCounterRouteArgs> {
 
 class AutomaticCounterRouteArgs {
   const AutomaticCounterRouteArgs({
+    required this.smokingId,
     this.connection,
     this.device,
     this.key,
   });
+
+  final String smokingId;
 
   final BluetoothConnection? connection;
 
@@ -149,7 +154,7 @@ class AutomaticCounterRouteArgs {
 
   @override
   String toString() {
-    return 'AutomaticCounterRouteArgs{connection: $connection, device: $device, key: $key}';
+    return 'AutomaticCounterRouteArgs{smokingId: $smokingId, connection: $connection, device: $device, key: $key}';
   }
 }
 

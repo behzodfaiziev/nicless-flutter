@@ -9,7 +9,7 @@ part of 'smoking_data_model.dart';
 _$SmokingDataModelImpl _$$SmokingDataModelImplFromJson(
         Map<String, dynamic> json) =>
     _$SmokingDataModelImpl(
-      id: json['id'] as String?,
+      id: json['_id'] as String?,
       smokingDetails: json['smokingDetails'] == null
           ? null
           : SmokingDetailsModel.fromJson(
@@ -27,7 +27,7 @@ _$SmokingDataModelImpl _$$SmokingDataModelImplFromJson(
 Map<String, dynamic> _$$SmokingDataModelImplToJson(
         _$SmokingDataModelImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'smokingDetails': instance.smokingDetails,
       'name': instance.name,
       'priceInUSDollars': instance.priceInUSDollars,

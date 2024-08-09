@@ -2,13 +2,13 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../product/data_objects/models/smoking/create_smoking_model.dart';
-import '../../domain/use_cases/save_vape_data.dart';
+import '../../domain/use_cases/save_smoking_data.dart';
 
 part 'onboarding_event.dart';
 part 'onboarding_state.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
-  OnboardingBloc({required SaveVapeData saveVapeData})
+  OnboardingBloc({required SaveSmokingData saveVapeData})
       : _saveVapeData = saveVapeData,
         super(OnboardingInitial()) {
     on<OnboardingEvent>((event, emit) {});
@@ -20,7 +20,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     on<SaveSmokingDataEvent>(_onSaveVapeDataHandler);
   }
 
-  final SaveVapeData _saveVapeData;
+  final SaveSmokingData _saveVapeData;
 
   int _currentIndex = 0;
   final List<int> _smokingTypes = [];
@@ -116,7 +116,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
 
     result.fold(
       (error) {
-        // emit(OnSaveVapeDataError(errorMessage: error.message));
+        emit(OnboardingError(message: error.message ?? 'Something went wrong'));
       },
       (vapeId) {
         emit(const OnSaveVapeDataSuccess());

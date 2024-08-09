@@ -7,8 +7,11 @@ import '../../utils/constants/ui_constants/padding_const.dart';
 import '../../utils/constants/ui_constants/radius_const.dart';
 
 class BluetoothListTile extends StatelessWidget {
-  const BluetoothListTile(
-      {required this.title, required this.onPressed, super.key,});
+  const BluetoothListTile({
+    required this.title,
+    required this.onPressed,
+    super.key,
+  });
 
   final String title;
   final void Function() onPressed;
@@ -20,29 +23,32 @@ class BluetoothListTile extends StatelessWidget {
       child: Padding(
         padding: AppPadding.vertical12 + context.mainHorizontalPadding,
         child: ListTile(
-            onTap: onPressed,
-            tileColor: context.colorScheme.primary,
-            contentPadding: AppPadding.vertical2 + AppPadding.horizontal12,
-            shape: RoundedRectangleBorder(
-              borderRadius: RadiusConst.largeRadius,
-              side: BorderSide(
-                color: context.colorScheme.secondary.withOpacity(0.05),
-              ),
+          onTap: onPressed,
+          tileColor: context.theme.cardColor,
+          contentPadding: AppPadding.vertical2 + AppPadding.horizontal12,
+          shape: RoundedRectangleBorder(
+            borderRadius: RadiusConst.largeRadius,
+            side: BorderSide(
+              color: context.colorScheme.secondary.withOpacity(0.05),
             ),
-            leading: Icon(
-              Icons.bluetooth,
-              color: context.colorScheme.secondary,
+          ),
+          leading: Icon(
+            Icons.bluetooth,
+            color: context.colorScheme.secondary,
+          ),
+          title: Text(
+            title,
+            style: context.primaryTextTheme.titleSmall?.copyWith(
+              fontWeight: FontWeight.w400,
             ),
-            title: Text(title,
-                style: context.primaryTextTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.w400,
-                ),),
-            trailing: BaseSVGButton(
-              asset: SVGConst.instance.settings,
-              color: context.colorScheme.secondary.withOpacity(0.6),
-              size: 24,
-              onPressed: () {},
-            ),),
+          ),
+          trailing: BaseSVGButton(
+            asset: SVGConst.instance.settings,
+            color: context.colorScheme.secondary.withOpacity(0.6),
+            size: 24,
+            onPressed: () {},
+          ),
+        ),
       ),
     );
   }

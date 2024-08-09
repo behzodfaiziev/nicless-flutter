@@ -23,12 +23,16 @@ class BluetoothDeviceFound extends BluetoothEvent {
 class GetBluetoothDevicesEvent extends BluetoothEvent {}
 
 class ConnectBluetoothDeviceEvent extends BluetoothEvent {
-  const ConnectBluetoothDeviceEvent({required this.device});
+  const ConnectBluetoothDeviceEvent({
+    required this.device,
+    required this.smokingId,
+  });
 
   final BluetoothDeviceModel device;
+  final String smokingId;
 
   @override
-  List<Object> get props => [device];
+  List<Object> get props => [device, smokingId];
 }
 
 class BluetoothDisconnectEvent extends BluetoothEvent {

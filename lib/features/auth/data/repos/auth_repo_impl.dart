@@ -39,12 +39,18 @@ class AuthRepoImpl implements AuthRepo {
         return const Left(APIFailure(message: 'No refresh token received'));
       }
 
+      if (result.data!.sessionId == null) {
+        return const Left(APIFailure(message: 'No session id received'));
+      }
+
       await _localDataSource.saveAccessToken(result.data!.accessToken!);
       await _localDataSource.saveRefreshToken(result.data!.refreshToken!);
+      await _localDataSource.saveSessionId(result.data!.sessionId!);
 
       _remoteDataSource.setToken(
-        result.data!.accessToken!,
-        result.data!.refreshToken!,
+        accessToken: result.data!.accessToken!,
+        refreshToken: result.data!.refreshToken!,
+        sessionId: result.data!.sessionId!,
       );
 
       return Right(result);
@@ -57,14 +63,20 @@ class AuthRepoImpl implements AuthRepo {
   ResultFuture<bool> checkIsAuthenticated() async {
     try {
       final accessToken = await _localDataSource.getAccessToken();
+      final sessionId = await _localDataSource.getSessionId();
       final refreshToken = await _localDataSource.getRefreshToken();
 
       if (_validateToken(accessToken) == false ||
-          _validateToken(refreshToken) == false) {
+          _validateToken(refreshToken) == false ||
+          sessionId == null) {
         return const Right(false);
       }
 
-      _remoteDataSource.setToken(accessToken!, refreshToken!);
+      _remoteDataSource.setToken(
+        accessToken: accessToken!,
+        refreshToken: refreshToken!,
+        sessionId: sessionId,
+      );
 
       return const Right(true);
     } on ServerException catch (e) {

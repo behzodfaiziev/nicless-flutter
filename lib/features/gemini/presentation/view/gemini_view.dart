@@ -54,7 +54,7 @@ class _GeminiViewState extends State<GeminiView> with GeminiMixin {
               color: Colors.grey[700]!,
               width: 0.5,
             ),
-            color: AppColors.cardTopRatingColor,
+            color: AppColors.cardColor,
           ),
           child: TextFormField(
             controller: _textEditingController,

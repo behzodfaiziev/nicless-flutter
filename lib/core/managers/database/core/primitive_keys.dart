@@ -3,4 +3,5 @@ enum PrimitiveDatabaseKeys {
   apiToken,
   accessToken,
   refreshToken,
+  sessionId,
 }

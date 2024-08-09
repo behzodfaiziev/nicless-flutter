@@ -35,13 +35,12 @@ import '../../../features/home/data/data_sources/home_remote_data_source_impl.da
 import '../../../features/home/data/repo/home_repo_impl.dart';
 import '../../../features/home/domain/repo/home_repo.dart';
 import '../../../features/home/domain/use_cases/fetch_devices.dart';
-import '../../../features/home/presentation/bloc/automatic_counter/automatic_counter_bloc.dart';
 import '../../../features/home/presentation/bloc/home/home_bloc.dart';
 import '../../../features/onboard/data/data_sources/onboard_remote_data_source.dart';
 import '../../../features/onboard/data/data_sources/onboard_remote_data_source_impl.dart';
 import '../../../features/onboard/data/repo/onboard_repo_impl.dart';
 import '../../../features/onboard/domain/repo/onboard_repo.dart';
-import '../../../features/onboard/domain/use_cases/save_vape_data.dart';
+import '../../../features/onboard/domain/use_cases/save_smoking_data.dart';
 import '../../../features/onboard/presentation/bloc/onboarding_bloc.dart';
 import '../../../features/rating/data/date_sources/rating_remote_data_source.dart';
 import '../../../features/rating/data/date_sources/rating_remote_data_source_impl.dart';
@@ -51,20 +50,20 @@ import '../../../features/rating/domain/use_cases/get_monthly_rating.dart';
 import '../../../features/rating/domain/use_cases/get_weekly_rating.dart';
 import '../../../features/rating/domain/use_cases/get_yearly_rating.dart';
 import '../../../features/rating/presentation/bloc/rating_bloc.dart';
+import '../../../features/smoking/data/data_sources/smoking_remote_data_source.dart';
+import '../../../features/smoking/data/data_sources/smoking_remote_data_source_impl.dart';
+import '../../../features/smoking/data/repo/smoking_repo_impl.dart';
+import '../../../features/smoking/domain/repo/smoking_repo.dart';
+import '../../../features/smoking/domain/use_cases/save_daily_smoking.dart';
+import '../../../features/smoking/presentation/bloc/automatic_counter/automatic_counter_bloc.dart';
 import '../../utils/constants/app/credentials_const.dart';
 
 part '_injection_container_main.dart';
-
 part 'auth_container.dart';
-
 part 'bluetooth_container.dart';
-
-part 'onboarding_container.dart';
-
-part 'settings_container.dart';
-
-part 'home_container.dart';
-
-part 'rating_container.dart';
-
 part 'gemini_container.dart';
+part 'home_container.dart';
+part 'onboarding_container.dart';
+part 'rating_container.dart';
+part 'settings_container.dart';
+part 'smoking_container.dart';

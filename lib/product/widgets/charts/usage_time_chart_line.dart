@@ -17,7 +17,7 @@ class UsageTimeChartLine extends StatelessWidget {
       height: 340,
       margin: AppPadding.horizontal24 + AppPadding.top30,
       decoration: BoxDecoration(
-        color: context.theme.colorScheme.primary,
+        color: context.theme.cardColor,
         borderRadius: RadiusConst.bigRadius,
       ),
       child: Column(

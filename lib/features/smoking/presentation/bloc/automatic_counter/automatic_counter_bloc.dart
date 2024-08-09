@@ -7,22 +7,31 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 import '../../../../../core/managers/bluetooth/transform/string_to_bool_transformer.dart';
 import '../../../../../core/managers/bluetooth/transform/uint8_list_to_string_transformer.dart';
+import '../../../data/model/daily_smoking_model.dart';
+import '../../../domain/use_cases/save_daily_smoking.dart';
 
 part 'automatic_counter_event.dart';
-
 part 'automatic_counter_state.dart';
 
 class AutomaticCounterBloc
     extends Bloc<AutomaticCounterEvent, AutomaticCounterState> {
-  AutomaticCounterBloc() : super(AutomaticCounterInitial()) {
+  AutomaticCounterBloc({
+    required SaveDailySmoking saveDailySmoking,
+  })  : _saveDailySmoking = saveDailySmoking,
+        super(AutomaticCounterInitial()) {
     on<AutomaticCounterEvent>((event, emit) {});
     on<StartAutomaticCounterEvent>(_startAutomaticCounterHandler);
     on<AddPuffEvent>(_addPuffHandler);
     on<AddInhalingEvent>(_addInhalingHandler);
+    on<SaveDailySmokingEvent>(_saveDailySmokingHandler);
   }
 
+  final SaveDailySmoking _saveDailySmoking;
+
   void _startAutomaticCounterHandler(
-      StartAutomaticCounterEvent event, Emitter<AutomaticCounterState> emit,) {
+    StartAutomaticCounterEvent event,
+    Emitter<AutomaticCounterState> emit,
+  ) {
     emit(const AutomaticCounterStarted());
   }
 
@@ -59,7 +68,8 @@ class AutomaticCounterBloc
   ];
 
   Stream<bool>? getVapeStreamSubscription(
-      BluetoothConnection bluetoothConnection,) {
+    BluetoothConnection bluetoothConnection,
+  ) {
     vapeStream = bluetoothConnection.input
         ?.transform(UInt8ListToStringTransformer())
         .transform(StringToBoolTransformer());
@@ -71,17 +81,42 @@ class AutomaticCounterBloc
   }
 
   void _addPuffHandler(
-      AddPuffEvent event, Emitter<AutomaticCounterState> emit,) {
+    AddPuffEvent event,
+    Emitter<AutomaticCounterState> emit,
+  ) {
     amountOfPuffs++;
-    final randomIndex =
-       Random.secure().nextInt(motivationalMessages.length);
-    emit(TotalPuffsAdded(
-        amount: amountOfPuffs, message: motivationalMessages[randomIndex],),);
+    final randomIndex = Random.secure().nextInt(motivationalMessages.length);
+    emit(
+      TotalPuffsAdded(
+        amount: amountOfPuffs,
+        message: motivationalMessages[randomIndex],
+      ),
+    );
   }
 
   void _addInhalingHandler(
-      AddInhalingEvent event, Emitter<AutomaticCounterState> emit,) {
+    AddInhalingEvent event,
+    Emitter<AutomaticCounterState> emit,
+  ) {
     secondsInhaled++;
     emit(TotalInhaledSeconds(secondsInhaled));
+  }
+
+  Future<void> _saveDailySmokingHandler(
+    SaveDailySmokingEvent event,
+    Emitter<AutomaticCounterState> emit,
+  ) async {
+    emit(const AutomaticCounterLoading());
+    final result = await _saveDailySmoking(
+      DailySmokingModel(
+        seconds: secondsInhaled,
+        increasedCount: amountOfPuffs,
+        smokingId: event.smokingId,
+      ),
+    );
+    result.fold(
+      (error) => emit(SaveDailySmokingFailure(message: error.message)),
+      (success) => emit(const SaveDailySmokingSuccess()),
+    );
   }
 }

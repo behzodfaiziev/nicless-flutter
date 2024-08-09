@@ -25,13 +25,13 @@ class SmokingList extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         if (state is HomeError) {
-          return Center(child: Text(state.message));
+          return errorText(state, context);
         }
         if (state is HomeLoaded) {
           return BlocListener<BluetoothBloc, BluetoothState>(
             listenWhen: (previous, current) =>
-                current is BluetoothDeviceConnected ||
-                current is ConnectingBluetoothDevice ||
+                current is BluetoothDeviceConnectedState ||
+                current is ConnectingBluetoothDeviceState ||
                 current is BluetoothDeviceFailedToConnect,
             listener: (context, state) {
               bluetoothStateListener(state, context);
@@ -57,17 +57,27 @@ class SmokingList extends StatelessWidget {
     );
   }
 
+  Widget errorText(HomeError state, BuildContext context) {
+    return Center(
+      child: Text(
+        state.message,
+        style: context.primaryTextTheme.bodyMedium,
+      ),
+    );
+  }
+
   void bluetoothStateListener(BluetoothState state, BuildContext context) {
     if (state is BluetoothDeviceFailedToConnect) {
       CustomToast.errorToast(context, 'Failed to connect');
     }
-    if (state is ConnectingBluetoothDevice) {
+    if (state is ConnectingBluetoothDeviceState) {
       CustomToast.infoToast(context, 'Connecting...');
     }
 
-    if (state is BluetoothDeviceConnected) {
+    if (state is BluetoothDeviceConnectedState) {
       context.pushReplaceAll(
         AutomaticCounterRoute(
+          smokingId: state.smokingId,
           connection: state.connection,
           device: state.device,
         ),
@@ -76,14 +86,18 @@ class SmokingList extends StatelessWidget {
   }
 
   void onStartButtonPressed(BuildContext context, SmokingDataModel smoking) {
-    if (smoking.smokingDetails?.bluetoothAddress == null) {
+    if (smoking.smokingDetails?.bluetoothAddress == null ||
+        smoking.smokingDetails?.bluetoothAddress == '') {
       context.pushReplaceAll(const CounterRoute());
       return;
     }
-    context.read<BluetoothBloc>().add(
-          ConnectBluetoothDeviceEvent(
-            device: smoking.smokingDetails!.bluetoothDeviceModel,
-          ),
-        );
+    if (smoking.id != null) {
+      context.read<BluetoothBloc>().add(
+            ConnectBluetoothDeviceEvent(
+              device: smoking.smokingDetails!.bluetoothDeviceModel,
+              smokingId: smoking.id!,
+            ),
+          );
+    }
   }
 }

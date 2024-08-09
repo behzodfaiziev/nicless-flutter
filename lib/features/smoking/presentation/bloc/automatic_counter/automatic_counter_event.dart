@@ -18,3 +18,14 @@ class AddPuffEvent extends AutomaticCounterEvent {
 class AddInhalingEvent extends AutomaticCounterEvent {
   const AddInhalingEvent();
 }
+
+final class SaveDailySmokingEvent extends AutomaticCounterEvent {
+  const SaveDailySmokingEvent({
+    required this.smokingId,
+  });
+
+  final String smokingId;
+
+  @override
+  List<Object> get props => [smokingId];
+}

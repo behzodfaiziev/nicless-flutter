@@ -37,51 +37,47 @@ class SmokingTile extends StatelessWidget {
           child: Container(
             width: double.infinity,
             height: SizeConst.smokingTileHeight,
-            color: context.colorScheme.primary,
+            color: context.theme.cardColor,
             child: Padding(
               padding: AppPadding.horizontal8 + AppPadding.vertical16,
               child: Row(
                 children: [
                   Expanded(
-                      flex: 4,
-                      child: BaseAssetImage(
-                        ImagesConst.instance.vozol10KForestBerry,
-                        fit: BoxFit.fitHeight,
-                        width: double.infinity,
-                        height: double.infinity,
-                      ),),
+                    flex: 4,
+                    child: BaseAssetImage(
+                      ImagesConst.instance.vozol10KForestBerry,
+                      fit: BoxFit.fitHeight,
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
+                  ),
                   Expanded(
                     flex: 10,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(smokingDevice.name ?? '',
-                            style: context.textTheme.titleMedium?.copyWith(
-                              color: Colors.white,
-                              height: 1,
-                              fontWeight: FontWeight.w600,
-                            ),),
-                        // KeyValueText(
-                        //   keyText: 'Capacity: ',
-                        //   valueText: CustomConverter.capacity(
-                        //     smokingDevice.capacity != null
-                        //         ? double.parse(smokingDevice.capacity!)
-                        //         : 0,
-                        //   ),
-                        // ),
-                        // KeyValueText(
-                        //   keyText: 'Nicotine: ',
-                        //   valueText: '${smokingDevice.nicotine}%',
-                        // ),
+                        Text(
+                          smokingDevice.name ?? '',
+                          style: context.textTheme.titleMedium?.copyWith(
+                            color: Colors.white,
+                            height: 1,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        KeyValueText(
+                          keyText: 'Nicotine: ',
+                          valueText: nicotineValue,
+                        ),
                         Container(
-                            height: 8,
-                            margin: AppPadding.top4,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: RadiusConst.largeRadius,
-                              color: Colors.white,
-                            ),),
+                          height: 8,
+                          margin: AppPadding.top4,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: RadiusConst.largeRadius,
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -100,14 +96,17 @@ class SmokingTile extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('320',
-                                  style: context.textTheme.bodySmall?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                  ),),
-                              Text('left',
-                                  style:
-                                      context.textTheme.bodySmall?.copyWith(),),
+                              Text(
+                                '320',
+                                style: context.textTheme.bodySmall?.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              Text(
+                                'left',
+                                style: context.textTheme.bodySmall?.copyWith(),
+                              ),
                             ],
                           ),
                         ),
@@ -119,8 +118,10 @@ class SmokingTile extends StatelessWidget {
                               text: 'Start',
                               fontColor: Colors.white,
                             ),
-                            const Icon(Icons.chevron_right,
-                                color: Colors.white,),
+                            const Icon(
+                              Icons.chevron_right,
+                              color: Colors.white,
+                            ),
                           ],
                         ),
                       ],
@@ -136,6 +137,9 @@ class SmokingTile extends StatelessWidget {
       ),
     );
   }
+
+  String get nicotineValue =>
+      '${smokingDevice.smokingDetails?.nicotinePercentage}%';
 }
 
 class KeyValueText extends StatelessWidget {

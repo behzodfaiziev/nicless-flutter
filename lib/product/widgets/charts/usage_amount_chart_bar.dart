@@ -15,7 +15,7 @@ class UsageAmountCharBar extends StatelessWidget {
       height: 340,
       margin: AppPadding.all24 + AppPadding.top20,
       decoration: BoxDecoration(
-        color: context.theme.colorScheme.primary,
+        color: context.theme.cardColor,
         borderRadius: RadiusConst.bigRadius,
       ),
       child: Column(

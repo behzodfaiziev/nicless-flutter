@@ -7,9 +7,9 @@ abstract class OnboardingState extends Equatable {
   List<Object> get props => [];
 }
 
-class OnboardingInitial extends OnboardingState {}
+final class OnboardingInitial extends OnboardingState {}
 
-class OnboardingLoading extends OnboardingState {
+final class OnboardingLoading extends OnboardingState {
   const OnboardingLoading({required this.isLoading});
 
   final bool isLoading;
@@ -18,9 +18,9 @@ class OnboardingLoading extends OnboardingState {
   List<Object> get props => [isLoading];
 }
 
-class OnboardingCompleted extends OnboardingState {}
+final class OnboardingCompleted extends OnboardingState {}
 
-class OnNextButtonTriggered extends OnboardingState {
+final class OnNextButtonTriggered extends OnboardingState {
   const OnNextButtonTriggered({
     required this.isEnabled,
     required this.isLastPage,
@@ -47,7 +47,7 @@ class OnNextButtonTriggered extends OnboardingState {
   }
 }
 
-class OnSmokingDeviceHasBluetooth extends OnboardingState {
+final class OnSmokingDeviceHasBluetooth extends OnboardingState {
   const OnSmokingDeviceHasBluetooth({required this.hasBluetooth});
 
   final bool hasBluetooth;
@@ -56,7 +56,16 @@ class OnSmokingDeviceHasBluetooth extends OnboardingState {
   List<Object> get props => [hasBluetooth];
 }
 
-class OnSaveVapeDataSuccess extends OnboardingState {
+final class OnSaveVapeDataSuccess extends OnboardingState {
   const OnSaveVapeDataSuccess();
 
+}
+
+final class OnboardingError extends OnboardingState {
+  const OnboardingError({required this.message});
+
+  final String message;
+
+  @override
+  List<Object> get props => [message];
 }

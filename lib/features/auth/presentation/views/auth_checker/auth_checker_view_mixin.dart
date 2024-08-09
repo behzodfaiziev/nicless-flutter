@@ -5,7 +5,7 @@ mixin AuthCheckerViewMixin on State<AuthCheckerView> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      context.read<AuthBloc>().add(const IsAuthenticated());
+      context.read<AuthBloc>().add(const IsAuthenticatedEvent());
     });
   }
 

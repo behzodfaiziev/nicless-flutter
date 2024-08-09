@@ -34,24 +34,26 @@ void main() {
         'should call the [OnboardRemoteDataSource.saveVapeData] '
         'and return the right data', () async {
       // arrange
-      when(() => remoteDataSource.saveVapeData(vapeData)).thenAnswer((_) async {
+      when(() => remoteDataSource.saveSmokingData(vapeData))
+          .thenAnswer((_) async {
         return;
       });
 
       // act
-      final result = await repoImpl.saveVapeData(vapeData);
+      final result = await repoImpl.saveSmokingData(vapeData);
       // assert
       expect(result, const Right<dynamic, void>(null));
-      verify(() => remoteDataSource.saveVapeData(any())).called(1);
+      verify(() => remoteDataSource.saveSmokingData(any())).called(1);
       verifyNoMoreInteractions(remoteDataSource);
     });
 
     test('should return a [APIFailure] when call to remote source fails',
         () async {
       // arrange
-      when(() => remoteDataSource.saveVapeData(any())).thenThrow(apiException);
+      when(() => remoteDataSource.saveSmokingData(any()))
+          .thenThrow(apiException);
       // act
-      final result = await repoImpl.saveVapeData(vapeData);
+      final result = await repoImpl.saveSmokingData(vapeData);
       // assert
       expect(
         result,

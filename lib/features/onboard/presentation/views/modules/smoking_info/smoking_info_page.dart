@@ -36,16 +36,6 @@ class SmokingInfoPage extends StatelessWidget {
                   textEditingController: params.priceEditingController,
                   onSubmitted: (value) {
                     params.priceFocusNode.unfocus();
-                    params.capacityFocusNode.requestFocus();
-                  },
-                ),
-                buildTextField(
-                  focusNode: params.capacityFocusNode,
-                  hintText: 'Capacity of your device',
-                  keyboardType: TextInputType.number,
-                  textEditingController: params.capacityEditingController,
-                  onSubmitted: (value) {
-                    params.capacityFocusNode.unfocus();
                     params.vapeTotalPuffLimitFocusNode.requestFocus();
                   },
                 ),
@@ -134,24 +124,20 @@ class SmokingInfoPage extends StatelessWidget {
 class SmokingInfoPageParams {
   SmokingInfoPageParams({
     required this.priceEditingController,
-    required this.capacityEditingController,
     required this.nicotineEditingController,
     required this.vapeNameEditingController,
     required this.vapeTotalPuffLimitController,
     required this.priceFocusNode,
-    required this.capacityFocusNode,
     required this.nicotineFocusNode,
     required this.vapeNameFocusNode,
     required this.vapeTotalPuffLimitFocusNode,
   });
 
   final TextEditingController priceEditingController;
-  final TextEditingController capacityEditingController;
   final TextEditingController nicotineEditingController;
   final TextEditingController vapeNameEditingController;
   final TextEditingController vapeTotalPuffLimitController;
   final FocusNode priceFocusNode;
-  final FocusNode capacityFocusNode;
   final FocusNode nicotineFocusNode;
   final FocusNode vapeNameFocusNode;
   final FocusNode vapeTotalPuffLimitFocusNode;

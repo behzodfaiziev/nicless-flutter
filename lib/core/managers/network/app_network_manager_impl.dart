@@ -9,12 +9,16 @@ import 'model/custom_error_model.dart';
 
 class AppNetworkManagerImpl implements AppNetworkManager {
   AppNetworkManagerImpl() {
-    _manager = _getManager(token: _token);
+    _manager = _getManager();
   }
 
   late INetworkManager<CustomErrorModel> _manager;
 
-  String _token = '';
+  String _accessToken = '';
+
+  // String _refreshToken = '';
+
+  String _sessionId = '';
 
   @override
   Future<R> send<T extends AppNetworkModel<T>, R>(
@@ -45,7 +49,6 @@ class AppNetworkManagerImpl implements AppNetworkManager {
   }
 
   NetworkManager<CustomErrorModel> _getManager({
-    required String token,
     bool isCleaned = false,
   }) {
     return NetworkManager<CustomErrorModel>(
@@ -53,11 +56,9 @@ class AppNetworkManagerImpl implements AppNetworkManager {
       isEnableLogger: false,
       options: BaseOptions(
         baseUrl: ApiConst.baseUrl,
-        headers: isCleaned ? _jsonHeader : _bearerHeader(token),
+        headers: isCleaned ? _jsonHeader : _tokenHeader,
       ),
-      onRefreshFail: () {
-
-      },
+      onRefreshFail: () {},
     );
   }
 
@@ -65,23 +66,44 @@ class AppNetworkManagerImpl implements AppNetworkManager {
     return <String, String>{'Content-type': 'application/json'};
   }
 
-  Map<String, String> _bearerHeader(String token) {
+  Map<String, String> get _tokenHeader {
     return <String, String>{
       'Content-type': 'application/json',
-      'Authorization': 'Bearer $token',
+      'Authorization': 'Bearer $_accessToken',
+      'x-session-id': _sessionId,
     };
   }
 
+  Future<void> getRefreshToken() async {
+    // _refreshToken = 'newToken';
+
+    // _manager.send<AppEmptyModel, AppEmptyModel>(
+    //   ApiConst.refreshToken,
+    //   method: RequestType.GET,
+    //   parseModel: const AppEmptyModel(),
+    //
+    //   data: <String, String>{'x-nicless-refresh-token': _refreshToken},
+    // );
+  }
+
   @override
-  void setToken({required String accessToken, required String refreshToken}) {
-    _token = accessToken;
-    _manager = _getManager(token: accessToken);
+  void setToken({
+    required String accessToken,
+    required String refreshToken,
+    required String sessionId,
+  }) {
+    _accessToken = accessToken;
+    _sessionId = sessionId;
+    // _refreshToken = refreshToken;
+    _manager = _getManager();
   }
 
   @override
   void clearHeader() {
     _manager.clearHeader();
-    _token = '';
-    _manager = _getManager(token: '', isCleaned: true);
+    _accessToken = '';
+    // _refreshToken = '';
+    _sessionId = '';
+    _manager = _getManager(isCleaned: true);
   }
 }

@@ -34,8 +34,16 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  void setToken(String accessToken, String refreshToken) {
-    _network.setToken(accessToken: accessToken, refreshToken: refreshToken);
+  void setToken({
+    required String accessToken,
+    required String refreshToken,
+    required String sessionId,
+  }) {
+    _network.setToken(
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      sessionId: sessionId,
+    );
   }
 
   @override

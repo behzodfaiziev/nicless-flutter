@@ -26,7 +26,7 @@ class _StatsAndRatingTabBarsState extends State<StatsAndRatingTabBars> {
         height: 40,
         margin: AppPadding.horizontal20,
         decoration: BoxDecoration(
-          color: context.theme.colorScheme.primary,
+          color: context.theme.cardColor,
           borderRadius: RadiusConst.bigRadius,
         ),
         child: TabBar(

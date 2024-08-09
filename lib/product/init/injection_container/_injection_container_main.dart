@@ -39,6 +39,7 @@ class InjectionContainer {
 
     _authContainer();
     _bluetoothContainer();
+    _smokingContainer();
     _onBoardingContainer();
     _homeContainer();
     _settingsContainer();

@@ -11,5 +11,9 @@ abstract class AuthRemoteDataSource {
 
   Future<void> signOut();
 
-  void setToken(String accessToken, String refreshToken);
+  void setToken({
+    required String accessToken,
+    required String refreshToken,
+    required String sessionId,
+  });
 }

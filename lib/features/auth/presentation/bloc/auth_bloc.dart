@@ -26,7 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         _signOut = signOut,
         super(AuthInitial()) {
     on<AuthEvent>((event, emit) {});
-    on<IsAuthenticated>(_checkIsAuthenticatedHandler);
+    on<IsAuthenticatedEvent>(_checkIsAuthenticatedHandler);
     on<SignInEvent>(_signInHandler);
     on<SignUpEvent>(_signUpHandler);
     on<SignOutEvent>(_signOutHandler);
@@ -38,7 +38,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final SignOut _signOut;
 
   Future<void> _checkIsAuthenticatedHandler(
-    IsAuthenticated event,
+    IsAuthenticatedEvent event,
     Emitter<AuthState> emit,
   ) async {
     final result = await _checkIsAuthenticated();

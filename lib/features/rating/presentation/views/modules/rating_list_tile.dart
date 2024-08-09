@@ -24,7 +24,7 @@ class RatingListTile extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: RadiusConst.largeRadius,
         color: isTopThree
-            ? AppColors.cardTopRatingColor
+            ? AppColors.cardColor
             : AppColors.cardRatingColor,
       ),
       child: Row(

@@ -20,6 +20,7 @@ SmokingDataModel _$SmokingDataModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SmokingDataModel {
+  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
   SmokingDetailsModel? get smokingDetails => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
@@ -42,7 +43,7 @@ abstract class $SmokingDataModelCopyWith<$Res> {
       _$SmokingDataModelCopyWithImpl<$Res, SmokingDataModel>;
   @useResult
   $Res call(
-      {String? id,
+      {@JsonKey(name: '_id') String? id,
       SmokingDetailsModel? smokingDetails,
       String? name,
       int? priceInUSDollars,
@@ -134,7 +135,7 @@ abstract class _$$SmokingDataModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
+      {@JsonKey(name: '_id') String? id,
       SmokingDetailsModel? smokingDetails,
       String? name,
       int? priceInUSDollars,
@@ -209,7 +210,7 @@ class __$$SmokingDataModelImplCopyWithImpl<$Res>
 class _$SmokingDataModelImpl extends _SmokingDataModel
     with DiagnosticableTreeMixin {
   const _$SmokingDataModelImpl(
-      {this.id,
+      {@JsonKey(name: '_id') this.id,
       this.smokingDetails,
       this.name,
       this.priceInUSDollars,
@@ -224,6 +225,7 @@ class _$SmokingDataModelImpl extends _SmokingDataModel
       _$$SmokingDataModelImplFromJson(json);
 
   @override
+  @JsonKey(name: '_id')
   final String? id;
   @override
   final SmokingDetailsModel? smokingDetails;
@@ -319,7 +321,7 @@ class _$SmokingDataModelImpl extends _SmokingDataModel
 
 abstract class _SmokingDataModel extends SmokingDataModel {
   const factory _SmokingDataModel(
-      {final String? id,
+      {@JsonKey(name: '_id') final String? id,
       final SmokingDetailsModel? smokingDetails,
       final String? name,
       final int? priceInUSDollars,
@@ -333,6 +335,7 @@ abstract class _SmokingDataModel extends SmokingDataModel {
       _$SmokingDataModelImpl.fromJson;
 
   @override
+  @JsonKey(name: '_id')
   String? get id;
   @override
   SmokingDetailsModel? get smokingDetails;

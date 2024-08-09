@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class AppColors {
   /// Primary
   static const Color primaryLight = Color(0xFF3175B4);
+
   // static const Color primaryDark = Color(0xFF313131);
-  static const Color primaryDark = Color(0xFFdc6d10);
+  static const Color primaryDark = Color(0xffa8510c);
 
   /// Secondary
   static const Color secondaryLight = Color(0xFF1B0632);
@@ -39,10 +40,11 @@ class AppColors {
   static const Color hintColorDark = Color(0xFFC8C8C8);
 
   /// Buttons
-  static const Color elevatedButtonColorDark = Color(0xffdc6d10);
+  static const Color elevatedButtonColorDark = Color(0xffa55617);
+
+  static const Color cardColor = Color(0xFF353535);
 
   /// Card
-  static const Color cardTopRatingColor = Color(0xFF3E3E3E);
   static const Color cardRatingColor = Color(0xFF303030);
 
   /// Icon

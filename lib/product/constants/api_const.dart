@@ -12,4 +12,7 @@ class ApiConst {
   /// Smoking
   static const String smoking = '$_api/smoking';
   static const String createSmoking = '$smoking/create';
+
+  static const String dailySmoking = '$_api/daily';
+  static const String createDailySmoking = '$dailySmoking/upsert';
 }

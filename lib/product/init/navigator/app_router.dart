@@ -8,13 +8,13 @@ import '../../../features/auth/presentation/views/sign_in/sign_in_view.dart';
 import '../../../features/auth/presentation/views/sign_up/sign_up_view.dart';
 import '../../../features/bluetooth/data/models/bluetooth_device_model.dart';
 import '../../../features/gemini/presentation/view/gemini_view.dart';
-import '../../../features/home/presentation/views/automatic_counter/automatic_counter_view.dart';
-import '../../../features/home/presentation/views/counter/counter_view.dart';
 import '../../../features/home/presentation/views/home/home_view.dart';
 import '../../../features/maps/presentation/views/maps_view.dart';
 import '../../../features/onboard/presentation/views/onboarding_view.dart';
 import '../../../features/profile/presentation/views/profile_view.dart';
 import '../../../features/rating/presentation/views/rating_view.dart';
+import '../../../features/smoking/presentation/view/automatic_counter/automatic_counter_view.dart';
+import '../../../features/smoking/presentation/view/counter/counter_view.dart';
 
 part 'app_router.gr.dart';
 

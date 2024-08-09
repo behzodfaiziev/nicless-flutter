@@ -10,6 +10,7 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart'
 import '../../../../../core/extensions/context_extension.dart';
 import '../../../../../core/widgets/app_bar/base_app_bar.dart';
 import '../../../../../core/widgets/buttons/base_elevated_button.dart';
+import '../../../../../core/widgets/indicator/base_adaptive_cpi.dart';
 import '../../../../../core/widgets/lottie/base_lottie.dart';
 import '../../../../../core/widgets/toast/custom_toast.dart';
 import '../../../../../product/init/injection_container/_injection_container.dart';
@@ -29,6 +30,7 @@ part 'modules/usage_progress.dart';
 @RoutePage()
 class AutomaticCounterView extends StatefulWidget {
   const AutomaticCounterView({
+    required this.smokingId,
     this.connection,
     this.device,
     super.key,
@@ -36,6 +38,7 @@ class AutomaticCounterView extends StatefulWidget {
 
   final BluetoothConnection? connection;
   final BluetoothDeviceModel? device;
+  final String smokingId;
 
   @override
   State<AutomaticCounterView> createState() => _AutomaticCounterViewState();
@@ -62,11 +65,11 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
       child: Scaffold(
         appBar: const BaseAppBar(title: 'Forest Berry'),
         body: BlocListener<AutomaticCounterBloc, AutomaticCounterState>(
-          listener: (context, state) {
-            if (state is AutomaticCounterStarted) {
-              setIsInhalingStreamSubscription(context);
-            }
-          },
+          listenWhen: (previous, current) =>
+              current is AutomaticCounterStarted ||
+              current is SaveDailySmokingSuccess ||
+              current is SaveDailySmokingFailure,
+          listener: pageListener,
           child: Column(
             children: [
               Expanded(
@@ -86,42 +89,36 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
                 flex: 5,
                 child: _TotalAmountOfUsage(maxPuffs: 10, maxSeconds: 60),
               ),
-              Expanded(
-                flex: 3,
-                child: Center(
-                  child: Padding(
-                    padding: AppPadding.horizontal24,
-                    child: BlocListener<BluetoothBloc, BluetoothState>(
-                      listener: (context, state) {
-                        if (state is BluetoothDeviceDisconnected) {
-                          context.pushReplaceAll(const MainRoute());
-                        }
-                        if (state is BluetoothDeviceFailedToConnect) {
-                          CustomToast.errorToast(
-                            context,
-                            'Failed to disconnect!',
-                          );
-                        }
-                      },
-                      child: BaseElevatedButton(
-                        child: Text(
-                          LocaleKeys.buttons_finish.tr(),
-                          style: context.theme.textTheme.labelLarge,
-                        ),
-                        onPressed: () {
-                          context.read<BluetoothBloc>().add(
-                                BluetoothDisconnectEvent(
-                                  connection: widget.connection!,
-                                  device: widget.device!,
-                                ),
-                              );
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              Expanded(flex: 3, child: finishButton()),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget finishButton() {
+    return Center(
+      child: Padding(
+        padding: AppPadding.horizontal24,
+        child: BlocListener<BluetoothBloc, BluetoothState>(
+          listener: bluetoothListener,
+          child: BlocBuilder<AutomaticCounterBloc, AutomaticCounterState>(
+            buildWhen: (previous, current) =>
+                current is AutomaticCounterLoading ||
+                current is AutomaticCounterInitial ||
+                current is SaveDailySmokingFailure,
+            builder: (context, state) {
+              return BaseElevatedButton(
+                onPressed: onFinishButtonPressed(state),
+                child: state is AutomaticCounterLoading
+                    ? const BaseAdaptiveCPI()
+                    : Text(
+                        LocaleKeys.buttons_finish.tr(),
+                        style: context.primaryTextTheme.labelLarge,
+                      ),
+              );
+            },
           ),
         ),
       ),

@@ -128,7 +128,6 @@ class _SignInViewState extends State<SignInView> with SignInViewMixin {
               text: LocaleKeys.buttons_signUp.tr(),
               fontColor: context.primaryTextTheme.bodyMedium?.color,
               fontSize: FontSizeConst.small,
-              isUnderline: false,
               onPressed: () {
                 context.pushReplaceAll(const SignUpRoute());
               },

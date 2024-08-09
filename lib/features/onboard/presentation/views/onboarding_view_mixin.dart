@@ -3,8 +3,6 @@ part of 'onboarding_view.dart';
 mixin OnboardingViewMixin on State<OnboardingView> {
   late final PageController pageController = PageController();
   final TextEditingController priceEditingController = TextEditingController();
-  final TextEditingController capacityEditingController =
-      TextEditingController();
   final TextEditingController nicotineEditingController =
       TextEditingController();
   final TextEditingController vapeNameEditingController =
@@ -13,19 +11,16 @@ mixin OnboardingViewMixin on State<OnboardingView> {
       TextEditingController();
 
   final FocusNode priceFocusNode = FocusNode();
-  final FocusNode capacityFocusNode = FocusNode();
   final FocusNode nicotineFocusNode = FocusNode();
   final FocusNode vapeNameFocusNode = FocusNode();
   final FocusNode vapeTotalPuffLimitFocusNode = FocusNode();
 
-  // void _onboardBlocListener(BuildContext context, OnboardingState state) {
-  // if ((state is OnboardingStatus && state.isFirstTimer == false) ||
-  //     state is UserCached) {
-  //   /// If the user is not first timer or the user is cached
-  //   /// then navigate to the [SignInRoute]
-  //   context.router.replace(const SignInRoute());
-  // }
-  // }
+  @override
+  void initState() {
+
+
+    super.initState();
+  }
 
   @override
   void dispose() {
