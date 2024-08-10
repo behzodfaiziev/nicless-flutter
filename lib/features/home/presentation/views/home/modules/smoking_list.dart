@@ -74,7 +74,7 @@ class SmokingList extends StatelessWidget {
       CustomToast.infoToast(context, 'Connecting...');
     }
 
-    if (state is BluetoothDeviceConnectedState) {
+    if (state is BluetoothDeviceConnectedState && state.smokingId.isNotEmpty) {
       context.pushReplaceAll(
         AutomaticCounterRoute(
           smokingId: state.smokingId,
