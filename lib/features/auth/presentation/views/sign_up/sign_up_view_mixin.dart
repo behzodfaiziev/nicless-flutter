@@ -24,11 +24,8 @@ mixin SignUpViewMixin on State<SignUpView> {
     fullNameFocusNode = FocusNode();
 
     fullNameTextEditingController = TextEditingController();
-    fullNameTextEditingController.text = 'Howard Herzog';
     emailTextEditingController = TextEditingController();
-    emailTextEditingController.text = 'Howard_Herzog@gmail.com';
     passwordTextEditingController = TextEditingController();
-    passwordTextEditingController.text = 'test12345';
 
     super.initState();
   }

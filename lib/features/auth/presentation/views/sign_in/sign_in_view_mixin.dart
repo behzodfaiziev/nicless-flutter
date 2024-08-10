@@ -15,9 +15,7 @@ mixin SignInViewMixin on State<SignInView> {
   void initState() {
     authBloc = context.read<AuthBloc>();
     emailTextEditingController = TextEditingController();
-    emailTextEditingController.text = 'behzod.faiziev@gmail.com';
     passwordTextEditingController = TextEditingController();
-    passwordTextEditingController.text = '19191919';
     emailFocusNode = FocusNode();
     passwordFocusNode = FocusNode();
     super.initState();
