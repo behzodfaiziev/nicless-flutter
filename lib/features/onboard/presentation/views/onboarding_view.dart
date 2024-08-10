@@ -45,7 +45,7 @@ class _OnboardingViewState extends State<OnboardingView>
             return OnboardingBody(
               onButtonPressed: onButtonPressed,
               pageController: pageController,
-              smokingInfoPageParams: smokingInfoPageParams(),
+              vapeInfoPageParams: smokingInfoPageParams(),
             );
           },
         ),

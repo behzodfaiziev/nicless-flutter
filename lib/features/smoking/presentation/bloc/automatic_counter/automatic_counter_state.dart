@@ -48,3 +48,12 @@ final class SaveDailySmokingFailure extends AutomaticCounterState {
   @override
   List<Object?> get props => [message];
 }
+
+final class ConsumingDurationState extends AutomaticCounterState {
+  const ConsumingDurationState(this.duration);
+
+  final int duration;
+
+  @override
+  List<Object> get props => [duration];
+}

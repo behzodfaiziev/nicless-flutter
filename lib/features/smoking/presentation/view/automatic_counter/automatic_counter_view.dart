@@ -87,7 +87,7 @@ class _AutomaticCounterViewState extends State<AutomaticCounterView>
               ),
               const Expanded(
                 flex: 5,
-                child: _TotalAmountOfUsage(maxPuffs: 10, maxSeconds: 60),
+                child: _TotalAmountOfUsage(maxPuffs: 40, maxSeconds: 600),
               ),
               Expanded(flex: 3, child: finishButton()),
             ],

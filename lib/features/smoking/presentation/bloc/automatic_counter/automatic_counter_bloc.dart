@@ -24,6 +24,13 @@ class AutomaticCounterBloc
     on<AddPuffEvent>(_addPuffHandler);
     on<AddInhalingEvent>(_addInhalingHandler);
     on<SaveDailySmokingEvent>(_saveDailySmokingHandler);
+    on<UpdateDurationEvent>(_updateDurationHandler);
+  }
+
+  @override
+  Future<void> close() {
+    _timer.cancel();
+    return super.close();
   }
 
   final SaveDailySmoking _saveDailySmoking;
@@ -32,17 +39,27 @@ class AutomaticCounterBloc
     StartAutomaticCounterEvent event,
     Emitter<AutomaticCounterState> emit,
   ) {
+    _timer = Timer.periodic(
+      const Duration(seconds: 1),
+      (timer) {
+        add(const UpdateDurationEvent());
+      },
+    );
     emit(const AutomaticCounterStarted());
   }
 
   /// A stream of booleans that indicates whether the user is inhaling or not.
-  Stream<bool>? vapeStream;
+  Stream<bool>? _vapeStream;
 
   /// total amount of puffs
-  int amountOfPuffs = 0;
+  int _amountOfPuffs = 0;
 
   /// total seconds inhaled
-  int secondsInhaled = 0;
+  int _secondsInhaled = 0;
+
+  int _consumingDuration = 0;
+
+  late Timer _timer;
 
   List<String> motivationalMessages = [
     'Celebrate health, one smoke-free day at a time!',
@@ -70,12 +87,12 @@ class AutomaticCounterBloc
   Stream<bool>? getVapeStreamSubscription(
     BluetoothConnection bluetoothConnection,
   ) {
-    vapeStream = bluetoothConnection.input
+    _vapeStream = bluetoothConnection.input
         ?.transform(UInt8ListToStringTransformer())
         .transform(StringToBoolTransformer());
 
-    if (vapeStream != null) {
-      return vapeStream;
+    if (_vapeStream != null) {
+      return _vapeStream;
     }
     return null;
   }
@@ -84,11 +101,11 @@ class AutomaticCounterBloc
     AddPuffEvent event,
     Emitter<AutomaticCounterState> emit,
   ) {
-    amountOfPuffs++;
+    _amountOfPuffs++;
     final randomIndex = Random.secure().nextInt(motivationalMessages.length);
     emit(
       TotalPuffsAdded(
-        amount: amountOfPuffs,
+        amount: _amountOfPuffs,
         message: motivationalMessages[randomIndex],
       ),
     );
@@ -98,8 +115,8 @@ class AutomaticCounterBloc
     AddInhalingEvent event,
     Emitter<AutomaticCounterState> emit,
   ) {
-    secondsInhaled++;
-    emit(TotalInhaledSeconds(secondsInhaled));
+    _secondsInhaled++;
+    emit(TotalInhaledSeconds(_secondsInhaled));
   }
 
   Future<void> _saveDailySmokingHandler(
@@ -109,8 +126,8 @@ class AutomaticCounterBloc
     emit(const AutomaticCounterLoading());
     final result = await _saveDailySmoking(
       DailySmokingModel(
-        seconds: secondsInhaled,
-        increasedCount: amountOfPuffs,
+        seconds: _consumingDuration,
+        increasedCount: _amountOfPuffs,
         smokingId: event.smokingId,
       ),
     );
@@ -118,5 +135,13 @@ class AutomaticCounterBloc
       (error) => emit(SaveDailySmokingFailure(message: error.message)),
       (success) => emit(const SaveDailySmokingSuccess()),
     );
+  }
+
+  Future<void> _updateDurationHandler(
+    UpdateDurationEvent event,
+    Emitter<AutomaticCounterState> emit,
+  ) async {
+    _consumingDuration++;
+    emit(ConsumingDurationState(_consumingDuration));
   }
 }

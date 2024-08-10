@@ -15,13 +15,13 @@ class OnboardingBody extends StatelessWidget {
   const OnboardingBody({
     required this.pageController,
     required this.onButtonPressed,
-    required this.smokingInfoPageParams,
+    required this.vapeInfoPageParams,
     super.key,
   });
 
   final PageController pageController;
   final void Function(BuildContext context, int currentIndex) onButtonPressed;
-  final SmokingInfoPageParams smokingInfoPageParams;
+  final SmokingInfoPageParams vapeInfoPageParams;
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,9 @@ class OnboardingBody extends StatelessWidget {
                   onPageChanged: (index) {},
                   children: [
                     const SmokingTypePage(),
-                    SmokingInfoPage(params: smokingInfoPageParams),
+                    SmokingInfoPage(params: vapeInfoPageParams),
                     ConnectBluetoothPage(
-                      vapeInfoPageParams: smokingInfoPageParams,
+                      vapeInfoPageParams: vapeInfoPageParams,
                     ),
                   ],
                 ),

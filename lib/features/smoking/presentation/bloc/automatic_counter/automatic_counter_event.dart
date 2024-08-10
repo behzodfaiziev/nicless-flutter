@@ -29,3 +29,7 @@ final class SaveDailySmokingEvent extends AutomaticCounterEvent {
   @override
   List<Object> get props => [smokingId];
 }
+
+final class UpdateDurationEvent extends AutomaticCounterEvent {
+  const UpdateDurationEvent();
+}
