@@ -17,7 +17,13 @@ class BaseMarkDown extends StatelessWidget {
     return MarkdownBody(
       data: text,
       styleSheet: MarkdownStyleSheet(
-        p: context.textTheme.bodyMedium?.copyWith(color: AppColors.white),
+        p: context.textTheme.bodyMedium?.copyWith(
+          color: AppColors.primaryTextColorDark,
+        ),
+        listBullet: context.textTheme.bodyMedium?.copyWith(
+          color: AppColors.primaryTextColorDark,
+        ),
+
       ),
     );
   }

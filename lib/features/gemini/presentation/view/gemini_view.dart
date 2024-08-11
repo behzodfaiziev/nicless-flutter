@@ -64,6 +64,7 @@ class _GeminiViewState extends State<GeminiView> with GeminiMixin {
             decoration: InputDecoration(
               hintText: 'Write your question here...',
               border: InputBorder.none,
+              contentPadding: AppPadding.top12,
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
               suffixIcon: IconButton(

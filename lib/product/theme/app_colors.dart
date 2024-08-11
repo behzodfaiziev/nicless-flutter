@@ -27,6 +27,7 @@ class AppColors {
 
   static const Color accentColor = Color(0xFF82B1FF);
   static const Color primaryTextColor = Color(0xFF212121);
+  static const Color primaryTextColorDark = Color(0xFFDADADA);
   static const Color secondaryTextColor = Color(0xFF757575);
   static const Color dividerColor = Color(0xFFBDBDBD);
 
@@ -45,7 +46,7 @@ class AppColors {
   static const Color cardColor = Color(0xFF353535);
 
   /// Card
-  static const Color cardRatingColor = Color(0xFF303030);
+  static const Color cardRatingColor = Color(0xFF3C3C3C);
 
   /// Icon
   static const Color iconColor = Color(0xFF585858);

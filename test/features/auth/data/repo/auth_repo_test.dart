@@ -6,7 +6,7 @@ import 'package:nicless_flutter/core/error/exceptions/server_exception.dart';
 import 'package:nicless_flutter/core/error/failures/api_failure.dart';
 import 'package:nicless_flutter/features/auth/data/data_sources/auth_local_data_source.dart';
 import 'package:nicless_flutter/features/auth/data/data_sources/auth_remote_data_source.dart';
-import 'package:nicless_flutter/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:nicless_flutter/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:nicless_flutter/features/auth/domain/repos/auth_repo.dart';
 
 class MockAuthRemoteDataSource extends Mock implements AuthRemoteDataSource {}

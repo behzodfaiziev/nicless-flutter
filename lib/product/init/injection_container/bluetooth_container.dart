@@ -3,7 +3,7 @@ part of '_injection_container.dart';
 void _bluetoothContainer() {
   sl
 
-    /// OnBoarding Bloc
+    /// Bloc
     ..registerFactory(
       () => BluetoothBloc(
         getBluetoothDevices: sl(),

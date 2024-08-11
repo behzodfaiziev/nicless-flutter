@@ -22,14 +22,15 @@ class GeminiResponseText extends StatelessWidget {
       padding: AppPadding.vertical8 + AppPadding.horizontal12,
       margin: AppPadding.vertical8 +
           AppPadding.horizontal20 +
-          (isQuestion ? AppPadding.right16 : EdgeInsets.zero) +
-          (isQuestion ? EdgeInsets.zero : AppPadding.left16),
+          (isQuestion ? AppPadding.left30 : AppPadding.zero) +
+          (isQuestion ? AppPadding.zero : AppPadding.right30),
       decoration: BoxDecoration(
-        border: Border.all(color: context.theme.primaryColor),
+        border: Border.all(
+          color: context.colorScheme.secondary,
+          width: 0.2,
+        ),
         borderRadius: RadiusConst.circular12,
-        color: isQuestion
-            ? AppColors.cardColor
-            : AppColors.cardRatingColor,
+        color: isQuestion ? AppColors.cardColor : AppColors.cardRatingColor,
       ),
       child: BaseMarkDown(text: text),
     );

@@ -3,7 +3,7 @@ part of '_injection_container.dart';
 void _geminiContainer() {
   sl
 
-    /// OnBoarding Bloc
+    /// Bloc
     ..registerFactory(() => GeminiBloc(sendTextToGemini: sl()))
 
     /// Use Cases

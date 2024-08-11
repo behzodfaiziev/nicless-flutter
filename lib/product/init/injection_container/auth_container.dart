@@ -3,7 +3,7 @@ part of '_injection_container.dart';
 void _authContainer() {
   sl
 
-    /// Auth Bloc
+    /// Bloc
     ..registerFactory(
       () => AuthBloc(
         checkIsAuthenticated: sl(),

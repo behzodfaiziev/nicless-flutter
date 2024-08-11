@@ -1,11 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vexana/vexana.dart';
+
+import '../../../../core/managers/network/model/app_network_model.dart';
 
 part 'daily_smoking_model.freezed.dart';
 part 'daily_smoking_model.g.dart';
 
 @freezed
-class DailySmokingModel extends INetworkModel<DailySmokingModel>
+class DailySmokingModel extends AppNetworkModel<DailySmokingModel>
     with _$DailySmokingModel {
   const factory DailySmokingModel({
     String? smokingId,

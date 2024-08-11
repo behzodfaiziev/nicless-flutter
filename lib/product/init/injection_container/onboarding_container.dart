@@ -3,7 +3,7 @@ part of '_injection_container.dart';
 void _onBoardingContainer() {
   sl
 
-    /// OnBoarding Bloc
+    /// Bloc
     ..registerFactory(() => OnboardingBloc(saveVapeData: sl()))
 
     /// Use Cases

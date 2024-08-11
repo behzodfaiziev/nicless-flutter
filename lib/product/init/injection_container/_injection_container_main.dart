@@ -44,5 +44,6 @@ class InjectionContainer {
     _homeContainer();
     _settingsContainer();
     _geminiContainer();
+    _ratingContainer();
   }
 }

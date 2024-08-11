@@ -41,7 +41,7 @@ class SmokingInfoPage extends StatelessWidget {
                 ),
                 buildTextField(
                   focusNode: params.vapeTotalPuffLimitFocusNode,
-                  hintText: 'Daily limit of puffs',
+                  hintText: 'Capacity of your device (in puffs)',
                   keyboardType: TextInputType.number,
                   textEditingController: params.vapeTotalPuffLimitController,
                   onSubmitted: (value) {
@@ -51,7 +51,7 @@ class SmokingInfoPage extends StatelessWidget {
                 ),
                 buildTextField(
                   focusNode: params.nicotineFocusNode,
-                  hintText: 'Nicotine percentage in 100 ml',
+                  hintText: 'Nicotine percentage',
                   keyboardType: TextInputType.number,
                   textEditingController: params.nicotineEditingController,
                   onSubmitted: (value) {

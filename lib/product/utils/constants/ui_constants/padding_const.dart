@@ -7,6 +7,8 @@ class AppPadding {
   ///Height Factor
   static double heightFactor = 1;
 
+  static EdgeInsets zero = EdgeInsets.zero;
+
   /// All
   static const all1 = EdgeInsets.all(1);
   static const all2 = EdgeInsets.all(2);

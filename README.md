@@ -55,7 +55,7 @@ The app follows the Clean Architecture pattern, separating the business logic fr
 - Firebase: Authentication, Firestore, Analytics
 - [BLoC](https://pub.dev/packages/bloc)
 - [Bluetooth](https://pub.dev/packages/flutter_bluetooth_serial) 
-- Network manager inspired by [Vexana](https://pub.dev/packages/vexana)
+- Network [Vexana](https://pub.dev/packages/vexana)
 - [Google Maps](https://pub.dev/packages/google_maps_flutter)
 - [Gemini](https://pub.dev/packages/google_generative_ai)
 
