@@ -24,14 +24,14 @@ class BaseLineChart extends StatelessWidget {
         lineBarsData: [
           LineChartBarData(
             spots: [
-              const FlSpot(0, 50),
-              const FlSpot(1, 60),
-              const FlSpot(2, 60),
-              const FlSpot(3, 80),
-              const FlSpot(4, 60),
+              const FlSpot(0, 80),
+              const FlSpot(1, 49),
+              const FlSpot(2, 65),
+              const FlSpot(3, 45),
+              const FlSpot(4, 70),
               const FlSpot(5, 70),
-              const FlSpot(6, 40),
-              const FlSpot(7, 50),
+              const FlSpot(6, 60),
+              const FlSpot(7, 80),
             ],
             isCurved: true,
             curveSmoothness: 0.3,

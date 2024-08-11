@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nicless_flutter/core/error/exceptions/server_exception.dart';
@@ -13,14 +12,11 @@ class MockAuthRemoteDataSource extends Mock implements AuthRemoteDataSource {}
 
 class MockAuthLocalDataSource extends Mock implements AuthLocalDataSource {}
 
-class MockUser extends Mock implements User {}
-
 void main() {
   late AuthRemoteDataSource remoteDataSource;
   late AuthLocalDataSource localDataSource;
   late AuthRepoImpl repoImpl;
 
-  final mockUser = MockUser();
   const ServerException apiException = ServerException(
     statusCode: 500,
     message: 'Internal Server Error',
@@ -33,9 +29,6 @@ void main() {
       remoteDataSource: remoteDataSource,
       localDataSource: localDataSource,
     );
-
-    when(() => mockUser.uid).thenReturn('123');
-    registerFallbackValue(mockUser);
   });
 
   test('should be a subclass of [AuthRepo]', () {

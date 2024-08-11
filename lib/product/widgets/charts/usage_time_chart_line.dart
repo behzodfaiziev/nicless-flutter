@@ -29,7 +29,7 @@ class UsageTimeChartLine extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Consumed time', style: context.textTheme.headlineSmall),
-                Text('243 minutes', style: context.textTheme.displaySmall),
+                Text('96 minutes', style: context.textTheme.displaySmall),
               ],
             ),
           ),

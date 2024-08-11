@@ -27,7 +27,7 @@ class UsageAmountCharBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Consumed amount', style: context.textTheme.headlineSmall),
-                Text('2187 times', style: context.textTheme.displaySmall),
+                Text('1544 times', style: context.textTheme.displaySmall),
               ],
             ),
           ),

@@ -29,9 +29,6 @@ dependencies:
   firebase_analytics: ^10.7.4
   firebase_performance: ^0.9.3+8
   firebase_messaging: ^14.7.9
-  cloud_firestore: ^4.13.6
-  firebase_auth: ^4.15.3
-  #  google_sign_in: ^6.2.1
 
   # Core
   jose: ^0.3.4
