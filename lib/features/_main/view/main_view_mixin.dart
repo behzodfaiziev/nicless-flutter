@@ -4,7 +4,7 @@ mixin MainViewMixin on State<MainView> {
   final List<PageRouteInfo> _routes = const [
     HomeRoute(),
     GeminiRoute(),
-    RatingRoute(),
+    GeminiRoute(),
     ProfileRoute(),
   ];
 
@@ -37,14 +37,14 @@ mixin MainViewMixin on State<MainView> {
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(
-          asset: SVGConst.instance.award,
+          asset: SVGConst.instance.chart,
           color: _getIconColor(
             context,
             activeIndex,
             MainViewTabsEnum.statistics.index,
           ),
         ),
-        label: LocaleKeys.buttons_rating.tr(),
+        label: LocaleKeys.buttons_report.tr(),
       ),
       BottomNavigationBarItem(
         icon: BaseSvgAsset(

@@ -46,7 +46,7 @@ void main() {
       build: () {
         when(() => fetchDevices()).thenAnswer(
           (_) async =>
-              const Left(APIFailure(message: 'Error', statusCode: 500)),
+              const Left(ServerFailure(message: 'Error', statusCode: 500)),
         );
         return bloc;
       },

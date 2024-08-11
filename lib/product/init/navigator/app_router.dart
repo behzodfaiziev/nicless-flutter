@@ -12,7 +12,6 @@ import '../../../features/home/presentation/views/home/home_view.dart';
 import '../../../features/maps/presentation/views/maps_view.dart';
 import '../../../features/onboard/presentation/views/onboarding_view.dart';
 import '../../../features/profile/presentation/views/profile_view.dart';
-import '../../../features/rating/presentation/views/rating_view.dart';
 import '../../../features/smoking/presentation/view/automatic_counter/automatic_counter_view.dart';
 import '../../../features/smoking/presentation/view/counter/counter_view.dart';
 
@@ -36,7 +35,7 @@ class AppRouter extends _$AppRouter {
           children: [
             AutoRoute(page: HomeRoute.page),
             AutoRoute(page: GeminiRoute.page),
-            AutoRoute(page: RatingRoute.page),
+            AutoRoute(page: GeminiRoute.page),
             AutoRoute(page: ProfileRoute.page),
           ],
         ),

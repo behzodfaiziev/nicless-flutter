@@ -28,19 +28,19 @@ class AuthRepoImpl implements AuthRepo {
       final result = await _remoteDataSource.signIn(params: params);
 
       if (result.data == null) {
-        return const Left(APIFailure(message: 'No data received'));
+        return const Left(ServerFailure(message: 'No data received'));
       }
 
       if (result.data!.accessToken == null) {
-        return const Left(APIFailure(message: 'No access token received'));
+        return const Left(ServerFailure(message: 'No access token received'));
       }
 
       if (result.data!.refreshToken == null) {
-        return const Left(APIFailure(message: 'No refresh token received'));
+        return const Left(ServerFailure(message: 'No refresh token received'));
       }
 
       if (result.data!.sessionId == null) {
-        return const Left(APIFailure(message: 'No session id received'));
+        return const Left(ServerFailure(message: 'No session id received'));
       }
 
       await _localDataSource.saveAccessToken(result.data!.accessToken!);
@@ -55,7 +55,7 @@ class AuthRepoImpl implements AuthRepo {
 
       return Right(result);
     } on ServerException catch (e) {
-      return Left(APIFailure.fromAPIException(e));
+      return Left(ServerFailure.fromAPIException(e));
     }
   }
 
@@ -80,7 +80,7 @@ class AuthRepoImpl implements AuthRepo {
 
       return const Right(true);
     } on ServerException catch (e) {
-      return Left(APIFailure.fromAPIException(e));
+      return Left(ServerFailure.fromAPIException(e));
     }
   }
 
@@ -95,9 +95,9 @@ class AuthRepoImpl implements AuthRepo {
       final result = await _remoteDataSource.signOut();
       return Right(result);
     } on ServerException catch (e) {
-      return Left(APIFailure.fromAPIException(e));
+      return Left(ServerFailure.fromAPIException(e));
     } on Exception catch (e) {
-      return Left(APIFailure(message: e.toString()));
+      return Left(ServerFailure(message: e.toString()));
     }
   }
 
@@ -108,7 +108,7 @@ class AuthRepoImpl implements AuthRepo {
 
       return const Right(null);
     } on ServerException catch (e) {
-      return Left(APIFailure.fromAPIException(e));
+      return Left(ServerFailure.fromAPIException(e));
     }
   }
 }

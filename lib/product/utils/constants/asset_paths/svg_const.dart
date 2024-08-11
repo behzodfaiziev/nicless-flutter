@@ -15,6 +15,8 @@ class SVGConst {
 
   String get award => toSvg('award');
 
+  String get chart => toSvg('chart');
+
   String get dumbbell => toSvg('dumbbell');
 
   String get home => toSvg('home');

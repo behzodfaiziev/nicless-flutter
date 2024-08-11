@@ -20,7 +20,7 @@ class HomeRepoImpl implements HomeRepo {
 
       return Right(result);
     } on ServerException catch (e) {
-      return Left(APIFailure.fromAPIException(e));
+      return Left(ServerFailure.fromAPIException(e));
     }
   }
 }

@@ -43,7 +43,6 @@ class InjectionContainer {
     _onBoardingContainer();
     _homeContainer();
     _settingsContainer();
-    _ratingContainer();
     _geminiContainer();
   }
 }

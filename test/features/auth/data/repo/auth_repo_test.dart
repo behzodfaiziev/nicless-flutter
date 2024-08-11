@@ -66,7 +66,7 @@ void main() {
       // assert
       expect(
         result,
-        Left<APIFailure, void>(APIFailure.fromAPIException(apiException)),
+        Left<ServerFailure, void>(ServerFailure.fromAPIException(apiException)),
       );
       verify(() => remoteDataSource.signOut()).called(1);
       verifyNoMoreInteractions(remoteDataSource);

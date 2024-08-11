@@ -75,12 +75,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfileView(),
       );
     },
-    RatingRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const RatingView(),
-      );
-    },
     SignInRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -252,20 +246,6 @@ class ProfileRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [RatingView]
-class RatingRoute extends PageRouteInfo<void> {
-  const RatingRoute({List<PageRouteInfo>? children})
-      : super(
-          RatingRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'RatingRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

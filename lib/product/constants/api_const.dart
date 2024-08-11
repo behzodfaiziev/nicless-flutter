@@ -14,5 +14,6 @@ class ApiConst {
   static const String createSmoking = '$smoking/create';
 
   static const String dailySmoking = '$_api/daily';
+  static const String dailySmokingList = '$dailySmoking/list';
   static const String createDailySmoking = '$dailySmoking/upsert';
 }

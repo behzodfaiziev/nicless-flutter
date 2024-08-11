@@ -1,13 +1,13 @@
 import '../exceptions/server_exception.dart';
 import 'failure.dart';
 
-class APIFailure extends Failure implements Exception {
-  const APIFailure({
+class ServerFailure extends Failure implements Exception {
+  const ServerFailure({
     required super.message,
     super.statusCode,
   });
 
-  APIFailure.fromAPIException(ServerException exception)
+  ServerFailure.fromAPIException(ServerException exception)
       : this(
           message: exception.message,
           statusCode: exception.statusCode,

@@ -334,7 +334,6 @@ abstract class _SmokingDataModel extends SmokingDataModel {
   factory _SmokingDataModel.fromJson(Map<String, dynamic> json) =
       _$SmokingDataModelImpl.fromJson;
 
-  @override
   @JsonKey(name: '_id')
   String? get id;
   @override

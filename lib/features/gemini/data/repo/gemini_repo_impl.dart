@@ -18,7 +18,7 @@ class GeminiRepoImpl extends GeminiRepo {
           _remoteDataSource.sendTextToGemini(text);
       return Right(response);
     } catch (e) {
-      return Left(APIFailure(message: e.toString()));
+      return Left(ServerFailure(message: e.toString()));
     }
   }
 }
