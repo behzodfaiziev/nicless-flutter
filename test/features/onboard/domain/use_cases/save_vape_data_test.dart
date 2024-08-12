@@ -19,12 +19,10 @@ void main() {
   });
 
   test(
-    'should call the [AuthRepo.checkIsAuthenticated()] method'
-    ' and return [true] when successfull',
+    'should call the [saveSmokingData] method'
+    ' and return [void] when successfull',
     () async {
       /// Arrange
-
-      const String resultId = 'id';
 
       const CreateSmokingModel vapeData = CreateSmokingModel(
         name: 'device',
@@ -43,7 +41,7 @@ void main() {
       /// assert
       expect(
         result,
-        equals(const Right<dynamic, String>(resultId)),
+        equals(const Right<dynamic, void>(null)),
       );
 
       verify(() => repository.saveSmokingData(vapeData)).called(1);
