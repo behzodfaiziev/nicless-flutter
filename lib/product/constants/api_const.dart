@@ -16,4 +16,7 @@ class ApiConst {
   static const String dailySmoking = '$_api/daily';
   static const String dailySmokingList = '$dailySmoking/list';
   static const String createDailySmoking = '$dailySmoking/upsert';
+
+  static String periodicRecordOutputs(String period) =>
+      '$dailySmoking/periodic_record_outputs?period="$period"';
 }

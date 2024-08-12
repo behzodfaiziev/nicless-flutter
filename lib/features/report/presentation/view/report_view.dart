@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/extensions/context_extension.dart';
 import '../../../../core/widgets/app_bar/base_app_bar.dart';
 import '../../../../core/widgets/indicator/base_adaptive_cpi.dart';
 import '../../../../product/init/injection_container/_injection_container.dart';
@@ -35,11 +36,20 @@ class _ReportViewState extends State<ReportView> with ReportViewMixin {
             if (state is ReportLoaded) {
               return ReportListView(report: state.data);
             } else if (state is ReportError) {
-              return Center(child: Text(state.message));
+              return errorText(state, context);
             }
             return const BaseAdaptiveCPI();
           },
         ),
+      ),
+    );
+  }
+
+  Widget errorText(ReportError state, BuildContext context) {
+    return Center(
+      child: Text(
+        state.message,
+        style: context.primaryTextTheme.bodyLarge,
       ),
     );
   }

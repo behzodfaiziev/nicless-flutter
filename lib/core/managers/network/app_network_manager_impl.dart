@@ -54,6 +54,7 @@ class AppNetworkManagerImpl implements AppNetworkManager {
     return NetworkManager<CustomErrorModel>(
       errorModel: const CustomErrorModel(),
       isEnableLogger: false,
+      skippingSSLCertificate: true,
       options: BaseOptions(
         baseUrl: ApiConst.baseUrl,
         headers: isCleaned ? _jsonHeader : _tokenHeader,
