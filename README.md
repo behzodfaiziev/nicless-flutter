@@ -18,25 +18,38 @@ To run the app on your device, follow these steps:
 ```git
 git clone https://github.com/behzodfaiziev/nicless-flutter
 ```
-2. Add your Google Maps API key to the AndroidManifest.xml file located at `android/app/src/main/AndroidManifest.xml`. Replace YOUR_API_KEY_HERE with your actual API key.
-```xml
-<meta-data
-    android:name="com.google.android.geo.API_KEY"
-    android:value="YOUR_API_KEY_HERE"/>
-```
-3. Add your Gemini API key to ```lib/product/utils/constants/app/credentials_const```
-   - note:
-```dart
-    class CredentialsConst {
-       static const geminiApiKey = 'YOUR_API_KEY';
-    }
-```
 
-5. Ensure that the app is running in debug mode to sign in successfully.
+[//]: # (2. Add your Google Maps API key to the AndroidManifest.xml file located at `android/app/src/main/AndroidManifest.xml`. Replace YOUR_API_KEY_HERE with your actual API key.)
+
+[//]: # (```xml)
+
+[//]: # (<meta-data)
+
+[//]: # (    android:name="com.google.android.geo.API_KEY")
+
+[//]: # (    android:value="YOUR_API_KEY_HERE"/>)
+
+[//]: # (```)
+
+[//]: # (3. Add your Gemini API key to ```lib/product/utils/constants/app/credentials_const```)
+
+[//]: # (   - note:)
+
+[//]: # (```dart)
+
+[//]: # (    class CredentialsConst {)
+
+[//]: # (       static const geminiApiKey = 'YOUR_API_KEY';)
+
+[//]: # (    })
+
+[//]: # (```)
+
+2. Ensure that the app is running in debug mode to sign in successfully.
 ```dart
 flutter run --debug
  ```
-4. Congratulations! You have successfully set up and run Nicless on your device. If you encounter any issues, don't hesitate to create an issue [here](https://github.com/behzodfaiziev/nicless-flutter/issues).
+3. Congratulations! You have successfully set up and run Nicless on your device. If you encounter any issues, don't hesitate to create an issue [here](https://github.com/behzodfaiziev/nicless-flutter/issues).
 
 
 ## Hardware
