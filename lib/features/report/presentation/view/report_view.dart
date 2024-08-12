@@ -38,7 +38,7 @@ class _ReportViewState extends State<ReportView> with ReportViewMixin {
             } else if (state is ReportError) {
               return errorText(state, context);
             }
-            return const BaseAdaptiveCPI();
+            return const Center(child: BaseAdaptiveCPI());
           },
         ),
       ),
