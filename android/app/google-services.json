@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "976318618393",
-    "project_id": "nicless-billionaire",
-    "storage_bucket": "nicless-billionaire.appspot.com"
+    "project_number": "562901775042",
+    "project_id": "nicless-flutter",
+    "storage_bucket": "nicless-flutter.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:976318618393:android:89ec1505836db969e8c388",
+        "mobilesdk_app_id": "1:562901775042:android:72f26542e4621d3cd9015b",
         "android_client_info": {
           "package_name": "com.behzodfaiziev.nicless_flutter"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyARcR3p3gK-UPctyBFK878QGtmEnef7UeI"
+          "current_key": "AIzaSyA3I9_vTcVY8B0h2cBceu3hvmuAgHvoJgk"
         }
       ],
       "services": {

@@ -1,0 +1,23 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "nicless-flutter",
+          "appId": "1:562901775042:android:72f26542e4621d3cd9015b",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "nicless-flutter",
+          "configurations": {
+            "android": "1:562901775042:android:72f26542e4621d3cd9015b",
+            "ios": "1:562901775042:ios:eb59ca02d8bed2dcd9015b",
+            "web": "1:562901775042:web:1f89f6dde50176c3d9015b"
+          }
+        }
+      }
+    }
+  }
+}
