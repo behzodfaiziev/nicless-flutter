@@ -31,6 +31,7 @@ class AppToast {
     String? message,
     String title = 'Error',
     int closeAfterSeconds = 3,
+    Color? backgroundColor,
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -42,6 +43,7 @@ class AppToast {
           message: message ?? 'Something went wrong',
           isSuccess: false,
           closeAfterSeconds: closeAfterSeconds,
+          backgroundColor: backgroundColor,
         ),
       ),
     );

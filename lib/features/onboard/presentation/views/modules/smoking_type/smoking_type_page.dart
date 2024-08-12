@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/extensions/context_extension.dart';
+import '../../../../../../product/theme/app_colors.dart';
 import '../../../../../../product/utils/constants/asset_paths/images_const.dart';
 import '../../../../../../product/widgets/text/top_title.dart';
+import '../../../../../../product/widgets/toast/app_toast.dart';
 import '../../../bloc/onboarding_bloc.dart';
 import 'smoking_type_tile.dart';
 
@@ -40,20 +42,25 @@ class _SmokingTypePageState extends State<SmokingTypePage> {
                   smokingName: 'Cigarette',
                   isSelected: currentSelection.contains(1),
                   onTap: () {
-                    context.read<OnboardingBloc>().add(
-                          currentSelection.contains(1)
-                              ? const SmokingTypeRemoved(smokingType: 1)
-                              : const SmokingTypeAdded(smokingType: 1),
-                        );
-                    context
-                        .read<OnboardingBloc>()
-                        .add(const SmokingTypeRemoved(smokingType: 2));
-                    setState(() {
-                      currentSelection.contains(1)
-                          ? currentSelection.remove(1)
-                          : currentSelection.add(1);
-                      currentSelection.remove(2);
-                    });
+                    AppToast.error(
+                      context: context,
+                      message: 'This feature is coming soon!',
+                      backgroundColor: AppColors.infoDark,
+                    );
+                    // context.read<OnboardingBloc>().add(
+                    //       currentSelection.contains(1)
+                    //           ? const SmokingTypeRemoved(smokingType: 1)
+                    //           : const SmokingTypeAdded(smokingType: 1),
+                    //     );
+                    // context
+                    //     .read<OnboardingBloc>()
+                    //     .add(const SmokingTypeRemoved(smokingType: 2));
+                    // setState(() {
+                    //   currentSelection.contains(1)
+                    //       ? currentSelection.remove(1)
+                    //       : currentSelection.add(1);
+                    //   currentSelection.remove(2);
+                    // });
                   },
                 ),
                 SmokingTypeTile(

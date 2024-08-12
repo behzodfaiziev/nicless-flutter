@@ -8,12 +8,14 @@ class BaseAnimatedSnackBar extends StatefulWidget {
     required this.message,
     required this.isSuccess,
     required this.closeAfterSeconds,
+    this.backgroundColor,
     super.key,
   });
 
   final String message;
   final bool isSuccess;
   final int closeAfterSeconds;
+  final Color? backgroundColor;
 
   @override
   BaseAnimatedSnackBarState createState() => BaseAnimatedSnackBarState();
@@ -60,9 +62,10 @@ class BaseAnimatedSnackBarState extends State<BaseAnimatedSnackBar>
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Material(
-          color: widget.isSuccess
-              ? context.colorScheme.primary
-              : context.colorScheme.error,
+          color: widget.backgroundColor ??
+              (widget.isSuccess
+                  ? context.colorScheme.primary
+                  : context.colorScheme.error),
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             child: Text(
