@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vexana/vexana.dart';
+
+import '../../../../core/managers/network/model/app_network_model.dart';
 
 part 'smoking_sessions.g.dart';
 
 @JsonSerializable()
-class SmokingSessions extends INetworkModel<SmokingSessions>
+class SmokingSessions extends AppNetworkModel<SmokingSessions>
     with EquatableMixin {
   SmokingSessions({
     this.increaseCount,

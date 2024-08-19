@@ -1,9 +1,8 @@
 import 'package:flutter/foundation.dart';
-import 'package:vexana/vexana.dart';
+import 'package:net_kit/net_kit.dart';
 
 @immutable
-/// Interface for network model
-abstract class AppNetworkModel<T> extends INetworkModel<T> {
+abstract class AppNetworkModel<T> extends INetKitModel<T> {
   /// Default constructor for all network model
   const AppNetworkModel();
 

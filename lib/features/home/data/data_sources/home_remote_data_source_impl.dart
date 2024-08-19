@@ -13,8 +13,8 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
 
   @override
   Future<SmokingListModel> fetchDevices() async {
-    return _network.send<SmokingListModel, SmokingListModel>(
-     ApiConst.smoking,
+    return _network.requestModel<SmokingListModel>(
+      ApiConst.smoking,
       method: AppRequestType.get,
       parseModel: const SmokingListModel(),
     );

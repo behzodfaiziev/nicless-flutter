@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vexana/vexana.dart';
+
+import '../../../../../core/managers/network/model/app_network_model.dart';
 
 part 'vape_smoking_details.g.dart';
 
 @JsonSerializable()
-class VapeSmokingDetails extends INetworkModel<VapeSmokingDetails>
+class VapeSmokingDetails extends AppNetworkModel<VapeSmokingDetails>
     with EquatableMixin {
   const VapeSmokingDetails({
     this.deviceName,

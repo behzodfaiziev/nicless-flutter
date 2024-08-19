@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vexana/vexana.dart';
+
+import '../../../../core/managers/network/model/app_network_model.dart';
 
 part 'goal.g.dart';
 
 @JsonSerializable()
-class Goal extends INetworkModel<Goal> with EquatableMixin {
+class Goal extends AppNetworkModel<Goal> with EquatableMixin {
   const Goal({
     this.quitDate,
     this.targetCigarettesPerDay,

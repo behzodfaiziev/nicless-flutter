@@ -20,6 +20,7 @@ mixin AutomaticCounterViewMixin on State<AutomaticCounterView> {
         .read<AutomaticCounterBloc>()
         .getVapeStreamSubscription(widget.connection!)
         ?.listen((bool isInhaling) {
+      if (ctx.mounted == false) return;
       if (isInhaling) {
         onInhaled(ctx);
       } else {

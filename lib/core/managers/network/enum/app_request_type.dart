@@ -1,4 +1,4 @@
-import 'package:vexana/vexana.dart';
+import 'package:net_kit/net_kit.dart';
 
 enum AppRequestType {
   get,
@@ -9,18 +9,18 @@ enum AppRequestType {
 }
 
 extension AppRequestTypeExtension on AppRequestType {
-  RequestType get toRequestType {
+  RequestMethod get toRequestType {
     switch (this) {
       case AppRequestType.get:
-        return RequestType.GET;
+        return RequestMethod.get;
       case AppRequestType.post:
-        return RequestType.POST;
+        return RequestMethod.post;
       case AppRequestType.delete:
-        return RequestType.DELETE;
+        return RequestMethod.delete;
       case AppRequestType.put:
-        return RequestType.PUT;
+        return RequestMethod.put;
       case AppRequestType.patch:
-        return RequestType.PATCH;
+        return RequestMethod.patch;
     }
   }
 }

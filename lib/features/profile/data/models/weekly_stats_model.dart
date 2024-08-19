@@ -1,13 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vexana/vexana.dart';
 
+import '../../../../core/managers/network/model/app_network_model.dart';
 import '../../../../product/data_objects/models/smoking/smoking_data_model.dart';
 
 part 'weekly_stats_model.freezed.dart';
 part 'weekly_stats_model.g.dart';
 
 @freezed
-class WeeklyStatsModel extends INetworkModel<WeeklyStatsModel>
+class WeeklyStatsModel extends AppNetworkModel<WeeklyStatsModel>
     with _$WeeklyStatsModel {
   const factory WeeklyStatsModel({
     String? id,

@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vexana/vexana.dart';
+
+import '../../../../core/managers/network/model/app_network_model.dart';
 
 part 'fcm_token.g.dart';
 
 @JsonSerializable()
-class FcmToken extends INetworkModel<FcmToken> with EquatableMixin {
+class FcmToken extends AppNetworkModel<FcmToken> with EquatableMixin {
   const FcmToken({
     this.fcmToken,
     this.platform,

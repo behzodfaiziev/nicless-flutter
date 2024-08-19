@@ -12,7 +12,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
 
   @override
   Future<WeeklyStatsResultModel> weeklyStats() {
-    return _network.send<WeeklyStatsResultModel, WeeklyStatsResultModel>(
+    return _network.requestModel<WeeklyStatsResultModel>(
       ApiConst.signIn,
       method: AppRequestType.get,
       parseModel: const WeeklyStatsResultModel(),

@@ -47,8 +47,10 @@ dependencies:
   # Network
   dio: ^5.4.0
   connectivity_plus: ^6.0.3
-  vexana: ^4.0.4
-
+  net_kit:
+    git:
+      url: https://github.com/behzodfaiziev/net-kit.git
+      ref: main
   # Gemini
   google_generative_ai: ^0.2.3
 

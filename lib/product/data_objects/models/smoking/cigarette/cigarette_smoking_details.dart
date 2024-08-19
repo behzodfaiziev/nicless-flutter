@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:vexana/vexana.dart';
+
+import '../../../../../core/managers/network/model/app_network_model.dart';
 
 part 'cigarette_smoking_details.g.dart';
 
 @JsonSerializable()
-class CigaretteSmokingDetails extends INetworkModel<CigaretteSmokingDetails>
+class CigaretteSmokingDetails extends AppNetworkModel<CigaretteSmokingDetails>
     with EquatableMixin {
   CigaretteSmokingDetails({
     this.countInOnePack,

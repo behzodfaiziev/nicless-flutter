@@ -1,18 +1,18 @@
-import 'package:vexana/vexana.dart';
+import 'package:dio/dio.dart';
+import 'package:net_kit/net_kit.dart';
 
 import '../../../product/constants/api_const.dart';
 import '../../error/exceptions/server_exception.dart';
 import 'app_network_manager.dart';
 import 'enum/app_request_type.dart';
 import 'model/app_network_model.dart';
-import 'model/custom_error_model.dart';
 
 class AppNetworkManagerImpl implements AppNetworkManager {
   AppNetworkManagerImpl() {
     _manager = _getManager();
   }
 
-  late INetworkManager<CustomErrorModel> _manager;
+  late INetKitManager _manager;
 
   String _accessToken = '';
 
@@ -20,46 +20,16 @@ class AppNetworkManagerImpl implements AppNetworkManager {
 
   String _sessionId = '';
 
-  @override
-  Future<R> send<T extends AppNetworkModel<T>, R>(
-    String path, {
-    required T parseModel,
-    required AppRequestType method,
-    dynamic data,
-  }) async {
-    try {
-      final result = await _manager.send<T, R>(
-        path,
-        method: method.toRequestType,
-        parseModel: parseModel,
-        data: data,
-      );
-      if (result.error != null || result.data == null) {
-        throw ServerException(
-          message: result.error?.model?.message ?? '',
-          statusCode: result.error?.statusCode ?? 500,
-        );
-      }
-      return result.data!;
-    } on ServerException {
-      rethrow;
-    } catch (e) {
-      throw ServerException(message: e.toString());
-    }
-  }
-
-  NetworkManager<CustomErrorModel> _getManager({
+  NetKitManager _getManager({
     bool isCleaned = false,
   }) {
-    return NetworkManager<CustomErrorModel>(
-      errorModel: const CustomErrorModel(),
-      isEnableLogger: false,
-      skippingSSLCertificate: true,
-      options: BaseOptions(
-        baseUrl: ApiConst.baseUrl,
+    return NetKitManager(
+      baseUrl: ApiConst.baseUrl,
+      loggerEnabled: true,
+      testMode: true,
+      baseOptions: BaseOptions(
         headers: isCleaned ? _jsonHeader : _tokenHeader,
       ),
-      onRefreshFail: () {},
     );
   }
 
@@ -101,10 +71,105 @@ class AppNetworkManagerImpl implements AppNetworkManager {
 
   @override
   void clearHeader() {
-    _manager.clearHeader();
+    _manager.clearAllHeader();
     _accessToken = '';
     // _refreshToken = '';
     _sessionId = '';
     _manager = _getManager(isCleaned: true);
+  }
+
+  @override
+  Future<T> requestModel<T extends AppNetworkModel<T>>(
+    String path, {
+    required T parseModel,
+    required AppRequestType method,
+    dynamic data,
+  }) async {
+    try {
+      final result = await _manager.requestModel<T>(
+        path: path,
+        model: parseModel,
+        method: method.toRequestType,
+        body: data,
+      );
+
+      final T resultData = result.fold(
+        (error) {
+          throw ServerException(
+            message: error.message,
+            statusCode: error.statusCode,
+          );
+        },
+        (data) => data,
+      );
+
+      return resultData;
+    } on ServerException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<List<T>> requestListModel<T extends AppNetworkModel<T>>(
+    String path, {
+    required T parseModel,
+    required AppRequestType method,
+    dynamic data,
+  }) async {
+    try {
+      final result = await _manager.requestList<T>(
+        path: path,
+        model: parseModel,
+        method: method.toRequestType,
+        body: data,
+      );
+
+      final List<T> resultData = result.fold(
+        (error) {
+          throw ServerException(
+            message: error.message,
+            statusCode: error.statusCode,
+          );
+        },
+        (data) => data,
+      );
+
+      return resultData;
+    } on ServerException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<void> requestVoid(
+    String path, {
+    required AppRequestType method,
+    dynamic data,
+  }) async {
+    try {
+      final result = await _manager.requestVoid(
+        path: path,
+        method: method.toRequestType,
+        body: data,
+      );
+
+      result.fold(
+        (error) {
+          throw ServerException(
+            message: error.message,
+            statusCode: error.statusCode,
+          );
+        },
+        (_) {},
+      );
+    } on ServerException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
   }
 }
