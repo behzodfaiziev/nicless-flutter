@@ -14,12 +14,12 @@ class ProfileRepoImpl implements ProfileRepo {
   final ProfileRemoteDataSource _remoteDataSource;
 
   @override
-  ResultFuture<WeeklyStatsResultModel> weeklyStats()async {
-   try{
+  ResultFuture<WeeklyStatsResultModel> weeklyStats() async {
+    try {
       final result = await _remoteDataSource.weeklyStats();
       return Right(result);
-   } on ServerException catch(e){
-     return Left(ServerFailure.fromAPIException(e));
-   }
+    } on ServerException catch (e) {
+      return Left(ServerFailure.fromAPIException(e));
+    }
   }
 }

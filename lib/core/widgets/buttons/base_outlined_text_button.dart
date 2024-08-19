@@ -38,13 +38,14 @@ class BaseOutlinedTextButton extends StatelessWidget {
         child: Text(
           text,
           style: context.theme.textTheme.labelLarge!.copyWith(
-              color: fontColor,
-              fontSize: fontSize,
-              fontStyle: fontStyle,
-              fontWeight: fontWeight,
-              decoration:
-                  isUnderline ? TextDecoration.underline : TextDecoration.none,
-              decorationColor: underlineColor ?? context.theme.primaryColor,),
+            color: fontColor,
+            fontSize: fontSize,
+            fontStyle: fontStyle,
+            fontWeight: fontWeight,
+            decoration:
+                isUnderline ? TextDecoration.underline : TextDecoration.none,
+            decorationColor: underlineColor ?? context.theme.primaryColor,
+          ),
         ),
       ),
     );

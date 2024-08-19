@@ -19,7 +19,8 @@ class CrashlyticsManager {
 
   Future<void> setCrashlyticsCollectionEnabled({required bool enabled}) async {
     return _crashlyticsService.setCrashlyticsCollectionEnabled(
-        enabled: enabled,);
+      enabled: enabled,
+    );
   }
 
   Future<void> sendCrash({

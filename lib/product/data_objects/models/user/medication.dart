@@ -12,8 +12,8 @@ class Medication with EquatableMixin {
 
   factory Medication.fromJson(Map<String, dynamic> json) =>
       _$MedicationFromJson(json);
- final List<String>? current;
- final List<String>? past;
+  final List<String>? current;
+  final List<String>? past;
 
   Map<String, dynamic> toJson() => _$MedicationToJson(this);
 

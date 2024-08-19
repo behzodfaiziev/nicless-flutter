@@ -10,7 +10,6 @@ import 'package:nicless_flutter/features/bluetooth/domain/use_cases/connect_blue
 import '../../../../mocks/bluetooth_mocks.dart';
 import '../../../../mocks/repo_mocks.dart';
 
-
 void main() {
   late ConnectBluetoothDevice useCase;
   late BluetoothRepo repository;
@@ -30,7 +29,7 @@ void main() {
         address: 'address',
       );
 
-      final BluetoothConnection newConnection =  MockBluetoothConnection();
+      final BluetoothConnection newConnection = MockBluetoothConnection();
 
       when(() => repository.connectBluetoothDevice(params))
           .thenAnswer((_) async => Right(newConnection));
@@ -40,7 +39,9 @@ void main() {
 
       /// assert
       expect(
-          result, equals(Right<dynamic, BluetoothConnection>(newConnection)),);
+        result,
+        equals(Right<dynamic, BluetoothConnection>(newConnection)),
+      );
 
       verify(() => repository.connectBluetoothDevice(params)).called(1);
 

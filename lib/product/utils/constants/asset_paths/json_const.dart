@@ -1,5 +1,4 @@
 class JsonConst {
-
   JsonConst._init();
   static JsonConst? _instance;
 
@@ -10,5 +9,4 @@ class JsonConst {
   String json(String name) => 'assets/json/$name.json';
 
   String get darkModeMapsStyle => json('maps_dark_mode_style');
-
 }

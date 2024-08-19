@@ -17,8 +17,10 @@ class BaseElevatedButton extends StatelessWidget {
     this.padding,
     this.buttonElevation,
     super.key,
-  }) : assert(setZeroPaddingForAndroid == false || padding == null,
-            'Cannot provide both padding and setZeroPaddingForAndroid',);
+  }) : assert(
+          setZeroPaddingForAndroid == false || padding == null,
+          'Cannot provide both padding and setZeroPaddingForAndroid',
+        );
 
   final void Function()? onPressed;
   final Widget child;
@@ -60,24 +62,32 @@ class BaseElevatedButton extends StatelessWidget {
 
   ButtonStyle? androidStyle(BuildContext context) {
     return context.theme.elevatedButtonTheme.style?.copyWith(
-        elevation: buttonElevation != null
-            ? WidgetStateProperty.all(buttonElevation)
-            : null,
-        padding: setZeroPaddingForAndroid
-            ? const WidgetStatePropertyAll(EdgeInsets.zero)
-            : WidgetStatePropertyAll(padding),
-        minimumSize: WidgetStatePropertyAll(Size(
-            SizeConst.elevatedButtonMinWidth,
-            height ?? SizeConst.elevatedButtonBigHeight,),),
-        maximumSize: WidgetStatePropertyAll(Size(
-            SizeConst.elevatedButtonMinWidth,
-            height ?? SizeConst.elevatedButtonBigHeight,),),
-        backgroundColor: backgroundColor != null
-            ? WidgetStatePropertyAll(backgroundColor)
-            : context.theme.elevatedButtonTheme.style?.backgroundColor,
-        shape: borderRadius != null
-            ? WidgetStatePropertyAll(
-                RoundedRectangleBorder(borderRadius: borderRadius!),)
-            : context.theme.elevatedButtonTheme.style?.shape,);
+      elevation: buttonElevation != null
+          ? WidgetStateProperty.all(buttonElevation)
+          : null,
+      padding: setZeroPaddingForAndroid
+          ? const WidgetStatePropertyAll(EdgeInsets.zero)
+          : WidgetStatePropertyAll(padding),
+      minimumSize: WidgetStatePropertyAll(
+        Size(
+          SizeConst.elevatedButtonMinWidth,
+          height ?? SizeConst.elevatedButtonBigHeight,
+        ),
+      ),
+      maximumSize: WidgetStatePropertyAll(
+        Size(
+          SizeConst.elevatedButtonMinWidth,
+          height ?? SizeConst.elevatedButtonBigHeight,
+        ),
+      ),
+      backgroundColor: backgroundColor != null
+          ? WidgetStatePropertyAll(backgroundColor)
+          : context.theme.elevatedButtonTheme.style?.backgroundColor,
+      shape: borderRadius != null
+          ? WidgetStatePropertyAll(
+              RoundedRectangleBorder(borderRadius: borderRadius!),
+            )
+          : context.theme.elevatedButtonTheme.style?.shape,
+    );
   }
 }

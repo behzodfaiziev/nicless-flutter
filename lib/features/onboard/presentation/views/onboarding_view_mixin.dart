@@ -17,8 +17,6 @@ mixin OnboardingViewMixin on State<OnboardingView> {
 
   @override
   void initState() {
-
-
     super.initState();
   }
 

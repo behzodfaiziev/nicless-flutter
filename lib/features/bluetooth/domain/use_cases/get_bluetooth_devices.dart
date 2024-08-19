@@ -5,7 +5,6 @@ import '../repo/bluetooth_repo.dart';
 
 class GetBluetoothDevices
     extends UserCaseWithoutParams<List<BluetoothDeviceModel>> {
-
   GetBluetoothDevices(this._repository);
   final BluetoothRepo _repository;
 

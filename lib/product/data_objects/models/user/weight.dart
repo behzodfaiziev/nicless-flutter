@@ -5,7 +5,7 @@ part 'weight.g.dart';
 
 @JsonSerializable()
 class Weight with EquatableMixin {
- const Weight({
+  const Weight({
     this.value,
     this.asKg,
     this.unit,

@@ -11,7 +11,7 @@ part 'user_model.g.dart';
 
 @JsonSerializable()
 class UserModel with EquatableMixin {
- const UserModel({
+  const UserModel({
     this.id,
     this.email,
     this.password,

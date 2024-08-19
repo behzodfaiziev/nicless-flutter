@@ -23,7 +23,6 @@ class BaseMarkDown extends StatelessWidget {
         listBullet: context.textTheme.bodyMedium?.copyWith(
           color: AppColors.primaryTextColorDark,
         ),
-
       ),
     );
   }

@@ -14,8 +14,8 @@ class Mass with EquatableMixin {
   });
 
   factory Mass.fromJson(Map<String, dynamic> json) => _$MassFromJson(json);
- final Weight? weight;
- final Height? height;
+  final Weight? weight;
+  final Height? height;
 
   Map<String, dynamic> toJson() => _$MassToJson(this);
 

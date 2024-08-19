@@ -1,5 +1,4 @@
 class PermissionResultModel {
-
   PermissionResultModel({
     required this.isGranted,
     this.isPermanentlyDenied = false,

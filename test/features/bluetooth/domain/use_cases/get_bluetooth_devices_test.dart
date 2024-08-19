@@ -41,8 +41,10 @@ void main() {
       final Result<List<BluetoothDeviceModel>> result = await useCase();
 
       /// assert
-      expect(result,
-          equals(const Right<dynamic, List<BluetoothDeviceModel>>(devices)),);
+      expect(
+        result,
+        equals(const Right<dynamic, List<BluetoothDeviceModel>>(devices)),
+      );
 
       verify(() => repository.getBluetoothDevices()).called(1);
 

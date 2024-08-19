@@ -22,8 +22,10 @@ class SecureDatabaseManager extends PrimitiveDatabase {
   }
 
   @override
-  Future<bool> write<T>(
-      {required PrimitiveDatabaseKeys key, required T value,}) async {
+  Future<bool> write<T>({
+    required PrimitiveDatabaseKeys key,
+    required T value,
+  }) async {
     try {
       await _secureStorage.write(key: key.name, value: value.toString());
       return true;

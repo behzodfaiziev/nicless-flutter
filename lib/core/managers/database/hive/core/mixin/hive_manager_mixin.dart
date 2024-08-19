@@ -34,8 +34,10 @@ mixin HiveManagerMixin<T> on BaseHiveManagerMixin {
       throw Exception('Encryption key is null in $T');
     }
 
-    _box = await Hive.openBox<T>(_key,
-        encryptionCipher: HiveAesCipher(encryptionKey),);
+    _box = await Hive.openBox<T>(
+      _key,
+      encryptionCipher: HiveAesCipher(encryptionKey),
+    );
   }
 
   /// the clear function is used to clear the box

@@ -10,7 +10,6 @@ mixin ReportViewMixin on State<ReportView> {
     super.initState();
   }
 
-
   void pageListener(BuildContext context, ReportState state) {
     if (state is ReportError) {
       AppToast.error(context: context, message: state.message);

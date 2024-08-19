@@ -1,5 +1,4 @@
 class LottieConst {
-
   LottieConst._init();
   static LottieConst? _instance;
 
@@ -10,5 +9,4 @@ class LottieConst {
   String lottie(String name) => 'assets/lottie/$name.json';
 
   String get lungs => lottie('lungs_animation');
-
 }

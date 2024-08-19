@@ -1,3 +1,1 @@
-class VapeInfo{
-
-}
+class VapeInfo {}

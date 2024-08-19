@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/managers/print/print_dev_manager.dart';
 
-
 class AppRouteObserver extends AutoRouterObserver {
   final PrintDev printDev = PrintDev.instance;
 
@@ -40,7 +39,9 @@ class AppRouteObserver extends AutoRouterObserver {
 
   @override
   void didStartUserGesture(
-      Route<dynamic> route, Route<dynamic>? previousRoute,) {
+    Route<dynamic> route,
+    Route<dynamic>? previousRoute,
+  ) {
     printDev
         .onRoute('User started gesture(didReplace): ${route.settings.name}');
   }

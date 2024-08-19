@@ -12,7 +12,7 @@ class ReportRemoteDataSourceImpl implements ReportRemoteDataSource {
 
   @override
   Future<PeriodicReportModel> periodicReport(String params) async {
-    return _network.requestModel< PeriodicReportModel>(
+    return _network.requestModel<PeriodicReportModel>(
       ApiConst.periodicRecordOutputs(params),
       parseModel: const PeriodicReportModel(),
       method: AppRequestType.get,

@@ -11,7 +11,6 @@ import 'package:path_provider/path_provider.dart';
 /// ```
 @immutable
 final class FileOperation {
-
   const FileOperation._init();
   static FileOperation? _instance;
 

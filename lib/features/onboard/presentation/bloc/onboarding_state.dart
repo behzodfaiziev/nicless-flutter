@@ -58,7 +58,6 @@ final class OnSmokingDeviceHasBluetooth extends OnboardingState {
 
 final class OnSaveVapeDataSuccess extends OnboardingState {
   const OnSaveVapeDataSuccess();
-
 }
 
 final class OnboardingError extends OnboardingState {

@@ -28,6 +28,4 @@ class _AuthCheckerViewState extends State<AuthCheckerView>
       ),
     );
   }
-
-
 }

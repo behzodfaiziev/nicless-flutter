@@ -19,9 +19,11 @@ class TopTitle extends StatelessWidget {
     return Column(
       mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.center,
       children: [
-        Text(title,
-            style: Theme.of(context).textTheme.titleLarge,
-            textAlign: TextAlign.center,),
+        Text(
+          title,
+          style: Theme.of(context).textTheme.titleLarge,
+          textAlign: TextAlign.center,
+        ),
         if (subTitle != null)
           Padding(
             padding: AppPadding.top4,

@@ -14,8 +14,7 @@ class GeminiRepoImpl extends GeminiRepo {
   @override
   Result<Stream<String>> sendTextToGemini(String text) {
     try {
-      final  response =
-          _remoteDataSource.sendTextToGemini(text);
+      final response = _remoteDataSource.sendTextToGemini(text);
       return Right(response);
     } catch (e) {
       return Left(ServerFailure(message: e.toString()));

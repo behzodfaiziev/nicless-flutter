@@ -5,7 +5,7 @@ part 'height.g.dart';
 
 @JsonSerializable()
 class Height with EquatableMixin {
- const Height({
+  const Height({
     this.value,
     this.asCm,
     this.unit,

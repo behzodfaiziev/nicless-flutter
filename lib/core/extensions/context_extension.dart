@@ -27,14 +27,17 @@ extension NavigationExtension on BuildContext {
     return router.canPop();
   }
 
-  Future<T?> push<T extends Object?>(PageRouteInfo<T> pageRoute,
-      {OnNavigationFailure? onFailure,}) async {
+  Future<T?> push<T extends Object?>(
+    PageRouteInfo<T> pageRoute, {
+    OnNavigationFailure? onFailure,
+  }) async {
     return router.push(pageRoute, onFailure: onFailure);
   }
 
   Future<void> pushReplaceAll<T extends Object?, TO extends Object?>(
-      PageRouteInfo<T> pageRoute,
-      {OnNavigationFailure? onFailure,}) async {
+    PageRouteInfo<T> pageRoute, {
+    OnNavigationFailure? onFailure,
+  }) async {
     return router.replaceAll([pageRoute], onFailure: onFailure);
   }
 }

@@ -19,14 +19,15 @@ abstract class IAdaptiveDialog {
 
 class AdaptiveDialog extends IAdaptiveDialog {
   @override
-  Future<void> alert(
-      {required BuildContext context,
-      required String title,
-      required String message,
-      required String confirmText,
-      required void Function({bool isConfirm}) onPressed,
-      String? cancelText,
-      Color? barrierColor,}) async {
+  Future<void> alert({
+    required BuildContext context,
+    required String title,
+    required String message,
+    required String confirmText,
+    required void Function({bool isConfirm}) onPressed,
+    String? cancelText,
+    Color? barrierColor,
+  }) async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false,

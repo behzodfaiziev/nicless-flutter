@@ -14,5 +14,4 @@ abstract class IFilePickerManager {
   Future<File?> pickDocument();
 
   Future<List<File>> pickMultipleDocuments();
-
 }
