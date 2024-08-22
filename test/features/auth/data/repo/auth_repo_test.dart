@@ -60,7 +60,8 @@ void main() {
       expect(
         result,
         Left<ServerFailure, void>(
-            ServerFailure.fromServerException(apiException)),
+          ServerFailure.fromServerException(apiException),
+        ),
       );
       verify(() => remoteDataSource.signOut()).called(1);
       verifyNoMoreInteractions(remoteDataSource);

@@ -58,7 +58,8 @@ void main() {
       expect(
         result,
         Left<ServerFailure, void>(
-            ServerFailure.fromServerException(apiException)),
+          ServerFailure.fromServerException(apiException),
+        ),
       );
     });
   });
