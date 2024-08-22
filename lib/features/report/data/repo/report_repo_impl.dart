@@ -22,7 +22,7 @@ class ReportRepoImpl implements ReportRepo {
       final result = await _remoteDataSource.periodicReport(params.name);
       return Right(result);
     } on ServerException catch (e) {
-      return Left(ServerFailure.fromAPIException(e));
+      return Left(ServerFailure.fromServerException(e));
     }
   }
 }

@@ -53,7 +53,7 @@ void main() {
       // assert
       expect(
         result,
-        Left<ServerFailure, void>(ServerFailure.fromAPIException(apiException)),
+        Left<ServerFailure, void>(ServerFailure.fromServerException(apiException)),
       );
       verify(() => remoteDataSource.fetchDevices()).called(1);
       verifyNoMoreInteractions(remoteDataSource);

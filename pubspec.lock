@@ -1080,10 +1080,10 @@ packages:
     dependency: "direct main"
     description:
       name: net_kit
-      sha256: "896d558e45dd7461f7337512c1effe84d2563c33cb478d22893ac173624b2d58"
+      sha256: "815e264f522ecf21b45a9d76dc6d8dd9fc9d50a6faced24034a8bbc1a87d7a11"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.2"
+    version: "1.1.0"
   nm:
     dependency: transitive
     description:

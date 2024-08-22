@@ -7,7 +7,7 @@ class ServerFailure extends Failure implements Exception {
     super.statusCode,
   });
 
-  ServerFailure.fromAPIException(ServerException exception)
+  ServerFailure.fromServerException(ServerException exception)
       : this(
           message: exception.message,
           statusCode: exception.statusCode,

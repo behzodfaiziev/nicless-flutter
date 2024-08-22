@@ -19,7 +19,7 @@ class ProfileRepoImpl implements ProfileRepo {
       final result = await _remoteDataSource.weeklyStats();
       return Right(result);
     } on ServerException catch (e) {
-      return Left(ServerFailure.fromAPIException(e));
+      return Left(ServerFailure.fromServerException(e));
     }
   }
 }

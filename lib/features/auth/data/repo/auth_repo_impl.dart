@@ -55,7 +55,7 @@ class AuthRepoImpl implements AuthRepo {
 
       return Right(result);
     } on ServerException catch (e) {
-      return Left(ServerFailure.fromAPIException(e));
+      return Left(ServerFailure.fromServerException(e));
     }
   }
 
@@ -80,7 +80,7 @@ class AuthRepoImpl implements AuthRepo {
 
       return const Right(true);
     } on ServerException catch (e) {
-      return Left(ServerFailure.fromAPIException(e));
+      return Left(ServerFailure.fromServerException(e));
     }
   }
 
@@ -95,7 +95,7 @@ class AuthRepoImpl implements AuthRepo {
       final result = await _remoteDataSource.signOut();
       return Right(result);
     } on ServerException catch (e) {
-      return Left(ServerFailure.fromAPIException(e));
+      return Left(ServerFailure.fromServerException(e));
     } on Exception catch (e) {
       return Left(ServerFailure(message: e.toString()));
     }
@@ -108,7 +108,7 @@ class AuthRepoImpl implements AuthRepo {
 
       return const Right(null);
     } on ServerException catch (e) {
-      return Left(ServerFailure.fromAPIException(e));
+      return Left(ServerFailure.fromServerException(e));
     }
   }
 }

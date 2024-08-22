@@ -86,28 +86,14 @@ class AppNetworkManagerImpl implements AppNetworkManager {
     dynamic data,
   }) async {
     try {
-      final result = await _manager.requestModel<T>(
+      return _manager.requestModel<T>(
         path: path,
         model: parseModel,
         method: method.toRequestType,
         body: data,
       );
-
-      final T resultData = result.fold(
-        (error) {
-          throw ServerException(
-            message: error.message,
-            statusCode: error.statusCode,
-          );
-        },
-        (data) => data,
-      );
-
-      return resultData;
-    } on ServerException {
-      rethrow;
-    } catch (e) {
-      throw ServerException(message: e.toString());
+    } on ApiException catch (e) {
+      throw ServerException.fromApiException(e);
     }
   }
 
@@ -117,30 +103,16 @@ class AppNetworkManagerImpl implements AppNetworkManager {
     required T parseModel,
     required AppRequestType method,
     dynamic data,
-  }) async {
+  }) {
     try {
-      final result = await _manager.requestList<T>(
+      return _manager.requestList<T>(
         path: path,
         model: parseModel,
         method: method.toRequestType,
         body: data,
       );
-
-      final List<T> resultData = result.fold(
-        (error) {
-          throw ServerException(
-            message: error.message,
-            statusCode: error.statusCode,
-          );
-        },
-        (data) => data,
-      );
-
-      return resultData;
-    } on ServerException {
-      rethrow;
-    } catch (e) {
-      throw ServerException(message: e.toString());
+    } on ApiException catch (e) {
+      throw ServerException.fromApiException(e);
     }
   }
 
@@ -151,25 +123,13 @@ class AppNetworkManagerImpl implements AppNetworkManager {
     dynamic data,
   }) async {
     try {
-      final result = await _manager.requestVoid(
+      return _manager.requestVoid(
         path: path,
         method: method.toRequestType,
         body: data,
       );
-
-      result.fold(
-        (error) {
-          throw ServerException(
-            message: error.message,
-            statusCode: error.statusCode,
-          );
-        },
-        (_) {},
-      );
-    } on ServerException {
-      rethrow;
-    } catch (e) {
-      throw ServerException(message: e.toString());
+    } on ApiException catch (e) {
+      throw ServerException.fromApiException(e);
     }
   }
 }

@@ -19,7 +19,7 @@ class SmokingRepoImpl implements SmokingRepo {
       await _remoteDataSource.saveDailySmoking(params);
       return const Right(null);
     } on ServerException catch (e) {
-      return Left(ServerFailure.fromAPIException(e));
+      return Left(ServerFailure.fromServerException(e));
     }
   }
 }
