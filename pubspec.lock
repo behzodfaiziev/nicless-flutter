@@ -1079,12 +1079,11 @@ packages:
   net_kit:
     dependency: "direct main"
     description:
-      path: "."
-      ref: main
-      resolved-ref: ea87d715a366f5dfac8d75a2f8dfbda274d18f13
-      url: "https://github.com/behzodfaiziev/net-kit.git"
-    source: git
-    version: "0.1.0"
+      name: net_kit
+      sha256: "896d558e45dd7461f7337512c1effe84d2563c33cb478d22893ac173624b2d58"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.2"
   nm:
     dependency: transitive
     description:

@@ -71,7 +71,7 @@ class AppNetworkManagerImpl implements AppNetworkManager {
 
   @override
   void clearHeader() {
-    _manager.clearAllHeader();
+    _manager.clearAllHeaders();
     _accessToken = '';
     // _refreshToken = '';
     _sessionId = '';
