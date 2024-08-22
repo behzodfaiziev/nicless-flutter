@@ -57,7 +57,8 @@ void main() {
       // assert
       expect(
         result,
-        Left<ServerFailure, void>(ServerFailure.fromServerException(apiException)),
+        Left<ServerFailure, void>(
+            ServerFailure.fromServerException(apiException)),
       );
     });
   });
