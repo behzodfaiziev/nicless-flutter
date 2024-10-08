@@ -15,7 +15,7 @@ class SmokingRemoteDataSourceImpl implements SmokingRemoteDataSource {
     await _networkManager.requestVoid(
       ApiConst.createDailySmoking,
       method: AppRequestType.post,
-      data: params,
+      data: params.toJson(),
     );
   }
 }

@@ -47,7 +47,7 @@ dependencies:
   # Network
   dio: ^5.4.0
   connectivity_plus: ^6.0.3
-  net_kit: ^1.1.0
+  net_kit: ^2.3.0
   # Gemini
   google_generative_ai: ^0.2.3
 

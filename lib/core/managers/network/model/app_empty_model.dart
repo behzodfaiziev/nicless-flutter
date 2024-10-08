@@ -1,6 +1,6 @@
 import 'app_network_model.dart';
 
-class AppEmptyModel extends AppNetworkModel<AppEmptyModel> {
+class AppEmptyModel extends AppNetworkModel {
   const AppEmptyModel();
 
   @override

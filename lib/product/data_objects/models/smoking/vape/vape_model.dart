@@ -7,7 +7,7 @@ import 'vape_smoking_details.dart';
 part 'vape_model.g.dart';
 
 @JsonSerializable()
-class VapeModel extends AppNetworkModel<VapeModel> with EquatableMixin {
+class VapeModel extends AppNetworkModel with EquatableMixin {
   const VapeModel({
     this.id,
     this.smokingType,

@@ -18,8 +18,7 @@ part 'smoking_details_model.g.dart';
 ///     "co": 0.1,
 ///     "dragCountPerCigarette": 15
 @freezed
-class SmokingDetailsModel extends AppNetworkModel<SmokingDetailsModel>
-    with _$SmokingDetailsModel {
+class SmokingDetailsModel extends AppNetworkModel with _$SmokingDetailsModel {
   const factory SmokingDetailsModel({
     /// Vape
     String? deviceName,

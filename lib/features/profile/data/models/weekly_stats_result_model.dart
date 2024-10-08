@@ -8,7 +8,7 @@ part 'weekly_stats_result_model.freezed.dart';
 part 'weekly_stats_result_model.g.dart';
 
 @freezed
-class WeeklyStatsResultModel extends AppNetworkModel<WeeklyStatsResultModel>
+class WeeklyStatsResultModel extends AppNetworkModel
     with _$WeeklyStatsResultModel {
   const factory WeeklyStatsResultModel({
     List<WeeklyStatsModel>? data,

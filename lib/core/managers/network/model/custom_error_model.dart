@@ -5,7 +5,7 @@ import 'app_network_model.dart';
 part 'custom_error_model.g.dart';
 
 @JsonSerializable()
-class CustomErrorModel extends AppNetworkModel<CustomErrorModel> {
+class CustomErrorModel extends AppNetworkModel {
   const CustomErrorModel({
     this.statusCode,
     this.message,

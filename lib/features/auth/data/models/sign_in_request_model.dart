@@ -6,8 +6,7 @@ import '../../../../core/managers/network/model/app_network_model.dart';
 part 'sign_in_request_model.g.dart';
 
 @JsonSerializable()
-class SignInRequestModel extends AppNetworkModel<SignInRequestModel>
-    with EquatableMixin {
+class SignInRequestModel extends AppNetworkModel with EquatableMixin {
   SignInRequestModel({
     this.email,
     this.password,

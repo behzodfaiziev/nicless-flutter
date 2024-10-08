@@ -8,8 +8,7 @@ part 'smoking_data_model.freezed.dart';
 part 'smoking_data_model.g.dart';
 
 @freezed
-class SmokingDataModel extends AppNetworkModel<SmokingDataModel>
-    with _$SmokingDataModel {
+class SmokingDataModel extends AppNetworkModel with _$SmokingDataModel {
   const factory SmokingDataModel({
     // ignore: invalid_annotation_target
     @JsonKey(name: '_id') String? id,

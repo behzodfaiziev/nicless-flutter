@@ -10,23 +10,23 @@ abstract class AppNetworkManager {
     required String sessionId,
   });
 
-  Future<T> requestModel<T extends AppNetworkModel<T>>(
+  Future<T> requestModel<T extends AppNetworkModel>(
     String path, {
     required T parseModel,
     required AppRequestType method,
-    dynamic data,
+    Map<String, dynamic>? data,
   });
 
-  Future<List<T>> requestListModel<T extends AppNetworkModel<T>>(
+  Future<List<T>> requestListModel<T extends AppNetworkModel>(
     String path, {
     required T parseModel,
     required AppRequestType method,
-    dynamic data,
+    Map<String, dynamic>? data,
   });
 
   Future<void> requestVoid(
     String path, {
     required AppRequestType method,
-    dynamic data,
+    Map<String, dynamic>? data,
   });
 }

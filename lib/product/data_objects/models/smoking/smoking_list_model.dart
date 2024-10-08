@@ -7,8 +7,7 @@ part 'smoking_list_model.freezed.dart';
 part 'smoking_list_model.g.dart';
 
 @freezed
-class SmokingListModel extends AppNetworkModel<SmokingListModel>
-    with _$SmokingListModel {
+class SmokingListModel extends AppNetworkModel with _$SmokingListModel {
   const factory SmokingListModel({
     List<SmokingDataModel>? data,
   }) = _SmokingModel;

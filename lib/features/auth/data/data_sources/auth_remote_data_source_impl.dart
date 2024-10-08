@@ -19,7 +19,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       ApiConst.signIn,
       method: AppRequestType.post,
       parseModel: SignInResponseModel(),
-      data: params,
+      data: params.toJson(),
     );
   }
 
@@ -49,7 +49,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     return _network.requestVoid(
       ApiConst.signUp,
       method: AppRequestType.post,
-      data: params,
+      data: params.toJson(),
     );
   }
 }

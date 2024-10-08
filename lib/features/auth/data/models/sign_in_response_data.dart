@@ -7,8 +7,7 @@ import '../../../../product/data_objects/models/user/user_model.dart';
 part 'sign_in_response_data.g.dart';
 
 @JsonSerializable()
-class SignInResponseData extends AppNetworkModel<SignInResponseData>
-    with EquatableMixin {
+class SignInResponseData extends AppNetworkModel with EquatableMixin {
   SignInResponseData({
     this.user,
     this.accessToken,

@@ -7,8 +7,7 @@ import 'smoking_sessions.dart';
 part 'tobacco_daily_record_model.g.dart';
 
 @JsonSerializable()
-class TobaccoDailyRecordModel extends AppNetworkModel<TobaccoDailyRecordModel>
-    with EquatableMixin {
+class TobaccoDailyRecordModel extends AppNetworkModel with EquatableMixin {
   const TobaccoDailyRecordModel({
     this.id,
     this.recordType,

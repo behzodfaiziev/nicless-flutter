@@ -7,8 +7,7 @@ part 'periodic_report.freezed.dart';
 part 'periodic_report.g.dart';
 
 @freezed
-class PeriodicReport extends AppNetworkModel<PeriodicReport>
-    with _$PeriodicReport {
+class PeriodicReport extends AppNetworkModel with _$PeriodicReport {
   const factory PeriodicReport({
     String? title,
     String? description,

@@ -6,7 +6,7 @@ import '../../../../core/managers/network/model/app_network_model.dart';
 part 'goal.g.dart';
 
 @JsonSerializable()
-class Goal extends AppNetworkModel<Goal> with EquatableMixin {
+class Goal extends AppNetworkModel with EquatableMixin {
   const Goal({
     this.quitDate,
     this.targetCigarettesPerDay,

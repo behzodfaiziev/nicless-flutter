@@ -6,8 +6,7 @@ import '../../../../core/managers/network/model/app_network_model.dart';
 part 'smoking_history.g.dart';
 
 @JsonSerializable()
-class SmokingHistory extends AppNetworkModel<SmokingHistory>
-    with EquatableMixin {
+class SmokingHistory extends AppNetworkModel with EquatableMixin {
   const SmokingHistory({
     this.years,
     this.cigarettesPerDay,

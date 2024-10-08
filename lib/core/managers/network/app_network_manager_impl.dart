@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:net_kit/net_kit.dart';
 
 import '../../../product/constants/api_const.dart';
@@ -79,11 +78,11 @@ class AppNetworkManagerImpl implements AppNetworkManager {
   }
 
   @override
-  Future<T> requestModel<T extends AppNetworkModel<T>>(
+  Future<T> requestModel<T extends AppNetworkModel>(
     String path, {
     required T parseModel,
     required AppRequestType method,
-    dynamic data,
+    Map<String, dynamic>? data,
   }) async {
     try {
       return _manager.requestModel<T>(
@@ -98,11 +97,11 @@ class AppNetworkManagerImpl implements AppNetworkManager {
   }
 
   @override
-  Future<List<T>> requestListModel<T extends AppNetworkModel<T>>(
+  Future<List<T>> requestListModel<T extends AppNetworkModel>(
     String path, {
     required T parseModel,
     required AppRequestType method,
-    dynamic data,
+    Map<String, dynamic>? data,
   }) {
     try {
       return _manager.requestList<T>(
@@ -120,7 +119,7 @@ class AppNetworkManagerImpl implements AppNetworkManager {
   Future<void> requestVoid(
     String path, {
     required AppRequestType method,
-    dynamic data,
+    Map<String, dynamic>? data,
   }) async {
     try {
       return _manager.requestVoid(

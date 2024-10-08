@@ -6,8 +6,7 @@ import '../../../../../core/managers/network/model/app_network_model.dart';
 part 'cigarette_smoking_details.g.dart';
 
 @JsonSerializable()
-class CigaretteSmokingDetails extends AppNetworkModel<CigaretteSmokingDetails>
-    with EquatableMixin {
+class CigaretteSmokingDetails extends AppNetworkModel with EquatableMixin {
   CigaretteSmokingDetails({
     this.countInOnePack,
     this.nicotineAsMg,

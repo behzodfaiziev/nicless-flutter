@@ -6,8 +6,7 @@ import '../../../../core/managers/network/model/app_network_model.dart';
 part 'smoking_sessions.g.dart';
 
 @JsonSerializable()
-class SmokingSessions extends AppNetworkModel<SmokingSessions>
-    with EquatableMixin {
+class SmokingSessions extends AppNetworkModel with EquatableMixin {
   SmokingSessions({
     this.increaseCount,
     this.durationAsSeconds,

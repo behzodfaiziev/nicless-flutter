@@ -7,8 +7,7 @@ part 'weekly_stats_model.freezed.dart';
 part 'weekly_stats_model.g.dart';
 
 @freezed
-class WeeklyStatsModel extends AppNetworkModel<WeeklyStatsModel>
-    with _$WeeklyStatsModel {
+class WeeklyStatsModel extends AppNetworkModel with _$WeeklyStatsModel {
   const factory WeeklyStatsModel({
     String? id,
     String? recordType,

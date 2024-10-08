@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:net_kit/net_kit.dart';
 
 @immutable
-abstract class AppNetworkModel<T> extends INetKitModel<T> {
+abstract class AppNetworkModel extends INetKitModel {
   /// Default constructor for all network model
   const AppNetworkModel();
 
@@ -12,5 +12,5 @@ abstract class AppNetworkModel<T> extends INetKitModel<T> {
 
   /// Parse json to model
   @override
-  T fromJson(Map<String, dynamic> json);
+  AppNetworkModel fromJson(Map<String, dynamic> json);
 }

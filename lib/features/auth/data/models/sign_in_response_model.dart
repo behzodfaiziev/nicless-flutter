@@ -7,8 +7,7 @@ import 'sign_in_response_data.dart';
 part 'sign_in_response_model.g.dart';
 
 @JsonSerializable()
-class SignInResponseModel extends AppNetworkModel<SignInResponseModel>
-    with EquatableMixin {
+class SignInResponseModel extends AppNetworkModel with EquatableMixin {
   SignInResponseModel({
     this.statusCode,
     this.data,

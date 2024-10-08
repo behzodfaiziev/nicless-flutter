@@ -6,7 +6,7 @@ import '../../../../core/managers/network/model/app_network_model.dart';
 part 'fcm_token.g.dart';
 
 @JsonSerializable()
-class FcmToken extends AppNetworkModel<FcmToken> with EquatableMixin {
+class FcmToken extends AppNetworkModel with EquatableMixin {
   const FcmToken({
     this.fcmToken,
     this.platform,

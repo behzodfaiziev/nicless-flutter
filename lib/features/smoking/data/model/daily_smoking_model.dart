@@ -6,8 +6,7 @@ part 'daily_smoking_model.freezed.dart';
 part 'daily_smoking_model.g.dart';
 
 @freezed
-class DailySmokingModel extends AppNetworkModel<DailySmokingModel>
-    with _$DailySmokingModel {
+class DailySmokingModel extends AppNetworkModel with _$DailySmokingModel {
   const factory DailySmokingModel({
     String? smokingId,
     int? increasedCount,
