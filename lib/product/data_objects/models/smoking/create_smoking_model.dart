@@ -8,8 +8,7 @@ part 'create_smoking_model.freezed.dart';
 part 'create_smoking_model.g.dart';
 
 @freezed
-class CreateSmokingModel extends AppNetworkModel
-    with _$CreateSmokingModel {
+class CreateSmokingModel extends AppNetworkModel with _$CreateSmokingModel {
   const factory CreateSmokingModel({
     String? smokingType,
     String? name,
