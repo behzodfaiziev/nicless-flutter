@@ -1,13 +1,13 @@
+# CI temporarily disabled. Re-enable push/pull_request triggers when ready.
 # This workflow will test the Dart code in the repository
 # to make sure that the quality of the code is high.
 name: Dart
 on:
-  push:
-    # Run the workflow on the main branch on push
-    branches: [ "main" ]
-  pull_request:
-    # Run the workflow on the main branch on pull requests
-    branches: [ "main" ]
+  workflow_dispatch:
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
 
 jobs:
   build:

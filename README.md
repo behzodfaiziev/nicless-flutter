@@ -15,12 +15,15 @@ NicLess is a mobile app and hardware device that offers personalized support for
 <table>
   <tr>
     <td align="center" width="50%" valign="top">
-      <a href="https://www.youtube.com/watch?v=-aZp5qwKpII">
-        <img src="https://img.youtube.com/vi/-aZp5qwKpII/maxresdefault.jpg" alt="Google Solution Challenge 2024 demo" width="420"/>
-      </a>
-      <br/><br/>
-      <strong>Google Solution Challenge 2024</strong><br/>
-      Top 10 Final Projects · <a href="https://www.youtube.com/watch?v=-aZp5qwKpII">Watch demo</a>
+      <div align="center">
+        <a href="https://www.youtube.com/watch?v=-aZp5qwKpII">
+          <img src="https://img.youtube.com/vi/-aZp5qwKpII/maxresdefault.jpg" alt="Google Solution Challenge 2024 demo" width="420"/>
+        </a>
+        <p align="center">
+          <strong>Google Solution Challenge 2024</strong><br/>
+          Top 10 Final Projects · <a href="https://www.youtube.com/watch?v=-aZp5qwKpII">Watch demo</a>
+        </p>
+      </div>
     </td>
     <td align="center" width="50%" valign="top">
       <a href="https://www.youtube.com/watch?v=Im-yVnvEgfs">
