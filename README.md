@@ -15,15 +15,14 @@ NicLess is a mobile app and hardware device that offers personalized support for
 <table>
   <tr>
     <td align="center" width="50%" valign="top">
-      <div align="center">
+      <center>
         <a href="https://www.youtube.com/watch?v=-aZp5qwKpII">
           <img src="https://img.youtube.com/vi/-aZp5qwKpII/maxresdefault.jpg" alt="Google Solution Challenge 2024 demo" width="420"/>
         </a>
-        <p align="center">
-          <strong>Google Solution Challenge 2024</strong><br/>
-          Top 10 Final Projects · <a href="https://www.youtube.com/watch?v=-aZp5qwKpII">Watch demo</a>
-        </p>
-      </div>
+        <br/><br/>
+        <strong>Google Solution Challenge 2024</strong><br/>
+        Top 10 Final Projects · <a href="https://www.youtube.com/watch?v=-aZp5qwKpII">Watch demo</a>
+      </center>
     </td>
     <td align="center" width="50%" valign="top">
       <a href="https://www.youtube.com/watch?v=Im-yVnvEgfs">
@@ -44,15 +43,14 @@ NicLess is a mobile app and hardware device that offers personalized support for
       Featured mention · <a href="https://www.instagram.com/p/C7j1qgGt2un/">View on Instagram</a>
     </td>
     <td align="center" width="50%" valign="middle">
-      <div align="center">
+      <center>
         <a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">
           <img src="https://github.com/user-attachments/assets/c1e8052f-4d9a-4cce-bcad-de16fe02aa37" alt="NicLess featured on Google Developers Blog" width="420"/>
         </a>
-        <p align="center">
-          <strong>Google Developers Blog</strong><br/>
-          <a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">Read article</a>
-        </p>
-      </div>
+        <br/><br/>
+        <strong>Google Developers Blog</strong><br/>
+        <a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">Read article</a>
+      </center>
     </td>
   </tr>
 </table>
