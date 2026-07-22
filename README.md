@@ -23,24 +23,6 @@ NicLess is a mobile app and hardware device that offers personalized support for
       Top 10 Final Projects · <a href="https://www.youtube.com/watch?v=-aZp5qwKpII">Watch demo</a>
     </td>
     <td align="center" width="50%" valign="top">
-      <a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">
-        <img src="https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/GDSC-Social_1.2e16d0ba.fill-800x400.png" alt="Google Developers Blog feature" width="420"/>
-      </a>
-      <br/><br/>
-      <strong>Google Developers Blog</strong><br/>
-      5 Years of Innovation · <a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">Read article</a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%" valign="top">
-      <a href="https://www.instagram.com/p/C7j1qgGt2un/">
-        <img src="https://github.com/user-attachments/assets/68559bc3-28d2-4783-be98-d941abd1d4a6" alt="NicLess mentioned at DevFest 2024" width="420"/>
-      </a>
-      <br/><br/>
-      <strong>DevFest 2024</strong><br/>
-      Featured mention · <a href="https://www.instagram.com/p/C7j1qgGt2un/">View on Instagram</a>
-    </td>
-    <td align="center" width="50%" valign="top">
       <a href="https://ai.google.dev/competition/projects/nicless">
         <img src="https://ai.google.dev/static/site-assets/images/share.png" alt="Google AI Gemini Competition" width="420"/>
       </a>
@@ -53,24 +35,48 @@ NicLess is a mobile app and hardware device that offers personalized support for
       </a>
     </td>
   </tr>
+  <tr>
+    <td align="center" colspan="2" valign="top">
+      <a href="https://www.instagram.com/p/C7j1qgGt2un/">
+        <img src="https://github.com/user-attachments/assets/68559bc3-28d2-4783-be98-d941abd1d4a6" alt="NicLess mentioned at DevFest 2024" width="420"/>
+      </a>
+      <br/><br/>
+      <strong>DevFest 2024</strong><br/>
+      Featured mention · <a href="https://www.instagram.com/p/C7j1qgGt2un/">View on Instagram</a>
+    </td>
+  </tr>
 </table>
 
 ### Google Solution Challenge 2024
 
 Our project has been honored as one of the **top 10 teams** in the Google Solution Challenge 2024. This marks the **second time** a project from Türkiye has reached this stage — a significant achievement for our team and Yıldız Technical University.
 
-> NicLess, Yıldız Technical University in Turkey — UN Sustainable Goals Addressed: Goal 3: Good Health & Wellbeing, Goal 11: Sustainable Cities. NicLess is a mobile app and hardware device that offers personalized support for smoking cessation by tracking habits, setting goals, and providing real-time data insights within a supportive community. The NicLess app is built on Firebase, Flutter, and Google Maps Platform.
->
-> — [Google Developers Blog](https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/)
-
 ### Google AI / Gemini Competition
 
-NicLess participated in the Gemini competition with the [nicless-backend](https://github.com/remidosol/nicless-backend) API. The AI-powered features include:
+NicLess later participated in the [Google AI / Gemini Competition](https://ai.google.dev/competition/projects/nicless) with the [nicless-backend](https://github.com/remidosol/nicless-backend) API. The AI-powered features include:
 
 - **Gemini chatbot** — personalized support, custom craving strategies, and real-time advice
 - **Email updates** — motivational content and progress summaries
 - **Weekly AI reports** — visualized journeys, successes, and areas for improvement
 - **Maps zones** — red zones (smoking prohibited) and green zones (smoking allowed) to encourage nicotine-free areas
+
+### Google Developers Blog
+
+<a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">
+  <img src="https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/GDSC-Social_1.2e16d0ba.fill-800x400.png" alt="Google Developers Blog — 5 Years of Innovation" width="600"/>
+</a>
+
+In June 2024, the [Google Developers Blog](https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/) highlighted the **5th annual Google Developer Student Clubs Solution Challenge** — a global competition where university teams use Google technologies to address the UN's 17 Sustainable Development Goals.
+
+From over **100 top global projects**, **10 finalist teams** were selected to pitch on Demo Day (June 27, 2024) before Google judges and a worldwide audience. NicLess was featured among those Final 10:
+
+> **NicLess**, Yıldız Technical University in Turkey — UN Sustainable Goals Addressed: **Goal 3: Good Health & Wellbeing**, **Goal 11: Sustainable Cities**. NicLess is a mobile app and hardware device that offers personalized support for smoking cessation by tracking habits, setting goals, and providing real-time data insights within a supportive community. The NicLess app is built on **Firebase**, **Flutter**, and **Google Maps Platform**.
+>
+> **Creators:** Elif İrem Külcü, Yasemin Atmaca, Babak Ranjbaran, and Behzodjon Faiziev · **Mentor:** Nayra Hashem
+
+Following the Solution Challenge, the project continued to evolve — including participation in the [Google AI / Gemini Competition](https://ai.google.dev/competition/projects/nicless) with server-side Gemini features powered by [nicless-backend](https://github.com/remidosol/nicless-backend).
+
+[Read the full article on Google Developers Blog →](https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/)
 
 ---
 
