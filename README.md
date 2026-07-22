@@ -34,13 +34,11 @@ NicLess is a mobile app and hardware device that offers personalized support for
   <tr>
     <td align="center" width="50%" valign="top">
       <a href="https://www.instagram.com/p/C7j1qgGt2un/">
-        <img src="assets/images/devfest-2024-mention.png" alt="NicLess mentioned at DevFest 2024" width="420"/>
+        <img src="https://github.com/user-attachments/assets/68559bc3-28d2-4783-be98-d941abd1d4a6" alt="NicLess mentioned at DevFest 2024" width="420"/>
       </a>
       <br/><br/>
       <strong>DevFest 2024</strong><br/>
       Featured mention · <a href="https://www.instagram.com/p/C7j1qgGt2un/">View on Instagram</a>
-      <br/><br/>
-      <sub>Upload screenshot to <code>assets/images/devfest-2024-mention.png</code> to show the preview above.</sub>
     </td>
     <td align="center" width="50%" valign="top">
       <a href="https://ai.google.dev/competition/projects/nicless">
