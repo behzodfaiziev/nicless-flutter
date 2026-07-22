@@ -40,13 +40,16 @@ NicLess is a mobile app and hardware device that offers personalized support for
       <strong>DevFest 2024</strong><br/>
       Featured mention · <a href="https://www.instagram.com/p/C7j1qgGt2un/">View on Instagram</a>
     </td>
-    <td align="center" width="50%" valign="top">
-      <a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">
-        <img src="https://github.com/user-attachments/assets/c1e8052f-4d9a-4cce-bcad-de16fe02aa37" alt="NicLess featured on Google Developers Blog" width="420"/>
-      </a>
-      <br/><br/>
-      <strong>Google Developers Blog</strong><br/>
-      <a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">Read article</a>
+    <td align="center" width="50%" valign="middle">
+      <div align="center">
+        <a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">
+          <img src="https://github.com/user-attachments/assets/c1e8052f-4d9a-4cce-bcad-de16fe02aa37" alt="NicLess featured on Google Developers Blog" width="420"/>
+        </a>
+        <p align="center">
+          <strong>Google Developers Blog</strong><br/>
+          <a href="https://developers.googleblog.com/en/5-years-of-innovation-student-developers-solving-real-world-problems-using-google-tech/">Read article</a>
+        </p>
+      </div>
     </td>
   </tr>
 </table>
